@@ -1,5 +1,7 @@
 # learn-tools
 
+![tools](media/toolbox.png)
+
 Some handy scripts for working with markdown articles
 
 ## Python scripts:
