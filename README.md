@@ -4,7 +4,7 @@ Some handy scripts for working with markdown articles
 
 ## Python scripts:
 
-* fix-nb.py - fix the links to notebooks in markdown files
+* fix-nb.py - change notebook links and images to markdown syntax
 * move-to-v1.py - fix links in a file that you're going to move to the v1 folder
 
 ## Other repos
