@@ -11,22 +11,22 @@ filename = sys.argv[1]
 with open(filename, 'r') as file:
     content = file.read()
 
-# remove any /en-us/ from links
-pattern = 'https://learn.microsoft.com/en-us/'
-replacement = 'https://learn.microsoft.com/'
-content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+# remove any /en-us/ from learn links
+pattern = 'https://learn\.microsoft\.com/azure/machine-learning/en-us/'
+replace = 'https://learn\.microsoft\.com/'
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
-# remove https://docs.microsoft.com/azure/machine-learning/ from links
-pattern = r'https://docs\.microsoft\.com/azure/machine-learning/(.*?)'
-replacement = r'\1.md'
-content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+# replace https://learn.microsoft.com/azure/machine-learning/ links with relative links
+pattern = r'https://learn\.microsoft\.com/azure/machine-learning/(.*?)'
+replace = r'\1.md'
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
 # change image links
 #  ![explain text](image.png) -> :::image type="content" source="image.png" alt-text="explain text":::
 
 pattern = r'!\[(.*?)\]\((.*?)\)' # thank you Copilot for creating this regex
-replacement = r':::image type="content" source="\2" alt-text="\1":::'
-content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+replace = r':::image type="content" source="\2" alt-text="\1":::'
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
 # write the result back to the same file
 with open(filename, 'w') as file:

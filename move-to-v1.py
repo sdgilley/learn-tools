@@ -20,19 +20,19 @@ with open(filename, 'r') as file:
 
 # replace all occurrences of a string in the file
 import re
-# first, remove occurrences of ./ in the links
+# first, remove occurrences of "./" in the links
 pattern = r'(?<!\.\./)\((?!\.\./)[^)]*?\./'  # thank you Copilot for creating this regex
 content = re.sub(pattern, "", content, flags=re.MULTILINE)
 
-# now shift local links up one level
-pattern = r"\((?!v1)([^)]*\.md)\)" # thank you Copilot for creating this regex
-replacement = r"(../\1)"
-content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+# now shift local links up one level if they don't start with v1/
+pattern = r"\((?!v1/)([^)]*\.md)\)" # thank you Copilot for creating this regex
+replace = r"(../\1)"
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
-# finally, remove the v1/ from the links
+# finally, remove the v1/ from the links to other v1 articles
 pattern = r"\(v1/([^)]*\.md)\)" # thank you Copilot for creating this regex
-replacement = r"(\1)"
-content = re.sub(pattern, replacement, content, flags=re.MULTILINE)
+replace = r"(\1)"
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
 # write the result back to the same file
 with open(filename, 'w') as file:
