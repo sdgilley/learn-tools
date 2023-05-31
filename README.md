@@ -1,10 +1,7 @@
 ![tools](media/toolbox.png) 
 # learn-tools
 
-
-
-Some handy scripts for working with markdown articles
-
+Some handy scripts for working with markdown articles on learn.microsoft.com
 
 
 ##  ![Python](media/python-logo.png) Python scripts:
