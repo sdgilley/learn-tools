@@ -1,5 +1,5 @@
 # Change notebook links and images to markdown syntax
-# usage: python fix-notebook-links.py <filename>
+# usage: python fix-nb.py <filename>
 
 import sys
 import re
