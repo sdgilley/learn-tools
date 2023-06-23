@@ -11,13 +11,18 @@ filename = sys.argv[1]
 with open(filename, 'r') as file:
     content = file.read()
 
-# remove any /en-us/ from learn links
-pattern = 'https://learn\.microsoft\.com/azure/machine-learning/en-us/'
-replace = 'https://learn\.microsoft\.com/'
+# remove any /en-us/ from links
+pattern = '/en-us/'
+replace = '/'
 content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
-# replace https://learn.microsoft.com/azure/machine-learning/ links with relative links
-pattern = r'https://learn\.microsoft\.com/azure/machine-learning/(.*?)'
+# replace https://learn.microsoft.com/azure/ links with /azure/ links
+pattern = r'https://learn.microsoft.com/azure/'
+replace = r'/azure/'
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
+
+# replace machine-learning links with relative links
+pattern = r'/azure/machine-learning/(.*?)\?view=azureml-api-2'
 replace = r'\1.md'
 content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
