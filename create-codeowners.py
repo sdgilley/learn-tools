@@ -1,12 +1,13 @@
 '''
 This script creates lines to add to the CODEOWNERS file for the azureml-examples folder.
-All files referenced from the main branch will be added to the CODEOWNERS file.
+Lines in the resulting file go into CODEOWNERS on the branch corresponding to the path_to_root variable.
 '''
 
 ###################### INPUT HERE ############################
-# Name the file and the path to your repo.  MAKE SURE YOU'RE ON THE MAIN BRANCH!
+# Path to your local repo.  MAKE SURE YOU'RE ON THE MAIN BRANCH!
 repo_path = 'c:\\GitPrivate\\azure-docs-pr\\articles\\machine-learning'
-result_fn = "codeowners.txt"
+path_to_root = "azureml-examples-main" # from .openpublishing.publish.config.json in azure-docs-pr
+result_fn = f"{path_to_root}-codeowners.txt"
 ############################ DONE ############################
 
 # open the file to write the results to.
@@ -62,7 +63,7 @@ for file in files:
                     if "?" in ref_file: #strip out the argument 
                         ref_file = ref_file.split('?'[0])
                     # now put back together and add to file if it's on the main branch
-                    if branch == "azureml-examples-main":
+                    if branch == path_to_root:
                         ref_file = f"{path}/{ref_file}"
                         ref_file = ref_file.replace('//', '/')
                         # fix entries like this 

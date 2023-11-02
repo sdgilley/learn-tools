@@ -1,5 +1,6 @@
-# csv files produced by find-examples.py
+#  files produced by find-examples.py & create-codeowners.py
 *.csv
+*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
