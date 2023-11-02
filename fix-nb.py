@@ -33,6 +33,17 @@ pattern = r'!\[(.*?)\]\((.*?)\)' # thank you Copilot for creating this regex
 replace = r':::image type="content" source="\2" alt-text="\1":::'
 content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
+## OR THIS for <img> tags
+# <img src="image.png" title="explain text" /> -> :::image type="content" source="image.png" alt-text="explain text":::
+# regex pattern to match the img tag
+pattern = r'<img.*?src="(.*?)".*?title="(.*?)".*?>'
+replace = r':::image type="content" source="\1" alt-text="\2":::'
+content = re.sub(pattern, replace, content, flags=re.MULTILINE)
+
+# write the result back to the same file
+with open(filename, 'w') as file:
+    file.write(content)
+
 # write the result back to the same file
 with open(filename, 'w') as file:
     file.write(content)
