@@ -1,6 +1,7 @@
 '''
 This script creates lines to add to the CODEOWNERS file for the azureml-examples folder.
-Lines in the resulting file go into CODEOWNERS on the branch corresponding to the path_to_root variable.
+Lines in the resulting file go into CODEOWNERS on the branch corresponding to the 
+path_to_root variable in the azure-docs-pr openpublishing.publish.config.json
 '''
 
 ###################### INPUT HERE ############################

@@ -1,5 +1,13 @@
-# Change notebook links and images to markdown syntax
-# usage: python fix-nb.py <filename>
+'''
+Change notebook links and images to markdown syntax
+usage: python fix-nb.py <filename>
+
+When you use Import Jupyter Notebook to add content to your .md file, the
+links and images will need to be updated to work in the .md file.
+
+Run this script in your terminal to apply some common fixes.  You'll still need
+to read through the updated content to see if there are other changes you need to make.
+'''
 
 import sys
 import re

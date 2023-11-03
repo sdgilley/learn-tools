@@ -1,14 +1,19 @@
-# change links in a file you're going to move to v1
-# usage: python move-to-v1.py <filename>
+'''
+Change links in a file you're going to move to v1
+usage: python move-to-v1.py <filename>
 
-# To move a file from machine-learning to machine-learning/v1:
-# First, run this script to update relative links
-# After running this script, check diffs to verify changes
-# Then move to v1.  Also move the associated media folder.
-# Search for other articles that link to the file you're going to move and update them
-# Create PR to get a build and make sure you didn't miss any files that need updates
-# Finally, add redirect to catch links from elsewhere.  (Wait until after that first build to add the redirect.)
+To move a file from machine-learning to machine-learning/v1:
 
+* First, open a terminal and run this script on the file you're going to move.
+* After running this script, check diffs to verify changes. (If you move it first, 
+  you won't be able to see diffs as the whole file will be new.)
+* Then move to v1.  Also move the associated media folder.
+* Search for other articles that link to the file you moved move and update the links
+* Create PR to get a build and make sure you didn't miss any files in our folders that need updating.
+* Finally, add redirect to catch links from elsewhere.  
+  (Wait until after that first build to add the redirect.)
+
+'''
 import sys
 
 # read the file argument
@@ -20,7 +25,7 @@ with open(filename, 'r') as file:
 
 # replace all occurrences of a string in the file
 import re
-# first, remove occurrences of "./" in the links
+# first, remove occurrences of "./" in the links to normalize the links
 pattern = r'(?<!\.\./)\((?!\.\./)[^)]*?\./'  # thank you Copilot for creating this regex
 content = re.sub(pattern, "", content, flags=re.MULTILINE)
 
