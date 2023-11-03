@@ -8,8 +8,8 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 * [fix-nb.py](fix-nb.py) - Change notebook links and images to markdown syntax.
 * [move-to-v1.py](move-to-v1.py) - Fix links in a file that you're going to move to the v1 folder.
-* [create-codeowners.py](create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Add/replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS with contents of this new file.
-* [find-sippets.py](find-snippets.py) - Useful for reviewing and summarizing the snippets. Reads through your local repo to find instances of code snippets pulled from azureml-examples. Creates a csv file with the following columns:
+* [create-codeowners.py](create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS. Also can do the same to other branches... change the branch in your repo, generate the file, add it to the CODEOWNERS file in in the corresponding branch in azureml-examples.
+* [find-sippets.py](find-snippets.py) - Useful for reviewing and summarizing code snippets. Reads through your local repo to find instances of code snippets pulled from azureml-examples. Creates a csv file with the following columns:
 
     * **from_file** - the file in the docs repo that contains the snippet
     * **match** - the full text of the snippet being pulled
