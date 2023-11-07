@@ -14,7 +14,7 @@ result_fn = "snippets.csv"
 
 # open the file to write the results to.
 f = open(result_fn, 'w+')
-f.write("from_file, match, branch, path, ref_file, notebook_cell \n")
+f.write("from_file,match,branch,path,ref_file,name \n")
 # iterate through the files in the folder.  
 
 files = os.listdir(repo_path)
@@ -30,7 +30,7 @@ for file in files:
             if match_snippet:
                 for match in match_snippet:
                     path, ref_file, branch, match, name = h.cleanup_matches(match)
-                f.write(f"{file}, {match}, {branch}, {path}, {ref_file}, {name} \n")    
+                f.write(f"{file},{match},{branch},{path},{ref_file},{name} \n")    
 # close the csv file.
 f.close()
 
