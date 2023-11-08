@@ -1,7 +1,9 @@
 '''
 This script reads through the files in your local repo and finds code snippets from azureml-examples
 See readme for details of the columns in the output file.
+The only output from this script is the file snippets.csv.  
 '''
+
 import os
 import re
 import utilities as h
@@ -9,9 +11,10 @@ import utilities as h
 ###################### INPUT HERE ############################
 # Name the file and the path to your repo.
 repo_path = 'c:\\GitPrivate\\azure-docs-pr\\articles\\machine-learning'
-result_fn = "snippets.csv"
 ############################ DONE ############################
 
+# Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
+result_fn = "snippets.csv"
 # open the file to write the results to.
 f = open(result_fn, 'w+')
 f.write("from_file,match,branch,path,ref_file,name \n")

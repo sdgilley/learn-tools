@@ -13,26 +13,42 @@ To run this script, first run find_snippets.py to create the snippets.csv file.
 
 '''
 
-import requests
-import pandas as pd
+### USER INPUT HERE ##############
+auth = False # set to True to get all responses from the API (e.g. when there are more than 100 items)
+             # you'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
+pr = 2752  # supply the PR you are interested in here.
+####################################
 
-pr = 2779 # supply the PR you are interested in here.
 # TESTING VALUES:
 # pr = 2779 # this one will have matches
-pr = 2794 # this one also has matches
-pr = 2791
+# pr = 2794 # this one also has matches
+# pr = 2748 # has 373 modified files.  you'll get a warning if auth is false
+# pr = 2791 # has 11 added files, no modified or deleted files
 
-# get info about files touched in this PR
-response = requests.get(f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files")
-files = response.json()
+import requests
+import pandas as pd
+import os
+import sys
+import auth_request as a
+
+url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
+
+print(f"\n============================== PR: {pr} ==============================\n")
+
+if auth:
+    files = a.get_auth_response(url)
+else:
+    response = requests.get(url)
+    # Check if there are more items
+    if 'next' in response.links:
+        print("WARNING: There are more items. Set auth to true to get all responses. \nShowing only first 100")
+    files = response.json()
 
 deleted_files = [file['filename'] for file in files if file['status'] == 'removed']
 modified_files = [file['filename'] for file in files if file['status'] == 'modified']
 added_files = [file['filename'] for file in files if file['status'] == 'added']
 
 # read the snippets file
-import os
-import sys
 
 # Check if 'snippets.csv' exists
 if os.path.exists('snippets.csv'):
@@ -44,20 +60,38 @@ else:
     print("Run 'find-snippets.py' to create the file.")
     sys.exit()
 
-print(f"\n================== PR: {pr} ==============================\n")
-for file in modified_files:
-    print (f"MODIFIED: {file}")
-    if (snippets['ref_file'] == file).any():
-        # Print 'from_file' for the matching row(s)
-        print(snippets.loc[snippets['ref_file'] == file, ['referenced_from_file']].to_string(index=False))
-        print("\n")
 
-for file in deleted_files:
-    print (f"DELETED: {file}")
-    if (snippets['ref_file'] == file).any():
-        # Print 'from_file' for the matching row(s)
-        print(snippets.loc[snippets['ref_file'] == file, ['referenced_from_file']].to_string(index=False))
-        print("\n")
+# Process the files:
+
+modified = len(modified_files)
+print(f"MODIFIED: {modified}") 
+if modified > 0:
+    found = 0
+    for file in modified_files:
+        if (snippets['ref_file'] == file).any():
+            # Print 'from_file' for the matching row(s)
+            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'ref_file': 'MODIFIED'})[['MODIFIED']].drop_duplicates().to_string(index=False, justify='left'))
+            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'referenced_from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
+
+            print("\n")
+            found = +1
+    if found == 0:
+        print("None of these files are referenced in azure-docs-pr.\n")
+
+deleted = len(deleted_files)
+print(f"DELETED: {deleted}")
+if deleted > 0:
+    found = 0
+    for file in deleted_files:
+        if (snippets['ref_file'] == file).any():
+            # Print 'from_file' for the matching row(s)
+            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'ref_file': 'DELETED'})[['DELETED']].drop_duplicates().to_string(index=False, justify='left'))
+            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'referenced_from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
+            print("\n")
+            found = +1
+    if found == 0:
+        print("None of these files are referenced in azure-docs-pr.\n")
+
 
 print(f"ADDED FILES: {len(added_files)}") # just for info about the PR
-print(f"\n================== PR: {pr} ==============================\n")
+print(f"\n============================== PR: {pr} ==============================\n")
