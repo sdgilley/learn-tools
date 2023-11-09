@@ -4,6 +4,7 @@
 def cleanup_matches(match):
     import os
     match= match.replace('(', '').replace(')', '').replace('"', '').replace(',', '').replace('source=', '')
+    #print(f"** match is {match}")
      # split up the match into parts here.
     path = os.path.dirname(match)
     ref_file = os.path.basename(match)
@@ -11,12 +12,17 @@ def cleanup_matches(match):
     # path-to-root is configured in azure-docs-pr/.openpublishing.publish.config.json
     branch = path.split('/')[1] 
     # remove the branch info to get the path to the file in azureml-examples
-    path = path.replace('~/', '').replace(f"{branch}/",'')
+    path = path.replace('~/', '')
+    if path == branch:
+        path = ''
+    else:
+        path = path.replace(f"{branch}/",'')
     if "?" in ref_file:
         ref_file, name = ref_file.split('?',1)
     else:
         name = ''
-    ref_file = f"{path}/{ref_file}"
+    if path != '': # if the path is empty, we don't want a beginning slash.  
+        ref_file = f"{path}/{ref_file}"
     ref_file = ref_file.replace('///', '/').replace('//','/') # get rid of triple or double slashes
     return(path, ref_file, branch, match, name)
 

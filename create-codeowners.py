@@ -17,7 +17,6 @@ Place the contents of the file in the CODEOWNERS file in azureml-examples repo f
 repo_path = 'c:\\GitPrivate\\azure-docs-pr\\articles\\machine-learning'
 path_to_root = "azureml-examples-main" # from .openpublishing.publish.config.json in azure-docs-pr
 result_fn = f"{path_to_root}-codeowners.txt"
-result_fn = "NEW.txt"
 ############################ DONE ############################
 
 # open the file to write the results to.
@@ -47,7 +46,7 @@ for file in files:
                         if " " in ref_file:
                             ref_file = ref_file.replace(" ", "\ ")
                         # write to the results file
-                        f.write(f"{ref_file} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1 \n")
+                        f.write(f"/{ref_file} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1 \n")
 
 # close the txt file.
 f.close()

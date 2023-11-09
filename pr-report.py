@@ -16,7 +16,7 @@ To run this script, first run find_snippets.py to create the snippets.csv file.
 ### USER INPUT HERE ##############
 auth = False # set to True to get all responses from the API (e.g. when there are more than 100 items)
              # you'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
-pr = 2752  # supply the PR you are interested in here.
+pr = 2806  # supply the PR you are interested in here.
 ####################################
 
 # TESTING VALUES:
