@@ -16,7 +16,7 @@ To run this script, first run find_snippets.py to create the snippets.csv file.
 ### USER INPUT HERE ##############
 auth = False # set to True to get all responses from the API (e.g. when there are more than 100 items)
              # you'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
-pr = 2806  # supply the PR you are interested in here.
+pr = 2818  # supply the PR you are interested in here.
 ####################################
 
 # TESTING VALUES:
@@ -24,29 +24,31 @@ pr = 2806  # supply the PR you are interested in here.
 # pr = 2794 # this one also has matches
 # pr = 2748 # has 373 modified files.  you'll get a warning if auth is false
 # pr = 2791 # has 11 added files, no modified or deleted files
+# pr = 2770 WILL BREAK OUR BUILD
 
 import requests
 import pandas as pd
 import os
 import sys
 import auth_request as a
+import utilities as h
 
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
 print(f"\n============================== PR: {pr} ==============================\n")
 
 if auth:
-    files = a.get_auth_response(url)
+    prfiles = a.get_auth_response(url)
 else:
     response = requests.get(url)
     # Check if there are more items
     if 'next' in response.links:
         print("WARNING: There are more items. Set auth to true to get all responses. \nShowing only first 100")
-    files = response.json()
+    prfiles = response.json()
 
-deleted_files = [file['filename'] for file in files if file['status'] == 'removed']
-modified_files = [file['filename'] for file in files if file['status'] == 'modified']
-added_files = [file['filename'] for file in files if file['status'] == 'added']
+deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
+modified_files = [file['filename'] for file in prfiles if file['status'] == 'modified']
+added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
 
 # read the snippets file
 
@@ -54,7 +56,6 @@ added_files = [file['filename'] for file in files if file['status'] == 'added']
 if os.path.exists('snippets.csv'):
     snippets = pd.read_csv('snippets.csv')
     snippets = snippets[['ref_file', 'from_file']].drop_duplicates()
-    snippets = snippets.rename(columns={'from_file': 'referenced_from_file'})
 else:
     print("'snippets.csv' does not exist.")
     print("Run 'find-snippets.py' to create the file.")
@@ -71,8 +72,9 @@ if modified > 0:
         if (snippets['ref_file'] == file).any():
             # Print 'from_file' for the matching row(s)
             print(snippets.loc[snippets['ref_file'] == file].rename(columns={'ref_file': 'MODIFIED'})[['MODIFIED']].drop_duplicates().to_string(index=False, justify='left'))
-            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'referenced_from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
-
+            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
+            # Check if there are deleted nb named cells or code comments
+            h.find_changes(file, prfiles)
             print("\n")
             found = +1
     if found == 0:

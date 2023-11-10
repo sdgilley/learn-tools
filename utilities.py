@@ -54,3 +54,40 @@ def remove_duplicates_and_sort(file_path):
 
     with open(file_path, 'w') as f:
         f.writelines(lines)
+
+# this function gets the changes for a specific file and looks through to see if 
+# notebook cells or code snippet comments were deleted.
+
+def find_changes(thisfile, prfiles):
+    import re
+    patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
+    nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
+    code_cell = r'(\\n[\+-])(#\s*<[^>]*>)' # finds lines that start with # <> or # </> 
+                                         # only works for files that use # as comment.
+    adds = []
+    deletes = []
+    nb = False
+
+    if thisfile.endswith('.ipynb'):
+        nb = True
+        matches = re.findall(nb_cell, str(patch))
+    else:
+        matches = re.findall(code_cell, str(patch))
+
+    for match in matches:
+        if match[0] == "\\n+":
+            adds.append(match[1]) 
+        elif match[0 == "\\n-"]:
+            deletes.append(match[1])
+        else:
+            print("ERROR in utilities.py find_changes. The match was not an add or delete.")
+
+    # now print any deletes that don't also appear in adds:
+    for value in deletes:
+        if value not in adds:
+            if nb:
+                print(f"*** Notebooks cell deleted: {value}")
+            else:
+                print(f"*** Code cell deleted: {value}")
+    return(adds, deletes) # can do more with these in the calling script if needed.  I used it for testing.
+
