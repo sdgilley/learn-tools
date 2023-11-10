@@ -8,6 +8,7 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 * [fix-nb.py](fix-nb.py) - Change notebook links and images to markdown syntax. 
 * [move-to-v1.py](move-to-v1.py) - Fix links in a file that you're going to move to the v1 folder.
+* [include-usage.py](include-usage.py) - Count how many times your include files are used by your documents.
 
 These scripts are used to help us maintain our code references:
 * [create-codeowners.py](create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
