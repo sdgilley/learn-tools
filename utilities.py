@@ -84,3 +84,22 @@ def find_changes(thisfile, prfiles):
 
     return(nb, adds, deletes) 
 
+# function to read args from the command line
+def get_args():
+    import argparse
+
+    # Create the parser
+    parser = argparse.ArgumentParser(description='Process a PR number.')
+
+    # Add the arguments
+    parser.add_argument('pr', type=int, help='The PR number you are interested in.')
+    parser.add_argument('auth', type=bool, nargs='?', default=False, help='Whether or not to use authentication.')
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Now you can use args.pr to get the PR number
+    pr = args.pr
+    auth = args.auth
+    return(pr, auth)
+

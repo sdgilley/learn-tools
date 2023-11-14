@@ -4,21 +4,29 @@ If any of these files are referenced azure-docs-pr,
 the corresponding file (labeled referenced_from_file) is also shown.
 
 To run this script, first run find_snippets.py to create the snippets.csv file.
+Then run from command line:
 
-* If a MODIFIED file is referenced, make sure that a named cell or snippet comment is not removed
-* If a DELETED file is referenced, don't approve the PR until you've resolved the problem,
-    either by removing the reference 
-    or a temporary fix by moving the file to a different branch and changing the reference.
-* If you choose a temporary fix, make sure you create a work item to implement a permanent fix.
+    python pr-report.py <PR number> 
 
+If you get a warning that only first 100 are shown, add "True" to the end of the command line:
+
+    python pr-report.py <PR number> True
+
+To decide if the PR is safe to merge:
+* If any deleted cell in a MODIFIED file is referenced in azure-docs-pr, PR is not ready to merge
+* If any DELETED file is referenced, PR is not ready to merge.
+`
 '''
 
-### USER INPUT HERE ##############
-auth = True # set to True to get all responses from the API (e.g. when there are more than 100 items)
-             # you'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
-pr = 2803  # supply the PR you are interested in here.
-####################################
+import requests
+import pandas as pd
+import os
+import sys
+import auth_request as a
+import utilities as h
 
+pr, auth = h.get_args()
+print(f"PR: {pr}, auth: {auth}")
 # TESTING VALUES:
 # pr = 2689 this one did break our build when it was merged.  but it's since been fixed
 # pr = 2779 # this one will have matches
@@ -27,13 +35,6 @@ pr = 2803  # supply the PR you are interested in here.
 # pr = 2791 # has 11 added files, no modified or deleted files
 # pr = 2770 has notebook cells deleted
 # pr = 2822 None of the modified cells are referenced
-
-import requests
-import pandas as pd
-import os
-import sys
-import auth_request as a
-import utilities as h
 
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
@@ -48,9 +49,14 @@ else:
         print("WARNING: There are more items. Set auth to true to get all responses. \nShowing only first 100")
     prfiles = response.json()
 
-deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
-modified_files = [file['filename'] for file in prfiles if file['status'] == 'modified']
-added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
+if 'message' in prfiles:
+    print(prfiles['message'])
+    sys.exit()
+else:
+    deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
+    modified_files = [file['filename'] for file in prfiles if file['status'] == 'modified']
+    added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
+
 
 # read the snippets file
 
