@@ -82,12 +82,5 @@ def find_changes(thisfile, prfiles):
         else:
             print("ERROR in utilities.py find_changes. The match was not an add or delete.")
 
-    # now print any deletes that don't also appear in adds:
-    for value in deletes:
-        if value not in adds:
-            if nb:
-                print(f"*** Notebooks cell deleted: {value}")
-            else:
-                print(f"*** Code cell deleted: {value}")
-    return(adds, deletes) # can do more with these in the calling script if needed.  I used it for testing.
+    return(nb, adds, deletes) 
 

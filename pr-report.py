@@ -14,17 +14,19 @@ To run this script, first run find_snippets.py to create the snippets.csv file.
 '''
 
 ### USER INPUT HERE ##############
-auth = False # set to True to get all responses from the API (e.g. when there are more than 100 items)
+auth = True # set to True to get all responses from the API (e.g. when there are more than 100 items)
              # you'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
-pr = 2818  # supply the PR you are interested in here.
+pr = 2803  # supply the PR you are interested in here.
 ####################################
 
 # TESTING VALUES:
+# pr = 2689 this one did break our build when it was merged.  but it's since been fixed
 # pr = 2779 # this one will have matches
 # pr = 2794 # this one also has matches
 # pr = 2748 # has 373 modified files.  you'll get a warning if auth is false
 # pr = 2791 # has 11 added files, no modified or deleted files
-# pr = 2770 WILL BREAK OUR BUILD
+# pr = 2770 has notebook cells deleted
+# pr = 2822 None of the modified cells are referenced
 
 import requests
 import pandas as pd
@@ -63,37 +65,44 @@ else:
 
 
 # Process the files:
-
+print(f"ADDED FILES: {len(added_files)}") # just for info about the PR
 modified = len(modified_files)
+deleted = len(deleted_files)
 print(f"MODIFIED: {modified}") 
+print(f"DELETED: {deleted}")
+
+print("\n")
 if modified > 0:
     found = 0
     for file in modified_files:
         if (snippets['ref_file'] == file).any():
-            # Print 'from_file' for the matching row(s)
-            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'ref_file': 'MODIFIED'})[['MODIFIED']].drop_duplicates().to_string(index=False, justify='left'))
-            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
+            snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
+            print(f"MODIFIED FILE: {file} \n  Referenced in:")
+            print(snippet_match.to_string(index=False))
             # Check if there are deleted nb named cells or code comments
-            h.find_changes(file, prfiles)
+            nb, adds, deletes = h.find_changes(file, prfiles)
+            deleted_cells = [value for value in deletes if value not in adds]
+            if deleted_cells:
+                cell_type = "Notebooks" if nb else "Code"
+                print(f"\n*** {len(deleted_cells)} {cell_type} cells deleted")
+                for cell in deleted_cells:
+                    print(f"*** {cell}")
             print("\n")
             found = +1
     if found == 0:
-        print("None of these files are referenced in azure-docs-pr.\n")
+        print("None of the modified files are referenced in azure-docs-pr.\n")
 
-deleted = len(deleted_files)
-print(f"DELETED: {deleted}")
 if deleted > 0:
     found = 0
     for file in deleted_files:
         if (snippets['ref_file'] == file).any():
-            # Print 'from_file' for the matching row(s)
-            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'ref_file': 'DELETED'})[['DELETED']].drop_duplicates().to_string(index=False, justify='left'))
-            print(snippets.loc[snippets['ref_file'] == file].rename(columns={'referenced_from_file': 'REFERENCED IN'})[['REFERENCED IN']].to_string(index=False, justify='left'))
+            snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
+            print(f"DELETED FILE: {file} \n  Referenced in:")
+            print(snippet_match.to_string(index=False))
             print("\n")
             found = +1
     if found == 0:
-        print("None of these files are referenced in azure-docs-pr.\n")
+        print("None of the deleted files are referenced in azure-docs-pr.\n")
 
-
-print(f"ADDED FILES: {len(added_files)}") # just for info about the PR
 print(f"\n============================== PR: {pr} ==============================\n")
+
