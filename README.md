@@ -10,24 +10,24 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 * [move-to-v1.py](move-to-v1.py) - Fix links in a file that you're going to move to the v1 folder.
 * [include-usage.py](include-usage.py) - Count how many times your include files are used by your documents.
 
-These scripts are used to help us maintain our code references:
-* [create-codeowners.py](create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
+### GitHub folder
+
+Scripts in the GitHub folder are used to help us maintain our code references:
+
+* [create-codeowners.py](GitHub/create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
   
-* [find-sippets.py](find-snippets.py) - Useful for reviewing and summarizing code snippets. Also required to run this before running [pr-report.py](pr-report.py). Reads through your local repo to find instances of code snippets pulled from azureml-examples. Creates a csv file with the following columns:
-    * **from_file** - the file in azure-docs-pr that references the snippet
-    * **match** - the full text of the code reference.  (i.e., ~/azureml-examples-main/path/filename?name=x)
-    * **branch** - the branch of azureml-examples that the snippet is from, using the path_to_root specified in 
-    .openpublishing.publish.config.json in our repo (i.e., azureml-examples-main)
-    * **path** - path to the file in azureml-examples 
-    * **ref_file** - the file where the code is located in azureml-examples
-    * **notebook_cell** - if a cell in a notebook, this is the name of the cell.  Otherwise, blank.
-* [pr-report.py](pr-report.py) - Use this to evaluate whether a PR in azureml-examples will cause problems in
-    our docs build.  Before you use this script, run [find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs-pr.
+* [find-sippets.py](GitHub/find-snippets.py)
+    * creates the file refs-found.csv.  This file is used for both the pr-report and merge-report scripts.
+    * create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
+* [pr-report.py](GitHub/pr-report.py) - Use this to evaluate whether a PR in azureml-examples will cause problems in
+    our docs build.  If you're using it for the first time in a while, first run [find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
+* [merge-report.py](GitHub/merge-report.py) - Use this to see what PRs in azureml-examples have merged 
+    in the last N days that might require a docs update (default is 7 days). If you're using it for the first time in a while, first run[find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
 
 The following files provide functions used in the above scripts:
 
-* [utilities.py](utilities.py) - functions used by create-codeowners and pr-report
-* [auth_request.py](auth.py) - function used by pr-report to authenticate to github. 
+* [utilities.py](GitHub/utilities.py) - functions used by find-snippets, pr-report, and merge-report
+* [auth_request.py](GitHub/auth.py) - function used by pr-report and merge-report to authenticate to github.
     
     You'll need to set a GH_ACCESS_TOKEN environment variable before using auth-request.py. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens to create a token.  Then add the token to an environment variable called GH_ACCESS_TOKEN.
 
