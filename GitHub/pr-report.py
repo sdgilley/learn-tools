@@ -25,17 +25,17 @@ import sys
 import auth_request as a
 import utilities as h
 
-pr, auth = h.get_args()
-print(f"PR: {pr}, auth: {auth}")
-# TESTING VALUES:
-# pr = 2689 this one did break our build when it was merged.  but it's since been fixed
-# pr = 2779 # this one will have matches
-# pr = 2794 # this one also has matches
-# pr = 2748 # has 373 modified files.  you'll get a warning if auth is false
-# pr = 2791 # has 11 added files, no modified or deleted files
-# pr = 2770 has notebook cells deleted
-# pr = 2822 None of the modified cells are referenced
+# read arguments from command line - pr and optionally, whether to authenticate
+import argparse
+parser = argparse.ArgumentParser(description='Process a PR number.') # Create the parser
+# Add the arguments
+parser.add_argument('pr', type=int, help='The PR number you are interested in.')
+parser.add_argument('auth', type=bool, nargs='?', default=False, help='Whether or not to use authentication.')
+args = parser.parse_args() # Parse the arguments
+pr = args.pr
+auth = args.auth
 
+# form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
 print(f"\n============================== PR: {pr} ==============================\n")
@@ -58,17 +58,7 @@ else:
     added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
 
 
-# read the snippets file
-
-# Check if 'snippets.csv' exists
-if os.path.exists('snippets.csv'):
-    snippets = pd.read_csv('snippets.csv')
-    snippets = snippets[['ref_file', 'from_file']].drop_duplicates()
-else:
-    print("'snippets.csv' does not exist.")
-    print("Run 'find-snippets.py' to create the file.")
-    sys.exit()
-
+snippets = h.read_snippets() # read the snippets file
 
 # Process the files:
 print(f"ADDED FILES: {len(added_files)}") # just for info about the PR
@@ -82,6 +72,7 @@ if modified > 0:
     found = 0
     for file in modified_files:
         if (snippets['ref_file'] == file).any():
+            print(snippets.columns) 
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
             print(f"MODIFIED FILE: {file} \n  Referenced in:")
             print(snippet_match.to_string(index=False))
