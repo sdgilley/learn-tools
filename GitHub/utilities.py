@@ -1,4 +1,4 @@
-# some functions to use for find-snippets
+# some functions to use for find-snippets, pr-report, and merge-report
 
 # function to clean up the matches
 # syntax of a match is different if it is from a notebook vs. code files.
