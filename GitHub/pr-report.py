@@ -72,7 +72,6 @@ if modified > 0:
     found = 0
     for file in modified_files:
         if (snippets['ref_file'] == file).any():
-            print(snippets.columns) 
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
             print(f"MODIFIED FILE: {file} \n  Referenced in:")
             print(snippet_match.to_string(index=False))
