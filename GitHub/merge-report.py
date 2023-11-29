@@ -14,7 +14,7 @@ args = parser.parse_args() # Parse the arguments
 snippets = h.read_snippets() # read the snippets file
 
 # Calculate the date to filter by
-if days_ago < 100:
+if args.days < 100:
     days_ago = (datetime.now() - timedelta(days=args.days)).isoformat()
 else:
     print("ERROR: The maximum number of days is 100.")
