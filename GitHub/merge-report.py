@@ -14,7 +14,11 @@ args = parser.parse_args() # Parse the arguments
 snippets = h.read_snippets() # read the snippets file
 
 # Calculate the date to filter by
-days_ago = (datetime.now() - timedelta(days=args.days)).isoformat()
+if args.days < 100:
+    days_ago = (datetime.now() - timedelta(days=args.days)).isoformat()
+else:
+    print("ERROR: The maximum number of days is 100.")
+    sys.exit()
 
 # Define the URL for the GitHub API
 url = "https://api.github.com/repos/Azure/azureml-examples/pulls?state=closed&sort=updated&direction=desc"

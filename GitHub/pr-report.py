@@ -61,33 +61,48 @@ else:
 snippets = h.read_snippets() # read the snippets file
 
 # Process the files:
-print(f"ADDED FILES: {len(added_files)}") # just for info about the PR
+print(f"ADDED FILES: {len(added_files)}\n") # just for info about the PR
 modified = len(modified_files)
 deleted = len(deleted_files)
 print(f"MODIFIED: {modified}") 
-print(f"DELETED: {deleted}")
 
-print("\n")
+data =[] # create an empty list to hold data for modified files that are referenced
 if modified > 0:
-    found = 0
     for file in modified_files:
         if (snippets['ref_file'] == file).any():
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
-            print(f"MODIFIED FILE: {file} \n  Referenced in:")
-            print(snippet_match.to_string(index=False))
             # Check if there are deleted nb named cells or code comments
             nb, adds, deletes = h.find_changes(file, prfiles)
             deleted_cells = [value for value in deletes if value not in adds]
             if deleted_cells:
-                cell_type = "Notebooks" if nb else "Code"
-                print(f"\n*** {len(deleted_cells)} {cell_type} cells deleted")
+                cell_type = "Notebook" if nb else "Code"
                 for cell in deleted_cells:
-                    print(f"*** {cell}")
-            print("\n")
-            found = +1
-    if found == 0:
-        print("None of the modified files are referenced in azure-docs-pr.\n")
+                    # Append the data to the list
+                    data.append({'Modified File': file, 
+                             'Referenced In': snippet_match.to_string(index=False),
+                             'Cell Type': cell_type,
+                             'Cell': cell})
+                   # print(f"*** {cell}")
+if data == []:
+    print("None of the modified files have deleted cells or code snippets.\n")
+else:
+    # Group the data by 'Modified File' and 'Referenced In'
+    grouped_data = {}
+    for item in data:
+        key = (item['Modified File'], item['Referenced In'])
+        if key not in grouped_data:
+            grouped_data[key] = []
+        grouped_data[key].append(item['Cell'])
 
+    # Print the grouped data
+    for (modified_file, referenced_in), cells in grouped_data.items():
+        print(f"Modified File: {modified_file}")
+        print(f"Referenced in: {referenced_in}")
+        print(f"{cell_type} cells deleted: {len(cells)}")
+        for cell in cells:
+            print(f"  * {cell}")
+        print()
+print(f"DELETED: {deleted}")
 if deleted > 0:
     found = 0
     for file in deleted_files:
