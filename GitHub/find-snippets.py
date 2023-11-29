@@ -5,7 +5,7 @@ It creates two files:
 * refs-found.csv - needed for the merge-report and pr-report scripts
 * CODEOWNERS.txt - use the contents to populate the CODEOWNERS file in azureml-examples
 
-Update these files periodically to stay current with changes in azure-docs.
+Run this script periodically to stay up to date with the latest references.
 '''
 
 import os
