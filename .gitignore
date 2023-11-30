@@ -1,6 +1,5 @@
 #  files produced by find-examples.py & create-codeowners.py
-*.csv
-*.txt
+
 # test files and stuff I don't want to commit
 archive/
 # Byte-compiled / optimized / DLL files
