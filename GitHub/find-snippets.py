@@ -10,6 +10,7 @@ Run this script periodically to stay up to date with the latest references.
 
 import os
 import re
+import sys
 import utilities as h
 from github import Github
 import pandas as pd
