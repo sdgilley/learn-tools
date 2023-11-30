@@ -80,6 +80,7 @@ def read_file(file_path):
 
 def read_snippets():
     import os
+    import sys
     import pandas as pd
     # read the snippets file
     fn = "refs-found.csv"
