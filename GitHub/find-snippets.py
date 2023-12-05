@@ -14,19 +14,24 @@ import sys
 import utilities as h
 from github import Github
 import pandas as pd
+import time
 
 ###################### INPUT HERE ############################
-# Name the path to your repo.
+# Name the path to your repo. If trying to use a private repo, you'll need a token that has access to it.
 repo_name = "MicrosoftDocs/azure-docs"
+repo_branch = "main"
 path_in_repo = 'articles/machine-learning' 
 ############################ DONE ############################
 
 # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
 result_fn = "refs-found.csv"
-main_branch = "azureml-examples-main"
+az_ml_branch = "azureml-examples-main"
+
 found = pd.DataFrame(columns=['ref_file', 'from_file'])
 dict_list = []
-
+branches = []
+# Record the start time
+start_time = time.time()
 # Read files from GitHub  
 try:
     token = os.environ['GH_ACCESS_TOKEN']   
@@ -36,8 +41,7 @@ except:
 
 g = Github(token)
 repo = g.get_repo(repo_name)
-
-contents = repo.get_contents(path_in_repo)
+contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
 # look through the markdown files in the repo
 for content_file in contents:
@@ -54,13 +58,16 @@ for content_file in contents:
             if match_snippet:
                 for match in match_snippet:
                     path, ref_file, branch, match, name = h.cleanup_matches(match)
-                    if branch == main_branch: #PRs are merged into main, so only these files are relevant
+                    branches.append(branch)
+                    if branch == az_ml_branch: #PRs are merged into main, so only these files are relevant
                         row_dict = {'ref_file': ref_file, 'from_file': file}
                         dict_list.append(row_dict)
 
 found = pd.DataFrame.from_dict(dict_list)
+branches = pd.DataFrame(branches)
 # get rid of duplicates
 found = found.drop_duplicates()
+branches = branches.drop_duplicates()
 # sort the file
 found = found.sort_values(by=['ref_file'])
 
@@ -71,6 +78,18 @@ found.to_csv(result_fn, index=False)
 refs = found['ref_file'].drop_duplicates().replace(" ", "\ ", regex=True)
 f = open('CODEOWNERS.txt', 'w+')
 for ref in refs:
-    f.write(f"/{ref} @ML \n")
+    f.write(f"/{ref} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1   \n")
 f.close()
 
+# report the branches in use
+print(f"Branches referenced in {repo_name} {repo_branch}:")
+print (branches.to_string(index=False, header=False, justify='left'))
+
+# Record the end time
+end_time = time.time()
+
+# Calculate the elapsed time
+elapsed_time = end_time - start_time
+
+# Print the elapsed time
+print(f"\nTime elapsed: {elapsed_time/60} minutes")
