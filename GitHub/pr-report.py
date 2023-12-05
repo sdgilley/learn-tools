@@ -92,7 +92,7 @@ else:
     # Print the grouped data
     for (modified_file, referenced_in), cells in grouped_data.items():
         print(f"Modified File: {modified_file}")
-        print(f"Referenced in: {referenced_in}")
+        print(f"Referenced in: https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/machine-learning/{referenced_in}")
         print(f"{cell_type} cells deleted: {len(cells)}")
         for cell in cells:
             print(f"  * {cell}")
