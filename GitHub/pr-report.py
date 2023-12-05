@@ -38,16 +38,11 @@ auth = args.auth
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
-print(f"\n============================== PR: {pr} ==============================\n")
+print(f"\n============================== PR: {pr} ==============================")
+print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
 
-if auth:
-    prfiles = a.get_auth_response(url)
-else:
-    response = requests.get(url)
-    # Check if there are more items
-    if 'next' in response.links:
-        print("WARNING: There are more items. Set auth to true to get all responses. \nShowing only first 100")
-    prfiles = response.json()
+prfiles = a.get_auth_response(url)
+
 
 if 'message' in prfiles:
     print(prfiles['message'])
