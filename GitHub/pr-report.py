@@ -30,10 +30,8 @@ import argparse
 parser = argparse.ArgumentParser(description='Process a PR number.') # Create the parser
 # Add the arguments
 parser.add_argument('pr', type=int, help='The PR number you are interested in.')
-parser.add_argument('auth', type=bool, nargs='?', default=False, help='Whether or not to use authentication.')
 args = parser.parse_args() # Parse the arguments
 pr = args.pr
-auth = args.auth
 
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
@@ -97,12 +95,7 @@ else:
         for cell in cells:
             print(f"  * {cell}")
         # compare the sha to this same file in branch "temp-fix"
-        file_temp_fix = repo.get_contents(modified_file, ref="temp-fix")
-        file_main = repo.get_contents(modified_file, ref="main")
-        if file_temp_fix.sha == file_main.sha:
-            print(f"The temp-fix branch has the same version of this file")
-        else:
-            print(f"the temp-fix branch has a different version of this file")
+        h.compare_branches(repo, file, "main", "temp-fix")
         print()
 print(f"DELETED: {deleted}")
 if deleted > 0:
@@ -112,13 +105,7 @@ if deleted > 0:
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
             print(f"DELETED FILE: {file} \n  Referenced in:")
             print(snippet_match.to_string(index=False))
-            # compare the sha to this same file in branch "temp-fix"
-            file_temp_fix = repo.get_contents(file, ref="temp-fix")
-            file_main = repo.get_contents(file, ref="main")
-            if file_temp_fix.sha == file_main.sha:
-                print(f"The temp-fix branch has the same version of this file\n")
-            else:
-                print(f"the temp-fix branch has a different version of this file\n")
+            h.compare_branches(repo, file, "main", "temp-fix")
             found = +1
     if found == 0:
         print("None of the deleted files are referenced in azure-docs-pr.\n")
