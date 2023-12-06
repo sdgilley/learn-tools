@@ -42,7 +42,7 @@ print(f"\n============================== PR: {pr} ==============================
 print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
 
 prfiles = a.get_auth_response(url)
-
+repo = h.connect_repo("Azure/azureml-examples")
 
 if 'message' in prfiles:
     print(prfiles['message'])
@@ -73,7 +73,7 @@ if modified > 0:
                 cell_type = "Notebook" if nb else "Code"
                 for cell in deleted_cells:
                     # Append the data to the list
-                    data.append({'Modified File': file, 
+                    data.append({'Modified File': file,
                              'Referenced In': snippet_match.to_string(index=False),
                              'Cell Type': cell_type,
                              'Cell': cell})
@@ -96,6 +96,13 @@ else:
         print(f"{cell_type} cells deleted: {len(cells)}")
         for cell in cells:
             print(f"  * {cell}")
+        # compare the sha to this same file in branch "temp-fix"
+        file_temp_fix = repo.get_contents(modified_file, ref="temp-fix")
+        file_main = repo.get_contents(modified_file, ref="main")
+        if file_temp_fix.sha == file_main.sha:
+            print(f"The temp-fix branch has the same version of this file")
+        else:
+            print(f"the temp-fix branch has a different version of this file")
         print()
 print(f"DELETED: {deleted}")
 if deleted > 0:
@@ -106,6 +113,13 @@ if deleted > 0:
             print(f"DELETED FILE: {file} \n  Referenced in:")
             print(snippet_match.to_string(index=False))
             print("\n")
+            # compare the sha to this same file in branch "temp-fix"
+            file_temp_fix = repo.get_contents(file, ref="temp-fix")
+            file_main = repo.get_contents(file, ref="main")
+            if file_temp_fix.sha == file_main.sha:
+                print(f"The temp-fix branch has the same version of this file")
+            else:
+                print(f"the temp-fix branch has a different version of this file")
             found = +1
     if found == 0:
         print("None of the deleted files are referenced in azure-docs-pr.\n")

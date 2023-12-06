@@ -34,14 +34,7 @@ branches = []
 # Record the start time
 start_time = time.time()
 # Read files from GitHub  
-try:
-    token = os.environ['GH_ACCESS_TOKEN']   
-except:
-    print("Please set GH_ACCESS_TOKEN environment variable")
-    sys.exit()  
-
-g = Github(token)
-repo = g.get_repo(repo_name)
+repo = h.connect_repo(repo_name)
 contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
 # look through the markdown files in the repo

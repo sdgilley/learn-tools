@@ -42,7 +42,7 @@ def find_changes(thisfile, prfiles):
     import re
     patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
     nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
-    code_cell = r'(\\n[\+-])(#\s*<[^>]*>)' # finds lines that start with # <> or # </> 
+    code_cell = r'(\\n[\+-])\s*(#\s*<[^>]*>)'  # finds lines that start with # <> or # </> 
                                          # only works for files that use # as comment.
     adds = []
     deletes = []
@@ -94,3 +94,18 @@ def read_snippets():
         print("Run 'find-snippets.py' to create the file.")
         sys.exit()
     return snippets
+
+# function to connect to GitHub repo
+def connect_repo(repo_name):
+    import os
+    import sys
+    from github import Github
+    try:
+        token = os.environ['GH_ACCESS_TOKEN']   
+    except:
+        print("Please set GH_ACCESS_TOKEN environment variable")
+        sys.exit()  
+
+    g = Github(token)
+    repo = g.get_repo(repo_name)
+    return repo
