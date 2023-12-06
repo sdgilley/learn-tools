@@ -89,8 +89,10 @@ else:
 
     # Print the grouped data
     for (modified_file, referenced_in), cells in grouped_data.items():
-        print(f"Modified File: {modified_file}")
-        print(f"Referenced in: https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/main/articles/machine-learning/{referenced_in}")
+        print(f"Modified File: {modified_file} \n  Referenced in:")
+        refs = referenced_in.split('\n')
+        for ref in refs:
+            print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
         print(f"{cell_type} cells deleted: {len(cells)}")
         for cell in cells:
             print(f"  * {cell}")
@@ -103,8 +105,12 @@ if deleted > 0:
     for file in deleted_files:
         if (snippets['ref_file'] == file).any():
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
+
             print(f"DELETED FILE: {file} \n  Referenced in:")
-            print(snippet_match.to_string(index=False))
+            refs = snippet_match.to_string(index=False).split('\n')
+            for ref in refs:
+                print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
+           # print(snippet_match.to_string(index=False))
             h.compare_branches(repo, file, "main", "temp-fix")
             found = +1
     if found == 0:

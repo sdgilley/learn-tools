@@ -75,7 +75,10 @@ else:
             print(f"     Referenced in: ")
 
             for index, row in file_group.iterrows():
-                print(f"  {row['Referenced In']}")
+                refs = row['Referenced In'].split('\n')
+                for ref in refs:
+                    print(f"       https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
+                # print(f"  {row['Referenced In']}")
         print()
 
 print(f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n")
