@@ -72,8 +72,10 @@ else:
         # Loop through the Modified File groups
         for modified_file, file_group in grouped_by_file:
             print(f"     Modified: {modified_file}")
+            print(f"     Referenced in: ")
+
             for index, row in file_group.iterrows():
-                print(f"     Referenced in: {row['Referenced In']}")
+                print(f"  {row['Referenced In']}")
         print()
 
 print(f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n")

@@ -24,7 +24,8 @@ path_in_repo = 'articles/machine-learning'
 ############################ DONE ############################
 
 # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
-result_fn = "refs-found.csv"
+script_dir = os.path.dirname(os.path.realpath(__file__))
+result_fn = os.path.join(script_dir,"refs-found.csv")
 az_ml_branch = "azureml-examples-main"
 
 found = pd.DataFrame(columns=['ref_file', 'from_file'])
@@ -69,16 +70,19 @@ branches = pd.DataFrame(branches)
 found = found.drop_duplicates()
 branches = branches.drop_duplicates()
 # sort the file
-found = found.sort_values(by=['ref_file'])
-
+if not found.empty:
+    found = found.sort_values(by=['ref_file'])
+else:
+    print("No references found")
+    sys.exit()
 # write the snippets file
 found.to_csv(result_fn, index=False)
 
 # now create codeowners file
 refs = found['ref_file'].drop_duplicates().replace(" ", "\ ", regex=True)
-f = open('CODEOWNERS.txt', 'w+')
+f = open(os.path.join(script_dir,'CODEOWNERS.txt'), 'w+')
 for ref in refs:
-    f.write(f"/{ref} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1   \n")
+    f.write(f"/{ref} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  \n")
 f.close()
 
 # report the branches in use
