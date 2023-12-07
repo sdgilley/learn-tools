@@ -33,7 +33,7 @@ parser.add_argument('pr', type=int, help='The PR number you are interested in.')
 args = parser.parse_args() # Parse the arguments
 pr = args.pr
 # fix truncation?
-
+pd.set_option('display.max_colwidth', 500)
 
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
