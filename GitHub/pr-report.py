@@ -46,6 +46,7 @@ repo = h.connect_repo("Azure/azureml-examples")
 
 if 'message' in prfiles:
     print("Error occurred.  Check the PR number and try again.")
+    print(prfiles)
     sys.exit()
 else:
     deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
@@ -94,7 +95,6 @@ else:
         print(f"Modified File: {modified_file} \n  Referenced in:")
         refs = referenced_in.split('\n')
         for ref in refs:
-            print(ref.strip())
             print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
         print(f"{cell_type} cells deleted: {len(cells)}")
         for cell in cells:
