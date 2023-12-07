@@ -117,4 +117,4 @@ def compare_branches(repo, file, branch1, branch2):
     if file_b1.sha == file_b2.sha:
         print(f"*The {branch2} branch has the same version of this file as {branch1}\n")
     else:
-        print(f"*The {branch2} branch has a DIFFERENT version of this file as {branch1}\n")
+        print(f"*The {branch2} branch has a DIFFERENT version of this file from {branch1}\n")
