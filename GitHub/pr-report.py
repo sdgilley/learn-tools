@@ -32,6 +32,8 @@ parser = argparse.ArgumentParser(description='Process a PR number.') # Create th
 parser.add_argument('pr', type=int, help='The PR number you are interested in.')
 args = parser.parse_args() # Parse the arguments
 pr = args.pr
+# fix truncation?
+
 
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
@@ -43,7 +45,7 @@ prfiles = a.get_auth_response(url)
 repo = h.connect_repo("Azure/azureml-examples")
 
 if 'message' in prfiles:
-    print(prfiles['message'])
+    print("Error occurred.  Check the PR number and try again.")
     sys.exit()
 else:
     deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
@@ -92,6 +94,7 @@ else:
         print(f"Modified File: {modified_file} \n  Referenced in:")
         refs = referenced_in.split('\n')
         for ref in refs:
+            print(ref.strip())
             print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
         print(f"{cell_type} cells deleted: {len(cells)}")
         for cell in cells:
