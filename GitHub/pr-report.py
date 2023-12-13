@@ -96,9 +96,9 @@ else:
         refs = referenced_in.split('\n')
         for ref in refs:
             print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
-        print(f"{cell_type} cells deleted: {len(cells)}")
+        print(f"   {cell_type} cells deleted: {len(cells)}")
         for cell in cells:
-            print(f"  * {cell}")
+            print(f"   * {cell}")
         # compare the sha to this same file in branch "temp-fix"
         h.compare_branches(repo, file, "main", "temp-fix")
         print()
