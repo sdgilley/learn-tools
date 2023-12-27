@@ -58,27 +58,35 @@ if df.empty:
     print("\nNothing to do here :-)  There are no PRs that impacted references.\n")
     sys.exit()
 else:
-    print("\nCheck the following PRs to see if any referenced docs need to be updated:\n")
+    print(" These PRs impacted references:\n")
+    prs = df['PR'].unique()
+    for pr in prs:
+        print(f"* PR {pr} (https://github.com/Azure/azureml-examples/pull/{pr}/files)")
+    # print("\nCheck the following PRs to see if any referenced docs need to be updated:\n")
     # Group the DataFrame by PR
-    grouped_by_pr = df.groupby('PR')
+    # grouped_by_pr = df.groupby('PR')
 
     # Loop through the PR groups
-    for pr, pr_group in grouped_by_pr:
-        print(f"* PR {pr} (https://github.com/Azure/azureml-examples/pull/{pr}/files)")
+    # for pr, pr_group in grouped_by_pr:
+    #     print(f"* PR {pr} (https://github.com/Azure/azureml-examples/pull/{pr}/files)")
 
-        # Group the PR group by Modified File
-        grouped_by_file = pr_group.groupby('Modified File')
+    #     # Group the PR group by Modified File
+    #     grouped_by_file = pr_group.groupby('Modified File')
 
-        # Loop through the Modified File groups
-        for modified_file, file_group in grouped_by_file:
-            print(f"     Modified: {modified_file}")
-            print(f"     Referenced in: ")
+    #     # Loop through the Modified File groups
+    #     for modified_file, file_group in grouped_by_file:
+    #         print(f"     Modified: {modified_file}")
+    #         print(f"     Referenced in: ")
 
-            for index, row in file_group.iterrows():
-                refs = row['Referenced In'].split('\n')
-                for ref in refs:
-                    print(f"       https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
-                # print(f"  {row['Referenced In']}")
-        print()
-
+    #         for index, row in file_group.iterrows():
+    #             refs = row['Referenced In'].split('\n')
+    #             for ref in refs:
+    #                 print(f"       https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
+    #             # print(f"  {row['Referenced In']}")
+    #     print()
+    # FINALLY, print the list of files that need to be updated
+    print("\n** Update ms.custom metadata for the following files:")
+    refs = df['Referenced In'].str.split('\n').explode().str.strip()
+    for ref in sorted(refs.unique()):
+        print(f"  {ref.strip()}")
 print(f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n")
