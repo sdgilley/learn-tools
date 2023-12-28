@@ -12,7 +12,7 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 ### GitHub folder
 
-Scripts in the GitHub folder are used to help us maintain our code references:
+Scripts in the GitHub folder are used to help us maintain our code references.  Make sure you have `pyGithub` installed (`pip install pyGithub`) to run these scripts.
 
 * [create-codeowners.py](GitHub/create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
   
