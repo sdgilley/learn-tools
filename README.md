@@ -5,6 +5,15 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
 
+In Codespaces, the following shortcut commands are available the Github merge and pr reports:
+
+```bash
+./merge.sh 
+./merge.sh <days>
+./pr.sh <pr-number>
+```
+
+
 ##  ![Python](media/python-logo.png) Python scripts:
 
 * [fix-nb.py](fix-nb.py) - Change notebook links and images to markdown syntax. 
