@@ -85,7 +85,7 @@ else:
     #             # print(f"  {row['Referenced In']}")
     #     print()
     # FINALLY, print the list of files that need to be updated
-    print("\n** Update ms.custom metadata for the following files:")
+    print("\n** Add 'update-code' to ms.custom metadata (or modify if already present) to the following files:")
     refs = df['Referenced In'].str.split('\n').explode().str.strip()
     for ref in sorted(refs.unique()):
         print(f"  {ref.strip()}")
