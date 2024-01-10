@@ -5,15 +5,6 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
 
-In Codespaces, the following shortcut commands are available the Github merge and pr reports:
-
-```bash
-./merge.sh 
-./merge.sh <days>
-./pr.sh <pr-number>
-```
-
-
 ##  ![Python](media/python-logo.png) Python scripts:
 
 * [fix-nb.py](fix-nb.py) - Change notebook links and images to markdown syntax. 
@@ -22,9 +13,9 @@ In Codespaces, the following shortcut commands are available the Github merge an
 
 ### GitHub folder
 
-Scripts in the GitHub folder are used to help us maintain our code references.  Make sure you have `pyGithub` installed (`pip install pyGithub`) to run these scripts.
+See [Maintain code snippets in Azure docs](code-snippets.md) for more information on how to use these scripts.
 
-* [create-codeowners.py](GitHub/create-codeowners.py) - create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
+Scripts in the GitHub folder are used to help us maintain our code references.  Make sure you have `pyGithub` installed (`pip install pyGithub`) to run these scripts.
   
 * [find-snippets.py](GitHub/find-snippets.py)
     * creates the file refs-found.csv.  This file is used for both the pr-report and merge-report scripts.
@@ -41,6 +32,13 @@ The following files provide functions used in the above scripts:
     
     You'll need to set a GH_ACCESS_TOKEN environment variable before using auth-request.py. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens to create a token.  Then add the token to an environment variable called GH_ACCESS_TOKEN.
 
+The following shortcut commands are available for Github merge and pr reports:
+
+```bash
+./merge.sh 
+./merge.sh <days>
+./pr.sh <pr-number>
+```
 
 ## Other repos
 
