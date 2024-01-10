@@ -5,5 +5,9 @@
   "extensions": [
     "ms-python.python"
   ],
-  "postCreateCommand": "pip3 install pyGithub"
+  "postCreateCommand": [
+    "pip install pyGithub"
+    "chmod +x pr-report.sh"
+    "chmod +x merge-report.py"
+  ]
 }
