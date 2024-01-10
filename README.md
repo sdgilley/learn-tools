@@ -3,6 +3,7 @@
 
 Some handy scripts for working with markdown articles on learn.microsoft.com
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
 
 ##  ![Python](media/python-logo.png) Python scripts:
 
