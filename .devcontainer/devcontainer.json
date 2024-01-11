@@ -1,20 +1,30 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
+  "name": "Python 3",
+  "build": {
+      "dockerfile": "Dockerfile",
+      "args": {
+          "VARIANT": "3"
+      }
   },
-  "secrets": {
-    "GH_ACCESS_TOKEN": {
-      "description": "Your GitHub access token.",
-      "documentationUrl": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
-    }
-  },
-  "extensions": [
-    "ms-python.python"
+
+  "runArgs": [
+      "--user",
+      "vscode"
   ],
-  "postCreateCommand": [
-    "pip install -v PyGithub",
-    "chmod +x pr-report.sh",
-    "chmod +x merge-report.sh",
-    "code code-snippets.md"
-  ]
+
+  "extensions": [
+      "ms-python.python"
+  ],
+
+  "settings": {
+      "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  "forwardPorts": [
+      8000
+  ],
+
+  "appPort": 8000,
+
+  "postCreateCommand": "pip install PyGithub"
 }
