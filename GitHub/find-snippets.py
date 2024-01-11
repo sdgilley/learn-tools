@@ -37,6 +37,7 @@ start_time = time.time()
 repo = h.connect_repo(repo_name)
 contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
+print(f"Starting search at {start_time}")
 # look through the markdown files in the repo
 for content_file in contents:
     # Check if the file is a markdown file
@@ -79,7 +80,7 @@ for ref in refs:
 f.close()
 
 # report the branches in use
-print(f"Branches referenced in {repo_name} {repo_branch}:")
+print(f"References found in {repo_name} {repo_branch}:")
 print (branches.to_string(index=False, header=False, justify='left'))
 
 # Record the end time
