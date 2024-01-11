@@ -4,12 +4,13 @@ You can perform all maintenance tasks in Codespaces, with no additional setup ne
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
 
+(Add your [GH_ACCESS_TOKEN](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as a [Codespace secret](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces) to use in the repository sdgilley/learn-tools.)
 
 ## Daily tasks
 
 1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me )
 
-1. For each PR number that you need to investigate, in the terminal, run:
+1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to investigate, in the terminal, run:
 
     ```bash
     ./pr.sh <pr-number>
