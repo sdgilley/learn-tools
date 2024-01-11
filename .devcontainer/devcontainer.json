@@ -2,12 +2,17 @@
   "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
   },
-  "extensions": [
+  "secrets": {
+    "GH_ACCESS_TOKEN": {
+      "description": "Your GitHub access token.",
+      "documentationUrl": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
+    },
+  "extensions": {
     "ms-python.python"
-  ],
-  "postCreateCommand": [
-    "pip install pyGithub"
-    "chmod +x pr-report.sh"
+    },
+  "postCreateCommand": {
+    "pip install pyGithub",
+    "chmod +x pr-report.sh",
     "chmod +x merge-report.py"
-  ]
+  }
 }
