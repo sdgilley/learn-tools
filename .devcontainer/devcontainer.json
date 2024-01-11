@@ -12,7 +12,7 @@
     "ms-python.python"
   ],
   "postCreateCommand": [
-    "pip install PyGithub",
+    "pip install -v PyGithub",
     "chmod +x pr-report.sh",
     "chmod +x merge-report.sh",
     "code code-snippets.md"
