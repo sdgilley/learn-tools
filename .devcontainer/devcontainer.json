@@ -6,13 +6,14 @@
     "GH_ACCESS_TOKEN": {
       "description": "Your GitHub access token.",
       "documentationUrl": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens"
-    },
-  "extensions": {
+    }
+  },
+  "extensions": [
     "ms-python.python"
-    },
-  "postCreateCommand": {
+  ],
+  "postCreateCommand": [
     "pip install pyGithub",
     "chmod +x pr-report.sh",
     "chmod +x merge-report.py"
-  }
+  ]
 }
