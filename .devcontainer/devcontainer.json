@@ -14,6 +14,7 @@
   "postCreateCommand": [
     "pip install pyGithub",
     "chmod +x pr-report.sh",
-    "chmod +x merge-report.sh"
+    "chmod +x merge-report.sh",
+    "code /workspace/code-snippets.md"
   ]
 }
