@@ -12,9 +12,9 @@ import os
 import re
 import sys
 import utilities as h
-from github import Github
 import pandas as pd
-import time
+from datetime import datetime
+
 
 ###################### INPUT HERE ############################
 # Name the path to your repo. If trying to use a private repo, you'll need a token that has access to it.
@@ -32,13 +32,12 @@ found = pd.DataFrame(columns=['ref_file', 'from_file'])
 dict_list = []
 branches = []
 # Record the start time
-start_time = time.time()
+start_time = datetime.now()
 # Read files from GitHub  
 repo = h.connect_repo(repo_name)
 contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
-print(f"Starting search at {start_time}")
-# look through the markdown files in the repo
+print(f"Starting search at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 for content_file in contents:
     # Check if the file is a markdown file
     if content_file.path.endswith(".md"):
@@ -84,7 +83,7 @@ print(f"References found in {repo_name} {repo_branch}:")
 print (branches.to_string(index=False, header=False, justify='left'))
 
 # Record the end time
-end_time = time.time()
+end_time = datetime.now()
 
 # Calculate the elapsed time
 elapsed_time = end_time - start_time
