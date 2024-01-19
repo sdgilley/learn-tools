@@ -29,7 +29,7 @@ response = requests.get(url)
 # Convert the response to JSON
 data = response.json()
 
-print(f"\n============================== MERGED IN LAST {args.days} DAYS ==============================\n")
+print(f"\n====================== {datetime.now().date()} MERGED IN LAST {args.days} DAYS ======================\n")
 # Filter the PRs that were merged in the last 7 days
 merged_prs = [pr['number'] for pr in data if pr['merged_at'] and pr['merged_at'] > days_ago]
 print (f"Total PRs merged: {len(merged_prs)}")

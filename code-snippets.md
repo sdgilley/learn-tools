@@ -41,6 +41,8 @@ Once your secret is stored, perform all maintenance tasks using the button below
     ./merge.sh
     ```
 
+    The report will show PRs merged in the last 8 days.  (The extra day insures that you don't miss a merge that happened after your report 7 days ago.)
+
 1. If longer than 7 days since last run:
 
     ```bash
@@ -48,3 +50,4 @@ Once your secret is stored, perform all maintenance tasks using the button below
     ```
 
 1. Modify the files in azure-docs-pr as listed in the report.
+1. Copy the report output to your work item.  This will let you see when it was last run, so that you can adjust days accordingly for your next report.  

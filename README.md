@@ -23,7 +23,7 @@ Scripts in the GitHub folder are used to help us maintain our code references.  
 * [pr-report.py](GitHub/pr-report.py) - Use this to evaluate whether a PR in azureml-examples will cause problems in
     our docs build.  If you're using it for the first time in a while, first run [find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
 * [merge-report.py](GitHub/merge-report.py) - Use this to see what PRs in azureml-examples have merged 
-    in the last N days that might require a docs update (default is 7 days). If you're using it for the first time in a while, first run[find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
+    in the last N days that might require a docs update (default is 8 days). If you're using it for the first time in a while, first run[find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
 
 The following files provide functions used in the above scripts:
 
@@ -32,7 +32,7 @@ The following files provide functions used in the above scripts:
     
     You'll need to set a GH_ACCESS_TOKEN environment variable before using auth-request.py. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens to create a token.  Then add the token to an environment variable called GH_ACCESS_TOKEN.
 
-The following shortcut commands are available for Github merge and pr reports:
+These shortcut commands are available for Github merge and pr reports:
 
 ```bash
 ./merge.sh 
