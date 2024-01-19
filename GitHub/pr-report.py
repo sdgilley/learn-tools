@@ -18,9 +18,7 @@ To decide if the PR is safe to merge:
 `
 '''
 
-import requests
 import pandas as pd
-import os
 import sys
 import auth_request as a
 import utilities as h
