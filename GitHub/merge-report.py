@@ -8,7 +8,7 @@ import utilities as h
 
 # Create the parser
 parser = argparse.ArgumentParser(description='Find number of days.')
-parser.add_argument('days', type=int, default=7, nargs='?', help='For how many days?') # Add optional arguments
+parser.add_argument('days', type=int, default=8, nargs='?', help='For how many days?') # Add optional arguments
 args = parser.parse_args() # Parse the arguments
 
 snippets = h.read_snippets() # read the snippets file
