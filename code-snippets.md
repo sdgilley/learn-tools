@@ -2,6 +2,8 @@
 
 Store your [GH_ACCESS_TOKEN](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as a [Codespace secret](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces) to use in the repository sdgilley/learn-tools. 
 
+> Make sure you [configure the SSO for your github token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) to work with **MicrosoftDocs**. 
+
 Once your secret is stored, perform all maintenance tasks using the button below to open this repo in GitHub Codespaces, with no additional setup needed. Then use the Codespace terminal to run the scripts.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
