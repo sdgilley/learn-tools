@@ -14,7 +14,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to investigate, in the terminal, run:
 
     ```bash
-    ./pr.sh <pr-number>
+    python pr-report.py <PR number> 
     ```
 
 1. Approve if no issues reported.
@@ -38,7 +38,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. Run the merge report.  If last run 7 days ago, simply run:
 
     ```bash
-    ./merge.sh
+    python GitHub/merge-report.py 
     ```
 
     The report will show PRs merged in the last 8 days.  (The extra day insures that you don't miss a merge that happened after your report 7 days ago.)
@@ -46,7 +46,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. If longer than 7 days since last run:
 
     ```bash
-    ./merge.sh <days>
+    python GitHub/merge-report.py <days>
     ```
 
 1. Modify the files in azure-docs-pr as listed in the report.
