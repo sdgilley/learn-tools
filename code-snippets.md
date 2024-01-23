@@ -14,7 +14,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to investigate, in the terminal, run:
 
     ```bash
-    python pr-report.py <PR number> 
+    python GitHub/pr-report.py <PR number> 
     ```
 
 1. Approve if no issues reported.
