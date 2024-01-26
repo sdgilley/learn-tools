@@ -38,7 +38,7 @@ def cleanup_matches(match):
 # Then searches for notebook cells or code snippets the were added/deleted.
 # Returns a tuple with a boolean for whether the file is a notebook, 
 # a list of added cells, and a list of deleted cells.
-def find_changes(thisfile, prfiles):
+def find_changes(thisfile, prfiles, blob_url):
     import re
     patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
     nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
@@ -62,7 +62,7 @@ def find_changes(thisfile, prfiles):
         else:
             print("ERROR in utilities.py find_changes. The match was not an add or delete.")
 
-    return(nb, adds, deletes) 
+    return(nb, adds, deletes, blob_url) 
 
 # function to read local file - try utf-8 first, then latin-1
 def read_file(file_path):

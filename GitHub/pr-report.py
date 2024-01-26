@@ -48,7 +48,7 @@ if 'message' in prfiles:
     sys.exit()
 else:
     deleted_files = [file['filename'] for file in prfiles if file['status'] == 'removed']
-    modified_files = [file['filename'] for file in prfiles if file['status'] == 'modified']
+    modified_files = [(file['filename'], file['blob_url']) for file in prfiles if file['status'] == 'modified']    
     added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
 
 
@@ -61,12 +61,16 @@ deleted = len(deleted_files)
 print(f"MODIFIED: {modified}") 
 
 data =[] # create an empty list to hold data for modified files that are referenced
+nb_mods = [] # create an empty list to hold data for modified notebooks
 if modified > 0:
-    for file in modified_files:
+    for file, blob_url in modified_files:
         if (snippets['ref_file'] == file).any():
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
             # Check if there are deleted nb named cells or code comments
-            nb, adds, deletes = h.find_changes(file, prfiles)
+            nb, adds, deletes, blob_url = h.find_changes(file, prfiles, blob_url)
+            if nb:
+                nb_mods.append(blob_url)
+                # print("added to nb_mods: ", file)
             deleted_cells = [value for value in deletes if value not in adds]
             if deleted_cells:
                 cell_type = "Notebook" if nb else "Code"
@@ -100,6 +104,12 @@ else:
         # compare the sha to this same file in branch "temp-fix"
         h.compare_branches(repo, file, "main", "temp-fix")
         print()
+    # also print all the modified notebooks
+if nb_mods:
+    print("\nMODIFIED NOTEBOOKS\nMake sure each of these notebooks are valid:")
+    nb_mods = list(set(nb_mods)) # remove duplicates
+    for file in nb_mods:
+        print(f"* {file}\n")
 print(f"DELETED: {deleted}")
 if deleted > 0:
     found = 0
@@ -110,7 +120,7 @@ if deleted > 0:
             print(f"DELETED FILE: {file} \n  Referenced in:")
             refs = snippet_match.to_string(index=False).split('\n')
             for ref in refs:
-                print(f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
+                print(f"* https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
            # print(snippet_match.to_string(index=False))
             h.compare_branches(repo, file, "main", "temp-fix")
             found = +1
