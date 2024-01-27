@@ -106,7 +106,7 @@ else:
         print()
     # also print all the modified notebooks
 if nb_mods:
-    print("\nMODIFIED NOTEBOOKS\nMake sure each of these notebooks are valid:")
+    print("MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid:")
     nb_mods = list(set(nb_mods)) # remove duplicates
     for file in nb_mods:
         print(f"* {file}\n")

@@ -87,6 +87,8 @@ else:
     # FINALLY, print the list of files that need to be updated
     print("\n** Add 'update-code' to ms.custom metadata (or modify if already present) to the following files:")
     refs = df['Referenced In'].str.split('\n').explode().str.strip()
+    i = 0
     for ref in sorted(refs.unique()):
-        print(f"  {ref.strip()}")
+        i += 1
+        print(f"{i}  {ref.strip()}")
 print(f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n")

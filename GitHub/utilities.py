@@ -39,6 +39,7 @@ def cleanup_matches(match):
 # Returns a tuple with a boolean for whether the file is a notebook, 
 # a list of added cells, and a list of deleted cells.
 def find_changes(thisfile, prfiles, blob_url):
+    # pass blob_url back so we can preview the file in the report.
     import re
     patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
     nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
