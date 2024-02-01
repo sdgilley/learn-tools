@@ -8,9 +8,6 @@ Then run from command line:
 
     python pr-report.py <PR number> 
 
-If you get a warning that only first 100 are shown, add "True" to the end of the command line:
-
-    python pr-report.py <PR number> True
 
 To decide if the PR is safe to merge:
 * If any deleted cell in a MODIFIED file is referenced in azure-docs-pr, PR is not ready to merge
