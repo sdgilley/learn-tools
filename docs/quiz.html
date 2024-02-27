@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz</title>
+    <script>
+        function calculateScore() {
+            var score = 0;
+            var answers = document.getElementsByClassName('answer');
+            for (var i = 0; i < answers.length; i++) {
+                if (answers[i].checked) {
+                    score += parseInt(answers[i].value);
+                }
+            }
+            var scoreElement = document.getElementById('score');
+            scoreElement.innerText = "Your score is: " + score;
+            if (score <= 2) {
+                scoreElement.innerHTML += '<br><a href="https://example.com/page#low-score">Click here for low score resources</a>';
+            } else if (score > 2) {
+                scoreElement.innerHTML += '<br><a href="https://example.com/page#high-score">Click here for high score resources</a>';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form>
+        <p>Question 1</p>
+        <input type="radio" class="answer" name="question1" value="1"> Answer 1<br>
+        <input type="radio" class="answer" name="question1" value="2"> Answer 2<br>
+
+        <p>Question 2</p>
+        <input type="radio" class="answer" name="question2" value="1"> Answer 1<br>
+        <input type="radio" class="answer" name="question2" value="2"> Answer 2<br>
+
+        <input type="button" value="Submit" onclick="calculateScore()">
+    </form>
+    <p id="score"></p>
+</body>
+</html>
