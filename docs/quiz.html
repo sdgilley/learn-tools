@@ -14,9 +14,9 @@
             var scoreElement = document.getElementById('score');
             scoreElement.innerText = "Your score is: " + score;
             if (score <= 2) {
-                scoreElement.innerHTML += '<br><a href="https://example.com/page#low-score">Click here for low score resources</a>';
+                scoreElement.innerHTML += '<br><a href="example.html#low">You\'re a beginner</a>';
             } else if (score > 2) {
-                scoreElement.innerHTML += '<br><a href="https://example.com/page#high-score">Click here for high score resources</a>';
+                scoreElement.innerHTML += '<br><a href="https://example.com/page#high">You\'re experienced</a>';
             }
         }
     </script>
