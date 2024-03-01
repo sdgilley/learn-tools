@@ -175,6 +175,9 @@
 /cli/jobs/spark/serverless-spark-standalone-user-identity.yaml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/spark/spark-job-component.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/misc.sh @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/cli/monitoring/advanced-model-monitoring.yaml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/cli/monitoring/model-monitoring-with-collected-data.yaml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/cli/monitoring/out-of-box-monitoring.yaml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/resources/compute/cluster-basic.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/resources/compute/cluster-location.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/resources/compute/cluster-low-priority.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
