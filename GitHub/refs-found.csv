@@ -1,7 +1,7 @@
 ref_file,from_file
+cli/assets/component/train.yml,how-to-manage-inputs-outputs-pipeline.md
 cli/assets/component/train.yml,reference-yaml-component-command.md
 cli/assets/component/train.yml,reference-yaml-core-syntax.md
-cli/assets/component/train.yml,how-to-manage-inputs-outputs-pipeline.md
 cli/assets/data/cloud-file-https.yml,reference-yaml-data.md
 cli/assets/data/cloud-file-wasbs.yml,reference-yaml-data.md
 cli/assets/data/cloud-file.yml,reference-yaml-data.md
@@ -10,15 +10,15 @@ cli/assets/data/cloud-folder-wasbs.yml,reference-yaml-data.md
 cli/assets/data/cloud-folder.yml,reference-yaml-data.md
 cli/assets/data/local-file.yml,reference-yaml-data.md
 cli/assets/data/local-folder.yml,reference-yaml-data.md
-cli/assets/environment/docker-context.yml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-context.yml,reference-yaml-environment.md
+cli/assets/environment/docker-context.yml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-image-plus-conda.yaml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-image-plus-conda.yaml,reference-yaml-environment.md
 cli/assets/environment/docker-image.yml,how-to-identity-based-service-authentication.md
 cli/assets/environment/docker-image.yml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-image.yml,reference-yaml-environment.md
-cli/assets/model/local-file.yml,reference-yaml-model.md
 cli/assets/model/local-file.yml,how-to-manage-models.md
+cli/assets/model/local-file.yml,reference-yaml-model.md
 cli/assets/model/local-mlflow.yml,reference-yaml-model.md
 cli/deploy-custom-container-tfserving-half-plus-two.sh,how-to-deploy-custom-container.md
 cli/deploy-local-endpoint.sh,how-to-deploy-online-endpoints.md
@@ -30,8 +30,8 @@ cli/deploy-managed-online-endpoint.sh,how-to-deploy-online-endpoints.md
 cli/deploy-mlcompute-update-to-system-identity.sh,how-to-identity-based-service-authentication.md
 cli/deploy-mlcompute-update-to-user-identity.sh,how-to-identity-based-service-authentication.md
 cli/deploy-moe-autoscale.sh,how-to-autoscale-endpoints.md
-cli/deploy-rest.sh,how-to-deploy-with-rest.md
 cli/deploy-rest.sh,how-to-train-model.md
+cli/deploy-rest.sh,how-to-deploy-with-rest.md
 cli/deploy-safe-rollout-online-endpoints.sh,how-to-safely-rollout-online-endpoints.md
 cli/deploy-triton-managed-online-endpoint.sh,how-to-deploy-with-triton.md
 cli/endpoints/batch/deploy-models/custom-outputs-parquet/code/batch_driver.py,how-to-deploy-model-custom-output.md
@@ -41,8 +41,8 @@ cli/endpoints/batch/deploy-models/custom-outputs-parquet/endpoint.yml,how-to-dep
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deploy-and-run.sh,how-to-mlflow-batch.md
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/code/batch_driver.py,how-to-mlflow-batch.md
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-custom/deployment.yml,how-to-mlflow-batch.md
-cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-simple/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-simple/deployment.yml,how-to-mlflow-batch.md
+cli/endpoints/batch/deploy-models/heart-classifier-mlflow/deployment-simple/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/endpoint.yml,how-to-mlflow-batch.md
 cli/endpoints/batch/deploy-models/heart-classifier-mlflow/heart-dataset-unlabeled.yml,how-to-mlflow-batch.md
 cli/endpoints/batch/deploy-models/huggingface-text-summarization/code/batch_driver.py,how-to-nlp-processing-batch.md
@@ -63,13 +63,13 @@ cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/code/batch_d
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/deployment.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-keras/environment/conda.yaml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_driver.py,how-to-use-batch-model-deployments.md
-cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,reference-yaml-deployment-batch.md
+cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,how-to-batch-scoring-script.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml,how-to-batch-scoring-script.md
-cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml,reference-yaml-endpoint-batch.md
+cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/openai-embeddings/code/batch_driver.py,how-to-use-batch-model-openai-embeddings.md
 cli/endpoints/batch/deploy-models/openai-embeddings/deploy-and-run.sh,how-to-use-batch-model-openai-embeddings.md
 cli/endpoints/batch/deploy-models/openai-embeddings/deployment.yml,how-to-use-batch-model-openai-embeddings.md
@@ -84,11 +84,11 @@ cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/environmen
 cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/inputs.yml,how-to-use-batch-scoring-pipeline.md
 cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/pipeline-job.yml,how-to-use-batch-scoring-pipeline.md
 cli/endpoints/batch/deploy-pipelines/batch-scoring-with-preprocessing/pipeline.yml,how-to-use-batch-scoring-pipeline.md
-cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh,how-to-use-batch-pipeline-deployments.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh,how-to-use-batch-pipeline-from-job.md
+cli/endpoints/batch/deploy-pipelines/hello-batch/deploy-and-run.sh,how-to-use-batch-pipeline-deployments.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/deployment-from-job.yml,how-to-use-batch-pipeline-from-job.md
-cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml,how-to-use-batch-pipeline-deployments.md
+cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml,how-to-use-batch-pipeline-deployments.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml,how-to-use-batch-pipeline-from-job.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/hello-component/hello.yml,how-to-use-batch-pipeline-deployments.md
@@ -105,11 +105,11 @@ cli/endpoints/batch/deploy-pipelines/training-with-components/environment/xgboos
 cli/endpoints/batch/deploy-pipelines/training-with-components/inputs.yml,how-to-use-batch-training-pipeline.md
 cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-deployment.yml,how-to-deploy-custom-container.md
 cli/endpoints/online/custom-container/tfserving/half-plus-two/tfserving-endpoint.yml,how-to-deploy-custom-container.md
-cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh,how-to-package-models.md
+cli/endpoints/online/deploy-with-packages/custom-model/deploy.sh,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/deployment.yml,how-to-package-models-moe.md
-cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml,how-to-package-models.md
+cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml,how-to-package-models.md
@@ -128,14 +128,14 @@ cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml,refere
 cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml,reference-yaml-deployment-managed-online.md
 cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml,how-to-access-resources-from-endpoints-managed-identities.md
-cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml,reference-yaml-deployment-managed-online.md
 cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml,how-to-access-resources-from-endpoints-managed-identities.md
+cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml,reference-yaml-deployment-managed-online.md
 cli/endpoints/online/managed/sample/blue-deployment.yml,how-to-deploy-automl-endpoint.md
 cli/endpoints/online/managed/sample/blue-deployment.yml,how-to-deploy-online-endpoints.md
-cli/endpoints/online/managed/sample/blue-deployment.yml,how-to-safely-rollout-online-endpoints.md
 cli/endpoints/online/managed/sample/blue-deployment.yml,reference-yaml-deployment-managed-online.md
-cli/endpoints/online/managed/sample/endpoint.yml,how-to-deploy-automl-endpoint.md
+cli/endpoints/online/managed/sample/blue-deployment.yml,how-to-safely-rollout-online-endpoints.md
 cli/endpoints/online/managed/sample/endpoint.yml,how-to-deploy-online-endpoints.md
+cli/endpoints/online/managed/sample/endpoint.yml,how-to-deploy-automl-endpoint.md
 cli/endpoints/online/managed/sample/endpoint.yml,reference-yaml-endpoint-online.md
 cli/endpoints/online/managed/sample/endpoint.yml,how-to-safely-rollout-online-endpoints.md
 cli/endpoints/online/managed/sample/green-deployment.yml,reference-yaml-deployment-managed-online.md
@@ -181,8 +181,8 @@ cli/jobs/basics/hello-world-output.yml,reference-yaml-job-command.md
 cli/jobs/basics/hello-world.yml,reference-yaml-job-command.md
 cli/jobs/basics/src/hello-mlflow.py,how-to-use-mlflow-cli-runs.md
 cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline-serverless.yml,how-to-use-serverless-compute.md
-cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml,how-to-manage-inputs-outputs-pipeline.md
 cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml,how-to-create-component-pipelines-cli.md
+cli/jobs/pipelines-with-components/basics/1b_e2e_registered_components/pipeline.yml,how-to-manage-inputs-outputs-pipeline.md
 cli/jobs/pipelines-with-components/basics/2a_basic_component/component.yml,reference-yaml-component-command.md
 cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/componentA.yml,how-to-create-component-pipelines-cli.md
 cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml,how-to-create-component-pipelines-cli.md
@@ -199,8 +199,8 @@ cli/jobs/pipelines/automl/image-multiclass-classification-fridge-items-pipeline/
 cli/jobs/pipelines/automl/image-multilabel-classification-fridge-items-pipeline/pipeline.yml,reference-automl-images-cli-multilabel-classification.md
 cli/jobs/pipelines/automl/image-object-detection-task-fridge-items-pipeline/pipeline.yml,reference-automl-images-cli-object-detection.md
 cli/jobs/pipelines/cifar-10/job.yml,reference-yaml-job-pipeline.md
-cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml,reference-yaml-job-parallel.md
 cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml,how-to-use-parallel-job-in-pipeline.md
+cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml,reference-yaml-job-parallel.md
 cli/jobs/single-step/pytorch/cifar-distributed/job.yml,reference-yaml-job-command.md
 cli/jobs/single-step/r/iris/job.yml,reference-yaml-job-command.md
 cli/jobs/single-step/scikit-learn/iris/job-sweep.yml,reference-yaml-job-sweep.md
@@ -212,13 +212,17 @@ cli/jobs/spark/attached-spark-pipeline-user-identity.yml,reference-yaml-componen
 cli/jobs/spark/attached-spark-standalone-managed-identity.yml,reference-yaml-job-spark.md
 cli/jobs/spark/serverless-spark-standalone-user-identity.yaml,reference-yaml-job-spark.md
 cli/jobs/spark/spark-job-component.yml,reference-yaml-component-spark.md
-cli/misc.sh,how-to-deploy-automl-endpoint.md
+cli/misc.sh,concept-azure-machine-learning-v2.md
 cli/misc.sh,how-to-configure-cli.md
+cli/misc.sh,how-to-deploy-automl-endpoint.md
+cli/monitoring/advanced-model-monitoring.yaml,how-to-monitor-model-performance.md
+cli/monitoring/model-monitoring-with-collected-data.yaml,how-to-monitor-model-performance.md
+cli/monitoring/out-of-box-monitoring.yaml,how-to-monitor-model-performance.md
 cli/resources/compute/cluster-basic.yml,reference-yaml-compute-aml.md
-cli/resources/compute/cluster-location.yml,how-to-create-attach-compute-cluster.md
 cli/resources/compute/cluster-location.yml,reference-yaml-compute-aml.md
-cli/resources/compute/cluster-low-priority.yml,reference-yaml-compute-aml.md
+cli/resources/compute/cluster-location.yml,how-to-create-attach-compute-cluster.md
 cli/resources/compute/cluster-low-priority.yml,how-to-create-attach-compute-cluster.md
+cli/resources/compute/cluster-low-priority.yml,reference-yaml-compute-aml.md
 cli/resources/compute/cluster-minimal.yml,reference-yaml-compute-aml.md
 cli/resources/compute/cluster-ssh-password.yml,reference-yaml-compute-aml.md
 cli/resources/compute/cluster-system-identity.yml,how-to-identity-based-service-authentication.md
@@ -247,25 +251,25 @@ cli/resources/workspace/cmk.yml,how-to-manage-workspace-cli.md
 cli/resources/workspace/hbi.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-internet-outbound.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-only-approved-outbound.yml,reference-yaml-workspace.md
-cli/resources/workspace/privatelink.yml,how-to-configure-private-link.md
-cli/resources/workspace/privatelink.yml,reference-yaml-workspace.md
 cli/resources/workspace/privatelink.yml,how-to-manage-workspace-cli.md
-cli/resources/workspace/with-existing-resources.yml,how-to-manage-workspace-cli.md
+cli/resources/workspace/privatelink.yml,reference-yaml-workspace.md
+cli/resources/workspace/privatelink.yml,how-to-configure-private-link.md
 cli/resources/workspace/with-existing-resources.yml,reference-yaml-workspace.md
-cli/schedules/cron-job-schedule.yml,how-to-schedule-pipeline-job.md
+cli/resources/workspace/with-existing-resources.yml,how-to-manage-workspace-cli.md
 cli/schedules/cron-job-schedule.yml,reference-yaml-schedule.md
+cli/schedules/cron-job-schedule.yml,how-to-schedule-pipeline-job.md
 cli/schedules/cron-job-schedule.yml,reference-yaml-monitor.md
 cli/schedules/cron-with-settings-job-schedule.yml,how-to-schedule-pipeline-job.md
-cli/schedules/recurrence-job-schedule.yml,how-to-schedule-pipeline-job.md
 cli/schedules/recurrence-job-schedule.yml,reference-yaml-schedule.md
+cli/schedules/recurrence-job-schedule.yml,how-to-schedule-pipeline-job.md
 cli/schedules/recurrence-job-schedule.yml,reference-yaml-monitor.md
-cli/schedules/schedule.sh,how-to-schedule-data-import.md
 cli/schedules/schedule.sh,how-to-schedule-pipeline-job.md
-cli/setup.sh,how-to-configure-cli.md
+cli/schedules/schedule.sh,how-to-schedule-data-import.md
 cli/setup.sh,how-to-deploy-automl-endpoint.md
+cli/setup.sh,how-to-configure-cli.md
 cli/train.sh,how-to-train-model.md
-deploy-arm-templates-az-cli.sh,how-to-train-model.md
 deploy-arm-templates-az-cli.sh,how-to-deploy-online-endpoints.md
+deploy-arm-templates-az-cli.sh,how-to-train-model.md
 sdk/python/assets/environment/environment.ipynb,how-to-manage-environments-v2.md
 sdk/python/assets/model/model.ipynb,how-to-manage-models.md
 sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb,how-to-deploy-model-custom-output.md
@@ -277,8 +281,8 @@ sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipyn
 sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb,how-to-use-batch-training-pipeline.md
 sdk/python/endpoints/online/deploy-with-packages/custom-model/sdk-deploy-and-test.ipynb,how-to-package-models-moe.md
 sdk/python/endpoints/online/deploy-with-packages/custom-model/sdk-deploy-and-test.ipynb,how-to-package-models.md
-sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb,concept-package-models.md
 sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb,how-to-package-models-app-service.md
+sdk/python/endpoints/online/deploy-with-packages/mlflow-model/sdk-deploy-and-test.ipynb,concept-package-models.md
 sdk/python/endpoints/online/deploy-with-packages/registry-model/sdk-deploy-and-test.ipynb,how-to-package-models.md
 sdk/python/endpoints/online/managed/debug-online-endpoints-locally-in-visual-studio-code.ipynb,how-to-debug-managed-online-endpoints-visual-studio-code.md
 sdk/python/endpoints/online/managed/managed-identities/online-endpoints-managed-identity-sai.ipynb,how-to-access-resources-from-endpoints-managed-identities.md
@@ -290,18 +294,18 @@ sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set an
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb,tutorial-experiment-train-models-using-features.md
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb,tutorial-enable-recurrent-materialization-run-batch-inference.md
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb,tutorial-network-isolation-for-feature-store.md
-sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb,tutorial-get-started-with-feature-store.md
 sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb,feature-set-materialization-concepts.md
+sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb,tutorial-get-started-with-feature-store.md
 sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb,tutorial-experiment-train-models-using-features.md
 sdk/python/featurestore_sample/notebooks/sdk_only/3. Enable recurrent materialization and run batch inference.ipynb,tutorial-enable-recurrent-materialization-run-batch-inference.md
 sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb,feature-set-materialization-concepts.md
 sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb,tutorial-online-materialization-inference.md
 sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb,tutorial-develop-feature-set-with-custom-source.md
 sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb,how-to-use-serverless-compute.md
-sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,tutorial-auto-train-image-models.md
-sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-prepare-datasets-for-automl-images.md
-sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-auto-train-image-models.md
 sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,reference-automl-images-schema.md
+sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-prepare-datasets-for-automl-images.md
+sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,tutorial-auto-train-image-models.md
+sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-auto-train-image-models.md
 sdk/python/jobs/configuration.ipynb,how-to-auto-train-forecast.md
 sdk/python/jobs/configuration.ipynb,how-to-train-model.md
 sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb,how-to-use-serverless-compute.md
@@ -323,12 +327,12 @@ sdk/python/jobs/single-step/tensorflow/mnist-distributed-horovod/tensorflow-mnis
 sdk/python/jobs/single-step/tensorflow/mnist-distributed/tensorflow-mnist-distributed.ipynb,how-to-train-distributed-gpu.md
 sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb,how-to-train-keras.md
 sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb,how-to-train-tensorflow.md
-sdk/python/resources/compute/compute.ipynb,how-to-create-attach-compute-cluster.md
 sdk/python/resources/compute/compute.ipynb,how-to-manage-compute-instance.md
 sdk/python/resources/compute/compute.ipynb,how-to-create-compute-instance.md
+sdk/python/resources/compute/compute.ipynb,how-to-create-attach-compute-cluster.md
 sdk/python/resources/workspace/workspace.ipynb,how-to-manage-workspace.md
-sdk/python/schedules/job-schedule.ipynb,how-to-schedule-data-import.md
 sdk/python/schedules/job-schedule.ipynb,how-to-schedule-pipeline-job.md
+sdk/python/schedules/job-schedule.ipynb,how-to-schedule-data-import.md
 sdk/python/using-mlflow/deploy/environment/conda.yaml,how-to-use-mlflow-cli-runs.md
 sdk/python/using-mlflow/deploy/model/conda.yaml,how-to-deploy-mlflow-model-spark-jobs.md
 setup/setup-ci/install-pip-package.sh,how-to-customize-compute-instance.md
