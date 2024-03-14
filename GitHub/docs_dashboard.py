@@ -19,12 +19,15 @@ def write_readme(notebooks):
     for notebook in notebooks:
         workflow = notebook.replace('/', '-')
         workflow = workflow[1:] # get rid of leading '-'
-        workflow_name = os.path.splitext(workflow)[0] + ".yml" # replace extension with .yml
-        # print(workflow_name)
+        workflow = workflow.replace('sdk-python','sdk') # special case for python files
+
+        workflow_badge = os.path.splitext(workflow)[0] + ".yml" # replace extension with .yml
+
+        # print(workflow_badge)
         file = notebook.split('/')[-1].replace('.', '&#46;') # last part of the path is the file name
         file_name = os.path.splitext(file)[0]
         # print(f"FILE: {file}, File name: {file_name}")
-        status = f"[![{file_name}]({wf_link}/{workflow_name}/badge.svg?branch=main)]({wf_link}/{workflow})"
+        status = f"[![{file_name}]({wf_link}/{workflow_badge}/badge.svg?branch=main)]({wf_link}/{workflow})"
         row = f"|{status} | [{file}]({gh_link}/{notebook})|\n"
         f.write(row)
     print("finished writing DASHBOARD...")

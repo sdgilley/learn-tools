@@ -12,6 +12,7 @@ user_input = user_input.split('?')[0].replace('~/azureml-examples-','')
 branch = user_input.split('/')[0].strip()
 file = user_input.replace(f'{branch}/','').strip()
 wf = file.replace('/','-') # workflow file name uses - for each / in the file path
+wf = wf.replace('sdk-python','sdk') # special case for python files
 
 wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
 gh_link = f"https://github.com/Azure/azureml-examples/blob/{branch}" # where to find the files
