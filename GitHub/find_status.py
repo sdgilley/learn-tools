@@ -9,8 +9,8 @@ if 'user_input' not in globals():
 #strip out the query string and ~/azureml-examples- from the input
 user_input = user_input.split('?')[0].replace('~/azureml-examples-','')
 # the first part of the string is now the branch
-branch = user_input.split('/')[0]
-file = user_input.replace(f'{branch}/','')
+branch = user_input.split('/')[0].strip()
+file = user_input.replace(f'{branch}/','').strip()
 wf = file.replace('/','-') # workflow file name uses - for each / in the file path
 
 wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
