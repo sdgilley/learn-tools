@@ -251,11 +251,11 @@ cli/resources/workspace/cmk.yml,how-to-manage-workspace-cli.md
 cli/resources/workspace/hbi.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-internet-outbound.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-only-approved-outbound.yml,reference-yaml-workspace.md
-cli/resources/workspace/privatelink.yml,how-to-manage-workspace-cli.md
 cli/resources/workspace/privatelink.yml,reference-yaml-workspace.md
+cli/resources/workspace/privatelink.yml,how-to-manage-workspace-cli.md
 cli/resources/workspace/privatelink.yml,how-to-configure-private-link.md
-cli/resources/workspace/with-existing-resources.yml,reference-yaml-workspace.md
 cli/resources/workspace/with-existing-resources.yml,how-to-manage-workspace-cli.md
+cli/resources/workspace/with-existing-resources.yml,reference-yaml-workspace.md
 cli/schedules/cron-job-schedule.yml,reference-yaml-schedule.md
 cli/schedules/cron-job-schedule.yml,how-to-schedule-pipeline-job.md
 cli/schedules/cron-job-schedule.yml,reference-yaml-monitor.md
@@ -268,8 +268,8 @@ cli/schedules/schedule.sh,how-to-schedule-data-import.md
 cli/setup.sh,how-to-deploy-automl-endpoint.md
 cli/setup.sh,how-to-configure-cli.md
 cli/train.sh,how-to-train-model.md
-deploy-arm-templates-az-cli.sh,how-to-deploy-online-endpoints.md
 deploy-arm-templates-az-cli.sh,how-to-train-model.md
+deploy-arm-templates-az-cli.sh,how-to-deploy-online-endpoints.md
 sdk/python/assets/environment/environment.ipynb,how-to-manage-environments-v2.md
 sdk/python/assets/model/model.ipynb,how-to-manage-models.md
 sdk/python/endpoints/batch/deploy-models/custom-outputs-parquet/custom-output-batch.ipynb,how-to-deploy-model-custom-output.md
@@ -293,7 +293,6 @@ sdk/python/endpoints/online/mlflow/sklearn-diabetes/model/conda.yaml,how-to-depl
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/1. Develop a feature set and register with managed feature store.ipynb,tutorial-get-started-with-feature-store.md
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/2. Experiment and train models using features.ipynb,tutorial-experiment-train-models-using-features.md
 sdk/python/featurestore_sample/notebooks/sdk_and_cli/3. Enable recurrent materialization and run batch inference.ipynb,tutorial-enable-recurrent-materialization-run-batch-inference.md
-sdk/python/featurestore_sample/notebooks/sdk_and_cli/network_isolation/Network Isolation for Feature store.ipynb,tutorial-network-isolation-for-feature-store.md
 sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb,feature-set-materialization-concepts.md
 sdk/python/featurestore_sample/notebooks/sdk_only/1. Develop a feature set and register with managed feature store.ipynb,tutorial-get-started-with-feature-store.md
 sdk/python/featurestore_sample/notebooks/sdk_only/2. Experiment and train models using features.ipynb,tutorial-experiment-train-models-using-features.md
@@ -302,10 +301,10 @@ sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run
 sdk/python/featurestore_sample/notebooks/sdk_only/4. Enable online store and run online inference.ipynb,tutorial-online-materialization-inference.md
 sdk/python/featurestore_sample/notebooks/sdk_only/5. Develop a feature set with custom source.ipynb,tutorial-develop-feature-set-with-custom-source.md
 sdk/python/jobs/automl-standalone-jobs/automl-classification-task-bankmarketing/automl-classification-task-bankmarketing-serverless.ipynb,how-to-use-serverless-compute.md
-sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,reference-automl-images-schema.md
 sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-prepare-datasets-for-automl-images.md
 sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,tutorial-auto-train-image-models.md
 sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,how-to-auto-train-image-models.md
+sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb,reference-automl-images-schema.md
 sdk/python/jobs/configuration.ipynb,how-to-auto-train-forecast.md
 sdk/python/jobs/configuration.ipynb,how-to-train-model.md
 sdk/python/jobs/pipelines/1a_pipeline_with_components_from_yaml/pipeline_with_components_from_yaml_serverless.ipynb,how-to-use-serverless-compute.md
