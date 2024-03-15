@@ -28,6 +28,8 @@ def write_readme(notebooks):
         # print(workflow)
         file = notebook.split('/')[-1].replace('.', '&#46;') # last part of the path is the file name
         file_name = os.path.splitext(file)[0]
+        # now put back the spaces and dots in the file name for better readability
+        file = file.replace('%20', ' ').replace('&#46;', '.')
         # print(f"FILE: {file}, File name: {file_name}")
         status = f"[![{file_name}]({wf_link}/{workflow}/badge.svg?branch=main)]({wf_link}/{workflow})"
         row = f"|{status} | [{file}]({gh_link}/{notebook})|\n"
