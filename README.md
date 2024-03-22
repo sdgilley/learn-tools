@@ -25,6 +25,8 @@ Scripts in the GitHub folder are used to help us maintain our code references.  
 * [merge-report.py](GitHub/merge-report.py) - Use this to see what PRs in azureml-examples have merged 
     in the last N days that might require a docs update (default is 8 days). If you're using it for the first time in a while, first run[find-sippets.py](find-snippets.py) to get the most recent version of code snippets referenced by azure-docs.
 
+* [find-status.py](GitHub/find-status.py) - Use this script to see the associated file and workflow for a reference from a .md file.  From the command line, run `python GitHub/find-status.py`.  At the prompt, enter the full path to the file using the syntax in the markdown file (for example, `~/azureml-examples-main/sdk/python/resources/workspace/workspace.ipynb`)
+
 The following files provide functions used in the above scripts:
 
 * [utilities.py](GitHub/utilities.py) - functions used by find-snippets, pr-report, and merge-report
