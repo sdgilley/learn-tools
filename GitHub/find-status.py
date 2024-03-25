@@ -10,6 +10,9 @@ if len(sys.argv) > 1:
 # test cases - first one  has no workflow
 # user_input = "~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential"
 # user_input = "~/azureml-examples-main/cli/assets/component/train.yml"
+
+import os
+
 if 'user_input' not in globals():
     user_input = input("Enter the file path: ")
 #strip out the query string and ~/azureml-examples- from the input
