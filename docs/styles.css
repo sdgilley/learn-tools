@@ -55,3 +55,34 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
+
+.banner {
+    width: 100%;
+    height: 25px;
+    border: solid;
+    background-color: #333333;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.banner a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.banner a:hover {
+    text-decoration: underline;
+}
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+  }

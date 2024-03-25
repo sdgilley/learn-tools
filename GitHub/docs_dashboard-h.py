@@ -7,9 +7,7 @@ def get_notebooks(file_path):
     return lines
 
 def write_html(notebooks):
-    script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory that the script is in
-    html_file = os.path.join(script_dir,"DASHBOARD.html")
-
+    html_file = os.path.join("docs","dashboard.html")
     wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
     gh_link = "https://github.com/Azure/azureml-examples/blob/main" # where to find the files
     rows_by_extension = {}
@@ -35,6 +33,8 @@ def write_html(notebooks):
 
     with open(html_file, 'w') as file:
         file.write('<html>\n<head>\n<title>Code snippets dashboard</title>\n<link rel="stylesheet" type="text/css" href="styles.css">\n</head>\n<body>\n')
+        file.write('<div class="banner">\n<a href="index.html">Home</a> <span class="dot"></span>\n<a href="dashboard.html">Dashboard</a>\n</div>')
+        file.write('Jump to:\n<ul><a href=#.ipynb>notebooks</a></ul>\n<ul><a href=#.json>.json</a></ul>\n<ul><a href=#.py>.py</a></ul>\n<ul><a href=#.sh>.sh</a></ul>\n<ul><a href=#.yaml>.yaml</a></ul>\n<ul><a href=#.yml>.yml</a></ul>\n')
         for extension in sorted(rows_by_extension.keys()):
             rows = rows_by_extension[extension]            
             file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
