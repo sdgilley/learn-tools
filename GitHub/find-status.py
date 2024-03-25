@@ -1,5 +1,11 @@
 # input a ~/azureml-examples link and find the workflow status
 # example: ~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential
+import sys
+
+# read input if it is there.  otherwise we'll prompt for it.
+if len(sys.argv) > 1:
+    # The first argument from the command line
+    user_input = sys.argv[1]
 
 # test cases - first one  has no workflow
 # user_input = "~/azureml-examples-main/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential"
@@ -13,8 +19,9 @@ branch = user_input.split('/')[0].strip()
 file = user_input.replace(f'{branch}/','').strip()
 wf = file.replace('/','-') # workflow file name uses - for each / in the file path
 wf = wf.replace('sdk-python','sdk') # special case for python files
+wfname, wfext = os.path.splitext(wf)
 
 wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
 gh_link = f"https://github.com/Azure/azureml-examples/blob/{branch}" # where to find the files
-print(f'** Workflow: {wf_link}/{wf}')
+print(f'** Workflow: {wf_link}/{wfname}.yml')
 print(f'** File: {gh_link}/{file}')
