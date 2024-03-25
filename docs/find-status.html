@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find workflows and files for code snippets</title>
+</head>
+<body>
+    <h1>Enter snippet</h1>
+    Enter your code snippet here (including `/azureml-`) to find the workflow and file in the AzureML examples repository.
+    <form id="form">
+        <input type="text" id="user_input" name="user_input">
+        <input type="submit" value="Submit">
+    </form>
+    <p id="workflow_link"></p>
+    <p id="file_link"></p>
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let userInput = document.getElementById('user_input').value;
+
+            userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
+            const branch = userInput.split('/')[0].trim();
+            let file = userInput.replace(`${branch}/`, '').trim();
+            let wf = file.replace('/', '-');
+            wf = wf.replace('sdk-python', 'sdk');
+            const wfname = wf.split('.')[0];
+            const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
+            const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
+
+            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}">${wfLink}</a>`;
+            document.getElementById('file_link').innerHTML = `File: <a href="${ghLink}">${ghLink}</a>`;
+        });
+    </script>
+</body>
+</html>
