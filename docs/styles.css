@@ -35,13 +35,14 @@ a {
 }
 
 a:hover {
-    color: #45a049;
+    color: #39833c;
 }
 input[type=submit] {
     background-color: #4CAF50; /* Green */
-    border-radius: 20px;
+    border-radius: 10px;
+    border-color: #39833c;
     color: white;
-    padding: 5px 5px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
