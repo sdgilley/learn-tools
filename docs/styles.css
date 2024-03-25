@@ -56,6 +56,10 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+input[type="text"] {
+    width: 600px;  /* Adjust this value to your preference */
+}
+
 .banner {
     width: 100%;
     height: 25px;
