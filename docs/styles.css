@@ -30,12 +30,12 @@ tr:nth-child(even) {
 }
 
 a {
-    color: #333;
+    color: #4CAF50;
     text-decoration: none;
 }
 
 a:hover {
-    color: #4CAF50;
+    color: #45a049;
 }
 input[type=submit] {
     background-color: #4CAF50; /* Green */
