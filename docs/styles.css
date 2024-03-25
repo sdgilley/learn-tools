@@ -20,27 +20,18 @@ table, th, td {
     text-align: left;
 }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
 a {
-    color: #4CAF50;
+    color: #0078D4;
     text-decoration: none;
 }
 
 a:hover {
-    color: #39833c;
+    color: #00AAFF;
 }
 input[type=submit] {
-    background-color: #4CAF50; /* Green */
+    background-color: #0078D4; /* blue */
     border-radius: 10px;
-    border-color: #39833c;
+    border: none;
     color: white;
     padding: 5px 10px;
     text-align: center;
@@ -53,7 +44,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #00AAFF;
 }
 
 input[type="text"] {
@@ -63,11 +54,15 @@ input[type="text"] {
 .banner {
     width: 100%;
     height: 25px;
-    border: solid;
-    background-color: #333333;
+    border: none;
+    border-radius: 10px;
+    background-color:#0078D4;
     margin: auto;
     text-align: center;
     padding: 10px;
+}
+.mini-banner ul {
+    display: inline-block;
 }
 
 .banner a {
@@ -75,7 +70,7 @@ input[type="text"] {
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .banner a:hover {
