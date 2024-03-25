@@ -30,7 +30,8 @@
             userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
             const branch = userInput.split('/')[0].trim();
             let file = userInput.replace(`${branch}/`, '').trim();
-            let wf = file.replace('/', '-');
+            let wf = file.replace(/\//g, '-');
+            console.log(wf);
             wf = wf.replace('sdk-python', 'sdk');
             const wfname = wf.split('.')[0];
             const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
