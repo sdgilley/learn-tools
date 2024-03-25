@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Find workflows and files for code snippets</title>
+    <title>Azure Machine Learning code snippets</title>
 </head>
-<body>
-    <h1>Enter snippet</h1>
+<body style="margin: 50px;">
+    <h1>Azure Machine Learning code snippets</h1>
+    <h2>Find the workflow and file for a code snippet</h2>
     Enter your code snippet here (including `/azureml-`) to find the workflow and file in the AzureML examples repository.
     <form id="form">
         <input type="text" id="user_input" name="user_input">
@@ -12,6 +13,9 @@
     </form>
     <p id="workflow_link"></p>
     <p id="file_link"></p>
+
+    <h2>Dashboard</h2>
+    View the <a href="DASHBOARD.html">dashboard</a> to see the status of all code snippets.
 
     <script>
         document.getElementById('form').addEventListener('submit', function(event) {
