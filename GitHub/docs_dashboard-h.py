@@ -34,9 +34,10 @@ def write_html(notebooks):
         rows_by_extension[extension].append(row)
 
     with open(html_file, 'w') as file:
-        file.write('<html>\n<head>\n<title>Code snippets dashboard</title>\n</head>\n<body>\n')
-        for extension, rows in rows_by_extension.items():
-            file.write(f'<h2>{extension}</h2>\n')
+        file.write('<html>\n<head>\n<title>Code snippets dashboard</title>\n<link rel="stylesheet" type="text/css" href="styles.css">\n</head>\n<body>\n')
+        for extension in sorted(rows_by_extension.keys()):
+            rows = rows_by_extension[extension]            
+            file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
             file.write('<table>\n')
             for row in rows:
                 file.write(row)
