@@ -24,6 +24,8 @@
             event.preventDefault();
 
             let userInput = document.getElementById('user_input').value;
+            // Replace spaces with underscores
+            userInput = userInput.replace(/ /g, "%20");
 
             userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
             const branch = userInput.split('/')[0].trim();
