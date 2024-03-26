@@ -33,9 +33,13 @@ Enter your code snippet here (including ~/azureml-) to find the workflow and fil
             const branch = userInput.split('/')[0].trim();
             let file = userInput.replace(`${branch}/`, '').trim();
             let wf = file.replace(/\//g, '-');
-            console.log(wf);
+            // console.log(wf);
             wf = wf.replace('sdk-python', 'sdk');
-            const wfname = wf.split('.')[0];
+            // const wfname = wf.split('.')[0];
+            let fileParts = wf.split('.');
+            fileParts.pop();  // Remove the last element of the array
+            let wfname = fileParts.join('.');
+            // console.log(wfname);
             const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
             const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
 
