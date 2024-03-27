@@ -1,0 +1,98 @@
+/* styles.css */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    margin: 50px;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #999;
+    padding: 10px;
+    text-align: left;
+}
+
+a {
+    color: #0078D4;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00AAFF;
+}
+input[type=submit] {
+    background-color: #0078D4; /* blue */
+    border-radius: 10px;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+input[type=submit]:hover {
+    background-color: #00AAFF;
+}
+
+input[type="text"] {
+    width: 600px;  /* Adjust this value to your preference */
+}
+
+.banner {
+    width: 100%;
+    height: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color:#0078D4;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+.mini-banner {
+    width: 100%;
+    height: 25px;
+    border: none;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 30px;  /* Add horizontal padding */
+}
+.mini-banner i {
+    font: bolder;
+}
+
+
+.banner a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.banner a:hover {
+    text-decoration: underline;
+}
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+  }

@@ -6,10 +6,8 @@ def get_notebooks(file_path):
         lines = [line.split('@')[0] for line in lines] # all we need is the file name, not the codeowners
     return lines
 
-def write_readme(notebooks):
-    script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory that the script is in
-    readme_file = os.path.join(script_dir,"DASHBOARD.md")
-
+def write_html(notebooks):
+    html_file = os.path.join("docs","dashboard.html")
     wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
     gh_link = "https://github.com/Azure/azureml-examples/blob/main" # where to find the files
     rows_by_extension = {}
@@ -25,37 +23,36 @@ def write_readme(notebooks):
         if extension not in rows_by_extension:
             rows_by_extension[extension] = []
 
-        # print(workflow)
         file = notebook.split('/')[-1].replace('.', '&#46;') # last part of the path is the file name
         file_name = os.path.splitext(file)[0]
         # now put back the spaces and dots in the file name for better readability
         file = file.replace('%20', ' ').replace('&#46;', '.')
-        # print(f"FILE: {file}, File name: {file_name}")
-        status = f"[![{file_name}]({wf_link}/{workflow}/badge.svg?branch=main)]({wf_link}/{workflow})"
-        row = f"|{status} | [{file}]({gh_link}/{notebook})|\n"
-        # Add the row to the list for this extension
+        status = f'<a href="{wf_link}/{workflow}"><img src="{wf_link}/{workflow}/badge.svg?branch=main" alt="{file_name}"></a>'
+        row = f'<tr><td>{status}</td><td><a href="{gh_link}/{notebook}">{file}</a></td></tr>\n'
         rows_by_extension[extension].append(row)
 
-    # Now, iterate over the dictionary to write each list of rows to a separate table
-    with open(readme_file, 'w') as f:
-        prefix = "# Files referenced in docs \n\n These files are referenced in https://learn.microsoft.com/azure/machine-learning \n\n"
-        f.write(prefix)
-        # f.write('Jump to:\n')
-        # for extension in sorted(rows_by_extension.keys()):
-        #     # Write a link to each section
-        #     ext = extension.replace(".", "")
-        #     f.write(f'[{ext}](#{ext})\n')
-
-        for extension, rows in sorted(rows_by_extension.items()):
-            # Write a header for each extension
-            if extension != '': # ignore the files without extension
-                f.write(f'## {extension} files\n')
-                f.write('| Status | File |\n')
-                f.write('| --- | --- |\n')
+    # read the top part of the html file from top.html 
+    script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory that the script is in
+    with open(os.path.join(script_dir,'top.html'), 'r') as top_file:
+        top_contents = top_file.read()
+    with open(os.path.join(script_dir,'jumps.html'), 'r') as jumps:
+        jumps = jumps.read()
+    for extension in sorted(rows_by_extension.keys()):
+        rows = rows_by_extension[extension]      
+        ext = extension[1:].strip() # get rid of the leading dot
+        if extension != '':
+            with open(f'docs/{ext}.html', 'w') as file:
+                file.write(f'<html>\n<head>\n<title>{extension} code snippets dashboard</title>\n')
+                file.write(top_contents)
+                file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
+                file.write(jumps)
+                rows = rows_by_extension[extension]      
+                file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
+                file.write('<table>\n')
                 for row in rows:
-                    f.write(row)
-    print("finished writing DASHBOARD...")
-
+                    file.write(row)
+                file.write('</table>\n')
+                file.write('</body>\n</html>')
 
 # This is the main function
 if __name__=="__main__": 
@@ -67,4 +64,4 @@ if __name__=="__main__":
     notebooks = get_notebooks(file_path)
     notebooks = [notebooks.replace('\\ ','%20') for notebooks in notebooks] # replace space with &nbsp;
     # print(notebooks)
-    write_readme(notebooks)
+    write_html(notebooks)

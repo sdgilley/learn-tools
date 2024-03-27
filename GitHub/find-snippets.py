@@ -30,6 +30,7 @@ az_ml_branch = "azureml-examples-main"
 
 found = pd.DataFrame(columns=['ref_file', 'from_file'])
 dict_list = []
+dict_list2 = []
 branches = []
 # Record the start time
 start_time = datetime.now()
@@ -45,7 +46,10 @@ for content_file in contents:
         # Get the file content
         file_content = content_file.decoded_content
         lines = file_content.decode().splitlines()
-
+        blocks = []
+        count = 0
+        code_type = None
+        inside_code_block = False
         for line in lines:
             # snippets have ~\azureml-examples in them.  Find all snippets in this file.
             match_snippet = re.findall(r'\(~\/azureml-examples[^)]*\)|source="~\/azureml-examples[^"]*"', line)
@@ -56,6 +60,19 @@ for content_file in contents:
                     if branch == az_ml_branch: #PRs are merged into main, so only these files are relevant
                         row_dict = {'ref_file': ref_file, 'from_file': file}
                         dict_list.append(row_dict)
+            # count lines in code snippets
+            blocks, inside_code_block, count, code_type = h.count_code_lines(line, blocks, inside_code_block, count, code_type)
+        # done looking through lines of this file
+        if inside_code_block:
+            print(f"{file}: Warning: A code block started but did not end.")
+            print(f"  The last code block type was {code_type} and had {count} lines.")
+        if blocks:
+            # this file  has code blocks.  add info to the dictionary
+            for block in blocks:
+                dict_list2.append({'file': file, 'type': block[0], 'lines': block[1]})
+        
+code_counts = pd.DataFrame.from_dict(dict_list2)                                            
+code_counts.to_csv("code-counts.csv", index=False)
 
 found = pd.DataFrame.from_dict(dict_list)
 branches = pd.DataFrame(branches)

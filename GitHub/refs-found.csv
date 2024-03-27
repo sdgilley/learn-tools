@@ -13,8 +13,6 @@ cli/assets/data/local-folder.yml,reference-yaml-data.md
 cli/assets/environment/docker-context.yml,reference-yaml-environment.md
 cli/assets/environment/docker-context.yml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-image-plus-conda.yaml,how-to-manage-environments-v2.md
-cli/assets/environment/docker-image-plus-conda.yaml,reference-yaml-environment.md
-cli/assets/environment/docker-image.yml,how-to-identity-based-service-authentication.md
 cli/assets/environment/docker-image.yml,how-to-manage-environments-v2.md
 cli/assets/environment/docker-image.yml,reference-yaml-environment.md
 cli/assets/model/local-file.yml,how-to-manage-models.md
@@ -66,6 +64,7 @@ cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/code/batch_d
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/deployment.yml,how-to-batch-scoring-script.md
+cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml,how-to-batch-scoring-script.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml,how-to-use-batch-model-deployments.md
 cli/endpoints/batch/deploy-models/mnist-classifier/deployment-torch/environment/conda.yaml,how-to-batch-scoring-script.md
 cli/endpoints/batch/deploy-models/mnist-classifier/endpoint.yml,reference-yaml-endpoint-batch.md
@@ -90,7 +89,6 @@ cli/endpoints/batch/deploy-pipelines/hello-batch/deployment-from-job.yml,how-to-
 cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml,how-to-use-batch-pipeline-deployments.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/deployment.yml,reference-yaml-deployment-batch.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml,how-to-use-batch-pipeline-deployments.md
-cli/endpoints/batch/deploy-pipelines/hello-batch/endpoint.yml,how-to-use-batch-pipeline-from-job.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/hello-component/hello.yml,how-to-use-batch-pipeline-deployments.md
 cli/endpoints/batch/deploy-pipelines/hello-batch/pipeline-job.yml,how-to-use-batch-pipeline-from-job.md
 cli/endpoints/batch/deploy-pipelines/training-with-components/deploy-and-run.sh,how-to-use-batch-training-pipeline.md
@@ -112,9 +110,10 @@ cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml,ho
 cli/endpoints/online/deploy-with-packages/custom-model/environment/conda.yaml,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml,how-to-package-models-moe.md
+cli/endpoints/online/deploy-with-packages/custom-model/environment/sklearn-regression-env.yml,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/custom-model/package-external.yml,how-to-package-models.md
-cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yml,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yml,how-to-package-models-moe.md
+cli/endpoints/online/deploy-with-packages/custom-model/package-moe.yml,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/custom-model/sample-request.json,how-to-package-models-moe.md
 cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh,concept-package-models.md
 cli/endpoints/online/deploy-with-packages/mlflow-model/deploy.sh,how-to-package-models-app-service.md
@@ -122,11 +121,10 @@ cli/endpoints/online/deploy-with-packages/mlflow-model/package-external.yml,how-
 cli/endpoints/online/deploy-with-packages/mlflow-model/sample-request.json,how-to-package-models-app-service.md
 cli/endpoints/online/deploy-with-packages/registry-model/deploy.sh,how-to-package-models.md
 cli/endpoints/online/deploy-with-packages/registry-model/package.yml,how-to-package-models.md
-cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml,reference-yaml-endpoint-online.md
+cli/endpoints/online/managed/managed-identities/1-sai-create-endpoint.yml,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml,reference-yaml-endpoint-online.md
 cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml,how-to-access-resources-from-endpoints-managed-identities.md
-cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml,reference-yaml-deployment-managed-online.md
 cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml,reference-yaml-deployment-managed-online.md
@@ -139,8 +137,8 @@ cli/endpoints/online/managed/sample/endpoint.yml,how-to-deploy-automl-endpoint.m
 cli/endpoints/online/managed/sample/endpoint.yml,reference-yaml-endpoint-online.md
 cli/endpoints/online/managed/sample/endpoint.yml,how-to-safely-rollout-online-endpoints.md
 cli/endpoints/online/managed/sample/green-deployment.yml,reference-yaml-deployment-managed-online.md
-cli/endpoints/online/model-1/onlinescoring/score.py,how-to-inference-server-http.md
 cli/endpoints/online/model-1/onlinescoring/score.py,how-to-deploy-online-endpoints.md
+cli/endpoints/online/model-1/onlinescoring/score.py,how-to-inference-server-http.md
 cli/endpoints/online/model-1/onlinescoring/score_managedidentity.py,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/model-1/sample-request.json,how-to-access-resources-from-endpoints-managed-identities.md
 cli/endpoints/online/ncd/create-endpoint.yaml,how-to-deploy-mlflow-models-online-endpoints.md
@@ -227,8 +225,8 @@ cli/resources/compute/cluster-minimal.yml,reference-yaml-compute-aml.md
 cli/resources/compute/cluster-ssh-password.yml,reference-yaml-compute-aml.md
 cli/resources/compute/cluster-system-identity.yml,how-to-identity-based-service-authentication.md
 cli/resources/compute/cluster-user-identity.yml,how-to-identity-based-service-authentication.md
-cli/resources/compute/instance-basic.yml,how-to-create-compute-instance.md
 cli/resources/compute/instance-basic.yml,reference-yaml-compute-instance.md
+cli/resources/compute/instance-basic.yml,how-to-create-compute-instance.md
 cli/resources/compute/instance-minimal.yml,reference-yaml-compute-instance.md
 cli/resources/compute/instance-schedule.yml,how-to-create-compute-instance.md
 cli/resources/compute/vm-attach.yml,reference-yaml-compute-vm.md
@@ -246,8 +244,8 @@ cli/resources/datastore/file.yml,reference-yaml-datastore-files.md
 cli/resources/registry/registry-storage-options.yml,reference-yaml-registry.md
 cli/resources/registry/registry.yml,reference-yaml-registry.md
 cli/resources/workspace/basic.yml,reference-yaml-workspace.md
-cli/resources/workspace/cmk.yml,reference-yaml-workspace.md
 cli/resources/workspace/cmk.yml,how-to-manage-workspace-cli.md
+cli/resources/workspace/cmk.yml,reference-yaml-workspace.md
 cli/resources/workspace/hbi.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-internet-outbound.yml,reference-yaml-workspace.md
 cli/resources/workspace/mvnet-allow-only-approved-outbound.yml,reference-yaml-workspace.md

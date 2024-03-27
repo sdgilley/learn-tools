@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Azure Machine Learning code snippets</title>
+    <!-- Contents of top.html  -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://kit.fontawesome.com/5014c87d7e.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <!-- font awesome icons at https://fontawesome.com/search?q=bracket&o=r&m=free -->
+    <body>
+    <div class="banner">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a> &nbsp;  <a href="dashboards.html"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
+    </div>
+    <!-- end of top.html -->
+    <h1>Azure Machine Learning code snippets</h1>
+    <h2>Find the workflow and file for a code snippet</h2>
+Enter your code snippet here (including ~/azureml-) to find the workflow and file in the AzureML examples repository.
+    <form id="form">
+        <input type="text" id="user_input" name="user_input">
+        <input type="submit" value="Submit">
+    </form>
+    <p id="workflow_link"></p>
+    <p id="file_link"></p>
+
+
+    <script>
+        document.getElementById('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let userInput = document.getElementById('user_input').value;
+            // Replace spaces with underscores
+            userInput = userInput.replace(/ /g, "%20");
+
+            userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
+            const branch = userInput.split('/')[0].trim();
+            let file = userInput.replace(`${branch}/`, '').trim();
+            let wf = file.replace(/\//g, '-');
+            // console.log(wf);
+            wf = wf.replace('sdk-python', 'sdk');
+            // const wfname = wf.split('.')[0];
+            let fileParts = wf.split('.');
+            fileParts.pop();  // Remove the last element of the array
+            let wfname = fileParts.join('.');
+            // console.log(wfname);
+            const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
+            const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
+
+            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}">${wfLink}</a>`;
+            document.getElementById('file_link').innerHTML = `File: <a href="${ghLink}">${ghLink}</a>`;
+        });
+    </script>
+</body>
+</html>
