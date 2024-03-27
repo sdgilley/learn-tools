@@ -96,3 +96,31 @@ input[type="text"] {
     margin-left: 5px;
     margin-right: 5px;
   }
+.badge {
+    color: white;
+    white-space: nowrap;
+    padding: 2px 2px;
+    border-radius: 4px;
+    font-size: 12px;
+
+}
+  .blue {
+    background-color: blue;
+    color: white;
+    white-space: nowrap;
+}
+  .green {
+    background-color: green;
+    color: white;
+    white-space: nowrap;
+  }
+  .grey {
+    background-color: grey;
+    color: white;
+    white-space: nowrap;
+  }
+  .red {
+        background-color: red;
+        color: white;
+        white-space: nowrap;
+    }
