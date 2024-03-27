@@ -14,15 +14,19 @@
     <!-- end of top.html -->
     <h1>Azure Machine Learning code snippets</h1>
     <h2>Find the workflow and file for a code snippet</h2>
-Enter your code snippet here (including ~/azureml-) to find the workflow and file in the AzureML examples repository.
+<p>Enter your code snippet here to find the associated workflow and file in the AzureML examples repository.</p>
     <form id="form">
         <input type="text" id="user_input" name="user_input">
         <input type="submit" value="Submit">
     </form>
+    For example: ~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute. 
+    <br/>(Arguments after the ? are ignored, the status is for the entire file.)
     <p id="workflow_link"></p>
     <p id="file_link"></p>
 
 
+    See the <a href="dashboards.html#badges">dashboard page</a> for more information about the badge status values you'll see once you submit.
+    <p></p>
     <script>
         document.getElementById('form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -44,8 +48,7 @@ Enter your code snippet here (including ~/azureml-) to find the workflow and fil
             // console.log(wfname);
             const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
             const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
-
-            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}">${wfLink}</a>`;
+            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}"><img src="${wfLink}/badge.svg?branch=main" alt="${wfLink}"</a>`;
             document.getElementById('file_link').innerHTML = `File: <a href="${ghLink}">${ghLink}</a>`;
         });
     </script>

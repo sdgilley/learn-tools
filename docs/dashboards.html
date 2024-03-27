@@ -20,3 +20,34 @@
         <a href="yaml.html"><i class="fa fa-solid fa-2xs">&#89;&#77;&#76;</i>.yaml &nbsp;</a>
         <a href="yml.html"><i class="fa fa-solid fa-2xs">&#89;&#77;&#76;</i>.yml &nbsp;</a>
     </div>
+
+<h2>Instructions</h2>
+<p>Use the links above for dashboards of each filetype.</p>
+<p>In the dashboards, click on the badge or text in the Status column to see the workflow runs.  Click on the file link to open the associated file. (Or right click to open in a new tab.)
+</p>
+<p>
+    <h2><a name="badges"></a>What do the badges mean?</h2>
+You'll see these status badges in the dashboards:
+</p>
+<table>
+    <tr>
+        <th>Status</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>Green "passing"</td>
+        <td>The last workflow run was successfully.  It's all good here!</td>
+    </tr>
+    <tr>
+        <td>Grey "no status"</td>
+        <td>There may be a workflow that hasn't been run for awhile. There may be other reasons for "no status" as well, but all the ones I looked at were run 5 months or more ago.</td>
+    </tr>
+    <tr>
+        <td>Red "failing"</td>
+        <td>The last workflow run failed. Look at the workflow to determine how long it's been failing.  Investigate when the failures are consistent.  A single failure might be due to limited resources or other non-code related issues.</td>
+    </tr>
+    <tr>
+        <td>No badge</td>
+        <td>There is no associated workflow for this file. (Or, there's something strange about the name and the way I construct the link failed.  I need to investigate these more.)</td>
+    </tr>
+</table>
