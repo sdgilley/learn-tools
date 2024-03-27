@@ -37,20 +37,22 @@ def write_html(notebooks):
         top_contents = top_file.read()
     with open(os.path.join(script_dir,'jumps.html'), 'r') as jumps:
         jumps = jumps.read()
-    with open(html_file, 'w') as file:
-        file.write('<html>\n<head>\n<title>Code snippets dashboard</title>\n')
-        file.write(top_contents)
-        file.write('<h1>Code snippets dashboard</h1>\n')
-        file.write(jumps)
-        for extension in sorted(rows_by_extension.keys()):
-            rows = rows_by_extension[extension]      
-            if extension != '':
+    for extension in sorted(rows_by_extension.keys()):
+        rows = rows_by_extension[extension]      
+        ext = extension[1:].strip() # get rid of the leading dot
+        if extension != '':
+            with open(f'docs/{ext}.html', 'w') as file:
+                file.write(f'<html>\n<head>\n<title>{extension} code snippets dashboard</title>\n')
+                file.write(top_contents)
+                file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
+                file.write(jumps)
+                rows = rows_by_extension[extension]      
                 file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
                 file.write('<table>\n')
                 for row in rows:
                     file.write(row)
                 file.write('</table>\n')
-        file.write('</body>\n</html>')
+                file.write('</body>\n</html>')
 
 # This is the main function
 if __name__=="__main__": 
