@@ -83,7 +83,6 @@ def write_html(notebooks):
                     file.flush()  # Flush the data to the file
 
                     if 'get-started-notebooks-quickstart' in row:
-                        file.write('THE QUICKSTART SHOULD BE HERE')
                         print(f'HERE IT IS: {row}')  # Print the row
                         print(f'WRITING IT IN {file_path}')  # Print the file path
                 file.write('</table>\n')
