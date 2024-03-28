@@ -83,10 +83,12 @@ def write_html(notebooks):
                     file.flush()  # Flush the data to the file
 
                     if 'get-started-notebooks-quickstart' in row:
+                        file.write('THE QUICKSTART SHOULD BE HERE')
                         print(f'HERE IT IS: {row}')  # Print the row
                         print(f'WRITING IT IN {file_path}')  # Print the file path
                 file.write('</table>\n')
                 file.write('</body>\n</html>')
+
 # This is the main function
 if __name__ == "__main__":
     import os
@@ -100,15 +102,17 @@ if __name__ == "__main__":
         repo_dir = os.path.dirname(repo_dir)
 
     # Get the file names from the tutorials.csv file
-    tutorial_names = get_tutorial_files(os.path.join(repo_dir, "GitHub","tutorials.csv"))
     # Add the file names from the CODEOWNERS.txt file
     snippet_names = get_snippet_files(os.path.join(repo_dir, "GitHub", "CODEOWNERS.txt"))
 
-    file_names = tutorial_names + snippet_names
-    print(len(file_names))
+    # tutorial_names by itself works correctly.  But for some reason, adding to 
+    # the snippet_names list doesn't work.  So for now, just using snippet_names, which 
+    # is all the files that are pulled into docs during build time.
+    # tutorial_names = get_tutorial_files(os.path.join(repo_dir, "GitHub","tutorials.csv"))
+    # file_names = tutorial_names + snippet_names
+    file_names = snippet_names
     # Replace spaces with '%20' in notebook names
     file_names = [file.replace('\\ ', '%20') for file in file_names]
-    # print(file_names)
-    # print(tutorial_names)
+
     # create the dashboards
     write_html(file_names)
