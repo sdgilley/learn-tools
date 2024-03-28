@@ -47,6 +47,7 @@ def write_html(notebooks):
             ext = extension[1:].strip()  # Get rid of the leading dot
             file_path = os.path.join(file_dir, f'{ext}.html')
             with open(file_path, 'w') as file:
+                print("Writing", file_path)
                 file.write(f'<html>\n<head>\n<title>{extension} code snippets dashboard</title>\n')
                 file.write(top_contents)
                 file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
@@ -78,3 +79,5 @@ if __name__ == "__main__":
 
     # Replace spaces with '%20' in notebook names
     notebook_names = [notebook.replace('\\ ', '%20') for notebook in notebook_names]
+    # print the files
+    write_html(notebook_names)
