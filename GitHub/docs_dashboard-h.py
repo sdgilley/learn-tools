@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 def get_notebooks(file_path):
     with open(file_path, 'r') as file:
@@ -11,6 +12,7 @@ def write_html(notebooks):
     wf_link = "https://github.com/Azure/azureml-examples/actions/workflows" # where to find the workflows
     gh_link = "https://github.com/Azure/azureml-examples/blob/main" # where to find the files
     rows_by_extension = {}
+    today = datetime.now().strftime('%B %d, %Y')
 
     for notebook in notebooks:
         workflow = notebook.replace('/', '-')
@@ -46,6 +48,8 @@ def write_html(notebooks):
                 file.write(top_contents)
                 file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
                 file.write(jumps)
+                file.write(f'<p class="update">Last update: {today}</p>\n')
+
                 rows = rows_by_extension[extension]      
                 file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
                 file.write('<table>\n')

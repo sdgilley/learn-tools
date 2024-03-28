@@ -10,6 +10,10 @@ h1 {
     text-align: center;
 }
 
+li {
+    margin-left: 4em;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -71,10 +75,15 @@ input[type="text"] {
     font-weight: bold;
     padding: 0 30px;  /* Add horizontal padding */
 }
+.update {
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+    padding: 4px;
+}
 .mini-banner i {
     font: bolder;
 }
-
 
 .banner a {
     display: inline-block;
@@ -87,22 +96,14 @@ input[type="text"] {
 .banner a:hover {
     text-decoration: underline;
 }
-.dot {
-    height: 8px;
-    width: 8px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: 5px;
-    margin-right: 5px;
-  }
+
 .badge {
     color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5); /* horizontal offset, vertical offset, blur radius, color */
     white-space: nowrap;
     padding: 2px 2px;
     border-radius: 4px;
     font-size: 12px;
-
 }
   .blue {
     background-color: blue;
@@ -110,7 +111,7 @@ input[type="text"] {
     white-space: nowrap;
 }
   .green {
-    background-color: green;
+    background-color: #56cd20;
     color: white;
     white-space: nowrap;
   }
@@ -123,4 +124,7 @@ input[type="text"] {
         background-color: red;
         color: white;
         white-space: nowrap;
+    }
+    .explain {
+        display: none;
     }

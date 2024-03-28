@@ -5,6 +5,7 @@
     <!-- Contents of top.html  -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://kit.fontawesome.com/5014c87d7e.js" crossorigin="anonymous"></script>
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <!-- font awesome icons at https://fontawesome.com/search?q=bracket&o=r&m=free -->
     <body>
@@ -17,57 +18,25 @@
 <p>Enter your code snippet here to find the associated workflow and file in the AzureML examples repository.</p>
     <form id="form">
         <input type="text" id="user_input" name="user_input">
-        <input type="submit" value="Submit">
+        <input type="submit" class="badge" value="Submit">
     </form>
     For example: ~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute. 
     <br/>(Arguments after the ? are ignored, the status is for the entire file.)
     <p id="workflow_link"></p>
     <p id="file_link"></p>
-
+<div class="explain">
     <p>
-    To learn more about workflow status values, see the <a href="dashboards.html#badges">dashboard page</a>.
+        If you see a <span class="badge green">passing</span> workflow, you're good to go!  If not:
+        <li>use the file link</li> 
+        <li>download the file (and any associated files needed)</li>
+        <li>run to verify the code works</li>
     </p>
-    <script>
-        document.getElementById('form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    <p>
+        To learn more about workflow status values, see the <a href="dashboards.html#badges">dashboard page</a>.
+    </p>
+</div>
+    <script src="main.js"></script>
 
-            let userInput = document.getElementById('user_input').value;
 
-            if (!userInput.startsWith('~/azureml-examples-')) {
-                alert('Please enter a valid code snippet starting with ~/azureml-examples-');
-                return;
-            }
-            // Replace spaces in the name with %20 for the URL
-            userInput = userInput.replace(/ /g, "%20");
-
-            // Remove the ~/azureml-examples- prefix and any arguments after the ?
-            userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
-
-            // The first part of the path is the branch
-            const branch = userInput.split('/')[0].trim(); 
-            // The rest of the path is the file path
-            let file = userInput.replace(`${branch}/`, '').trim(); 
-
-            // replace all / with - to form the workflow name
-            let wf = file.replace(/\//g, '-');
-
-            // if the path was sdk-python, workflow just used python.
-            wf = wf.replace('sdk-python', 'sdk');
-
-            // now split out the extension to get the name. 
-            // There might be multiple splits because the filename may have a . in it.
-            let fileParts = wf.split('.');
-            fileParts.pop();  // last part is the extension, so remove it. Then put the rest back together.
-            let wfname = fileParts.join('.');
-
-            // Finally, form the links
-            const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
-            const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
-
-            // populate the document with the links
-            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}"><img src="${wfLink}/badge.svg?branch=main" alt="${wfLink}"</a>`;
-            document.getElementById('file_link').innerHTML = `File: <a href="${ghLink}">${ghLink}</a>`;
-        });
-    </script>
 </body>
 </html>
