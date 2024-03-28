@@ -1,10 +1,22 @@
 import os
 from datetime import datetime
 
-def get_notebooks(file_path):
-    """Reads a file and returns a list of notebook names."""
+def get_snippet_files(file_path):
+    """Reads a file and returns a list of file names."""
     with open(file_path, 'r') as file:
         lines = [line.split('@')[0] for line in file]  # Get the file name, not the codeowners
+    return lines
+
+def get_tutorial_files(file_path):
+    # note the tutorials file is a csv file with different structure for the files
+    # turn it into an ~/azureml-examples-path name 
+    lines = []
+    with open(file_path, 'r') as file:
+        file.readline()  # Skip the first line
+        for line in file:  # Read the rest of the lines
+            line = line.split(',')[0]
+            line = line.replace('https://raw.githubusercontent.com/Azure/azureml-examples/', '/')
+            lines.append(line)
     return lines
 
 def write_html(notebooks):
@@ -71,13 +83,16 @@ if __name__ == "__main__":
     while not os.path.isdir(os.path.join(repo_dir, '.git')):
         repo_dir = os.path.dirname(repo_dir)
 
-    # Construct the path to the CODEOWNERS.txt file
-    file_path = os.path.join(repo_dir, "GitHub", "CODEOWNERS.txt")
-
-    # Get the notebook names
-    notebook_names = get_notebooks(file_path)
-
+    # Get the file names from the tutorials.csv file
+    tutorial_names = get_tutorial_files(os.path.join(repo_dir, "GitHub","tutorials.csv"))
+    # Add the file names from the CODEOWNERS.txt file
+    snippet_names = get_snippet_files(os.path.join(repo_dir, "GitHub", "CODEOWNERS.txt"))
+    print(len(snippet_names))
+    file_names = snippet_names + tutorial_names
+    print(len(file_names))
     # Replace spaces with '%20' in notebook names
-    notebook_names = [notebook.replace('\\ ', '%20') for notebook in notebook_names]
-    # print the files
-    write_html(notebook_names)
+    file_names = [file.replace('\\ ', '%20') for file in file_names]
+
+    # create the dashboards
+    # write_html(file_names)
+    write_html(tutorial_names)
