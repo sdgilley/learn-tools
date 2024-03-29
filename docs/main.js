@@ -5,22 +5,32 @@ document.getElementById('form').addEventListener('submit', function(event) {
 
     let userInput = document.getElementById('user_input').value.trim();
 
-    if (!userInput.startsWith('~/azureml-examples-')) {
-        console.log(userInput);
-        alert('Please enter a valid code snippet starting with ~/azureml-examples-');
-        return;
-    }
+    // if (!userInput.startsWith('~/azureml-examples-')) {
+    //     console.log(userInput);
+    //     alert('Please enter a valid code snippet starting with ~/azureml-examples-');
+    //     return;
+    // }
     // Replace spaces in the name with %20 for the URL
     userInput = userInput.replace(/ /g, "%20");
 
-    // Remove the ~/azureml-examples- prefix and any arguments after the ?
-    userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
+    //figure out if it is a code snippet or full url
+    if (userInput.includes('~/azureml-examples-')){
+        //this is a code snippet
+        // Remove the ~/azureml-examples- prefix and any arguments after the ?
+        userInput = userInput.split('?')[0].replace('~/azureml-examples-', '')
+    }
 
+    else if (userInput.includes('https://github.com/Azure/azureml-examples')){
+        //this is a full url
+        // Remove the url
+        userInput = userInput.split('?')[0].replace('https://github.com/Azure/azureml-examples/blob/','');
+        // also remove double slashes
+        userInput = userInput.replace('//','/');
+    }
     // The first part of the path is the branch
     const branch = userInput.split('/')[0].trim(); 
     // The rest of the path is the file path
     let file = userInput.replace(`${branch}/`, '').trim(); 
-
     // replace all / with - to form the workflow name
     let wf = file.replace(/\//g, '-');
 
