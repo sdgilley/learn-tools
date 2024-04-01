@@ -55,4 +55,23 @@ document.getElementById('form').addEventListener('submit', function(event) {
     for (let i = 0; i < explainElements.length; i++) {
         explainElements[i].style.display = 'block';  
     }
+    // hide the example
+    var section = document.getElementById('toggle-section');
+    section.style.display = 'none';
+    var link = document.getElementById('toggle-link');
+    link.innerHTML = '<i class="fa-solid fa-caret-right"></i> Show examples';
+});
+
+
+document.getElementById('toggle-link').addEventListener('click', function(e) {
+    e.preventDefault();
+    var section = document.getElementById('toggle-section');
+    var link = e.target; // Define the link variable
+    if (section.style.display === 'none') {
+        section.style.display = 'block';
+        link.innerHTML = '<i class="fa-solid fa-caret-up"></i> Hide examples';
+    } else {
+        section.style.display = 'none';
+        link.innerHTML = '<i class="fa-solid fa-caret-right"></i> Show examples';
+    }
 });

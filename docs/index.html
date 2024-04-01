@@ -15,33 +15,40 @@
     <!-- end of top.html -->
     <h1>Azure Machine Learning code snippets</h1>
     <h2>Find the workflow and file for a code snippet</h2>
-<p>Enter your code snippet or URL here to find the associated workflow and file in the AzureML examples repository.</p>
-    <form id="form">
-        <input type="text" id="user_input" name="user_input">
-        <input type="submit" class="badge" value="Submit">
-    </form>
-    <div class="example">
-        You can enter either a code snippet or the URL to file on azureml-examples.  For example:
-            <table>
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Example</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>code snippet <br/>Must start with <code>~/azureml-examples-</code>. Arguments after the ? are ignored, the status is for the entire file.</td>
-                        <td><code>~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute</code></td>
-                    </tr>
-                    <tr>
-                        <td>URL <br/>Must start with <code>https://github.com/Azure/azureml-examples/blob</code></td>
-                        <td><code>https://github.com/Azure/azureml-examples/blob/main//sdk/python/assets/environment/environment.ipynb</code></td>
-                    </tr>
-                </tbody>
-            </table>
-        
+
+        <p>Enter your code snippet or URL here to find the associated workflow and file in the AzureML examples repository.</p>
+        <form id="form">
+            <input type="text" id="user_input" name="user_input">
+            <input type="submit" class="badge" value="Submit">
+        </form>
+        <p>
+        <a href="#" id="toggle-link"><i class="fa-solid fa-caret-right"></i> Show examples</a>
+        </p>
+        <div id="toggle-section" style="display: none;">
+        <div class="example">
+            You can enter either a code snippet or the URL to file on azureml-examples.  For example:
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>code snippet <br/>Must start with <code>~/azureml-examples-</code>. Arguments after the ? are ignored, the status is for the entire file.</td>
+                            <td><code>~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute</code></td>
+                        </tr>
+                        <tr>
+                            <td>URL <br/>Must start with <code>https://github.com/Azure/azureml-examples/blob</code></td>
+                            <td><code>https://github.com/Azure/azureml-examples/blob/main//sdk/python/assets/environment/environment.ipynb</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div>
     </div>
+
  
     <p id="workflow_link"></p>
     <p id="file_link"></p>
