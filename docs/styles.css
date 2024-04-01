@@ -56,6 +56,10 @@ input[type="text"] {
     width: 600px;  /* Adjust this value to your preference */
 }
 
+.example {
+    background-color:#fdfde0;
+}
+
 .banner {
     width: 100%;
     height: 25px;
