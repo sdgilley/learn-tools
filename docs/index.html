@@ -55,12 +55,17 @@
     <p id="file_link"></p>
 <div class="explain">
     <p>
-        Select the badge or workflow link to see the history of runs.  Even if you see a <span class="badge green">passing</span> workflow, select it to see <i>when</i>the run was successful.  
+        Select the badge or workflow link to see the history of runs for your file.  
+        <ul>
+            <li>For a <span class="badge green">passing</span> workflow, use the history to see when it was last run.  If the success was not in the last week, check the code manually.</li>
+            <li>For a <span class="badge red">failing</span> workflow, use the history to see how long it's been failing. A single failure might be due to limited resources or other non-code related issues. If consistently failing, chances are the code needs to be fixed.</li>
+            <li>If the workflow status is <span class="badge grey">no status</span>, not present, or was run a long time ago, the workflow won't be of much help. Check the code manually.</li>
+        </ul>  
     </p>
-    <p>If the job didn't succeed, or was run a long time ago, check the code manually:</p>
-        <li>use the file link</li> 
-        <li>download the file (and any associated files needed)</li>
-        <li>run to verify the code works</li>
+    <p>To run code manually:</p>
+        <li>Select the file link</li> 
+        <li>Download the file (and any associated files needed)</li>
+        <li>Run to verify the code works</li>
     </p>
     <p>
         To learn more about workflow status values, see the <a href="dashboards.html#badges">dashboard page</a>.
