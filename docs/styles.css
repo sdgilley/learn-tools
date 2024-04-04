@@ -9,7 +9,10 @@ h1 {
     color: #333;
     text-align: center;
 }
-
+h2 {
+    color: #333;
+    text-align: center;
+}
 li {
     margin-left: 4em;
 }
@@ -60,6 +63,16 @@ input[type="text"] {
     background-color:#fdfde0;
 }
 
+.disclaimer {
+    font-style: italic;
+}
+.small-table {
+    width: 40%;
+    margin: auto;
+}
+.number {
+    text-align: right;
+}
 .banner {
     width: 100%;
     height: 25px;

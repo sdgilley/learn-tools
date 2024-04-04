@@ -39,7 +39,7 @@ def write_html(notebooks):
         workflow = workflow.replace('sdk-python', 'sdk')  # Special case for python files
         workflow = os.path.splitext(workflow)[0] + ".yml"  # Replace extension with .yml
 
-        extension = os.path.splitext(notebook)[1]
+        extension = os.path.splitext(notebook)[1].strip()
         rows_by_extension.setdefault(extension, [])  # Initialize an empty list if this extension hasn't been seen before
 
         file = notebook.split('/')[-1].replace('.', '&#46;')  # Last part of the path is the file name
@@ -52,6 +52,7 @@ def write_html(notebooks):
         if debug:
             print(f'Here is the complete row: {row}')
 
+    
     # Read the top part of the html file from top.html 
     script_dir = os.path.dirname(os.path.realpath(__file__))  # Get the directory that the script is in
     repo_dir = script_dir #find the repo directory
@@ -59,11 +60,31 @@ def write_html(notebooks):
         repo_dir = os.path.dirname(repo_dir)
     file_dir = os.path.join(repo_dir, "docs")  # Where to put the dashboard files
 
+    # write the dashboards.html page
+    with open(os.path.join(script_dir, 'dashboard.html'), 'r') as file:
+        dashboard_content = file.read()
+    file_path = os.path.join(file_dir, 'dashboards.html')
+    with open(file_path, 'w') as file:
+        file.write(dashboard_content)
+        file.write(f'<p class="update">Last update: {today}</p>\n')
+        file.write("<div class='small-table'><table><tr><th>File type</th><th class='number'>#</th></tr>\n")
+        for extension, rows in sorted(rows_by_extension.items()):
+            if extension:
+                ext = extension[1:].strip()  # Get rid of the leading dot
+                file.write(f"<tr><td><a href='{ext}.html'>{extension}</a></td><td class='number'>{len(rows)}</td></tr>\n")  # Add the 'number' class to the cell
+        file.write('</table></div>\n')
+    
+    # write the individual dashboard files
+
     # read top and jumps from the script directory
-    with open(os.path.join(script_dir, 'top.html'), 'r') as top_file:
-        top_contents = top_file.read()
-    with open(os.path.join(script_dir, 'jumps.html'), 'r') as jumps_file:
-        jumps_contents = jumps_file.read()
+    with open(os.path.join(script_dir, 'top.html'), 'r') as file:
+        top_contents = file.read()
+    with open(os.path.join(script_dir, 'jumps.html'), 'r') as file:
+        jumps_contents = file.read()
+    with open(os.path.join(script_dir, 'disclaimer.html'), 'r') as file:
+        disclaimer_contents = file.read()
+    with open(os.path.join(script_dir, 'disclaimer2.html'), 'r') as file:
+        disclaimer2_contents = file.read()
 
     for extension, rows in sorted(rows_by_extension.items()):
         if extension:
@@ -75,9 +96,14 @@ def write_html(notebooks):
                 file.write(top_contents)
                 file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
                 file.write(jumps_contents)
-                file.write(f'<p class="update">Last update: {today}</p>\n')
-                file.write(f'<a name={extension}></a><h2>{extension}</h2>\n')
+                file.write(f'<p class="update">{len(rows)} files. Last update: {today}</p>\n')
+                if extension in ['.json', '.sh', '.py']:
+                    file.write(disclaimer_contents)
+                if extension in ['.yml', '.yaml']:
+                    file.write(disclaimer2_contents)
                 file.write('<table>\n')
+                file.write('<tr><th>Workflow</th><th>File</th></tr>\n')
+
                 for row in rows:
                     file.write(row)
                     file.flush()  # Flush the data to the file
