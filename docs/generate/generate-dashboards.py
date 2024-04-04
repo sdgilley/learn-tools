@@ -72,6 +72,7 @@ def write_html(notebooks):
             if extension:
                 ext = extension[1:].strip()  # Get rid of the leading dot
                 file.write(f"<tr><td><a href='{ext}.html'>{extension}</a></td><td class='number'>{len(rows)}</td></tr>\n")  # Add the 'number' class to the cell
+        file.write(f'<tr><td><a href="all.html">Total</a></td><td class="number">{sum(len(rows) for rows in rows_by_extension.values())-1}</td></tr>\n')
         file.write('</table></div>\n')
     
     # write the individual dashboard files
