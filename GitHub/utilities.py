@@ -111,6 +111,26 @@ def connect_repo(repo_name):
     repo = g.get_repo(repo_name)
     return repo
 
+def read_codeowners():
+
+    repo_name = "Azure/azureml-examples"
+    repo_branch = "main"
+    repo = connect_repo(repo_name)
+    contents = repo.get_contents('.github/CODEOWNERS', ref=repo_branch).decoded_content.decode().splitlines()
+
+    start_index = 0
+    end_index = 0
+    for i, line in enumerate(contents):
+        if line.startswith('#### files'):
+            start_index = i
+        if line.startswith('# End of docs'):
+            end_index = i
+            break
+
+    contents = contents[start_index+1:end_index]
+    return contents
+
+
 # function to compare file on two branches in a 
 def compare_branches(repo, file, branch1, branch2):
     file_b1 = repo.get_contents(file, ref=branch1)
