@@ -63,7 +63,7 @@ input[type="text"] {
     background-color:#fdfde0;
 }
 .error {
-    background-color: #fcfcb3;
+    /* background-color: #fcfcb3; */
     color: black;
 }
 .disclaimer {

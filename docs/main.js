@@ -22,7 +22,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
     //figure out if it is a code snippet or full url
     if (!userInput.startsWith('~/azureml-examples-') && !userInput.startsWith('https://github.com/Azure/azureml-examples/blob/')) {
         // if it is neither, show an error message and return
-        document.getElementById('workflow_link').innerHTML = `<p class="error">Please enter a valid code snippet starting with <b>~/azureml-examples-</b> or a full URL starting with <b>https://github.com/Azure/azureml-examples/blob/</b></p>`;
+        document.getElementById('workflow_link').innerHTML = `<p class="error"><i class="fa-solid fa-triangle-exclamation" style="color:red;"></i> Please enter a valid code snippet starting with <b>~/azureml-examples-</b> or a full URL starting with <b>https://github.com/Azure/azureml-examples/blob/</b></p>`;
         return;  
     }
 
