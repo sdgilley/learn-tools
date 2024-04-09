@@ -62,7 +62,10 @@ input[type="text"] {
 .example {
     background-color:#fdfde0;
 }
-
+.error {
+    background-color: #fcfcb3;
+    color: black;
+}
 .disclaimer {
     font-style: italic;
 }
