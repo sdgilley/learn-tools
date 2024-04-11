@@ -12,6 +12,7 @@ import os
 import re
 import sys
 import utilities as h
+import gh_auth as a
 import pandas as pd
 from datetime import datetime
 
@@ -38,7 +39,7 @@ branches = []
 # Record the start time
 start_time = datetime.now()
 # Read files from GitHub  
-repo = h.connect_repo(repo_name)
+repo = a.connect_repo(repo_name)
 contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
 print(f"Starting search at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
