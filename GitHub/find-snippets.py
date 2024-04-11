@@ -26,12 +26,15 @@ path_in_repo = 'articles/machine-learning'
 # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
 script_dir = os.path.dirname(os.path.realpath(__file__))
 result_fn = os.path.join(script_dir,"refs-found.csv")
+tutorials_fn = os.path.join(script_dir,"tutorials.csv")
 az_ml_branch = "azureml-examples-main"
 
 found = pd.DataFrame(columns=['ref_file', 'from_file'])
 dict_list = []
 dict_list2 = []
+tutorials_list = []
 branches = []
+
 # Record the start time
 start_time = datetime.now()
 # Read files from GitHub  
@@ -62,7 +65,12 @@ for content_file in contents:
                         dict_list.append(row_dict)
             # count lines in code snippets
             blocks, inside_code_block, count, code_type = h.count_code_lines(line, blocks, inside_code_block, count, code_type)
-        # done looking through lines of this file
+            # now look for tutorials that use a whole file
+            match_tutorial = re.search(r'nbstart\s+(.*?)\s+-->', line) 
+            if match_tutorial:
+                file_name = match_tutorial.group(1)
+                tutorials_list.append({'tutorial': file_name, 'from_file': file })
+           # done looking through lines of this file
         if inside_code_block:
             print(f"{file}: Warning: A code block started but did not end.")
             print(f"  The last code block type was {code_type} and had {count} lines.")
@@ -76,6 +84,7 @@ code_counts.to_csv("code-counts.csv", index=False)
 
 found = pd.DataFrame.from_dict(dict_list)
 branches = pd.DataFrame(branches)
+tutorials = pd.DataFrame(tutorials_list)
 # get rid of duplicates
 found = found.drop_duplicates()
 branches = branches.drop_duplicates()
@@ -87,6 +96,10 @@ else:
     sys.exit()
 # write the snippets file
 found.to_csv(result_fn, index=False)
+# write the tutorials file
+# these files won't break the build, so don't need to be in the CODEOWNERS file
+# but we do want to track them in the dashboards
+tutorials.to_csv(tutorials_fn, index=False)
 
 # now create codeowners file
 refs = found['ref_file'].drop_duplicates().replace(" ", "\ ", regex=True)

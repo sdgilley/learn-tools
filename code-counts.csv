@@ -469,6 +469,7 @@ how-to-convert-custom-model-to-mlflow.md,python,12
 how-to-create-attach-compute-cluster.md,azurecli,1
 how-to-create-attach-compute-cluster.md,azurecli,1
 how-to-create-component-pipeline-python.md,bash,2
+how-to-create-component-pipeline-python.md,,1
 how-to-create-component-pipelines-cli.md,azurecli-interactive,2
 how-to-create-component-pipelines-cli.md,azurecli,1
 how-to-create-component-pipelines-cli.md,azurecli,1

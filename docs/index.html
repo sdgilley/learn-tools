@@ -5,49 +5,72 @@
     <!-- Contents of top.html  -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://kit.fontawesome.com/5014c87d7e.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <!-- font awesome icons at https://fontawesome.com/search?q=bracket&o=r&m=free -->
     <body>
     <div class="banner">
-        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a> &nbsp;  <a href="dashboards.html"><i class="fa-solid fa-table-columns"></i> Dashboard</a>
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a> &nbsp;  <a href="dashboards.html"><i class="fa-solid fa-table-columns"></i> Dashboards</a>
     </div>
     <!-- end of top.html -->
     <h1>Azure Machine Learning code snippets</h1>
-    <h2>Find the workflow and file for a code snippet</h2>
-Enter your code snippet here (including ~/azureml-) to find the workflow and file in the AzureML examples repository.
-    <form id="form">
-        <input type="text" id="user_input" name="user_input">
-        <input type="submit" value="Submit">
-    </form>
+    <h2>Freshness review: verify code</h2>
+
+        <p>Enter your code snippet or URL here to find the associated workflow and file in the AzureML examples repository.</p>
+        <form id="form">
+            <input type="text" id="user_input" name="user_input">
+            <input type="submit" class="badge" value="Submit">
+        </form>
+        <p>
+        <a href="#" id="toggle-link"><i class="fa-solid fa-caret-right"></i> Show examples</a>
+        </p>
+        <div id="toggle-section" style="display: none;">
+        <div class="example">
+            You can enter either a code snippet or the URL to file on azureml-examples.  For example:
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>code snippet <br/>Must start with <code>~/azureml-examples-</code>. Arguments after the ? are ignored, the status is for the entire file.</td>
+                            <td><code>~/azureml-examples-main/sdk/python/jobs/configuration.ipynb?name=create-cpu-compute</code></td>
+                        </tr>
+                        <tr>
+                            <td>URL <br/>Must start with <code>https://github.com/Azure/azureml-examples/blob</code></td>
+                            <td><code>https://github.com/Azure/azureml-examples/blob/main//sdk/python/assets/environment/environment.ipynb</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div>
+    </div>
     <p id="workflow_link"></p>
     <p id="file_link"></p>
+<div class="explain">
+    <p>
+        Select the badge or workflow link to see the history of runs for your file.  
+        <ul>
+            <li>For a <span class="badge green">passing</span> workflow, use the history to see when it was last run.  If the success was not in the last week, check the code manually.</li>
+            <li>For a <span class="badge red">failing</span> workflow, use the history to see how long it's been failing. A single failure might be due to limited resources or other non-code related issues. If consistently failing, chances are the code needs to be fixed.</li>
+            <li>If the workflow status is <span class="badge grey">no status</span>, not present, or was run a long time ago, the workflow won't be of much help. Check the code manually.</li>
+        </ul>  
+    </p>
+    <p>To run code manually:</p>
+        <li>Select the file link</li> 
+        <li>Download the file (and any associated files needed)</li>
+        <li>Run to verify the code works</li>
+    </p>
+    <p>
+        To learn more about workflow status values, see the <a href="dashboards.html#badges">dashboard page</a>.
+    </p>
+</div>
+    <script src="main.js"></script>
 
 
-    <script>
-        document.getElementById('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            let userInput = document.getElementById('user_input').value;
-            // Replace spaces with underscores
-            userInput = userInput.replace(/ /g, "%20");
-
-            userInput = userInput.split('?')[0].replace('~/azureml-examples-', '');
-            const branch = userInput.split('/')[0].trim();
-            let file = userInput.replace(`${branch}/`, '').trim();
-            let wf = file.replace(/\//g, '-');
-            // console.log(wf);
-            wf = wf.replace('sdk-python', 'sdk');
-            // const wfname = wf.split('.')[0];
-            let fileParts = wf.split('.');
-            fileParts.pop();  // Remove the last element of the array
-            let wfname = fileParts.join('.');
-            // console.log(wfname);
-            const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
-            const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
-
-            document.getElementById('workflow_link').innerHTML = `Workflow: <a href="${wfLink}">${wfLink}</a>`;
-            document.getElementById('file_link').innerHTML = `File: <a href="${ghLink}">${ghLink}</a>`;
-        });
-    </script>
 </body>
 </html>
