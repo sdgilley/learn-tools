@@ -1,23 +1,15 @@
 '''
-This script shows the files deleted or modified in a PR in azureml-examples
-If any of these files are referenced azure-docs-pr, 
-the corresponding file (labeled referenced_from_file) is also shown.
+This script checks a PR for deleted files, cells or code snippets in files used in docs.
 
-To run this script, first run find_codeowners.py to create the codeowners.csv file.
-Then run from command line:
+    python pr-report2.py <PR number> 
 
-    python pr-report.py <PR number> 
+If the PR has problems, it prints a message to check with the docs team.
 
-
-To decide if the PR is safe to merge:
-* If any deleted cell in a MODIFIED file is referenced in azure-docs-pr, PR is not ready to merge
-* If any DELETED file is referenced, PR is not ready to merge.
-`
 '''
 
 import pandas as pd
 import sys
-import auth_request as a
+import gh_auth as a
 import utilities as h
 
 # read arguments from command line - pr and optionally, whether to authenticate
@@ -31,11 +23,11 @@ pr = args.pr
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
-print(f"\n============================== PR: {pr} ==============================")
-print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
+# print(f"\n============================== PR: {pr} ==============================")
+# print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
 
 prfiles = a.get_auth_response(url)
-repo = h.connect_repo("Azure/azureml-examples")
+repo = a.connect_repo("Azure/azureml-examples")
 
 if 'message' in prfiles:
     print("Error occurred.  Check the PR number and try again.")
@@ -46,40 +38,38 @@ else:
     modified_files = [(file['filename'], file['blob_url']) for file in prfiles if file['status'] == 'modified']    
     added_files = [file['filename'] for file in prfiles if file['status'] == 'added']
 
-
-codeowners = h.read_codeowners() # read the codeowners file
-# Process the files:
-print(f"ADDED FILES: {len(added_files)}\n") # just for info about the PR
-modified = len(modified_files)
-deleted = len(deleted_files)
-print(f"MODIFIED: {modified}") 
-
 alert = False
-if modified > 0:
+# read the codeowners file to see which files we care about
+codeowners = h.read_codeowners() # read the codeowners file
+
+# files modified in the PR
+if modified_files:
     for file, blob_url in modified_files:
         if any(file in owner for owner in codeowners):
             # Check if there are deleted nb named cells or code comments
             nb, adds, deletes, blob_url = h.find_changes(file, prfiles, blob_url)
+
+            # if deleted but added back somewhere, not a problem.  
+            # Only alert if the name is truly gone.
             deleted_cells = [value for value in deletes if value not in adds]
             if deleted_cells:
-                print('Modified File: {file} deletes content that may be referenced in azure-docs-pr.')
+                print(f'{file} deletes content that may be referenced in azure-docs-pr.')
                 alert = True
 
-
-print(f"DELETED: {deleted}")
-if deleted > 0:
-    found = 0
+# files deleted in the PR
+if deleted_files:
     for file in deleted_files:
         if any(file in owner for owner in codeowners):
             print(f"DELETED FILE: {file} is used in docs")
-            found = 1
             alert = True
-    if found == 0:
-        print("None of the deleted files are referenced in azure-docs-pr.\n")
 
 
 if alert:
-    print("Contact mldocs@microsoft.com for further instructions.\n")
-
-print(f"\n============================== PR: {pr} ==============================\n")
-
+    print("** Contact mldocs@microsoft.com for further instructions. **\n")
+else:
+    print("No docs problems found in this PR.\n")
+## test PRs:
+# 3081 - no problems
+# 2890 - deletes files 
+# 2888 - deletes ids in a file 
+# 3113 - deletes a cell in a notebook 

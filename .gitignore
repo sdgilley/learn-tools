@@ -1,5 +1,5 @@
-#  files produced by find-examples.py & create-codeowners.py
-
+#  csv files I don't want to commit
+/tracking/*.csv
 # test files and stuff I don't want to commit
 archive/
 not-working/

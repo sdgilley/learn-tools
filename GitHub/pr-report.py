@@ -12,12 +12,12 @@ Then run from command line:
 To decide if the PR is safe to merge:
 * If any deleted cell in a MODIFIED file is referenced in azure-docs-pr, PR is not ready to merge
 * If any DELETED file is referenced, PR is not ready to merge.
-`
+
 '''
 
 import pandas as pd
 import sys
-import auth_request as a
+import gh_auth as a
 import utilities as h
 
 # read arguments from command line - pr and optionally, whether to authenticate
@@ -37,7 +37,7 @@ print(f"\n============================== PR: {pr} ==============================
 print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
 
 prfiles = a.get_auth_response(url)
-repo = h.connect_repo("Azure/azureml-examples")
+repo = a.connect_repo("Azure/azureml-examples")
 
 if 'message' in prfiles:
     print("Error occurred.  Check the PR number and try again.")
@@ -65,6 +65,7 @@ if modified > 0:
             snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
             # Check if there are deleted nb named cells or code comments
             nb, adds, deletes, blob_url = h.find_changes(file, prfiles, blob_url)
+            # print (nb, adds, deletes)
             if nb:
                 nb_mods.append(blob_url)
                 # print("added to nb_mods: ", file)
@@ -126,3 +127,8 @@ if deleted > 0:
 
 print(f"\n============================== PR: {pr} ==============================\n")
 
+## test PRs:
+# 3081 - no problems
+# 2890 - deletes files 
+# 2888 - deletes ids in a file 
+# 3113 - deletes a cell in a notebook 

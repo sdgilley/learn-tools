@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 import sys
-import auth_request as a
+import gh_auth as a
 from datetime import datetime, timedelta
 import argparse
 import utilities as h

@@ -1,5 +1,59 @@
 # some functions to use for find-snippets, pr-report, and merge-report
 
+
+# function to read the CODEOWNERS file from the azureml-examples repo
+# and return only the lines that are docs files.
+def read_codeowners():
+    # read the codeowners file from azureml-examples
+    import requests
+    url = "https://raw.githubusercontent.com/Azure/azureml-examples/main/.github/CODEOWNERS"
+    response = requests.get(url)
+    contents = response.text.splitlines()
+
+    # get the lines that are docs files
+    start_index = end_index = 0
+    for i, line in enumerate(contents):
+        if line.startswith('#### files'):
+            start_index = i
+        if line.startswith('# End of docs'):
+            end_index = i
+            break
+
+    contents = contents[start_index+1:end_index]
+    return contents
+
+
+# function to get the changes for a specific file in a PR.
+# Then searches for notebook cells or code snippets the were added/deleted.
+# Returns a tuple with a boolean for whether the file is a notebook, 
+# a list of added cells, and a list of deleted cells.
+def find_changes(thisfile, prfiles, blob_url):
+    # pass blob_url back so we can preview the file in the report.
+    import re
+    patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
+    nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
+    code_cell = r'(\\n[\+-])\s*(#\s*<[^>]*>)'  # finds lines that start with # <> or # </> 
+                                         # only works for files that use # as comment.
+    adds = []
+    deletes = []
+    nb = False
+
+    if thisfile.endswith('.ipynb'):
+        nb = True
+        matches = re.findall(nb_cell, str(patch))
+    else:
+        matches = re.findall(code_cell, str(patch))
+
+    for match in matches:
+        if match[0] == "\\n+":
+            adds.append(match[1]) 
+        elif match[0] == "\\n-":
+            deletes.append(match[1])
+        else:
+            print("ERROR in utilities.py find_changes. The match was not an add or delete.")
+
+    return(nb, adds, deletes, blob_url) 
+
 # function to clean up the matches
 # syntax of a match is different if it is from a notebook vs. code files.
 # returns info about the match:
@@ -34,36 +88,6 @@ def cleanup_matches(match):
     return(path, ref_file, branch, match, name) # right now, not using match and name.  But might in the future
 
 
-# this function gets the changes for a specific file in a PR.
-# Then searches for notebook cells or code snippets the were added/deleted.
-# Returns a tuple with a boolean for whether the file is a notebook, 
-# a list of added cells, and a list of deleted cells.
-def find_changes(thisfile, prfiles, blob_url):
-    # pass blob_url back so we can preview the file in the report.
-    import re
-    patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
-    nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
-    code_cell = r'(\\n[\+-])\s*(#\s*<[^>]*>)'  # finds lines that start with # <> or # </> 
-                                         # only works for files that use # as comment.
-    adds = []
-    deletes = []
-    nb = False
-
-    if thisfile.endswith('.ipynb'):
-        nb = True
-        matches = re.findall(nb_cell, str(patch))
-    else:
-        matches = re.findall(code_cell, str(patch))
-
-    for match in matches:
-        if match[0] == "\\n+":
-            adds.append(match[1]) 
-        elif match[0 == "\\n-"]:
-            deletes.append(match[1])
-        else:
-            print("ERROR in utilities.py find_changes. The match was not an add or delete.")
-
-    return(nb, adds, deletes, blob_url) 
 
 # function to read local file - try utf-8 first, then latin-1
 def read_file(file_path):
@@ -95,40 +119,6 @@ def read_snippets():
         print("Run 'find-snippets.py' to create the file.")
         sys.exit()
     return snippets
-
-# function to connect to GitHub repo
-def connect_repo(repo_name):
-    import os
-    import sys
-    from github import Github
-    try:
-        token = os.environ['GH_ACCESS_TOKEN']   
-    except:
-        print("Please set GH_ACCESS_TOKEN environment variable")
-        sys.exit()  
-
-    g = Github(token)
-    repo = g.get_repo(repo_name)
-    return repo
-
-def read_codeowners():
-
-    repo_name = "Azure/azureml-examples"
-    repo_branch = "main"
-    repo = connect_repo(repo_name)
-    contents = repo.get_contents('.github/CODEOWNERS', ref=repo_branch).decoded_content.decode().splitlines()
-
-    start_index = 0
-    end_index = 0
-    for i, line in enumerate(contents):
-        if line.startswith('#### files'):
-            start_index = i
-        if line.startswith('# End of docs'):
-            end_index = i
-            break
-
-    contents = contents[start_index+1:end_index]
-    return contents
 
 
 # function to compare file on two branches in a 

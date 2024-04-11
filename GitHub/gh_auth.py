@@ -1,12 +1,25 @@
 '''
-Function to get an authenticated response from GitHub
-Use when you don't get the full response from the API (e.g. when there are more than 100 items)
+Functions to get and use authenticated responses from GitHub
 
 You'll need to set the GH_ACCESS_TOKEN environment variable for this to work.
 See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 to create a token.  Then add the token to an environment variable called GH_ACCESS_TOKEN.
 '''
 
+# function to connect to GitHub repo
+def connect_repo(repo_name):
+    import os
+    import sys
+    from github import Github
+    try:
+        token = os.environ['GH_ACCESS_TOKEN']   
+    except:
+        print("Please set GH_ACCESS_TOKEN environment variable")
+        sys.exit()  
+
+    g = Github(token)
+    repo = g.get_repo(repo_name)
+    return repo
 
 def get_auth_response(url):
     import requests
