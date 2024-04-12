@@ -93,9 +93,9 @@ def write_html(notebooks):
             file_path = os.path.join(file_dir, f'{ext}.html')
             with open(file_path, 'w') as file:
                 print("Writing", file_path)
-                file.write(f'<html>\n<head>\n<title>{extension} code snippets dashboard</title>\n')
+                file.write(f'<html>\n<head>\n<title>FRESHNESS Dashboard for {extension} code snippets</title>\n')
                 file.write(top_contents)
-                file.write(f'<h1> {extension} code snippets dashboard</h1>\n')
+                file.write(f'<h1> FRESHNESS Dashboard for {extension} code snippets</h1>\n')
                 file.write(jumps_contents)
                 file.write(f'<p class="update">{len(rows)} files. Last update: {today}</p>\n')
                 if extension in ['.json', '.sh', '.py']:
