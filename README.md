@@ -5,6 +5,8 @@ Some handy scripts for working with markdown articles on learn.microsoft.com
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sdgilley/learn-tools?quickstart=1)
 
+If you want to evaluate files for FRESHNESS, see the [Freshness Dashboard](https://sdgilley.github.io/learn-tools/).
+
 ##  ![Python](media/python-logo.png) Python scripts:
 
 * [fix-nb.py](fix-nb.py) - Change notebook links and images to markdown syntax. 
