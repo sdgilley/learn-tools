@@ -1,3 +1,4 @@
+# only works locally, not in Codespaces
 import pandas as pd
 import get_changes as a
 import os
@@ -6,10 +7,10 @@ import os
 pd.set_option('display.max_colwidth', 500)
 
 # change these as needed
-repo_path = "C:/GitPrivate/fabric-docs-pr"
+repo_path = "C:/GitPrivate/azure-docs-pr"
 author = 'Sheri Gilley' # leave blank for all; only use for a single month!
-since = '09/01/2023'
-until = '04/11/2024'
+since = '03/01/2024'
+until = '03/31/2024'
 
 output = a.get_changes(repo_path, author, since, until)
 if author == '':
