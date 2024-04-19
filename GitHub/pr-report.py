@@ -33,7 +33,8 @@ pd.set_option('display.max_colwidth', 500)
 # form the URL for the GitHub API
 url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 
-print(f"\n============================== PR: {pr} ==============================")
+print(f"\n================ azureml-examples PR summary: {pr} ===================")
+
 print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
 
 prfiles = a.get_auth_response(url)
@@ -55,7 +56,7 @@ snippets = h.read_snippets() # read the snippets file
 print(f"ADDED FILES: {len(added_files)}\n") # just for info about the PR
 modified = len(modified_files)
 deleted = len(deleted_files)
-print(f"MODIFIED: {modified}") 
+print(f"MODIFIED FILES: {modified}") 
 
 data =[] # create an empty list to hold data for modified files that are referenced
 nb_mods = [] # create an empty list to hold data for modified notebooks
@@ -80,7 +81,7 @@ if modified > 0:
                              'Cell': cell})
                    # print(f"*** {cell}")
 if data == []:
-    print("None of the modified files have deleted cells or code snippets.\n")
+    print("No deleted cells or code snippets found; changes in the modified files \nwill not break the docs build.\n")
 else:
     # Group the data by 'Modified File' and 'Referenced In'
     grouped_data = {}
@@ -101,14 +102,14 @@ else:
             print(f"   * {cell}")
         # compare the sha to this same file in branch "temp-fix"
         h.compare_branches(repo, file, "main", "temp-fix")
-        print()
+        print("Fix these references in our docs before approving this PR.\n")
     # also print all the modified notebooks
 if nb_mods:
-    print("MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid:")
+    print("MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid before approving the PR:")
     nb_mods = list(set(nb_mods)) # remove duplicates
     for file in nb_mods:
         print(f"* {file}\n")
-print(f"DELETED: {deleted}")
+print(f"DELETED FILES: {deleted}")
 if deleted > 0:
     found = 0
     for file in deleted_files:
@@ -123,9 +124,10 @@ if deleted > 0:
             h.compare_branches(repo, file, "main", "temp-fix")
             found = +1
     if found == 0:
-        print("None of the deleted files are referenced in azure-docs-pr.\n")
-
-print(f"\n============================== PR: {pr} ==============================\n")
+        print("Deleted files are not referenced in docs; \nthese deletions will not break our build.\n")
+    else:
+        print("Fix all references to deleted files before approving this PR.\n")
+print(f"\n================ azureml-examples PR summary: {pr} ===================")
 
 ## test PRs:
 # 3081 - no problems
