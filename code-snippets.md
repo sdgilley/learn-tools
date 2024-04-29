@@ -23,7 +23,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
     ```
 
 1. Approve if no issues reported.
-1. If issues are present, see [Fix the Problem](https://microsoft.sharepoint.com/teams/AzureDataandAIDocsLT/_layouts/OneNote.aspx?id=%2Fteams%2FAzureDataandAIDocsLT%2FShared%20Documents%2FGeneral%2FAdvanced%20Analytics%20Tech%20Docs&wd=target%28Code%20Maintenance.one%7C2EEC86EA-36BC-4D03-A0EE-4684419BF75B%2FFix%20the%20Problem%7CF06C94CC-934D-4E05-B461-5BB56ECBE65E%2F%29)
+1. If issues are present, see [Fix the Problem](fix-the-problem.md)
 
 ## Weekly tasks
 
