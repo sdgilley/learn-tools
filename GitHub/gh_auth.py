@@ -15,6 +15,7 @@ def connect_repo(repo_name):
         token = os.environ['GH_ACCESS_TOKEN']   
     except:
         print("Please set GH_ACCESS_TOKEN environment variable")
+        print("See https://github.com/sdgilley/learn-tools/blob/main/create-update-auth.md")
         sys.exit()  
     try:
         g = Github(token)
