@@ -6,7 +6,7 @@ If you're evaluating a file for FRESHNESS, see the [Freshness Dashboard](https:/
 
 ## Setup for Codespaces
 
-Use these steps to [create/update a GitHub access token](create-maintain-auth.md) for use with the scripts in this repo.
+Use these steps to [create/update a GitHub access token](create-update-auth.md) for use with the scripts in this repo.
 
 Once your secret is stored, perform all maintenance tasks using the button below to open this repo in GitHub Codespaces. No additional setup needed. Use the Codespace terminal to run the scripts.
 
