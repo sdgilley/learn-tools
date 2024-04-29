@@ -21,7 +21,7 @@ def connect_repo(repo_name):
         repo = g.get_repo(repo_name)
     except:
         print("Error connecting to repo.  Make sure your access token is still valid.")
-        print("https://github.com/settings/tokens")
+        print("See https://github.com/sdgilley/learn-tools/blob/main/create-update-auth.md")
         sys.exit()
     return repo
 

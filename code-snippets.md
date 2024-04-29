@@ -6,9 +6,7 @@ If you're evaluating a file for FRESHNESS, see the [Freshness Dashboard](https:/
 
 ## Setup for Codespaces
 
-Store your [GH_ACCESS_TOKEN](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) as a [Codespace secret](https://docs.github.com/en/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces) to use in the repository sdgilley/learn-tools. 
-
-> Make sure you [configure the SSO for your github token](https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) to work with **MicrosoftDocs**. 
+Use these steps to [create/update a GitHub access token](create-maintain-auth.md) for use with the scripts in this repo.
 
 Once your secret is stored, perform all maintenance tasks using the button below to open this repo in GitHub Codespaces. No additional setup needed. Use the Codespace terminal to run the scripts.
 
