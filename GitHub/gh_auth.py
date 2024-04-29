@@ -16,9 +16,13 @@ def connect_repo(repo_name):
     except:
         print("Please set GH_ACCESS_TOKEN environment variable")
         sys.exit()  
-
-    g = Github(token)
-    repo = g.get_repo(repo_name)
+    try:
+        g = Github(token)
+        repo = g.get_repo(repo_name)
+    except:
+        print("Error connecting to repo.  Make sure your access token is still valid.")
+        print("https://github.com/settings/tokens")
+        sys.exit()
     return repo
 
 def get_auth_response(url):
