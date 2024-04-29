@@ -6,7 +6,7 @@ If you're evaluating a file for FRESHNESS, see the [Freshness Dashboard](https:/
 
 ## Setup for Codespaces
 
-Use these steps to [create/update a GitHub access token](create-update-auth.md) for use with the scripts in this repo.
+Follow the steps to [create/update a GitHub access token](create-update-auth.md) for use with the scripts in this repo.
 
 Once your secret is stored, perform all maintenance tasks using the button below to open this repo in GitHub Codespaces. No additional setup needed. Use the Codespace terminal to run the scripts.
 
@@ -48,11 +48,11 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
     The report will show PRs merged in the last 8 days.  (The extra day insures that you don't miss a merge that happened after your report 7 days ago.)
 
-1. If longer than 7 days since last run:
+1. If longer than 7 days since last run, add a days parameter to the command.:
 
     ```bash
     python GitHub/merge-report.py <days>
     ```
 
-1. Modify the files in azure-docs-pr as listed in the report.
+1. Modify the files in azure-docs-pr as listed in the report.  If there are more than 10 files, break it into multiple PRs to be eligible for auto-merge.
 1. Copy the report output to your work item.  This will let you see when it was last run, so that you can adjust days accordingly for your next report.  

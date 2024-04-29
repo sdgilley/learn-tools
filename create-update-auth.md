@@ -34,3 +34,7 @@ To run the scripts locally, save the token as an environment variable with the n
 Close and reopen VS Code to use the new token.
 
 Besides authentication, you also need to `pip install PyGithub` to use the scripts locally.
+
+## Next
+
+Return to [Maintain code snippets in Azure docs](code-snippets.md).

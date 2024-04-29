@@ -54,11 +54,12 @@ If you can quickly fix the reference in azure-docs-pr, do so.  For example, if t
 If you can't do a quick fix, follow this process:
 
 1. If the file in question is the same as the one on the temp-fix branch, skip 2 and go on to step 3.  (You'll see this information in the PR report.)
-1. If the file is not the same as on the temp-fix branch, check to see if the temp-fix branch is currently in use in azure-docs-pr.  Search for ~/azureml-examples-temp-fix in our directory.  Running find-snippets.py also gives information about all active branches.
+1. If the file is not the same as on the temp-fix branch, check to see if the temp-fix branch is currently in use in azure-docs-pr.  Search for ~/azureml-examples-temp-fix in our directory (on the main branch, after pulling from upstream main).  Or run find-snippets. - it will report on all active branches in our docs.  
 	1. If temp-fix is not in use, checkout the branch temp-fix in azureml-docs.  Then pull from upstream main.  Push your changes to upstream/temp-fix. This will update all the files in the temp-fix branch to the latest versions. 
-	1. If temp-fix IS in use, you don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. In this case, COPY the file(s) **from main** that are causing you to reject the PR.  Checkout temp-fix in azureml-docs and paste those file into the branch.  Push your changes to upstream/temp-fix. This will update the files in the temp-fix branch to the latest versions prior to the new PR.
-1. Create a PR in azure-docs-pr to use ~/azureml-examples-temp-fix instead of ~/azureml-examples-main for the reference(s) to the problem file(s).
-1. Once your change in azure-docs-pr is merged, you can approve the azureml-examples PR.
+	1. If temp-fix IS in use, you don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. In this case, COPY the file(s) from azureml-examples, **main branch** that are causing you to reject the PR.  Checkout temp-fix in azureml-examples and paste those files into the branch.  Push your changes to upstream/temp-fix. This will update the files in the temp-fix branch to the latest versions prior to the new PR.
+1. Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
+1. Once your PR in azure-docs-pr is merged to main, you can approve the azureml-examples PR.
+> NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 1. Create a work item to update these articles to again use ~/azureml-examples-main after the azureml-examples PR has merged.  We want to minimize the time that an article references a file on the temp-fix branch.
 
 ### Example
@@ -88,14 +89,11 @@ If it was a mistake (they didn't think the comments mattered and just deleted th
 
 If the rename was for some good reason (the old name was confusing, perhaps), the temp-fix branch contains the same version of the file as main.  So you can switch the references in the docs to point to the temp-fix branch (instead of main) for this particular id.  That is, change:
 
-```
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
-```
+:::code language="azurecli" source="~/azureml-examples-**main**/cli/setup.sh" id="az_configure_defaults":::
 
-to
-```
-`:::code language="azurecli" source="~/azureml-examples-temp-fix/cli/setup.sh" id="az_configure_defaults":::
-```
+to:
+
+:::code language="azurecli" source="~/azureml-examples-**temp-fix**/cli/setup.sh" id="az_configure_defaults":::
 
 Once your change has merged to main in azure-docs-pr, you can approve the PR in azureml-examples.
 
