@@ -53,14 +53,37 @@ If you can quickly fix the reference in azure-docs-pr, do so.  For example, if t
 
 If you can't do a quick fix, follow this process:
 
-1. If the file in question is the same as the one on the temp-fix branch, skip 2 and go on to step 3.  (You'll see this information in the PR report.)
-1. If the file is not the same as on the temp-fix branch, check to see if the temp-fix branch is currently in use in azure-docs-pr.  Search for ~/azureml-examples-temp-fix in our directory (on the main branch, after pulling from upstream main).  Or run find-snippets. - it will report on all active branches in our docs.  
-	1. If temp-fix is not in use, checkout the branch temp-fix in azureml-docs.  Then pull from upstream main.  Push your changes to upstream/temp-fix. This will update all the files in the temp-fix branch to the latest versions. 
-	1. If temp-fix IS in use, you don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. In this case, COPY the file(s) from azureml-examples, **main branch** that are causing you to reject the PR.  Checkout temp-fix in azureml-examples and paste those files into the branch.  Push your changes to upstream/temp-fix. This will update the files in the temp-fix branch to the latest versions prior to the new PR.
-1. Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
+1. If temp-fix has the same version of the file, skip to #2.
+1. If temp-fix does not have the same version of the file, use the steps below to first [update the temp-fix branch](#temp-fix) in azureml-examples.
+<a name="three"></a> 1. Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
 1. Once your PR in azure-docs-pr is merged to main, you can approve the azureml-examples PR.
 > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 1. Create a work item to update these articles to again use ~/azureml-examples-main after the azureml-examples PR has merged.  We want to minimize the time that an article references a file on the temp-fix branch.
+
+### <a href="temp-fix"></a> Update the temp-fix branch
+
+Before updating, check to see if the temp-fix branch is currently in use in azure-docs-pr.  Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
+
+* If temp-fix is NOT an active branch.
+    
+    You just need to update the files in the temp-fix branch to the latest versions from the main branch.  You can do this by pulling from upstream main.  This will update all the files in the temp-fix branch to the latest versions.
+
+    1. In azureml-docs - checkout the branch temp-fix.
+    1. Pull from upstream main.  
+    1. Commit changes in the branch.  For the commit message, use "Update from main".
+    1. Push your changes to upstream/temp-fix. 
+
+* If temp-fix IS an active branch.  
+
+    You don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. Instead, add just the main branch version of the files that are causing the problem to the temp-fix branch:
+    
+    1. Checkout the **main** branch in azureml-examples.
+    1. COPY the file(s) from the main brnch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
+    1. Checkout the **temp-fix** branch in azureml-examples
+    1. Paste those files from main back to the temp-fix branch.  At this point, the only changes in the temp-fix branch should be the files you just pasted in.
+    1. Commit in the changes to the temp-fix branch. For the commit message, reference the PR number that you are fixing.
+    1. Push your changes to upstream/temp-fix. This will update the files you want to reference in the temp-fix branch to their latest versions prior to the new PR.
+    1. Now proceed to step 3 above.
 
 ### Example
 
