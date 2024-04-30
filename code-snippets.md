@@ -29,14 +29,16 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 ### Update snippet references and codeowners files
 
-1. Run this script (takes about two minutes):
+1. Run this script (takes 2-3 minutes):
 
     ```bash
     python GitHub/find-snippets.py
     ```
 
-1. If changes to .txt and .csv files appear, commit them to this repo (learn-tools). You can do this from a Codespace, but you'll first need to switch to a new branch.
-1. If changes to CODEOWNERS appear, commit them to azureml-examples [CODEOWNERS](https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS) file
+1. If changes to CODEOWNERS.txt and refs-found.csv files appear, commit them to sdgilley/learn-tools. You can do this from a Codespace, but if you're on main, you'll first need to switch to a new branch. Create a PR and let me know so I can merge it. (If you're the one maintaining the snippets for the month, no hurry on the PR - just make sure you commit changes before the end of the month so the next person has the right versions of these files.)
+1. You can ignore any other txt or csv files that are changed.
+1. If changes to CODEOWNERS appear, commit them to azureml-examples [CODEOWNERS](https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS) file.
+1. If temp-fix is not one of the active branches, [update the temp-fix branch](#temp-fix) to keep it current.
 
 ### Update docs
 

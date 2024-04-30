@@ -90,8 +90,8 @@ else:
         if key not in grouped_data:
             grouped_data[key] = []
         grouped_data[key].append(item['Cell'])
-
-    # Print the grouped data
+    print(f"Potential problems found in {len(grouped_data)} files.")
+    print("Fix these references in azure-docs-pr before approving this PR:\n")# Print the grouped data
     for (modified_file, referenced_in), cells in grouped_data.items():
         print(f"Modified File: {modified_file} \n  Referenced in:")
         refs = referenced_in.split('\n')
@@ -102,7 +102,6 @@ else:
             print(f"   * {cell}")
         # compare the sha to this same file in branch "temp-fix"
         h.compare_branches(repo, file, "main", "temp-fix")
-        print("Fix these references in our docs before approving this PR.\n")
     # also print all the modified notebooks
 if nb_mods:
     print("MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid before approving the PR:")

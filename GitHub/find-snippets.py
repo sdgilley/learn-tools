@@ -112,6 +112,8 @@ f.close()
 # report the branches in use
 print(f"References found in {repo_name} {repo_branch}:")
 print (branches.to_string(index=False, header=False, justify='left'))
+if 'temp-fix' not in branches.values:
+    print("Since the 'temp-fix' branch is not in use, update the branch from main.\n See https://github.com/sdgilley/learn-tools/blob/main/fix-the-problem.md#temp-fix-is-not-an-active-branch")
 
 # Record the end time
 end_time = datetime.now()
