@@ -57,7 +57,7 @@ If you can't do a quick fix, follow this process:
 1. If temp-fix does not have the same version of the file, use the steps below to first [update the temp-fix branch](#temp-fix) in azureml-examples.
 1. <a name="three"></a> Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
 1. Once your PR in azure-docs-pr is merged to main, you can approve the azureml-examples PR.
-   > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
+   > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the azureml-examples PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 1. Create a work item to update these articles to again use ~/azureml-examples-main after the azureml-examples PR has merged.  We want to minimize the time that an article references a file on the temp-fix branch.
 ### Example
 
@@ -96,25 +96,27 @@ Once your change has merged to main in azure-docs-pr, you can approve the PR in 
 
 Once the azureml-examples change has merged, you can go back to the docs and update the references to point back to main.  This is a temporary fix, so we want to minimize the time that the docs reference the temp-fix branch.
 
-## <a href="temp-fix"></a> Update the temp-fix branch
+## <a name="temp-fix"></a> Update the temp-fix branch
 
-Check to see if the temp-fix branch is currently in use in azure-docs-pr before you update it.  Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
+Before you make any changes to the temp-fix branch in azureml-examples, see if it currently being used for any docs in azure-docs-pr.
 
-* If temp-fix is NOT an active branch.
+Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
+
+### temp-fix is NOT an active branch
     
-    You just need to update the files in the temp-fix branch to the latest versions from the main branch.  You can do this by pulling from upstream main.  This will update all the files in the temp-fix branch to the latest versions.
+You just need to update the files in the temp-fix branch to the latest versions from the main branch.  You can do this by pulling from upstream main.  This will update all the files in the temp-fix branch to the latest versions.
 
 1. In azureml-docs - checkout the branch temp-fix.
 1. Pull from upstream main.  
 1. Commit changes in the branch.  For the commit message, use "Update from main".
 1. Push your changes to upstream/temp-fix. 
 
-* If temp-fix IS an active branch.  
+### temp-fix IS an active branch
 
-    You don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. Instead, add just the main branch version of the files that are causing the problem to the temp-fix branch:
+You don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main into temp-fix. Instead, add just the main branch version of the file(s) that are causing the problem to the temp-fix branch:
     
 1. Checkout the **main** branch in azureml-examples.
-1. COPY the file(s) from the main brnch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
+1. COPY the file(s) from the main barnch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
 1. Checkout the **temp-fix** branch in azureml-examples
 1. Paste those files from main back to the temp-fix branch.  At this point, the only changes in the temp-fix branch should be the files you just pasted in.
 1. Commit in the changes to the temp-fix branch. For the commit message, reference the PR number that you are fixing.
