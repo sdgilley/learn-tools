@@ -11,6 +11,10 @@ Before the PR can be approved, we need to make sure that the docs that reference
 
 There are various ways to fix the problem, depending on the situation.  These are outlined in the sections below.
 
+## Push back - why is the change needed?
+
+The first question I'd ask in a PR is why the change is necessary.  Remember, these aren't code changes, they are deletions.  It may be that the author didn't think the comments mattered and just deleted them.  If that's the case, ask them to put the comments back.  
+
 ## No fix necessary
 
 In some cases, the name of the notebook cell or id that was deleted is not actually used in the referencing file.  In that case, you can approve the PR without making any changes.  
@@ -49,6 +53,8 @@ If you can quickly fix the reference in azure-docs-pr, do so.  For example, if t
 
 * Create a PR in azure-docs-pr to apply this fix.  
 * After your azure-docs-pr PR with the fix is merged, you can approve the azureml-examples PR.
+
+> NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the azureml-examples PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 
 ## Move to a temporary branch
 
