@@ -104,20 +104,20 @@ Check to see if the temp-fix branch is currently in use in azure-docs-pr before 
     
     You just need to update the files in the temp-fix branch to the latest versions from the main branch.  You can do this by pulling from upstream main.  This will update all the files in the temp-fix branch to the latest versions.
 
-   1. In azureml-docs - checkout the branch temp-fix.
-   1. Pull from upstream main.  
-   1. Commit changes in the branch.  For the commit message, use "Update from main".
-   1. Push your changes to upstream/temp-fix. 
+1. In azureml-docs - checkout the branch temp-fix.
+1. Pull from upstream main.  
+1. Commit changes in the branch.  For the commit message, use "Update from main".
+1. Push your changes to upstream/temp-fix. 
 
 * If temp-fix IS an active branch.  
 
     You don't want to mess with other referenced files that haven't been fixed yet, so you can't just pull all of upstream main. Instead, add just the main branch version of the files that are causing the problem to the temp-fix branch:
     
-   1. Checkout the **main** branch in azureml-examples.
-   1. COPY the file(s) from the main brnch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
-   1. Checkout the **temp-fix** branch in azureml-examples
-   1. Paste those files from main back to the temp-fix branch.  At this point, the only changes in the temp-fix branch should be the files you just pasted in.
-   1. Commit in the changes to the temp-fix branch. For the commit message, reference the PR number that you are fixing.
-   1. Push your changes to upstream/temp-fix. This will update the files you want to reference in the temp-fix branch to their latest versions prior to the new PR.
-   1. Now proceed to [step 3 above](#three).
+1. Checkout the **main** branch in azureml-examples.
+1. COPY the file(s) from the main brnch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
+1. Checkout the **temp-fix** branch in azureml-examples
+1. Paste those files from main back to the temp-fix branch.  At this point, the only changes in the temp-fix branch should be the files you just pasted in.
+1. Commit in the changes to the temp-fix branch. For the commit message, reference the PR number that you are fixing.
+1. Push your changes to upstream/temp-fix. This will update the files you want to reference in the temp-fix branch to their latest versions prior to the new PR.
+1. Now proceed to [step 3 above](#three).
 
