@@ -104,7 +104,7 @@ Before you make any changes to the temp-fix branch in azureml-examples, see if i
 
 Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
 
-> These steps assume you're on a fork in azureml-examples.  If you're using the repo itself instead of a fork, substitute <origin> for <upstream> below.
+> These steps assume you're on a fork in azureml-examples.  If you're using the repo itself instead of a fork, substitute *origin* for *upstream* below.
 
 ### temp-fix is NOT an active branch
     
