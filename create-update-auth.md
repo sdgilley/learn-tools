@@ -17,9 +17,11 @@ To save/update a Codespace secret:
     * If adding for the first time
         1. Click **New secret**.  
         1. The secret name is **GH_ACCESS_TOKEN**  The value is the token you copied above.
+        1. Dropdown **Select repositories** and add the repo **sdgilley/learn-tools**.
     * To update GH_ACCESS_TOKEN, click **Update**.  
         * Under **Value** you'll see a sentence saying it can't be displayed.  Click on the **enter a new value** link, then paste in your new token.
     * Select **Save changes**.
+    
 
 ## Update your codespace
 

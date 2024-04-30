@@ -104,26 +104,24 @@ Before you make any changes to the temp-fix branch in azureml-examples, see if i
 
 Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
 
-> These steps assume you're on a fork in azureml-examples.  If you're using the repo itself instead of a fork, substitute *origin* for *upstream* below.
-
 ### temp-fix is NOT an active branch
     
 when the temp-fix branch is not in use, you can simply update the files in the temp-fix branch to the latest versions from the main branch.
 
-1. In azureml-docs - checkout the branch temp-fix.
-1. Pull from upstream main.  
+1. In [azureml-examples](https://github.com/Azure/azureml-examples) - checkout the branch temp-fix.
+1. Pull from origin/main.  
 1. Commit changes in the branch.  For the commit message, use "Update from main".
-1. Push your changes to upstream/temp-fix. 
+1. Push your changes to origin/temp-fix.
 
 ### temp-fix IS an active branch
 
-When temp-fix is being used, you don't want to mess with other referenced files that haven't been fixed yet. So you can't just pull all of upstream main into temp-fix. Instead, add just the main branch version of the file(s) that are causing the problem to the temp-fix branch:
+When temp-fix is being used, you don't want to mess with other referenced files that haven't been fixed yet. So you can't just pull all of main into temp-fix. Instead, add just the main branch version of the file(s) that are causing the problem to the temp-fix branch:
     
 1. Checkout the **main** branch in azureml-examples.
 1. COPY the file(s) from the main branch that are causing you to reject the PR. Stash them somewhere on your computer outside the azureml-examples repo.
 1. Checkout the **temp-fix** branch in azureml-examples.
 1. Paste those files from main back to the repo folder.  
 1. At this point, the only changes in the temp-fix branch should be the files you just pasted in. Commit these changes to the temp-fix branch. For the commit message, reference the PR number that you are fixing.
-1. Push your changes to upstream/temp-fix. This will update the files you want to reference in the temp-fix branch to their latest versions prior to the new PR.
+1. Push your changes to origin/temp-fix. This will update the files you want to reference in the temp-fix branch to their latest versions prior to the new PR.
 1. Now proceed to [step 3 above](#three).
 
