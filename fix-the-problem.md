@@ -13,7 +13,7 @@ There are various ways to fix the problem, depending on the situation.  These ar
 
 ## Push back - why is the change needed?
 
-The first question I'd ask in a PR is why the change is necessary.  Remember, these aren't code changes, they are deletions.  It may be that the author didn't think the comments mattered and just deleted them.  If that's the case, ask them to put the comments back.  
+The first question I'd ask in a PR is why the change is necessary.  Remember, these aren't code changes, they are deletions.  It may be that the author didn't think the comments or cell name mattered and just deleted them.  If that's the case, ask them to put the comments back.  
 
 ## No fix necessary
 
