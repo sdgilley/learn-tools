@@ -55,7 +55,7 @@ If you can't do a quick fix, follow this process:
 
 1. If temp-fix has the same version of the file, skip 2 and proceed to #3.
 1. If temp-fix does not have the same version of the file, use the steps below to first [update the temp-fix branch](#temp-fix) in azureml-examples.
-<a name="three"></a> 1. Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
+1. <a name="three"></a> Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
 1. Once your PR in azure-docs-pr is merged to main, you can approve the azureml-examples PR.
    > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 1. Create a work item to update these articles to again use ~/azureml-examples-main after the azureml-examples PR has merged.  We want to minimize the time that an article references a file on the temp-fix branch.
