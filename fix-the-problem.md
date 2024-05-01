@@ -11,6 +11,8 @@ Before the PR can be approved, we need to make sure that the docs that reference
 
 There are various ways to fix the problem, depending on the situation.  These are outlined in the sections below.
 
+> During a docs freeze (before Build or Ignite), don't approve any azureml-examples PRs that have problems - we can't fix them on our end during this time.  If they deleted a file, have them put it back.  If they deleted an ID or cell name, have them put it back, even if there are no contents in the section or cell.
+> 
 ## Push back - why is the change needed?
 
 The first question I'd ask in a PR is why the change is necessary.  Remember, these aren't code changes, they are deletions.  It may be that the author didn't think the comments or cell name mattered and just deleted them.  If that's the case, ask them to put the comments back.  
