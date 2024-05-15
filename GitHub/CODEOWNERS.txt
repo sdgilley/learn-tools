@@ -103,6 +103,7 @@
 /cli/endpoints/online/managed/managed-identities/1-uai-create-endpoint.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/endpoints/online/managed/managed-identities/2-sai-deployment.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/endpoints/online/managed/managed-identities/2-uai-deployment.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/cli/endpoints/online/managed/sample/blue-deployment-with-registered-assets.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/endpoints/online/managed/sample/blue-deployment.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/endpoints/online/managed/sample/endpoint.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/endpoints/online/managed/sample/green-deployment.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
