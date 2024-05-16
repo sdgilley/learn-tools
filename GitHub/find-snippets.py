@@ -59,7 +59,11 @@ for content_file in contents:
             match_snippet = re.findall(r'\(~\/azureml-examples[^)]*\)|source="~\/azureml-examples[^"]*"', line)
             if match_snippet:
                 for match in match_snippet:
-                    path, ref_file, branch, match, name = h.cleanup_matches(match)
+                    path, ref_file, branch, m, name = h.cleanup_matches(match)
+                    if "(" in ref_file: # this might be a mistake
+                        print(f"{file}: Warning: Found a snippet with a ( in it: {match}")
+                        print(f" cleaned up match is {m}")
+                        print(f"  The snippet was split into {path}\n {ref_file}\n {branch}")
                     branches.append(branch)
                     if branch == az_ml_branch: #PRs are merged into main, so only these files are relevant
                         row_dict = {'ref_file': ref_file, 'from_file': file}

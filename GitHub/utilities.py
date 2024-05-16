@@ -64,7 +64,13 @@ def find_changes(thisfile, prfiles, blob_url):
 #       name - the name of the notebook cell 
 def cleanup_matches(match):
     import os
-    match= match.replace('(', '').replace(')', '').replace('"', '').replace(',', '').replace('source=', '')
+    # If match starts and ends with parentheses, remove them
+    if match.startswith('(') and match.endswith(')'):
+        match = match[1:-1]
+
+    # match= match.replace('(', '').replace(')', '').replace('"', '').replace(',', '').replace('source=', '')
+    match= match.replace('"', '').replace(',', '').replace('source=', '')
+
     #print(f"** match is {match}")
      # split up the match into parts here.
     path = os.path.dirname(match)
@@ -154,3 +160,7 @@ def find_snippets(line, branches, az_ml_branch, file):
                 dict_list.append(row_dict)
             
     
+if __name__ == "__main__":
+    problem = '~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir'
+    path, ref_file, branch, match, name = cleanup_matches(problem)
+    print(f"path: {path}, ref_file: {ref_file}")
