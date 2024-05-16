@@ -9,11 +9,13 @@ pd.set_option('display.max_colwidth', 500)
 # change these as needed
 repo_path = "C:/GitPrivate/azure-docs-pr"
 author = '' # leave blank for all; only use for a single month!
-since = '01/01/2024'
-until = '01/31/2024'
+since = '04/30/2024'
+until = '05/15/2024'
+branch = 'release-build-azure-ai-studio'
+print(f'*** {since}-{until} branch: {branch} ***')
 pattern = 'articles/machine-learning' # use if no author specified (for fabric, use /data-science)
 # get the changes
-output = a.get_changes(repo_path, author, since, until)
+output = a.get_changes(repo_path, author, since, until, branch)
 # filter out blanks.  If no author, filter on pattern
 if author == '':
     results = [line for line in output.split('\n') if f"{pattern}" in line and line.strip()]
