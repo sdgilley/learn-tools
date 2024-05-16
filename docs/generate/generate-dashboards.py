@@ -40,6 +40,9 @@ def write_html(notebooks):
         workflow = os.path.splitext(workflow)[0] + ".yml"  # Replace extension with .yml
 
         extension = os.path.splitext(notebook)[1].strip()
+        if nchar := len(extension) > 10:
+            print(f'ERROR Extension {extension} is longer than 5 characters')
+            print(f'Notebook: {notebook}')
         rows_by_extension.setdefault(extension, [])  # Initialize an empty list if this extension hasn't been seen before
 
         file = notebook.split('/')[-1].replace('.', '&#46;')  # Last part of the path is the file name
