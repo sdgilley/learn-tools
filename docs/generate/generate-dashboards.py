@@ -38,7 +38,14 @@ def write_html(notebooks):
         workflow = notebook.replace('/', '-')[1:]  # Get rid of leading '-'
         workflow = workflow.replace('sdk-python', 'sdk')  # Special case for python files
         workflow = os.path.splitext(workflow)[0] + ".yml"  # Replace extension with .yml
-
+        # special cases: If the directory is sdk_and_cli or sdk_only, there are special workflows:
+        # sdk_and_cli: https://github.com/Azure/azureml-examples/actions/workflows/sdk-featurestore_sample-automation-test-test_featurestore_cli_samples.yml
+        # sdk_only: https://github.com/Azure/azureml-examples/actions/workflows/sdk-featurestore_sample-automation-test-test_featurestore_sdk_samples.yml
+        if 'sdk_and_cli' in notebook:
+            workflow = 'sdk-featurestore_sample-automation-test-test_featurestore_cli_samples.yml'
+        if 'sdk_only' in notebook:
+            workflow = 'sdk-featurestore_sample-automation-test-test_featurestore_sdk_samples.yml'
+  
         extension = os.path.splitext(notebook)[1].strip()
         if nchar := len(extension) > 10:
             print(f'ERROR Extension {extension} is longer than 5 characters')
@@ -51,6 +58,8 @@ def write_html(notebooks):
 
         status = f'<a href="{wf_link}/{workflow}"><img src="{wf_link}/{workflow}/badge.svg?branch=main" alt="{file_name}"></a>'
         row = f'<tr><td>{status}</td><td><a href="{gh_link}/{notebook}">{file}</a></td></tr>\n'
+
+
         rows_by_extension[extension].append(row)
         if debug:
             print(f'Here is the complete row: {row}')
