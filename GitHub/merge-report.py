@@ -7,11 +7,13 @@ import argparse
 import utilities as h
 
 # Create the parser
-parser = argparse.ArgumentParser(description='Find number of days.')
-parser.add_argument('days', type=int, default=8, nargs='?', help='For how many days?') # Add optional arguments
-args = parser.parse_args() # Parse the arguments
+parser = argparse.ArgumentParser(description="Find number of days.")
+parser.add_argument(
+    "days", type=int, default=8, nargs="?", help="For how many days?"
+)  # Add optional arguments
+args = parser.parse_args()  # Parse the arguments
 
-snippets = h.read_snippets() # read the snippets file
+snippets = h.read_snippets()  # read the snippets file
 
 # Calculate the date to filter by
 if args.days < 100:
@@ -29,37 +31,49 @@ response = requests.get(url)
 # Convert the response to JSON
 data = response.json()
 
-print(f"\n====================== {datetime.now().date()} MERGED IN LAST {args.days} DAYS ======================\n")
+print(
+    f"\n====================== {datetime.now().date()} MERGED IN LAST {args.days} DAYS ======================\n"
+)
 # Filter the PRs that were merged in the last 7 days
-merged_prs = [pr['number'] for pr in data if pr['merged_at'] and pr['merged_at'] > days_ago]
-print (f"Total PRs merged: {len(merged_prs)}")
+merged_prs = [
+    pr["number"] for pr in data if pr["merged_at"] and pr["merged_at"] > days_ago
+]
+print(f"Total PRs merged: {len(merged_prs)}")
 
-data = [] # create an empty list to hold data for modified files that are referenced
-# loop through the PRs 
-for pr in merged_prs:  
+data = []  # create an empty list to hold data for modified files that are referenced
+# loop through the PRs
+for pr in merged_prs:
     # now get file info for each PR
     url = f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
-    prfiles = a.get_auth_response(url)  
-    modified_files = [file['filename'] for file in prfiles if file['status'] == 'modified']
+    prfiles = a.get_auth_response(url)
+    modified_files = [
+        file["filename"] for file in prfiles if file["status"] == "modified"
+    ]
 
     # See if any of the file changes are reference problems
     if len(modified_files) > 0:
 
         for file in modified_files:
-            if (snippets['ref_file'] == file).any():
-                snippet_match = snippets.loc[snippets['ref_file'] == file, 'from_file']
+            if (snippets["ref_file"] == file).any():
+                snippet_match = snippets.loc[snippets["ref_file"] == file, "from_file"]
                 # Append the data to the list
-                data.append({'PR': pr, 'Modified File': file, 'Referenced In': snippet_match.to_string(index=False)})
+                data.append(
+                    {
+                        "PR": pr,
+                        "Modified File": file,
+                        "Referenced In": snippet_match.to_string(index=False),
+                    }
+                )
 
-# done with all the PRs.  Now process the data 
+# done with all the PRs.  Now process the data
 
-df = pd.DataFrame(data) # Convert the list to a DataFrame
+df = pd.DataFrame(data)  # Convert the list to a DataFrame
 if df.empty:
     print("\nNothing to do here :-)  There are no PRs that impacted references.\n")
     sys.exit()
 else:
     print(" These PRs impacted references:\n")
-    prs = df['PR'].unique()
+    prs = df["PR"].unique()
     for pr in prs:
         print(f"* PR {pr} (https://github.com/Azure/azureml-examples/pull/{pr}/files)")
     # print("\nCheck the following PRs to see if any referenced docs need to be updated:\n")
@@ -85,10 +99,14 @@ else:
     #             # print(f"  {row['Referenced In']}")
     #     print()
     # FINALLY, print the list of files that need to be updated
-    print("\n** Add 'update-code' to ms.custom metadata (or modify if already present) to the following files:")
-    refs = df['Referenced In'].str.split('\n').explode().str.strip()
+    print(
+        "\n** Add 'update-code' to ms.custom metadata (or modify if already present) to the following files:"
+    )
+    refs = df["Referenced In"].str.split("\n").explode().str.strip()
     i = 0
     for ref in sorted(refs.unique()):
         i += 1
         print(f"{i}  {ref.strip()}")
-print(f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n")
+print(
+    f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n"
+)

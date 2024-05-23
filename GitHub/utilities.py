@@ -6,6 +6,7 @@
 def read_codeowners():
     # read the codeowners file from azureml-examples
     import requests
+
     url = "https://raw.githubusercontent.com/Azure/azureml-examples/main/.github/CODEOWNERS"
     response = requests.get(url)
     contents = response.text.splitlines()
@@ -13,32 +14,37 @@ def read_codeowners():
     # get the lines that are docs files
     start_index = end_index = 0
     for i, line in enumerate(contents):
-        if line.startswith('#### files'):
+        if line.startswith("#### files"):
             start_index = i
-        if line.startswith('# End of docs'):
+        if line.startswith("# End of docs"):
             end_index = i
             break
 
-    contents = contents[start_index+1:end_index]
+    contents = contents[start_index + 1 : end_index]
     return contents
 
 
 # function to get the changes for a specific file in a PR.
 # Then searches for notebook cells or code snippets the were added/deleted.
-# Returns a tuple with a boolean for whether the file is a notebook, 
+# Returns a tuple with a boolean for whether the file is a notebook,
 # a list of added cells, and a list of deleted cells.
 def find_changes(thisfile, prfiles, blob_url):
     # pass blob_url back so we can preview the file in the report.
     import re
-    patch = [file['patch'] for file in prfiles if file['filename'] == thisfile]
-    nb_cell = r'(\\n[\+-])\s*"name":\s*"([^"]*)"' # finds added or deleted cells with a name
-    code_cell = r'(\\n[\+-])\s*(#\s*<[^>]*>)'  # finds lines that start with # <> or # </> 
-                                         # only works for files that use # as comment.
+
+    patch = [file["patch"] for file in prfiles if file["filename"] == thisfile]
+    nb_cell = (
+        r'(\\n[\+-])\s*"name":\s*"([^"]*)"'  # finds added or deleted cells with a name
+    )
+    code_cell = (
+        r"(\\n[\+-])\s*(#\s*<[^>]*>)"  # finds lines that start with # <> or # </>
+    )
+    # only works for files that use # as comment.
     adds = []
     deletes = []
     nb = False
 
-    if thisfile.endswith('.ipynb'):
+    if thisfile.endswith(".ipynb"):
         nb = True
         matches = re.findall(nb_cell, str(patch))
     else:
@@ -46,13 +52,16 @@ def find_changes(thisfile, prfiles, blob_url):
 
     for match in matches:
         if match[0] == "\\n+":
-            adds.append(match[1]) 
+            adds.append(match[1])
         elif match[0] == "\\n-":
             deletes.append(match[1])
         else:
-            print("ERROR in utilities.py find_changes. The match was not an add or delete.")
+            print(
+                "ERROR in utilities.py find_changes. The match was not an add or delete."
+            )
 
-    return(nb, adds, deletes, blob_url) 
+    return (nb, adds, deletes, blob_url)
+
 
 # function to clean up the matches
 # syntax of a match is different if it is from a notebook vs. code files.
@@ -61,58 +70,68 @@ def find_changes(thisfile, prfiles, blob_url):
 #       file name of the file being referenced
 #       branch used to find the file(i.e., azureml-examples-main)
 #       match - the full match
-#       name - the name of the notebook cell 
+#       name - the name of the notebook cell
 def cleanup_matches(match):
     import os
+
     # If match starts and ends with parentheses, remove them
-    if match.startswith('(') and match.endswith(')'):
+    if match.startswith("(") and match.endswith(")"):
         match = match[1:-1]
 
     # match= match.replace('(', '').replace(')', '').replace('"', '').replace(',', '').replace('source=', '')
-    match= match.replace('"', '').replace(',', '').replace('source=', '')
+    match = match.replace('"', "").replace(",", "").replace("source=", "")
 
-    #print(f"** match is {match}")
-     # split up the match into parts here.
+    # print(f"** match is {match}")
+    # split up the match into parts here.
     path = os.path.dirname(match)
     ref_file = os.path.basename(match)
     # the first part of the path, after ~/, is the "path-to-root"  which includes the branch name
     # path-to-root is configured in azure-docs-pr/.openpublishing.publish.config.json
-    branch = path.split('/')[1] 
+    branch = path.split("/")[1]
     # remove the branch info to get the path to the file in azureml-examples
-    path = path.replace('~/', '')
+    path = path.replace("~/", "")
     if path == branch:
-        path = ''
+        path = ""
     else:
-        path = path.replace(f"{branch}/",'')
-    if "?" in ref_file: # split out the id name from the ref_file if it exists
-        ref_file, name = ref_file.split('?',1)
+        path = path.replace(f"{branch}/", "")
+    if "?" in ref_file:  # split out the id name from the ref_file if it exists
+        ref_file, name = ref_file.split("?", 1)
     else:
-        name = ''
-    if path != '': # if the path is empty, we don't want a beginning slash.  
-        ref_file = f"{path}/{ref_file}" # add the path to the ref_file
-    ref_file = ref_file.replace('///', '/').replace('//','/') # get rid of triple or double slashes
-    return(path, ref_file, branch, match, name) # right now, not using match and name.  But might in the future
-
+        name = ""
+    if path != "":  # if the path is empty, we don't want a beginning slash.
+        ref_file = f"{path}/{ref_file}"  # add the path to the ref_file
+    ref_file = ref_file.replace("///", "/").replace(
+        "//", "/"
+    )  # get rid of triple or double slashes
+    return (
+        path,
+        ref_file,
+        branch,
+        match,
+        name,
+    )  # right now, not using match and name.  But might in the future
 
 
 # function to read local file - try utf-8 first, then latin-1
 def read_file(file_path):
     try:
-        with open(file_path, 'r', encoding='utf-8') as target_file:
+        with open(file_path, "r", encoding="utf-8") as target_file:
             lines = target_file.readlines()
     except UnicodeDecodeError:
         try:
-            with open(file_path, 'r', encoding='latin-1') as target_file:
+            with open(file_path, "r", encoding="latin-1") as target_file:
                 lines = target_file.readlines()
         except Exception as e:
             print(f"Error reading {file_path}: {e}")
             lines = []
     return lines
 
+
 def read_snippets():
     import os
     import sys
     import pandas as pd
+
     # read the snippets file
     fn = "refs-found.csv"
     mydir = os.path.abspath(__file__)
@@ -127,21 +146,27 @@ def read_snippets():
     return snippets
 
 
-# function to compare file on two branches in a 
+# function to compare file on two branches in a
 def compare_branches(repo, file, branch1, branch2):
     file_b1 = repo.get_contents(file, ref=branch1)
     file_b2 = repo.get_contents(file, ref=branch2)
     if file_b1.sha == file_b2.sha:
-        print(f"*azureml-examples {branch2} branch has the same version of this file as {branch1}\n")
+        print(
+            f"*azureml-examples {branch2} branch has the same version of this file as {branch1}\n"
+        )
     else:
-        print(f"*azureml-examples {branch2} branch has a DIFFERENT version of this file from {branch1}\n")
+        print(
+            f"*azureml-examples {branch2} branch has a DIFFERENT version of this file from {branch1}\n"
+        )
+
+
 # call  for each line in the file, send in current info and get back updated values
 def count_code_lines(line, blocks, inside_code_block, count, code_type):
     line = line.lstrip()
-    if line.startswith('```'):
-        if inside_code_block: # done - this is the end of the block
+    if line.startswith("```"):
+        if inside_code_block:  # done - this is the end of the block
             blocks.append((code_type, count))  # Add type and count to the list
-        else: # starting - get the type and reset the count
+        else:  # starting - get the type and reset the count
             code_type = line[3:].strip()  # Get the rest of the line after ```
             count = 0
         inside_code_block = not inside_code_block
@@ -149,18 +174,23 @@ def count_code_lines(line, blocks, inside_code_block, count, code_type):
         count += 1
     return blocks, inside_code_block, count, code_type
 
+
 def find_snippets(line, branches, az_ml_branch, file):
-    match_snippet = re.findall(r'\(~\/azureml-examples[^)]*\)|source="~\/azureml-examples[^"]*"', line)
+    match_snippet = re.findall(
+        r'\(~\/azureml-examples[^)]*\)|source="~\/azureml-examples[^"]*"', line
+    )
     if match_snippet:
         for match in match_snippet:
             path, ref_file, branch, match, name = cleanup_matches(match)
             branches.append(branch)
-            if branch == az_ml_branch: #PRs are merged into main, so only these files are relevant
-                row_dict = {'ref_file': ref_file, 'from_file': file}
+            if (
+                branch == az_ml_branch
+            ):  # PRs are merged into main, so only these files are relevant
+                row_dict = {"ref_file": ref_file, "from_file": file}
                 dict_list.append(row_dict)
-            
-    
+
+
 if __name__ == "__main__":
-    problem = '~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir'
+    problem = "~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir"
     path, ref_file, branch, match, name = cleanup_matches(problem)
     print(f"path: {path}, ref_file: {ref_file}")

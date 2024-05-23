@@ -5,27 +5,27 @@
 import os, glob
 
 # Define the directory path for your include files
-include_path = 'c:/work/azure-docs-pr/articles/machine-learning/includes/*.md'
+include_path = "c:/work/azure-docs-pr/articles/machine-learning/includes/*.md"
 # Define the directory path for your articles
-doc_path = 'c:/work/azure-docs-pr/articles/machine-learning'
+doc_path = "c:/work/azure-docs-pr/articles/machine-learning"
 
 # Get the list of filenames in the include file directory
 filenames = [os.path.basename(include) for include in glob.glob(include_path)]
 
 # Create a dictionary so we can keep a count.
-include_files = {el:0 for el in filenames}
+include_files = {el: 0 for el in filenames}
 
 # Loop through the doc files; note that this doesn't recurse through sub-folders
-docs = glob.glob(doc_path + '/*.md')
+docs = glob.glob(doc_path + "/*.md")
 for doc in docs:
     # Open the file
-    with open(doc, 'r', encoding='utf-8') as f:
+    with open(doc, "r", encoding="utf-8") as f:
         # Loop through the lines
         for line in f:
             # Look for the include statement (note that this is case sensitive)
-            if line.startswith('[!INCLUDE'):
+            if line.startswith("[!INCLUDE"):
                 # Get the filepath out of the include statement
-                filepath = line.split('(')[1].split(')')[0]
+                filepath = line.split("(")[1].split(")")[0]
                 # Strip the path off so we just have the filename
                 filename = os.path.basename(filepath)
                 # Is the filename in the include_files dictionary?
