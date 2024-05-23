@@ -55,7 +55,14 @@ document.getElementById('form').addEventListener('submit', function(event) {
     let fileParts = wf.split('.');
     fileParts.pop();  // last part is the extension, so remove it. Then put the rest back together.
     let wfname = fileParts.join('.');
-
+    // special cases: If the directory is sdk_and_cli or sdk_only, there are special workflows:
+    // sdk_and_cli: https://github.com/Azure/azureml-examples/actions/workflows/sdk-featurestore_sample-automation-test-test_featurestore_cli_samples.yml
+    // sdk_only: https://github.com/Azure/azureml-examples/actions/workflows/sdk-featurestore_sample-automation-test-test_featurestore_sdk_samples.yml
+    if (wf.includes('sdk_and_cli')) {
+        wfname = 'sdk-featurestore_sample-automation-test-test_featurestore_cli_samples';
+    } else if (wf.includes('sdk_only')) {
+        wfname = 'sdk-featurestore_sample-automation-test-test_featurestore_sdk_samples';
+    }
     // Finally, form the links
     const wfLink = `https://github.com/Azure/azureml-examples/actions/workflows/${wfname}.yml`;
     const ghLink = `https://github.com/Azure/azureml-examples/blob/${branch}/${file}`;
