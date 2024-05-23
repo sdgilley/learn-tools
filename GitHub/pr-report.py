@@ -59,6 +59,7 @@ else:
         if file["status"] == "modified"
     ]
     added_files = [file["filename"] for file in prfiles if file["status"] == "added"]
+    renamed_files = [file["previous_filename"] for file in prfiles if file["status"] == "renamed"]
 
 
 snippets = h.read_snippets()  # read the snippets file
@@ -67,6 +68,7 @@ snippets = h.read_snippets()  # read the snippets file
 print(f"ADDED FILES: {len(added_files)}\n")  # just for info about the PR
 modified = len(modified_files)
 deleted = len(deleted_files)
+renamed = len(renamed_files)
 print(f"MODIFIED FILES: {modified}")
 
 data = []  # create an empty list to hold data for modified files that are referenced
@@ -131,6 +133,7 @@ if nb_mods:
     nb_mods = list(set(nb_mods))  # remove duplicates
     for file in nb_mods:
         print(f"* {file}\n")
+
 print(f"DELETED FILES: {deleted}")
 if deleted > 0:
     found = 0
@@ -153,6 +156,31 @@ if deleted > 0:
         )
     else:
         print("Fix all references to deleted files before approving this PR.\n")
+ 
+ # renamed files
+print(f"RENAMED FILES: {renamed}")
+if renamed > 0:
+    found = 0
+    for file in renamed_files:
+        if (snippets["ref_file"] == file).any():
+            snippet_match = snippets.loc[snippets["ref_file"] == file, "from_file"]
+
+            print(f"RENAMED FILE: {file} \n  Referenced in:")
+            refs = snippet_match.to_string(index=False).split("\n")
+            for ref in refs:
+                print(
+                    f"* https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
+                )
+            # print(snippet_match.to_string(index=False))
+            h.compare_branches(repo, file, "main", "temp-fix")
+            found = +1
+    if found == 0:
+        print(
+            "Renamed files are not referenced in docs; \nthese renames will not break our build.\n"
+        )
+    else:
+        print("Fix all references to renamed files before approving this PR.\n")
+
 print(f"\n================ azureml-examples PR summary: {pr} ===================")
 
 ## test PRs:
