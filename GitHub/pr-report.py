@@ -65,14 +65,21 @@ else:
 snippets = h.read_snippets()  # read the snippets file
 
 # Process the files:
-print(f"ADDED FILES: {len(added_files)}\n")  # just for info about the PR
+
 modified = len(modified_files)
 deleted = len(deleted_files)
 renamed = len(renamed_files)
-print(f"MODIFIED FILES: {modified}")
 
+print(f"PR {pr} changes {len(prfiles)} files.")
+print(f"ADDED: {len(added_files)}")  # just for info about the PR
+print(f"MODIFIED: {modified}")
+print(f"DELETED: {deleted}")
+print(f"RENAMED: {renamed}\n")
+# print("\nChanges that may affect azure-docs-pr:\n")
 data = []  # create an empty list to hold data for modified files that are referenced
 nb_mods = []  # create an empty list to hold data for modified notebooks
+
+### MODIFIED FILES
 if modified > 0:
     for file, blob_url in modified_files:
         if (snippets["ref_file"] == file).any():
@@ -97,44 +104,44 @@ if modified > 0:
                         }
                     )
                 # print(f"*** {cell}")
-if data == []:
-    print(
-        "No deleted cells or code snippets found; changes in the modified files \nwill not break the docs build.\n"
-    )
-else:
-    # Group the data by 'Modified File' and 'Referenced In'
-    grouped_data = {}
-    for item in data:
-        key = (item["Modified File"], item["Referenced In"])
-        if key not in grouped_data:
-            grouped_data[key] = []
-        grouped_data[key].append(item["Cell"])
-    print(f"Potential problems found in {len(grouped_data)} files.")
-    print(
-        "Fix these references in azure-docs-pr before approving this PR:\n"
-    )  # Print the grouped data
-    for (modified_file, referenced_in), cells in grouped_data.items():
-        print(f"Modified File: {modified_file} \n  Referenced in:")
-        refs = referenced_in.split("\n")
-        for ref in refs:
-            print(
-                f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
-            )
-        print(f"   {cell_type} cells deleted: {len(cells)}")
-        for cell in cells:
-            print(f"   * {cell}")
-        # compare the sha to this same file in branch "temp-fix"
-        h.compare_branches(repo, file, "main", "temp-fix")
-    # also print all the modified notebooks
-if nb_mods:
-    print(
-        "MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid before approving the PR:"
-    )
-    nb_mods = list(set(nb_mods))  # remove duplicates
-    for file in nb_mods:
-        print(f"* {file}\n")
+    if data == []:
+        print(
+            "No problems with any of the modified files.\n"
+        )
+    else:
+        # Group the data by 'Modified File' and 'Referenced In'
+        grouped_data = {}
+        for item in data:
+            key = (item["Modified File"], item["Referenced In"])
+            if key not in grouped_data:
+                grouped_data[key] = []
+            grouped_data[key].append(item["Cell"])
+        print(f"Potential problems found in {len(grouped_data)} files.")
+        print(
+            "Fix these references in azure-docs-pr before approving this PR:\n"
+        )  # Print the grouped data
+        for (modified_file, referenced_in), cells in grouped_data.items():
+            print(f"Modified File: {modified_file} \n  Referenced in:")
+            refs = referenced_in.split("\n")
+            for ref in refs:
+                print(
+                    f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
+                )
+            print(f"   {cell_type} cells deleted: {len(cells)}")
+            for cell in cells:
+                print(f"   * {cell}")
+            # compare the sha to this same file in branch "temp-fix"
+            h.compare_branches(repo, file, "main", "temp-fix")
+        # also print all the modified notebooks
+    if nb_mods:
+        print(
+            "MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid before approving the PR:"
+        )
+        nb_mods = list(set(nb_mods))  # remove duplicates
+        for file in nb_mods:
+            print(f"* {file}\n")
 
-print(f"DELETED FILES: {deleted}")
+### DELETED FILES
 if deleted > 0:
     found = 0
     for file in deleted_files:
@@ -152,13 +159,12 @@ if deleted > 0:
             found = +1
     if found == 0:
         print(
-            "Deleted files are not referenced in docs; \nthese deletions will not break our build.\n"
+            "No problems with any of the deleted files.\n"
         )
     else:
         print("Fix all references to deleted files before approving this PR.\n")
  
- # renamed files
-print(f"RENAMED FILES: {renamed}")
+### RENAMED FILES
 if renamed > 0:
     found = 0
     for file in renamed_files:
@@ -176,7 +182,7 @@ if renamed > 0:
             found = +1
     if found == 0:
         print(
-            "Renamed files are not referenced in docs; \nthese renames will not break our build.\n"
+            "No problems with any of the renamed files.\n"
         )
     else:
         print("Fix all references to renamed files before approving this PR.\n")
@@ -188,3 +194,4 @@ print(f"\n================ azureml-examples PR summary: {pr} ===================
 # 2890 - deletes files
 # 2888 - deletes ids in a file
 # 3113 - deletes a cell in a notebook
+# 3210 - renames files we use
