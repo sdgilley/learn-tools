@@ -17,10 +17,17 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me )
 
 1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to investigate, in the terminal, run:
+    * for azureml-examples repo:
+    
+        ```bash
+        python GitHub/pr-report.py <PR number> 
+        ```
 
-    ```bash
-    python GitHub/pr-report.py <PR number> 
-    ```
+    * for azureai-samples repo:
+    
+        ```bash
+        python GitHub/pr-report.py <PR number> ai
+        ```
 
 1. Approve if no issues reported.
 1. If issues are present, see [Fix the Problem](fix-the-problem.md)
@@ -35,9 +42,10 @@ Once your secret is stored, perform all maintenance tasks using the button below
     python GitHub/find-snippets.py
     ```
 
-1. If changes to CODEOWNERS.txt and refs-found.csv files appear, commit them to sdgilley/learn-tools. You can do this from a Codespace, but if you're on main, you'll first need to switch to a new branch. Create a PR and let me know so I can merge it. (If you're the one maintaining the snippets for the month, no hurry on the PR - just make sure you commit changes before the end of the month so the next person has the right versions of these files.)
+1. If changes to CODEOWNERS-xx.txt and refs-found-xx.csv files appear, commit them to sdgilley/learn-tools. You can do this from a Codespace, but if you're on main, you'll first need to switch to a new branch. Create a PR and let me know so I can merge it. (If you're the one maintaining the snippets for the month, no hurry on the PR - just make sure you commit changes before the end of the month so the next person has the right versions of these files.)
 1. You can ignore any other txt or csv files that are changed.
-1. If changes to CODEOWNERS appear, commit them to azureml-examples [CODEOWNERS](https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS) file.
+1. If changes to CODEOWNERS-ml appear, copy the content and commit to [azureml-examples CODEOWNERS](https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS) file.
+1. If changes to CODEOWNERS-ai appear, copy the content and commit to [azureai-samples CODEOWNERS](https://github.com/Azure-Samples/azureai-samples/blob/main/.github/CODEOWNERS) file.
 1. If temp-fix is not one of the active branches, [update the temp-fix branch](#temp-fix) to keep it current.
 
 ### Update docs

@@ -1,9 +1,9 @@
 """
-This script reads through the files in azure-docs (main) and finds code snippets from azureml-examples
-It creates two files:
-
-* refs-found.csv - needed for the merge-report and pr-report scripts
-* CODEOWNERS.txt - use the contents to populate the CODEOWNERS file in azureml-examples
+This script reads through the files in azure-docs (main) and finds code snippets from 
+azureml-examples (ml) or azureai-samples (ai).
+It creates two files (where xx is ai or ml):
+* refs-found-xx.csv - needed for the merge-report and pr-report scripts
+* CODEOWNERS-xx.txt - use the contents to populate the CODEOWNERS file in azureml-examples
 
 Run this script periodically to stay up to date with the latest references.
 """
@@ -17,9 +17,6 @@ def find_snippets(repo_arg):
     import gh_auth as a
     import pandas as pd
     from datetime import datetime
-
-
-
 
     ###################### INPUT HERE ############################
     # Name the path to your repo. If trying to use a private repo, you'll need a token that has access to it.
