@@ -28,22 +28,28 @@ parser = argparse.ArgumentParser(
 )  # Create the parser
 # Add the arguments
 parser.add_argument("pr", type=int, help="The PR number you are interested in.")
+parser.add_argument("repo", type=str, nargs='?', default="ml", choices=["ai", "ml"], help="type of learning: 'ai' or 'ml'")
 args = parser.parse_args()  # Parse the arguments
 pr = args.pr
+repo_arg = args.repo.lower()
 # fix truncation?
 pd.set_option("display.max_colwidth", 500)
 
 # form the URL for the GitHub API
-url = (
-    f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
-)
+if repo_arg == "ml":
+    repo_name = "azureml-examples"
+    owner_name = "Azure"
+elif repo_arg == "ai":
+    repo_name = "azureai-samples"
+    owner_name = "Azure-Samples"
+url = f"https://api.github.com/repos/{owner_name}/{repo_name}/pulls/{pr}/files?per_page=100"
 
-print(f"\n================ azureml-examples PR summary: {pr} ===================")
+print(f"\n================ {repo_name} PR summary: {pr} ===================")
 
-print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
+print(f"https://github.com/{owner_name}/{repo_name}/pull/{pr}/files\n")
 
 prfiles = a.get_auth_response(url)
-repo = a.connect_repo("Azure/azureml-examples")
+repo = a.connect_repo(f"{owner_name}/{repo_name}")
 
 if "message" in prfiles:
     print("Error occurred.  Check the PR number and try again.")
@@ -61,8 +67,8 @@ else:
     added_files = [file["filename"] for file in prfiles if file["status"] == "added"]
     renamed_files = [file["previous_filename"] for file in prfiles if file["status"] == "renamed"]
 
-
-snippets = h.read_snippets()  # read the snippets file
+fn = f"refs-found-{repo_arg}.csv"
+snippets = h.read_snippets(fn)  # read the snippets file
 
 # Process the files:
 

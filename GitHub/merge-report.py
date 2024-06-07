@@ -6,24 +6,43 @@ from datetime import datetime, timedelta
 import argparse
 import utilities as h
 
+
 # Create the parser
-parser = argparse.ArgumentParser(description="Find number of days.")
+parser = argparse.ArgumentParser(description="Find number of days and which repo.")
 parser.add_argument(
-    "days", type=int, default=8, nargs="?", help="For how many days?"
-)  # Add optional arguments
+    "input", type=str, nargs="*", help="For how many days and/or which repo: 'ai' or 'ml'"
+)
+
 args = parser.parse_args()  # Parse the arguments
 
-snippets = h.read_snippets()  # read the snippets file
+repo_arg = "ml"
+days = 8
+
+for arg in args.input:
+    if arg.isdigit():
+        days = int(arg)
+    elif arg.lower() in ["ai", "ml"]:
+        repo_arg = arg.lower()
+
+if repo_arg == "ai":
+    repo_name = "azureai-samples"
+    owner_name = "Azure-Samples"
+elif repo_arg == "ml":
+    repo_name = "azureml-examples"
+    owner_name = "Azure"
+
+fn = f"refs-found-{repo_arg}.csv"
+snippets = h.read_snippets(fn)  # read the snippets file
 
 # Calculate the date to filter by
-if args.days < 100:
-    days_ago = (datetime.now() - timedelta(days=args.days)).isoformat()
+if days < 100:
+    days_ago = (datetime.now() - timedelta(days)).isoformat()
 else:
     print("ERROR: The maximum number of days is 100.")
     sys.exit()
 
 # Define the URL for the GitHub API
-url = "https://api.github.com/repos/Azure/azureml-examples/pulls?state=closed&sort=updated&direction=desc"
+url = f"https://api.github.com/repos/{owner_name}/{repo_name}/pulls?state=closed&sort=updated&direction=desc"
 
 # Send a GET request to the GitHub API
 response = requests.get(url)
@@ -32,7 +51,7 @@ response = requests.get(url)
 data = response.json()
 
 print(
-    f"\n====================== {datetime.now().date()} MERGED IN LAST {args.days} DAYS ======================\n"
+    f"\n================= {datetime.now().date()} MERGED IN LAST {days} DAYS in {repo_name} ================\n"
 )
 # Filter the PRs that were merged in the last 7 days
 merged_prs = [
@@ -108,5 +127,5 @@ else:
         i += 1
         print(f"{i}  {ref.strip()}")
 print(
-    f"\n============================== /MERGED IN LAST {args.days} DAYS ==============================\n"
+    f"\n============================== /MERGED IN LAST {days} DAYS ==============================\n"
 )

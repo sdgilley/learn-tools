@@ -17,18 +17,42 @@ import pandas as pd
 from datetime import datetime
 
 
+# read command line arguments
+import argparse
+
+# Create the parser
+parser = argparse.ArgumentParser(description='Process some integers.')
+
+# Add the arguments
+parser.add_argument("repo", type=str, nargs='?', default="ml", 
+                    choices=["ai", "ml"], help="type of learning: 'ai' or 'ml'")
+# Parse the arguments
+args = parser.parse_args()
+
+# Use the argument
+repo_arg = args.repo.lower()
+
 ###################### INPUT HERE ############################
 # Name the path to your repo. If trying to use a private repo, you'll need a token that has access to it.
 repo_name = "MicrosoftDocs/azure-docs"
 repo_branch = "main"
-path_in_repo = "articles/machine-learning"
+if repo_arg == "ai":
+    path_in_repo = "articles/ai-studio"
+    repo_token = "azureai-samples"
+elif repo_arg == "ml":
+    path_in_repo = "articles/machine-learning"
+    repo_token = "azureml-examples"
+else:
+    print("Invalid repo value")
+    sys.exit()
+az_branch = f"{repo_token}-main"
 ############################ DONE ############################
 
 # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
 script_dir = os.path.dirname(os.path.realpath(__file__))
-result_fn = os.path.join(script_dir, "refs-found.csv")
-tutorials_fn = os.path.join(script_dir, "tutorials.csv")
-az_ml_branch = "azureml-examples-main"
+result_fn = os.path.join(script_dir, f"refs-found-{repo_arg}.csv")
+tutorials_fn = os.path.join(script_dir, f"tutorials-{repo_arg}.csv")
+
 
 found = pd.DataFrame(columns=["ref_file", "from_file"])
 dict_list = []
@@ -40,9 +64,14 @@ branches = []
 start_time = datetime.now()
 # Read files from GitHub
 repo = a.connect_repo(repo_name)
-contents = repo.get_contents(path_in_repo, ref=repo_branch)
+# contents = repo.get_contents(path_in_repo, ref=repo_branch)
+if repo_arg == "ai": # content here is in sub-directories
+    contents = h.get_all_contents(repo, path_in_repo, repo_branch)
+else: # ml content only in the given path (is this still correct?)
+    contents = repo.get_contents(path_in_repo, ref=repo_branch)
 
-print(f"Starting search at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+# Now contents contains the list of files to search
+print(f"Starting search of {path_in_repo} at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 for content_file in contents:
     # Check if the file is a markdown file
     if content_file.path.endswith(".md"):
@@ -50,14 +79,19 @@ for content_file in contents:
         # Get the file content
         file_content = content_file.decoded_content
         lines = file_content.decode().splitlines()
+
         blocks = []
         count = 0
         code_type = None
         inside_code_block = False
         for line in lines:
+            # count hard-coded code blocks
+            blocks, inside_code_block, count, code_type = h.count_code_lines(
+                line, blocks, inside_code_block, count, code_type
+            )
             # snippets have ~\azureml-examples in them.  Find all snippets in this file.
             match_snippet = re.findall(
-                r'\(~\/azureml-examples[^)]*\)|source="~\/azureml-examples[^"]*"', line
+                f'r\(~\/{repo_token}[^)]*\)|source="~\/{repo_token}[^"]*"', line
             )
             if match_snippet:
                 for match in match_snippet:
@@ -72,14 +106,12 @@ for content_file in contents:
                         )
                     branches.append(branch)
                     if (
-                        branch == az_ml_branch
+                        branch == az_branch
                     ):  # PRs are merged into main, so only these files are relevant
                         row_dict = {"ref_file": ref_file, "from_file": file}
                         dict_list.append(row_dict)
             # count lines in code snippets
-            blocks, inside_code_block, count, code_type = h.count_code_lines(
-                line, blocks, inside_code_block, count, code_type
-            )
+
             # now look for tutorials that use a whole file
             match_tutorial = re.search(r"nbstart\s+(.*?)\s+-->", line)
             if match_tutorial:
@@ -92,10 +124,11 @@ for content_file in contents:
         if blocks:
             # this file  has code blocks.  add info to the dictionary
             for block in blocks:
+                # print(f"{file}: {block[0]} block has {block[1]} lines")
                 dict_list2.append({"file": file, "type": block[0], "lines": block[1]})
 
 code_counts = pd.DataFrame.from_dict(dict_list2)
-code_counts.to_csv("code-counts.csv", index=False)
+code_counts.to_csv(f"code-counts-{repo_arg}.csv", index=False)
 
 found = pd.DataFrame.from_dict(dict_list)
 branches = pd.DataFrame(branches)
@@ -118,7 +151,7 @@ tutorials.to_csv(tutorials_fn, index=False)
 
 # now create codeowners file
 refs = found["ref_file"].drop_duplicates().replace(" ", "\ ", regex=True)
-f = open(os.path.join(script_dir, "CODEOWNERS.txt"), "w+")
+f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_arg}.txt"), "w+")
 for ref in refs:
     f.write(
         f"/{ref} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  \n"

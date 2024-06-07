@@ -602,8 +602,9 @@ how-to-create-workspace-template.md,text,1
 how-to-custom-dns.md,azurecli,1
 how-to-custom-dns.md,azurecli,1
 how-to-custom-dns.md,json,21
+how-to-custom-dns.md,azurecli,1
 how-to-custom-dns.md,azurepowershell,2
-how-to-custom-dns.md,,10
+how-to-custom-dns.md,bash,10
 how-to-customize-compute-instance.md,json,9
 how-to-customize-compute-instance.md,json,9
 how-to-datastore.md,python,13
@@ -1488,10 +1489,10 @@ how-to-r-train-model.md,azurecli,1
 how-to-r-train-model.md,azurecli,1
 how-to-r-train-model.md,azurecli,1
 how-to-r-train-model.md,azurecli,1
-how-to-read-write-data-v2.md,python,67
-how-to-read-write-data-v2.md,yaml,45
+how-to-read-write-data-v2.md,python,71
+how-to-read-write-data-v2.md,yaml,48
 how-to-read-write-data-v2.md,azurecli,1
-how-to-read-write-data-v2.md,python,79
+how-to-read-write-data-v2.md,python,82
 how-to-read-write-data-v2.md,yaml,40
 how-to-read-write-data-v2.md,azurecli,1
 how-to-read-write-data-v2.md,,13
@@ -1541,8 +1542,10 @@ how-to-responsible-ai-insights-sdk-cli.md,yml,16
 how-to-responsible-ai-insights-sdk-cli.md,yml,26
 how-to-responsible-ai-insights-sdk-cli.md,yml,31
 how-to-responsible-ai-insights-sdk-cli.md,yml,27
-how-to-responsible-ai-text-insights.md,yml,22
-how-to-responsible-ai-text-insights.md,python,22
+how-to-responsible-ai-text-insights.md,yml,17
+how-to-responsible-ai-text-insights.md,python,3
+how-to-responsible-ai-text-insights.md,python,10
+how-to-responsible-ai-text-insights.md,python,2
 how-to-responsible-ai-vision-insights.md,python,1
 how-to-responsible-ai-vision-insights.md,python,11
 how-to-responsible-ai-vision-insights.md,yml,18

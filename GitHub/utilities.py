@@ -127,13 +127,13 @@ def read_file(file_path):
     return lines
 
 
-def read_snippets():
+def read_snippets(fn):
     import os
     import sys
     import pandas as pd
 
     # read the snippets file
-    fn = "refs-found.csv"
+    
     mydir = os.path.abspath(__file__)
     snippet_fn = os.path.join(os.path.dirname(mydir), fn)
     # Check if snippets file exists
@@ -194,3 +194,22 @@ if __name__ == "__main__":
     problem = "~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir"
     path, ref_file, branch, match, name = cleanup_matches(problem)
     print(f"path: {path}, ref_file: {ref_file}")
+
+
+# get all contents from the path and all sub-directories
+def get_all_contents(repo, path, repo_branch):
+    contents = []
+    stack = [path]
+
+    while stack:
+        current_path = stack.pop()
+        current_contents = repo.get_contents(current_path, ref=repo_branch)
+
+        for content in current_contents:
+            if content.type == 'dir' and 'media' not in content.path:  # skip media directories
+                stack.append(content.path)
+            else:
+                contents.append(content)
+
+    return contents
+
