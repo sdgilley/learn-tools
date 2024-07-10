@@ -24,12 +24,16 @@ def find_snippets(repo_arg):
     repo_branch = "main"
     if repo_arg == "ai":
         path_in_repo = "articles/ai-studio"
-        repo_token = "azureai-samples"
+        repo_token = "rag-data-openai-python-promptflow"
     elif repo_arg == "ml":
         path_in_repo = "articles/machine-learning"
         repo_token = "azureml-examples"
+    elif repo_arg == "fabric":
+        repo_name = "MicrosoftDocs/fabric-docs"
+        path_in_repo = "docs/data-science"
+        repo_token = "fabric-samples"
     else:
-        print("Invalid repo value")
+        print(f"{repo_arg} - Invalid repo value")
         sys.exit()
     az_branch = f"{repo_token}-main"
     ############################ DONE ############################

@@ -28,7 +28,7 @@ parser = argparse.ArgumentParser(
 )  # Create the parser
 # Add the arguments
 parser.add_argument("pr", type=int, help="The PR number you are interested in.")
-parser.add_argument("repo", type=str, nargs='?', default="ml", choices=["ai", "ml"], help="type of learning: 'ai' or 'ml'")
+parser.add_argument("repo", type=str, nargs='?', default="ml", choices=["ai", "ml","fabric"], help="type of learning: 'ai' or 'ml'")
 args = parser.parse_args()  # Parse the arguments
 pr = args.pr
 repo_arg = args.repo.lower()
@@ -40,8 +40,12 @@ if repo_arg == "ml":
     repo_name = "azureml-examples"
     owner_name = "Azure"
 elif repo_arg == "ai":
-    repo_name = "azureai-samples"
+    repo_name = "rag-data-openai-python-promptflow"
     owner_name = "Azure-Samples"
+elif repo_arg == "fabric":
+    repo_name = "fabric-samples"
+    owner_name = "Microsoft"
+
 url = f"https://api.github.com/repos/{owner_name}/{repo_name}/pulls/{pr}/files?per_page=100"
 
 print(f"\n================ {repo_name} PR summary: {pr} ===================")
@@ -137,6 +141,7 @@ if modified > 0:
             for cell in cells:
                 print(f"   * {cell}")
             # compare the sha to this same file in branch "temp-fix"
+
             h.compare_branches(repo, file, "main", "temp-fix")
         # also print all the modified notebooks
     if nb_mods:

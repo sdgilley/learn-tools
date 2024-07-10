@@ -22,11 +22,14 @@ def merge_report(days, repo_arg):
     import utilities as h
 
     if repo_arg == "ai":
-        repo_name = "azureai-samples"
+        repo_name = "rag-data-openai-python-promptflow"
         owner_name = "Azure-Samples"
     elif repo_arg == "ml":
         repo_name = "azureml-examples"
         owner_name = "Azure"
+    elif repo_arg == "fabric":
+        repo_name = "fabric-samples"
+        owner_name = "Midrosoft"
 
     fn = f"refs-found-{repo_arg}.csv"
     snippets = h.read_snippets(fn)  # read the snippets file
