@@ -148,8 +148,17 @@ def read_snippets(fn):
 
 # function to compare file on two branches in a
 def compare_branches(repo, file, branch1, branch2):
-    file_b1 = repo.get_contents(file, ref=branch1)
-    file_b2 = repo.get_contents(file, ref=branch2)
+    try:
+        file_b1 = repo.get_contents(file, ref=branch1)
+    except Exception:
+        print(f"Can't compare branches; {file} no longer found in {branch1}")
+        return
+    try:
+        file_b2 = repo.get_contents(file, ref=branch2)
+    except Exception:
+        print(f"Can't compare branches; {file} no longer found in {branch2}")
+        return    
+    
     if file_b1.sha == file_b2.sha:
         print(
             f"*azureml-examples {branch2} branch has the same version of this file as {branch1}\n"
@@ -190,12 +199,6 @@ def find_snippets(line, branches, az_ml_branch, file):
                 dict_list.append(row_dict)
 
 
-if __name__ == "__main__":
-    problem = "~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir"
-    path, ref_file, branch, match, name = cleanup_matches(problem)
-    print(f"path: {path}, ref_file: {ref_file}")
-
-
 # get all contents from the path and all sub-directories
 def get_all_contents(repo, path, repo_branch):
     contents = []
@@ -213,3 +216,7 @@ def get_all_contents(repo, path, repo_branch):
 
     return contents
 
+if __name__ == "__main__":
+    problem = "~/azureml-examples-main/sdk/python/featurestore_sample/notebooks/sdk_only/7. Develop a feature set using Domain Specific Language (DSL).ipynb?name=setup-root-dir"
+    path, ref_file, branch, match, name = cleanup_matches(problem)
+    print(f"path: {path}, ref_file: {ref_file}")
