@@ -25,7 +25,7 @@ replace = "/"
 content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
 # replace https://learn.microsoft.com/azure/ links with /azure/ links
-pattern = r"https://learn.microsoft.com/azure/"
+pattern = r"https://learn\.microsoft\.com/azure/"
 replace = r"/azure/"
 content = re.sub(pattern, replace, content, flags=re.MULTILINE)
 
