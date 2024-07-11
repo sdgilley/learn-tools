@@ -1,6 +1,7 @@
-from find-snippets import find_snippets
+# find snippets for both ML and AI... might add Fabric later as well
+import find_snippets as f
 
 print ("Finding ai snippets")
-find_snippets("ai")
+f.find_snippets("ai")
 print ("Finding ml snippets")
-find_snippets("ml")
+f.find_snippets("ml")
