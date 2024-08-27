@@ -1,2 +1,12 @@
 ref_file,from_file
-dummy,entry
+tutorial/build_index.py,copilot-sdk-build-rag.md
+tutorial/copilot_flow/chat.prompty,copilot-sdk-build-rag.md
+tutorial/copilot_flow/copilot.py,copilot-sdk-build-rag.md
+tutorial/copilot_flow/flow.flex.yaml,copilot-sdk-build-rag.md
+tutorial/copilot_flow/input_with_chat_history.json,copilot-sdk-build-rag.md
+tutorial/copilot_flow/queryIntent.prompty,copilot-sdk-build-rag.md
+tutorial/copilot_flow/requirements.txt,copilot-sdk-build-rag.md
+tutorial/deploy.py,copilot-sdk-evaluate-deploy.md
+tutorial/eval_dataset.jsonl,copilot-sdk-evaluate-deploy.md
+tutorial/evaluate.py,copilot-sdk-evaluate-deploy.md
+tutorial/invoke-local.py,copilot-sdk-evaluate-deploy.md

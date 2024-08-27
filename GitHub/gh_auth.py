@@ -59,3 +59,18 @@ def get_auth_response(url):
         url = response.links["next"]["url"] if "next" in response.links else None
 
     return files
+
+# test the functions
+if __name__ == "__main__":
+    # get the files in the repo
+    # print ("Testing get_auth_response")
+    # files = get_auth_response("https://api.github.com/repos/sdgilley/learn-tools/git/trees/main?recursive=1")
+    # # print the first 5 files
+    # for file in files[:5]:
+    #     print(file["path"])
+    # print(f"Total files: {len(files)}")
+    # print("Done")
+
+    print ("Testing connect_repo")
+    repo = connect_repo("sdgilley/learn-tools")
+    print(repo.name)

@@ -3,6 +3,8 @@
 # test files and stuff I don't want to commit
 archive/
 not-working/
+sfi/
+Engagement/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

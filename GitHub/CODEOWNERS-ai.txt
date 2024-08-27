@@ -1,0 +1,11 @@
+/tutorial/build_index.py @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/chat.prompty @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/copilot.py @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/flow.flex.yaml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/input_with_chat_history.json @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/queryIntent.prompty @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/copilot_flow/requirements.txt @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/deploy.py @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/eval_dataset.jsonl @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/evaluate.py @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/tutorial/invoke-local.py @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
