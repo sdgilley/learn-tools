@@ -151,7 +151,7 @@ def find_snippets(repo_arg):
     # report the branches in use
     print(f"References found in {repo_name} {repo_branch}:")
     print(branches.to_string(index=False, header=False, justify="left"))
-    if "azureml-examples-temp-fix" not in branches.values:
+    if repo_arg == "ml" and "azureml-examples-temp-fix" not in branches.values:
         print(
             "Since the 'temp-fix' branch is not in use, update the branch from main.\n See https://github.com/sdgilley/learn-tools/blob/main/fix-the-problem.md#temp-fix-is-not-an-active-branch"
         )
