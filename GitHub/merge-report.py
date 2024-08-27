@@ -23,5 +23,6 @@ for arg in args.input:
 if service == "all":
     m.merge_report(days, "ai")
     m.merge_report(days, "ml")
+    # m.merge_report(days, "fabric") # none used as of now
 else:
     m.merge_report(days, service)
