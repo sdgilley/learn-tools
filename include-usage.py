@@ -5,9 +5,9 @@
 import os, glob
 
 # Define the directory path for your include files
-include_path = "c:/work/azure-docs-pr/articles/machine-learning/includes/*.md"
+include_path = "c:/work/azure-ai-docs-pr/articles/machine-learning/includes/*.md"
 # Define the directory path for your articles
-doc_path = "c:/work/azure-docs-pr/articles/machine-learning"
+doc_path = "c:/work/azure-ai-docs-pr/articles/machine-learning"
 
 # Get the list of filenames in the include file directory
 filenames = [os.path.basename(include) for include in glob.glob(include_path)]

@@ -86,7 +86,7 @@ def find_pr_files(owner_name, repo_name, snippets, days):
         #         for index, row in file_group.iterrows():
         #             refs = row['Referenced In'].split('\n')
         #             for ref in refs:
-        #                 print(f"       https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
+        #                 print(f"       https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/{ref.strip()}")
         #             # print(f"  {row['Referenced In']}")
         #     print()
         # FINALLY, print the list of files that need to be updated

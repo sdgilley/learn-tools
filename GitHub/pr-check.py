@@ -65,7 +65,7 @@ if modified_files:
             deleted_cells = [value for value in deletes if value not in adds]
             if deleted_cells:
                 print(
-                    f"{file} deletes content that may be referenced in azure-docs-pr."
+                    f"{file} deletes content that may be referenced in azure-ai-docs-pr."
                 )
                 alert = True
 

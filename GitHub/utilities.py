@@ -86,7 +86,7 @@ def cleanup_matches(match):
     path = os.path.dirname(match)
     ref_file = os.path.basename(match)
     # the first part of the path, after ~/, is the "path-to-root"  which includes the branch name
-    # path-to-root is configured in azure-docs-pr/.openpublishing.publish.config.json
+    # path-to-root is configured in azure-ai-docs-pr/.openpublishing.publish.config.json
     branch = path.split("/")[1]
     # remove the branch info to get the path to the file in azureml-examples
     path = path.replace("~/", "")

@@ -28,33 +28,33 @@ You'll see the following output from `python GitHub/pr-report.py 2779`:
 ```
 MMODIFIED FILES: 4
 Potential problems found in 2 files.
-Fix these references in azure-docs-pr before approving this PR:
+Fix these references in azure-ai-docs-pr before approving this PR:
 
 Modified File: sdk/python/endpoints/batch/deploy-pipelines/hello-batch/sdk-deploy-and-test.ipynb
   Referenced in:
-   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-pipeline-deployments.md
+   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-pipeline-deployments.md
    Notebook cells deleted: 1
    * previews
 *azureml-examples temp-fix branch has the same version of this file as main
 
 Modified File: sdk/python/endpoints/batch/deploy-pipelines/training-with-components/sdk-deploy-and-test.ipynb
   Referenced in:
-   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-training-pipeline.md
+   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-training-pipeline.md
    Notebook cells deleted: 1
    * python38-azureml
 *azureml-examples temp-fix branch has the same version of this file as main
 ```
 
-But when you open https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-pipeline-deployments.md, you won't find the cell name "previews" referenced anywhere in the document. So there's nothing to fix here.
+But when you open https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-pipeline-deployments.md, you won't find the cell name "previews" referenced anywhere in the document. So there's nothing to fix here.
 
-Likewise, when you open https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-training-pipeline.md, you won't find a reference to a cell named "python38-azureml".  So again, there is nothing to fix here.
+Likewise, when you open https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-use-batch-training-pipeline.md, you won't find a reference to a cell named "python38-azureml".  So again, there is nothing to fix here.
 
-## Quick fix in azure-docs-pr
+## Quick fix in azure-ai-docs-pr
 
-If you can quickly fix the reference in azure-docs-pr, do so.  For example, if the reference is no longer necessary, remove it.  Or perhaps if it is a single line of code, replace the reference with the hard-coded line.  (Don't do this for anything longer than one or two lines, though.)
+If you can quickly fix the reference in azure-ai-docs-pr, do so.  For example, if the reference is no longer necessary, remove it.  Or perhaps if it is a single line of code, replace the reference with the hard-coded line.  (Don't do this for anything longer than one or two lines, though.)
 
-* Create a PR in azure-docs-pr to apply this fix.  
-* After your azure-docs-pr PR with the fix is merged, you can approve the azureml-examples PR.
+* Create a PR in azure-ai-docs-pr to apply this fix.  
+* After your azure-ai-docs-pr PR with the fix is merged, you can approve the azureml-examples PR.
 
 > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the azureml-examples PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 
@@ -64,8 +64,8 @@ If you can't do a quick fix, follow this process:
 
 1. If temp-fix has the same version of the file, skip 2 and proceed to #3.
 1. If temp-fix does not have the same version of the file, use the steps below to first [update the temp-fix branch](#temp-fix) in azureml-examples.
-1. <a name="three"></a> Create a PR in azure-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
-1. Once your PR in azure-docs-pr is merged to main, you can approve the azureml-examples PR.
+1. <a name="three"></a> Create a PR in azure-ai-docs-pr to use **~/azureml-examples-temp-fix** instead of **~/azureml-examples-main** for the reference(s) to the problem file/id(s).
+1. Once your PR in azure-ai-docs-pr is merged to main, you can approve the azureml-examples PR.
    > NOTE FOR RELEASE BRANCHES: During Build or Ignite, when there are release branches, this process is more complex. All those release branches also need your update.  Coordinate with the Build/Ignite roadshow owner before you approve the azureml-examples PR.  They'll need to sync main into the release branches before you can approve the original azureml-examples PR.
 1. Create a work item to update these articles to again use ~/azureml-examples-main after the azureml-examples PR has merged.  We want to minimize the time that an article references a file on the temp-fix branch.
 ### Example
@@ -75,12 +75,12 @@ You'll see the following output from `python GitHub/pr-report.py 2888`:
 ```
 MODIFIED FILES: 1
 Potential problems found in 1 files.
-Fix these references in azure-docs-pr before approving this PR:
+Fix these references in azure-ai-docs-pr before approving this PR:
 
 Modified File: cli/setup.sh
   Referenced in:
-   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-deploy-automl-endpoint.md
-   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-configure-cli.md
+   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-deploy-automl-endpoint.md
+   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-configure-cli.md
    Code cells deleted: 2
    * # <az_configure_defaults>
    * # </az_configure_defaults>
@@ -89,8 +89,8 @@ Modified File: cli/setup.sh
 
 There are two docs that reference the file cli/setup.sh.  The ID `az_configure_defaults` is being deleted in the PR.
 
-My first question would to be ask the PR author why they are deleting this comment or the section.  Is it no longer necessary?  If so, delete the references to it in the docs as well, (https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-deploy-automl-endpoint.md & 
-   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/how-to-configure-cli.md)
+My first question would to be ask the PR author why they are deleting this comment or the section.  Is it no longer necessary?  If so, delete the references to it in the docs as well, (https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-deploy-automl-endpoint.md & 
+   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/how-to-configure-cli.md)
 
 If it was a mistake (they didn't think the comments mattered and just deleted them), ask them to put the comments back.
 
@@ -102,13 +102,13 @@ to:
 
 :::code language="azurecli" source="~/azureml-examples-**temp-fix**/cli/setup.sh" id="az_configure_defaults":::
 
-Once your azure-docs-pr change has merged to main, you can approve the PR in azureml-examples.  
+Once your azure-ai-docs-pr change has merged to main, you can approve the PR in azureml-examples.  
 
 Once the azureml-examples change has merged, you can go back to the docs and update the references to point back to main.  We want to minimize the time that the docs reference the temp-fix branch.
 
 ## <a name="temp-fix"></a> Update the temp-fix branch
 
-Before you make any changes to the temp-fix branch in azureml-examples, see if it currently being used for any docs in azure-docs-pr.
+Before you make any changes to the temp-fix branch in azureml-examples, see if it currently being used for any docs in azure-ai-docs-pr.
 
 Run `python GitHub/find-snippet.py` to see if the temp-fix is one of the active branches.
 

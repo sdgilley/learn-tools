@@ -1,6 +1,6 @@
 """
 This script shows the files deleted or modified in a PR in azureml-examples
-If any of these files are referenced azure-docs-pr, 
+If any of these files are referenced azure-ai-docs-pr, 
 the corresponding file (labeled referenced_from_file) is also shown.
 
 To run this script, first run find_snippets.py to create the snippets.csv file.
@@ -10,7 +10,7 @@ Then run from command line:
 
 
 To decide if the PR is safe to merge:
-* If any deleted cell in a MODIFIED file is referenced in azure-docs-pr, PR is not ready to merge
+* If any deleted cell in a MODIFIED file is referenced in azure-ai-docs-pr, PR is not ready to merge
 * If any DELETED file is referenced, PR is not ready to merge.
 
 """
@@ -85,7 +85,7 @@ print(f"ADDED: {len(added_files)}")  # just for info about the PR
 print(f"MODIFIED: {modified}")
 print(f"DELETED: {deleted}")
 print(f"RENAMED: {renamed}\n")
-# print("\nChanges that may affect azure-docs-pr:\n")
+# print("\nChanges that may affect azure-ai-docs-pr:\n")
 data = []  # create an empty list to hold data for modified files that are referenced
 nb_mods = []  # create an empty list to hold data for modified notebooks
 
@@ -128,14 +128,14 @@ if modified > 0:
             grouped_data[key].append(item["Cell"])
         print(f"Potential problems found in {len(grouped_data)} files.")
         print(
-            "Fix these references in azure-docs-pr before approving this PR:\n"
+            "Fix these references in azure-ai-docs-pr before approving this PR:\n"
         )  # Print the grouped data
         for (modified_file, referenced_in), cells in grouped_data.items():
             print(f"Modified File: {modified_file} \n  Referenced in:")
             refs = referenced_in.split("\n")
             for ref in refs:
                 print(
-                    f"   https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
+                    f"   https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
                 )
             print(f"   {cell_type} cells deleted: {len(cells)}")
             for cell in cells:
@@ -163,7 +163,7 @@ if deleted > 0:
             refs = snippet_match.to_string(index=False).split("\n")
             for ref in refs:
                 print(
-                    f"* https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
+                    f"* https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
                 )
             # print(snippet_match.to_string(index=False))
             h.compare_branches(repo, file, "main", "temp-fix")
@@ -186,7 +186,7 @@ if renamed > 0:
             refs = snippet_match.to_string(index=False).split("\n")
             for ref in refs:
                 print(
-                    f"* https://github.com/MicrosoftDocs/azure-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
+                    f"* https://github.com/MicrosoftDocs/azure-ai-docs-pr/edit/main/articles/machine-learning/{ref.strip()}"
                 )
             # print(snippet_match.to_string(index=False))
             h.compare_branches(repo, file, "main", "temp-fix")

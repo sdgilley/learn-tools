@@ -64,5 +64,5 @@ Once your secret is stored, perform all maintenance tasks using the button below
     python GitHub/merge-report.py <days>
     ```
 
-1. Modify the files in azure-docs-pr as listed in the report.  If there are more than 10 files, break it into multiple PRs to be eligible for auto-merge.
+1. Modify the files in azure-ai-docs-pr as listed in the report.  If there are more than 10 files, break it into multiple PRs to be eligible for auto-merge.
 1. Copy the report output to your work item.  This will let you see when it was last run, so that you can adjust days accordingly for your next report.  

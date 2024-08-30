@@ -1,5 +1,5 @@
 """
-This script reads through the files in azure-docs (main) and finds code snippets from 
+This script reads through the files in azure-ai-docs (main) and finds code snippets from 
 azureml-examples (ml) or azureai-samples (ai).
 It creates two files (where xx is ai or ml):
 * refs-found-xx.csv - needed for the merge-report and pr-report scripts
@@ -20,7 +20,7 @@ def find_snippets(repo_arg):
 
     ###################### INPUT HERE ############################
     # Name the path to your repo. If trying to use a private repo, you'll need a token that has access to it.
-    repo_name = "MicrosoftDocs/azure-docs"
+    repo_name = "MicrosoftDocs/azure-ai-docs"
     repo_branch = "main"
     if repo_arg == "ai":
         path_in_repo = "articles/ai-studio"

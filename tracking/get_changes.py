@@ -23,7 +23,7 @@ if __name__ == "__main__":
     import pandas as pd
 
     # change these as needed
-    repo_path = "C:/GitPrivate/azure-docs-pr"
+    repo_path = "C:/GitPrivate/azure-ai-docs-pr"
     author = ""
     since = "03/01/2023"
     until = "04/01/2023"
@@ -51,7 +51,7 @@ def get_file_metadata(file_path):
     import os
 
     repo_owner = "MicrosoftDocs"
-    repo_name = "azure-docs"
+    repo_name = "azure-ai-docs"
         # *** AUTHENTICATE
     # Get GH access token from environment variables (assumes you've exported this)
     # try to read GH_ACCESS_TOKEN from environment variables

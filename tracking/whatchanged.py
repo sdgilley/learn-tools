@@ -8,7 +8,7 @@ import os
 pd.set_option("display.max_colwidth", 500)
 
 # change these as needed
-repo_path = "C:/GitPrivate/azure-docs-pr"
+repo_path = "C:/GitPrivate/azure-ai-docs-pr"
 author = ""  # leave blank for all; careful of date range.
 since = "01/01/2024"
 until = "07/31/2024"
