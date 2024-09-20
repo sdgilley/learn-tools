@@ -172,7 +172,7 @@ if __name__ == "__main__":
     # Get the file names from the tutorials.csv file
     # Add the file names from the CODEOWNERS.txt file
     snippet_names = get_snippet_files(
-        os.path.join(repo_dir, "GitHub", "CODEOWNERS.txt")
+        os.path.join(repo_dir, "GitHub", "CODEOWNERS-ml.txt")
     )
 
     # tutorial_names by itself works correctly.  But for some reason, adding to

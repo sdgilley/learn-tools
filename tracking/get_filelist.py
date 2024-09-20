@@ -35,6 +35,9 @@ def get_filelist(repo_path, branch="main", pull=False):
     titles_lines = titles_output.strip().split('\n')
     titles_data = [line.split(':title: ') for line in titles_lines]
     titles_df = pd.DataFrame(titles_data, columns=['filename', 'title'])
+    # drop the quotes
+    titles_df['title'] = titles_df['title'].str.replace(r'"', '')
+    titles_df['title'] = titles_df['title'].str.replace(r"'", '')
 
     merged = pd.merge(dates_df, authors_df, on='filename')
     merged = pd.merge(merged, titles_df, on='filename')

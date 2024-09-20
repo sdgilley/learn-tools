@@ -1,0 +1,630 @@
+filename,date,author,title,Title,PageViews,refresh
+apache-spark-azure-ml-concepts.md,2023-10-05,franksolomon,Apache Spark in Azure Machine Learning,Apache Spark in Azure Machine Learning,1024.0,2024-04
+apache-spark-environment-configuration.md,2024-04-19,franksolomon,Apache Spark - environment configuration,Apache Spark - environment configuration,93.0,2024-10
+azure-machine-learning-ci-image-release-notes.md,2024-07-03,deeikele,Compute instance image release notes,,,2024-12
+azure-machine-learning-glossary.md,2022-09-21,sgilley,Azure Machine Learning glossary,Azure Machine Learning glossary,365.0,2023-03
+azure-machine-learning-release-notes-cli-v2.md,2022-11-08,larryfr,CLI (v2) release notes,,,2023-05
+concept-automated-ml.md,2024-04-08,ssalgado,What is automated ML? AutoML,What is automated ML? AutoML,5279.0,2024-10
+concept-automl-forecasting-at-scale.md,2024-08-21,ssalgado,Forecasting at scale,Forecasting at scale,131.0,2025-02
+concept-automl-forecasting-calendar-features.md,2023-08-15,ssalgado,Calendar features for time series forecasting in AutoML,Calendar features for time series forecasting in AutoML,84.0,2024-02
+concept-automl-forecasting-deep-learning.md,2024-08-09,ssalgado,Deep learning with AutoML forecasting,Deep learning with AutoML forecasting,207.0,2025-02
+concept-automl-forecasting-evaluation.md,2024-09-05,ssalgado,Inference and evaluation of forecasting models,Inference and evaluation of forecasting models,164.0,2025-03
+concept-automl-forecasting-lags.md,2022-12-15,ssalgado,Lagged features for time series forecasting in AutoML,Lagged features for time series forecasting in AutoML,119.0,2023-06
+concept-automl-forecasting-methods.md,2023-09-27,ssalgado,Overview of forecasting methods in AutoML,Overview of forecasting methods in AutoML,709.0,2024-03
+concept-automl-forecasting-sweeping.md,2022-12-15,ssalgado,Model sweeping and selection for forecasting in AutoML,Model sweeping and selection for forecasting in AutoML,112.0,2023-06
+concept-azure-machine-learning-v2.md,2024-08-21,sgilley,How Azure Machine Learning works (v2),How Azure Machine Learning works (v2),1184.0,2025-02
+concept-causal-inference.md,2024-02-27,lagayhar,Make data-driven policies and influence decision-making,Make data-driven policies and influence decision-making,154.0,2024-08
+concept-component.md,2024-01-19,lagayhar,What is a component,What is a component,1412.0,2024-07
+concept-compute-instance.md,2024-01-17,sgilley,What is an Azure Machine Learning compute instance?,What is an Azure Machine Learning compute instance?,2952.0,2024-07
+concept-compute-target.md,2024-01-23,sgilley,Understand compute targets,Understand compute targets,2915.0,2024-07
+concept-counterfactual-analysis.md,2024-02-27,lagayhar,Counterfactuals analysis and what-if,Counterfactuals analysis and what-if,261.0,2024-08
+concept-customer-managed-keys.md,2024-05-21,larryfr,Customer-managed keys,Customer-managed keys,519.0,2024-11
+concept-data-analysis.md,2024-02-23,lagayhar,Understand your datasets,Understand your datasets,135.0,2024-08
+concept-data-collection.md,2024-04-15,mopeakande,Inference data collection from models in production,Inference data collection from models in production,761.0,2024-10
+concept-data-encryption.md,2024-01-16,larryfr,Data encryption with Azure Machine Learning,Data encryption with Azure Machine Learning,252.0,2024-07
+concept-data-privacy.md,2024-05-22,ssalgado,"Data, privacy, and security for use of models through the Model Catalog",,,2024-11
+concept-data.md,2024-07-24,franksolomon,Data concepts in Azure Machine Learning,Data concepts in Azure Machine Learning,2762.0,2025-01
+concept-deep-learning-vs-machine-learning.md,2024-08-29,lagayhar,Deep learning vs. machine learning,Deep learning vs. machine learning,1790.0,2025-02
+concept-designer.md,2024-05-21,lagayhar,What is Designer (v2)?,,,2024-11
+concept-distributed-training.md,2024-03-22,sgilley,What is distributed training?,What is distributed training?,706.0,2024-09
+concept-endpoint-serverless-availability.md,2024-05-09,mopeakande,Region availability for models in Serverless API endpoints,Region availability for models in Serverless API endpoints,418.0,2024-11
+concept-endpoints-batch.md,2024-04-04,mopeakande,What are batch endpoints?,What are batch endpoints?,1392.0,2024-10
+concept-endpoints-online-auth.md,2023-12-15,mopeakande,Authentication for managed online endpoints,Authentication for managed online endpoints,592.0,2024-06
+concept-endpoints-online.md,2023-10-24,mopeakande,What are online endpoints?,What are online endpoints?,2885.0,2024-04
+concept-endpoints.md,2024-06-21,mopeakande,Endpoints for inference,Endpoints for inference,4974.0,2024-12
+concept-enterprise-security.md,2023-09-13,larryfr,Enterprise security and governance,Enterprise security and governance,690.0,2024-03
+concept-environments.md,2024-09-04,larryfr,About Azure Machine Learning environments,About Azure Machine Learning environments,1386.0,2025-03
+concept-error-analysis.md,2024-03-29,lagayhar,Assess errors in machine learning models,Assess errors in machine learning models,182.0,2024-09
+concept-expressions.md,2024-07-16,larryfr,SDK and CLI v2 expressions,SDK and CLI v2 expressions,291.0,2025-01
+concept-fairness-ml.md,2024-02-21,lagayhar,Machine learning fairness,Machine learning fairness,791.0,2024-08
+concept-hub-workspace.md,2024-05-09,larryfr,What are hub workspaces?,What are hub workspaces?,489.0,2024-11
+concept-machine-learning-registries-mlops.md,2024-06-06,larryfr,Machine Learning registries,Machine Learning registries,782.0,2024-12
+concept-manage-ml-pitfalls.md,2024-07-11,ssalgado,Prevent overfitting and imbalanced data with Automated ML,Prevent overfitting and imbalanced data with Automated ML,486.0,2025-01
+concept-ml-pipelines.md,2024-01-31,lagayhar,What are machine learning pipelines?,What are machine learning pipelines?,2787.0,2024-07
+concept-mlflow-models.md,2023-12-20,mopeakande,From artifacts to models in MLflow,From artifacts to models in MLflow,1014.0,2024-06
+concept-mlflow.md,2024-01-10,mopeakande,MLflow and Azure Machine Learning,MLflow and Azure Machine Learning,2535.0,2024-07
+concept-model-catalog.md,2024-05-02,ssalgado,Model Catalog and Collections,Model Catalog and Collections,3087.0,2024-10
+concept-model-management-and-deployment.md,2024-02-13,mopeakande,MLOps: Machine learning model management,,,2024-08
+concept-model-monitoring.md,2024-01-29,mopeakande,Monitoring models in production,Monitoring models in production,1905.0,2024-07
+concept-online-deployment-model-specification.md,2024-08-14,sehan,Model specification for online deployments,Model specification for online deployments,252.0,2025-02
+concept-onnx.md,2024-03-18,mopeakande,ONNX models: Optimize inference,ONNX models: Optimize inference,817.0,2024-09
+concept-package-models.md,2023-12-08,mopeakande,Model packages for deployment (preview),Model packages for deployment (preview),326.0,2024-06
+concept-plan-manage-cost.md,2024-03-26,sgilley,Plan to manage costs,Plan to manage costs,474.0,2024-09
+concept-prebuilt-docker-images-inference.md,2024-04-08,mopeakande,Prebuilt Docker images,Prebuilt Docker images,1096.0,2024-10
+concept-responsible-ai-dashboard.md,2024-02-21,lagayhar,Assess AI systems and make data-driven decisions with Azure Machine Learning Responsible AI dashboard,Assess AI systems and make data-driven decisions with Azure Machine Learning Responsible AI dashboard,1145.0,2024-08
+concept-responsible-ai-scorecard.md,2024-02-27,lagayhar,Share Responsible AI insights and make data-driven decisions with Azure Machine Learning Responsible AI scorecard,Share Responsible AI insights and make data-driven decisions with Azure Machine Learning Responsible AI scorecard,202.0,2024-08
+concept-responsible-ai.md,2024-01-31,lagayhar,What is Responsible AI,What is Responsible AI,4061.0,2024-07
+concept-retrieval-augmented-generation.md,2024-06-10,ssalgado,Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview),Retrieval Augmented Generation using Azure Machine Learning prompt flow (preview),2059.0,2024-12
+concept-secret-injection.md,2024-01-10,mopeakande,What is secret injection in online endpoints (preview)?,What is secret injection in online endpoints (preview)?,108.0,2024-07
+concept-secure-code-best-practice.md,2024-04-02,larryfr,Secure code best practices,Secure code best practices,123.0,2024-09
+concept-secure-network-traffic-flow.md,2024-01-16,larryfr,Secure network traffic flow,Secure network traffic flow,270.0,2024-07
+concept-secure-online-endpoint.md,2024-02-29,mopeakande,Network isolation with managed online endpoints,Network isolation with managed online endpoints,672.0,2024-08
+concept-soft-delete.md,2024-01-22,larryfr,Workspace soft deletion,Workspace soft deletion,773.0,2024-07
+concept-sourcing-human-data.md,2023-12-30,lagayhar,Manually sourcing human data for AI development,Manually sourcing human data for AI development,74.0,2024-06
+concept-top-level-entities-in-managed-feature-store.md,2023-10-31,franksolomon,Top-level entities in managed feature store,Top-level entities in managed feature store,264.0,2024-04
+concept-train-machine-learning-model.md,2024-04-29,ssalgado,Build & train models,Build & train models,1774.0,2024-10
+concept-train-model-git-integration.md,2024-06-12,larryfr,Git integration,Git integration,1697.0,2024-12
+concept-v2.md,2024-01-17,sgilley,Azure Machine Learning CLI & SDK v2,Azure Machine Learning CLI & SDK v2,2578.0,2024-07
+concept-vector-stores.md,2024-07-17,ssalgado,Concept vector stores in Azure Machine Learning (preview),,,2025-01
+concept-vulnerability-management.md,2024-01-22,larryfr,Vulnerability management,Vulnerability management,493.0,2024-07
+concept-what-is-managed-feature-store.md,2023-10-20,franksolomon,What is managed feature store?,What is managed feature store?,813.0,2024-04
+concept-workspace.md,2024-04-18,sgilley,What is a workspace?,What is a workspace?,2523.0,2024-10
+data-science-virtual-machine\dsvm-common-identity.md,2024-04-10,franksolomon,Set up a common identity,,,2024-10
+data-science-virtual-machine\dsvm-enterprise-overview.md,2024-04-10,franksolomon,Team analytics and AI environment,,,2024-10
+data-science-virtual-machine\dsvm-pools.md,2024-04-11,franksolomon,Shared pools,,,2024-10
+data-science-virtual-machine\dsvm-samples-and-walkthroughs.md,2024-04-16,franksolomon,Sample programs & ML walkthroughs,,,2024-10
+data-science-virtual-machine\dsvm-secure-access-keys.md,2024-04-16,franksolomon,Securely store access credentials,,,2024-10
+data-science-virtual-machine\dsvm-tools-data-platforms.md,2024-04-16,franksolomon,Supported data platforms,,,2024-10
+data-science-virtual-machine\dsvm-tools-data-science.md,2024-04-17,franksolomon,Machine learning and data science tools,,,2024-10
+data-science-virtual-machine\dsvm-tools-deep-learning-frameworks.md,2024-04-17,franksolomon,Deep Learning & AI frameworks,,,2024-10
+data-science-virtual-machine\dsvm-tools-development.md,2024-04-17,franksolomon,Development tools,,,2024-10
+data-science-virtual-machine\dsvm-tools-ingestion.md,2024-04-19,franksolomon,Data ingestion tools,,,2024-10
+data-science-virtual-machine\dsvm-tools-languages.md,2024-04-22,franksolomon,Supported languages,,,2024-10
+data-science-virtual-machine\dsvm-tools-productivity.md,2024-04-22,franksolomon,Productivity tools,,,2024-10
+data-science-virtual-machine\dsvm-tutorial-bicep.md,2024-04-22,franksolomon,Quickstart: Create an Azure Data Science VM - Bicep,,,2024-10
+data-science-virtual-machine\dsvm-tutorial-resource-manager.md,2024-04-23,franksolomon,Quickstart: Create a Data Science VM - Resource Manager template,,,2024-10
+data-science-virtual-machine\dsvm-ubuntu-intro.md,2024-04-23,franksolomon,Quickstart: Create an Ubuntu Data Science Virtual Machine,,,2024-10
+data-science-virtual-machine\how-to-track-experiments.md,2024-04-23,samkemp,Experiment tracking and deploying models,,,2024-10
+data-science-virtual-machine\linux-dsvm-walkthrough.md,2024-04-25,franksolomon,Explore Linux,,,2024-10
+data-science-virtual-machine\overview.md,2024-04-26,franksolomon,What is the Azure Data Science Virtual Machine,,,2024-10
+data-science-virtual-machine\provision-vm.md,2024-04-27,franksolomon,Quickstart: Create a Windows Data Science Virtual Machine,,,2024-10
+data-science-virtual-machine\reference-known-issues.md,2024-04-29,franksolomon,Reference: Known issues & troubleshooting,,,2024-10
+data-science-virtual-machine\reference-ubuntu-vm.md,2024-04-30,franksolomon,Reference: Ubuntu Data Science Virtual Machine,,,2024-10
+data-science-virtual-machine\release-notes.md,2024-05-21,franksolomon,Whats new on the Data Science Virtual Machine,,,2024-11
+data-science-virtual-machine\tools-included.md,2024-05-21,franksolomon,Tools included on the Azure Data Science Virtual Machine,,,2024-11
+data-science-virtual-machine\ubuntu-upgrade.md,2024-05-08,franksolomon,How to upgrade your Data Science Virtual Machine to Ubuntu 20.04,,,2024-11
+data-science-virtual-machine\vm-do-ten-things.md,2024-06-05,franksolomon,Explore data and model on Windows,,,2024-12
+deploy-jais-models.md,2024-05-02,mopeakande,How to deploy JAIS models with Azure Machine Learning studio,,,2024-10
+designer-accessibility.md,2020-01-09,lagayhar,Use accessibility features in the designer,,,2020-07
+feature-retrieval-concepts.md,2023-12-06,franksolomon,Feature retrieval specification and usage in training and inference,Feature retrieval specification and usage in training and inference,92.0,2024-06
+feature-set-materialization-concepts.md,2023-12-06,franksolomon,Feature set materialization concepts,Feature set materialization concepts,103.0,2024-06
+feature-set-specification-transformation-concepts.md,2023-12-06,franksolomon,Feature set specification transformation concepts,Feature set specification transformation concepts,132.0,2024-06
+how-to-access-azureml-behind-firewall.md,2024-04-08,larryfr,Configure inbound and outbound network traffic,Configure inbound and outbound network traffic,3692.0,2024-10
+how-to-access-data-batch-endpoints-jobs.md,2024-08-21,mopeakande,Create jobs and input data for batch endpoints,Create jobs and input data for batch endpoints,1099.0,2025-02
+how-to-access-data-interactive.md,2024-07-24,franksolomon,Access data from Azure cloud storage during interactive development,Access data from Azure cloud storage during interactive development,2078.0,2025-01
+how-to-access-resources-from-endpoints-managed-identities.md,2024-03-18,mopeakande,Access Azure resources from an online endpoint,Access Azure resources from an online endpoint,430.0,2024-09
+how-to-access-terminal.md,2024-01-10,sgilley,How to access a compute instance terminal in your workspace,How to access a compute instance terminal in your workspace,1132.0,2024-07
+how-to-add-users.md,2024-03-12,sgilley,Add users to your data labeling project,Add users to your data labeling project,152.0,2024-09
+how-to-administrate-data-authentication.md,2023-09-26,franksolomon,Administer data authentication,Administer data authentication,1034.0,2024-03
+how-to-assign-roles.md,2024-09-03,larryfr,Manage roles in your workspace,Manage roles in your workspace,3200.0,2025-03
+how-to-attach-kubernetes-anywhere.md,2023-12-22,ssalgado,Introduction to Kubernetes compute target in Azure Machine Learning,Introduction to Kubernetes compute target in Azure Machine Learning,1451.0,2024-06
+how-to-attach-kubernetes-to-workspace.md,2024-01-18,ssalgado,Attach a Kubernetes cluster to Azure Machine Learning workspace,Attach a Kubernetes cluster to Azure Machine Learning workspace,511.0,2024-07
+how-to-authenticate-batch-endpoint.md,2023-10-10,mopeakande,Authorization on batch endpoints,Authorization on batch endpoints,420.0,2024-04
+how-to-authenticate-online-endpoint.md,2024-04-23,mopeakande,Authenticate clients for online endpoints,Authenticate clients for online endpoints,1644.0,2024-10
+how-to-auto-train-forecast.md,2023-08-01,ssalgado,Set up AutoML for time-series forecasting,,,2024-01
+how-to-auto-train-image-models.md,2023-11-07,ssalgado,Set up AutoML for computer vision,Set up AutoML for computer vision,863.0,2024-05
+how-to-auto-train-nlp-models.md,2023-06-15,ssalgado,Set up AutoML for NLP,Set up AutoML for NLP,549.0,2023-12
+how-to-automl-forecasting-faq.md,2023-08-01,ssalgado,Frequently asked questions about forecasting in AutoML,Frequently asked questions about forecasting in AutoML,157.0,2024-01
+how-to-autoscale-endpoints.md,2024-08-07,mopeakande,Autoscale online endpoints,Autoscale online endpoints,591.0,2025-02
+how-to-azure-container-for-pytorch-environment.md,2024-03-04,ssalgado,How to create Azure Container for PyTorch Custom Curated environment,How to create Azure Container for PyTorch Custom Curated environment,245.0,2024-08
+how-to-batch-scoring-script.md,2024-04-15,mopeakande,Author scoring scripts for batch deployments,Author scoring scripts for batch deployments,914.0,2024-10
+how-to-change-storage-access-key.md,2023-11-01,larryfr,Change storage account access keys,Change storage account access keys,269.0,2024-04
+how-to-collect-production-data.md,2024-04-15,mopeakande,Collect production data from models deployed for real-time inferencing,Collect production data from models deployed for real-time inferencing,876.0,2024-10
+how-to-configure-auto-train.md,2023-08-01,ssalgado,Set up AutoML with Python (v2),Set up AutoML with Python (v2),1930.0,2024-01
+how-to-configure-cli.md,2024-01-08,larryfr,Install and set up the CLI (v2),,,2024-07
+how-to-configure-environment.md,2024-04-08,larryfr,Set up Python development environment,Set up Python development environment,2422.0,2024-10
+how-to-configure-network-isolation-with-v2.md,2023-09-13,larryfr,Network isolation change with our new API platform on Azure Resource Manager,Network isolation change with our new API platform on Azure Resource Manager,298.0,2024-03
+how-to-configure-private-link.md,2024-09-05,larryfr,Configure a private endpoint,,,2025-03
+how-to-connect-models-serverless.md,2024-05-09,mopeakande,Consume deployed serverless API endpoints from a different workspace,Consume deployed serverless API endpoints from a different workspace,235.0,2024-11
+how-to-connection.md,2024-07-24,franksolomon,Create connections to external data sources (preview),Create connections to external data sources (preview),1200.0,2025-01
+how-to-convert-custom-model-to-mlflow.md,2024-08-16,mopeakande,Convert custom models to MLflow,Convert custom models to MLflow,184.0,2025-02
+how-to-create-attach-compute-cluster.md,2024-05-03,sgilley,Create compute clusters,Create compute clusters,2206.0,2024-10
+how-to-create-attach-compute-studio.md,2024-03-04,sgilley,Manage training & deploy computes (studio),Manage training & deploy computes (studio),658.0,2024-08
+how-to-create-component-pipeline-python.md,2023-12-30,lagayhar,Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2,Create and run machine learning pipelines using components with the Azure Machine Learning SDK v2,3638.0,2024-06
+how-to-create-component-pipelines-cli.md,2024-01-31,lagayhar,Create and run component-based ML pipelines (CLI),Create and run component-based ML pipelines (CLI),1520.0,2024-07
+how-to-create-component-pipelines-ui.md,2024-01-31,lagayhar,Create and run component-based ML pipelines (UI),Create and run component-based ML pipelines (UI),1822.0,2024-07
+how-to-create-compute-instance.md,2024-08-21,sgilley,Create a compute instance,Create a compute instance,2878.0,2025-02
+how-to-create-data-assets.md,2024-07-26,franksolomon,Create Data Assets,Create Data Assets,4101.0,2025-01
+how-to-create-image-labeling-projects.md,2024-02-01,sgilley,Set up an image labeling project,Set up an image labeling project,1131.0,2024-07
+how-to-create-text-labeling-projects.md,2024-02-01,sgilley,Set up a text labeling project,Set up a text labeling project,419.0,2024-07
+how-to-create-vector-index.md,2024-01-22,ssalgado,Create a vector index in an Azure Machine Learning prompt flow (preview),Create a vector index in an Azure Machine Learning prompt flow (preview),1100.0,2024-07
+how-to-create-workspace-template.md,2024-02-29,larryfr,Create a workspace with Azure Resource Manager template,Create a workspace with Azure Resource Manager template,665.0,2024-08
+how-to-custom-dns.md,2024-06-05,larryfr,Use custom DNS server,Use custom DNS server,1600.0,2024-12
+how-to-customize-compute-instance.md,2024-03-13,sgilley,Customize compute instance with a script,Customize compute instance with a script,622.0,2024-09
+how-to-datastore.md,2024-02-20,franksolomon,Use datastores,Use datastores,3723.0,2024-08
+how-to-debug-managed-online-endpoints-visual-studio-code.md,2024-03-20,mopeakande,Debug online endpoints locally in Visual Studio Code,Debug online endpoints locally in Visual Studio Code,380.0,2024-09
+how-to-debug-pipeline-failure.md,2024-05-23,lagayhar,Use Azure Machine Learning studio to debug pipeline failures,Use Azure Machine Learning studio to debug pipeline failures,220.0,2024-11
+how-to-debug-pipeline-performance.md,2024-05-24,lagayhar,Debug pipeline performance issues,Debug pipeline performance issues,100.0,2024-11
+how-to-debug-pipeline-reuse-issues.md,2023-04-28,lagayhar,Debug pipeline reuse issues in Azure Machine Learning,Debug pipeline reuse issues in Azure Machine Learning,152.0,2023-10
+how-to-deploy-automl-endpoint.md,2024-08-19,mopeakande,Deploy an AutoML model with an online endpoint,Deploy an AutoML model with an online endpoint,330.0,2025-02
+how-to-deploy-custom-container.md,2024-03-26,mopeakande,Deploy a model in a custom container to an online endpoint,Deploy a model in a custom container to an online endpoint,1086.0,2024-09
+how-to-deploy-kubernetes-extension.md,2024-01-19,ssalgado,Deploy Azure Machine Learning extension on Kubernetes cluster,Deploy Azure Machine Learning extension on Kubernetes cluster,1019.0,2024-07
+how-to-deploy-mlflow-model-spark-jobs.md,2022-12-30,mopeakande,Deploy and run MLflow models in Spark jobs,Deploy and run MLflow models in Spark jobs,83.0,2023-06
+how-to-deploy-mlflow-models-online-endpoints.md,2024-01-31,mopeakande,Deploy MLflow models to real-time endpoints,Deploy MLflow models to real-time endpoints,1049.0,2024-07
+how-to-deploy-mlflow-models-online-progressive.md,2022-03-31,mopeakande,Progressive rollout of MLflow models to Online Endpoints,Progressive rollout of MLflow models to Online Endpoints,113.0,2022-09
+how-to-deploy-mlflow-models.md,2024-01-16,mopeakande,Guidelines for deploying MLflow models,,,2024-07
+how-to-deploy-model-custom-output.md,2024-03-18,mopeakande,Customize outputs in batch deployments,Customize outputs in batch deployments,287.0,2024-09
+how-to-deploy-models-cohere-command.md,2024-04-02,mopeakande,How to deploy Cohere Command models with Azure Machine Learning studio,How to deploy Cohere Command models with Azure Machine Learning studio,98.0,2024-09
+how-to-deploy-models-cohere-embed.md,2024-04-02,mopeakande,How to deploy Cohere Embed models with Azure Machine Learning studio,How to deploy Cohere Embed models with Azure Machine Learning studio,123.0,2024-09
+how-to-deploy-models-cohere-rerank.md,2024-07-24,mopeakande,How to deploy Cohere Rerank models as serverless APIs,How to deploy Cohere Rerank models as serverless APIs,82.0,2025-01
+how-to-deploy-models-from-huggingface.md,2023-12-15,ssalgado,Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference,Deploy models from HuggingFace hub to Azure Machine Learning online endpoints for real-time inference,1659.0,2024-06
+how-to-deploy-models-jamba.md,2024-06-19,ssalgado,How to deploy Jamba models with Azure Machine Learning studio,,,2024-12
+how-to-deploy-models-llama.md,2024-07-23,ssalgado,How to deploy Meta Llama 3.1 models with Azure Machine Learning studio,How to deploy Meta Llama 3.1 models with Azure Machine Learning studio,2171.0,2025-01
+how-to-deploy-models-mistral.md,2024-04-29,mopeakande,How to deploy Mistral family of models with Azure Machine Learning studio,How to deploy Mistral family of models with Azure Machine Learning studio,417.0,2024-10
+how-to-deploy-models-phi-3-5-moe.md,2024-08-19,mopeakande,How to use Phi-3 MoE chat model with Azure Machine Learning,How to use Phi-3 MoE chat model with Azure Machine Learning,402.0,2025-02
+how-to-deploy-models-phi-3-5-vision.md,2024-08-29,mopeakande,How to use Phi-3.5 chat model with vision with Azure Machine Learning,How to use Phi-3.5 chat model with vision with Azure Machine Learning,63.0,2025-02
+how-to-deploy-models-phi-3-vision.md,2024-08-19,mopeakande,How to use Phi-3 chat model with vision with Azure Machine Learning,How to use Phi-3 chat model with vision with Azure Machine Learning,26.0,2025-02
+how-to-deploy-models-phi-3.md,2024-08-19,mopeakande,How to use Phi-3 family chat models with Azure Machine Learning,How to use Phi-3 family chat models with Azure Machine Learning,664.0,2025-02
+how-to-deploy-models-serverless.md,2024-07-19,mopeakande,Deploy models as serverless APIs,Deploy models as serverless APIs,1169.0,2025-01
+how-to-deploy-models-timegen-1.md,2024-05-21,mopeakande,How to deploy TimeGEN-1 model with Azure Machine Learning,How to deploy TimeGEN-1 model with Azure Machine Learning,124.0,2024-11
+how-to-deploy-online-endpoint-with-secret-injection.md,2024-01-10,mopeakande,Access secrets from online deployment using secret injection (preview),Access secrets from online deployment using secret injection (preview),170.0,2024-07
+how-to-deploy-online-endpoints.md,2024-04-30,mopeakande,Deploy machine learning models to online endpoints for inference,Deploy machine learning models to online endpoints for inference,8989.0,2024-10
+how-to-deploy-pipeline-component-as-batch-endpoint.md,2024-03-29,lagayhar,How to deploy pipeline as batch endpoint,How to deploy pipeline as batch endpoint,258.0,2024-09
+how-to-deploy-with-rest.md,2024-07-29,mopeakande,Deploy models by using online endpoints with REST APIs,Deploy models by using online endpoints with REST APIs,613.0,2025-01
+how-to-deploy-with-triton.md,2023-11-09,mopeakande,High-performance model serving with Triton,High-performance model serving with Triton,561.0,2024-05
+how-to-devops-machine-learning.md,2024-06-12,larryfr,Azure DevOps for CI/CD,Azure DevOps for CI/CD,1288.0,2024-12
+how-to-enable-preview-features.md,2024-07-08,larryfr,Manage preview features,Manage preview features,345.0,2025-01
+how-to-enable-studio-virtual-network.md,2024-03-06,larryfr,Use Azure Machine Learning studio in a virtual network,Use Azure Machine Learning studio in a virtual network,812.0,2024-09
+how-to-export-delete-data.md,2024-08-01,franksolomon,Export or delete workspace data,Export or delete workspace data,441.0,2025-01
+how-to-github-actions-machine-learning.md,2023-12-06,larryfr,GitHub Actions for CI/CD,GitHub Actions for CI/CD,425.0,2024-06
+how-to-high-availability-machine-learning.md,2024-06-28,larryfr,Failover & disaster recovery,Failover & disaster recovery,225.0,2024-12
+how-to-high-availability-machine-learning.md,2024-06-28,larryfr,Failover & disaster recovery,Failover & disaster recovery,225.0,2024-12
+how-to-identity-based-service-authentication.md,2024-07-26,larryfr,Set up service authentication,Set up service authentication,2625.0,2025-01
+how-to-image-processing-batch.md,2024-08-20,mopeakande,Image processing with batch model deployments,Image processing with batch model deployments,158.0,2025-02
+how-to-import-data-assets.md,2024-04-18,franksolomon,Import data (preview),Import data (preview),905.0,2024-10
+how-to-inference-onnx-automl-image-models.md,2024-02-18,ssalgado,Local inference using ONNX for AutoML image,Local inference using ONNX for AutoML image,224.0,2024-08
+how-to-inference-server-http.md,2024-08-21,mopeakande,Debug with Azure Machine Learning inference server,Debug with Azure Machine Learning inference server,823.0,2025-02
+how-to-integrate-azure-policy.md,2024-09-04,larryfr,Audit and manage Azure Machine Learning,Audit and manage Azure Machine Learning,207.0,2025-03
+how-to-interactive-jobs.md,2024-08-15,ssalgado,Interact with your jobs (debug and monitor),Interact with your jobs (debug and monitor),403.0,2025-02
+how-to-kubernetes-inference-routing-azureml-fe.md,2024-02-05,ssalgado,Inference router and connectivity requirements,Inference router and connectivity requirements,177.0,2024-08
+how-to-label-data.md,2024-08-13,franksolomon,Labeling images and text documents,Labeling images and text documents,1136.0,2025-02
+how-to-launch-vs-code-remote.md,2024-08-05,sgilley,Launch Visual Studio Code integrated with Azure Machine Learning,Launch Visual Studio Code integrated with Azure Machine Learning,1240.0,2025-02
+how-to-log-mlflow-models.md,2024-02-16,mopeakande,Logging MLflow models,Logging MLflow models,750.0,2024-08
+how-to-log-view-metrics.md,2024-04-26,mopeakande,"Log metrics, parameters, and files with MLflow","Log metrics, parameters, and files with MLflow",2281.0,2024-10
+how-to-machine-learning-interpretability.md,2024-02-29,mesameki,Model interpretability,Model interpretability,1034.0,2024-08
+how-to-manage-compute-instance.md,2024-05-03,sgilley,Manage a compute instance,Manage a compute instance,1085.0,2024-10
+how-to-manage-compute-sessions.md,2023-01-18,sgilley,How to manage compute sessions,How to manage compute sessions,218.0,2023-07
+how-to-manage-environments-in-studio.md,2024-03-05,larryfr,Manage environments in the studio,Manage environments in the studio,981.0,2024-09
+how-to-manage-environments-v2.md,2024-04-19,larryfr,Manage Azure Machine Learning environments with the CLI & SDK (v2),Manage Azure Machine Learning environments with the CLI & SDK (v2),3145.0,2024-10
+how-to-manage-files.md,2024-09-03,sgilley,Create and manage files in your workspace,Create and manage files in your workspace,668.0,2025-03
+how-to-manage-hub-workspace-portal.md,2024-05-09,deeikele,Manage hub workspaces in portal,Manage hub workspaces in portal,206.0,2024-11
+how-to-manage-hub-workspace-template.md,2024-02-29,larryfr,Create a hub workspace with Azure Resource Manager template,Create a hub workspace with Azure Resource Manager template,35.0,2024-08
+how-to-manage-imported-data-assets.md,2024-07-30,franksolomon,Manage imported data assets (preview),Manage imported data assets (preview),181.0,2025-01
+how-to-manage-inputs-outputs-pipeline.md,2023-08-27,lagayhar,Manage inputs and outputs of a pipeline,Manage inputs and outputs of a pipeline,2100.0,2024-02
+how-to-manage-kubernetes-instance-types.md,2024-01-09,ssalgado,Create and manage instance types for efficient utilization of compute resources,Create and manage instance types for efficient utilization of compute resources,398.0,2024-07
+how-to-manage-labeling-projects.md,2024-02-01,sgilley,Manage labeling projects,Manage labeling projects,354.0,2024-07
+how-to-manage-models-mlflow.md,2024-08-20,mopeakande,Manage models registry with MLflow,Manage models registry with MLflow,541.0,2025-02
+how-to-manage-models.md,2024-06-12,larryfr,Register and work with models,Register and work with models,3272.0,2024-12
+how-to-manage-optimize-cost.md,2024-08-06,ssalgado,Manage and optimize costs,Manage and optimize costs,382.0,2025-02
+how-to-manage-quotas.md,2023-09-15,larryfr,Manage resources and quotas,Manage resources and quotas,2681.0,2024-03
+how-to-manage-registries.md,2024-08-19,larryfr,Create and manage registries,Create and manage registries,1250.0,2025-02
+how-to-manage-resources-vscode.md,2024-01-15,ssalgado,Create and manage resources VS Code extension (preview),Create and manage resources VS Code extension (preview),398.0,2024-07
+how-to-manage-rest.md,2024-08-21,larryfr,Use REST to manage ML resources,Use REST to manage ML resources,678.0,2025-02
+how-to-manage-synapse-spark-pool.md,2024-04-12,franksolomon,Attach and manage a Synapse Spark pool in Azure Machine Learning,Attach and manage a Synapse Spark pool in Azure Machine Learning,350.0,2024-10
+how-to-manage-workspace-cli.md,2024-06-17,larryfr,Create workspaces with Azure CLI,,,2024-12
+how-to-manage-workspace-powershell.md,2023-09-13,larryfr,Create workspaces with Azure PowerShell,Create workspaces with Azure PowerShell,128.0,2024-03
+how-to-manage-workspace-terraform.md,2024-06-25,larryfr,Create workspaces by using Terraform,Create workspaces by using Terraform,466.0,2024-12
+how-to-manage-workspace.md,2024-02-06,deeikele,Manage workspaces in portal or Python SDK (v2),Manage workspaces in portal or Python SDK (v2),1699.0,2024-08
+how-to-managed-network-compute.md,2024-08-16,larryfr,Managed computes in managed virtual network isolation,Managed computes in managed virtual network isolation,133.0,2025-02
+how-to-managed-network.md,2024-08-29,larryfr,Managed virtual network isolation,Managed virtual network isolation,3156.0,2025-02
+how-to-migrate-from-v1.md,2024-02-22,sgilley,Upgrade from v1 to v2,Upgrade from v1 to v2,922.0,2024-08
+how-to-mlflow-batch.md,2024-08-09,mopeakande,Deploy MLflow models in batch deployments,Deploy MLflow models in batch deployments,560.0,2025-02
+how-to-mltable.md,2024-04-18,franksolomon,Working with tables in Azure Machine Learning,Working with tables in Azure Machine Learning,2050.0,2024-10
+how-to-monitor-kubernetes-online-enpoint-inference-server-log.md,2023-09-26,zetia,Monitor Kubernetes Online Endpoint inference server logs,Monitor Kubernetes Online Endpoint inference server logs,30.0,2024-03
+how-to-monitor-model-performance.md,2024-01-29,mopeakande,Monitor performance of models deployed to production,Monitor performance of models deployed to production,901.0,2024-07
+how-to-monitor-online-endpoints.md,2023-10-24,mopeakande,Monitor online endpoints,Monitor online endpoints,1020.0,2024-04
+how-to-move-workspace.md,2024-06-13,larryfr,Move workspace between subscriptions (preview),Move workspace between subscriptions (preview),283.0,2024-12
+how-to-network-isolation-model-catalog.md,2023-12-15,ssalgado,Use Model Catalog collections with workspace managed virtual network,Use Model Catalog collections with workspace managed virtual network,151.0,2024-06
+how-to-network-isolation-planning.md,2024-05-31,larryfr,Plan for network isolation,Plan for network isolation,932.0,2024-11
+how-to-network-security-overview.md,2024-09-04,larryfr,Secure workspace resources using virtual networks (VNets),Secure workspace resources using virtual networks (VNets),1354.0,2025-03
+how-to-nlp-processing-batch.md,2022-10-10,mopeakande,Deploy and run language models in batch endpoints,Deploy and run language models in batch endpoints,133.0,2023-04
+how-to-outsource-data-labeling.md,2021-10-21,sgilley,Data labeling vendor companies,Data labeling vendor companies,155.0,2022-04
+how-to-package-models-app-service.md,2023-12-08,mopeakande,Package and deploy models outside Azure Machine Learning (preview),Package and deploy models outside Azure Machine Learning (preview),526.0,2024-06
+how-to-package-models-moe.md,2023-12-08,mopeakande,Deploy model packages to online endpoints (preview),Deploy model packages to online endpoints (preview),331.0,2024-06
+how-to-package-models.md,2023-12-08,mopeakande,Package a model for deployment (preview),Package a model for deployment (preview),431.0,2024-06
+how-to-prepare-datasets-for-automl-images.md,2024-03-26,ssalgado,Prepare data for computer vision tasks,,,2024-09
+how-to-prevent-data-loss-exfiltration.md,2024-01-31,larryfr,Configure data exfiltration prevention,Configure data exfiltration prevention,334.0,2024-07
+how-to-private-endpoint-integration-synapse.md,2024-03-12,larryfr,Securely integrate with Azure Synapse,Securely integrate with Azure Synapse,114.0,2024-09
+how-to-r-deploy-r-model.md,2023-01-12,sgilley,Deploy a registered R model to an online (real time) endpoint,Deploy a registered R model to an online (real time) endpoint,116.0,2023-07
+how-to-r-interactive-development.md,2023-06-01,sgilley,Use R interactively on Azure Machine Learning,Use R interactively on Azure Machine Learning,584.0,2023-11
+how-to-r-modify-script-for-production.md,2023-01-11,sgilley,Adapt your R script to run in production,Adapt your R script to run in production,202.0,2023-07
+how-to-r-overview-r-capabilities.md,2023-01-12,sgilley,Bring R workloads into Azure Machine Learning,Bring R workloads into Azure Machine Learning,138.0,2023-07
+how-to-r-train-model.md,2024-03-22,sgilley,Train R models,Train R models,107.0,2024-09
+how-to-read-write-data-v2.md,2024-02-06,franksolomon,Access data in a job,Access data in a job,2944.0,2024-08
+how-to-registry-network-isolation.md,2024-04-29,larryfr,Machine Learning registry network isolation,Machine Learning registry network isolation,414.0,2024-10
+how-to-regulate-registry-deployments.md,2023-12-14,ssalgado,Regulate deployments in Model Catalog using policies,Regulate deployments in Model Catalog using policies,151.0,2024-06
+how-to-responsible-ai-dashboard.md,2022-11-09,lagayhar,Use the Responsible AI dashboard in Azure Machine Learning studio,Use the Responsible AI dashboard in Azure Machine Learning studio,525.0,2023-05
+how-to-responsible-ai-image-dashboard.md,2023-05-16,lagayhar,Use the Responsible AI image dashboard,Use the Responsible AI image dashboard,82.0,2023-11
+how-to-responsible-ai-insights-sdk-cli.md,2024-03-29,lagayhar,Generate a Responsible AI insights with YAML and Python,Generate a Responsible AI insights with YAML and Python,270.0,2024-09
+how-to-responsible-ai-insights-ui.md,2022-11-09,lagayhar,Generate Responsible AI insights in the studio UI,Generate Responsible AI insights in the studio UI,302.0,2023-05
+how-to-responsible-ai-scorecard.md,2022-11-09,lagayhar,Use Responsible AI scorecard (preview) in Azure Machine Learning,Use Responsible AI scorecard (preview) in Azure Machine Learning,277.0,2023-05
+how-to-responsible-ai-text-dashboard.md,2024-06-03,lagayhar,Use the responsible AI text dashboard,Use the responsible AI text dashboard,77.0,2024-11
+how-to-responsible-ai-text-insights.md,2024-05-15,lagayhar,Generate responsible AI text insights with YAML and Python,Generate responsible AI text insights with YAML and Python,34.0,2024-11
+how-to-responsible-ai-vision-insights.md,2024-05-20,lagayhar,Generate Responsible AI vision insights with YAML and Python,Generate Responsible AI vision insights with YAML and Python,46.0,2024-11
+how-to-retrieval-augmented-generation-cloud-to-local.md,2023-09-12,lagayhar,Retrieval Augmented Generation (RAG) cloud to local (preview),Retrieval Augmented Generation (RAG) cloud to local (preview),194.0,2024-03
+how-to-run-jupyter-notebooks.md,2024-08-14,sgilley,Run Jupyter notebooks in your workspace,Run Jupyter notebooks in your workspace,5122.0,2025-02
+how-to-safely-rollout-online-endpoints.md,2023-10-24,mopeakande,Safe rollout for online endpoints,Safe rollout for online endpoints,687.0,2024-04
+how-to-schedule-data-import.md,2024-07-28,franksolomon,Schedule data import (preview),Schedule data import (preview),168.0,2025-01
+how-to-schedule-pipeline-job.md,2023-03-27,lagayhar,Schedule Azure Machine Learning pipeline jobs,Schedule Azure Machine Learning pipeline jobs,1735.0,2023-09
+how-to-search-assets.md,2023-01-12,sgilley,Search for assets,Search for assets,145.0,2023-07
+how-to-secure-batch-endpoint.md,2022-10-10,mopeakande,Network isolation in batch endpoints,Network isolation in batch endpoints,130.0,2023-04
+how-to-secure-inferencing-vnet.md,2024-05-31,larryfr,Secure inferencing environments with virtual networks,Secure inferencing environments with virtual networks,228.0,2024-11
+how-to-secure-kubernetes-inferencing-environment.md,2022-08-31,larryfr,Secure Azure Kubernetes Service inferencing environment,Secure Azure Kubernetes Service inferencing environment,142.0,2023-02
+how-to-secure-kubernetes-online-endpoint.md,2022-10-10,mopeakande,Configure a secure online endpoint with TLS/SSL,Configure a secure online endpoint with TLS/SSL,149.0,2023-04
+how-to-secure-online-endpoint.md,2023-09-28,mopeakande,How to secure managed online endpoints with network isolation,How to secure managed online endpoints with network isolation,789.0,2024-03
+how-to-secure-rag-workflows.md,2023-09-12,ssalgado,Secure your RAG workflows with network isolation (preview),Secure your RAG workflows with network isolation (preview),244.0,2024-03
+how-to-secure-training-vnet.md,2024-04-08,larryfr,Secure training environments with virtual networks,,,2024-10
+how-to-secure-workspace-vnet.md,2024-07-08,larryfr,Secure an Azure Machine Learning workspace with virtual networks,Secure an Azure Machine Learning workspace with virtual networks,2734.0,2025-01
+how-to-securely-attach-databricks.md,2024-06-11,larryfr,Attach a secured Azure Databricks compute,Attach a secured Azure Databricks compute,166.0,2024-12
+how-to-setup-access-control-feature-store.md,2023-10-31,franksolomon,Manage access to managed feature store,Manage access to managed feature store,174.0,2024-04
+how-to-setup-authentication.md,2024-01-05,larryfr,Set up authentication,,,2024-07
+how-to-setup-customer-managed-keys.md,2023-09-12,larryfr,Use customer-managed keys,Use customer-managed keys,229.0,2024-03
+how-to-setup-mlops-azureml.md,2023-11-03,larryfr,Set up MLOps with Azure DevOps,Set up MLOps with Azure DevOps,1831.0,2024-05
+how-to-setup-mlops-github-azure-ml.md,2024-01-29,larryfr,Set up MLOps with GitHub,Set up MLOps with GitHub,436.0,2024-07
+how-to-setup-vs-code.md,2024-01-16,ssalgado,Set up Visual Studio Code desktop with the Azure Machine Learning extension (preview),Set up Visual Studio Code desktop with the Azure Machine Learning extension (preview),1421.0,2024-07
+how-to-share-data-across-workspaces-with-registries.md,2024-04-09,larryfr,Share data across workspaces with registries (preview),Share data across workspaces with registries (preview),291.0,2024-10
+how-to-share-models-pipelines-across-workspaces-with-registries.md,2024-04-09,larryfr,"Share models, components, and environments across workspaces with registries","Share models, components, and environments across workspaces with registries",1112.0,2024-10
+how-to-submit-spark-jobs.md,2023-10-05,franksolomon,Submit Spark jobs in Azure Machine Learning,Submit Spark jobs in Azure Machine Learning,455.0,2024-04
+how-to-track-experiments-mlflow.md,2024-03-20,mopeakande,Query & compare experiments and runs with MLflow,Query & compare experiments and runs with MLflow,696.0,2024-09
+how-to-track-monitor-analyze-runs.md,2024-03-22,sgilley,Monitor and analyze jobs in studio,Monitor and analyze jobs in studio,742.0,2024-09
+how-to-track-monitor-organize-jobs.md,2023-04-22,sgilley,Organize & track training jobs (preview),Organize & track training jobs (preview),106.0,2023-10
+how-to-train-distributed-gpu.md,2024-01-29,sgilley,Distributed GPU training guide (SDK v2),Distributed GPU training guide (SDK v2),812.0,2024-07
+how-to-train-keras.md,2022-10-05,sgilley,Train deep learning Keras models (SDK v2),,,2023-04
+how-to-train-mlflow-projects.md,2022-11-04,mopeakande,Train with MLflow Projects (Preview),Train with MLflow Projects (Preview),176.0,2023-05
+how-to-train-model.md,2023-09-10,larryfr,Train ML models,Train ML models,159.0,2024-03
+how-to-train-pytorch.md,2024-01-26,sgilley,Train deep learning PyTorch models (SDK v2),Train deep learning PyTorch models (SDK v2),942.0,2024-07
+how-to-train-scikit-learn.md,2024-03-26,sgilley,Train scikit-learn machine learning models (v2),Train scikit-learn machine learning models (v2),470.0,2024-09
+how-to-train-tensorflow.md,2024-04-03,sgilley,Train and deploy a TensorFlow model (SDK v2),Train and deploy a TensorFlow model (SDK v2),519.0,2024-09
+how-to-train-with-ui.md,2024-02-04,ssalgado,Create a Training Job with the job creation UI,Create a Training Job with the job creation UI,744.0,2024-08
+how-to-troubleshoot-auto-ml.md,2023-12-21,ssalgado,Troubleshoot automated ML experiments,Troubleshoot automated ML experiments,188.0,2024-06
+how-to-troubleshoot-batch-endpoints.md,2024-07-29,mopeakande,Troubleshoot batch endpoints,Troubleshoot batch endpoints,329.0,2025-01
+how-to-troubleshoot-data-access.md,2024-02-23,franksolomon,Troubleshoot data access,Troubleshoot data access,674.0,2024-08
+how-to-troubleshoot-data-labeling.md,2024-03-07,sgilley,Troubleshoot data labeling project creation,Troubleshoot data labeling project creation,96.0,2024-09
+how-to-troubleshoot-environments.md,2024-06-10,larryfr,Troubleshoot environment images,Troubleshoot environment images,719.0,2024-12
+how-to-troubleshoot-kubernetes-compute.md,2024-02-11,ssalgado,Troubleshoot Kubernetes compute for machine learning tasks,Troubleshoot Kubernetes compute for machine learning tasks,176.0,2024-08
+how-to-troubleshoot-kubernetes-extension.md,2024-03-10,larryfr,Troubleshoot Azure Machine Learning extension,Troubleshoot Azure Machine Learning extension,231.0,2024-09
+how-to-troubleshoot-managed-network.md,2024-04-30,larryfr,Troubleshooting managed virtual networks,Troubleshooting managed virtual networks,178.0,2024-10
+how-to-troubleshoot-online-endpoints.md,2023-10-24,mopeakande,Troubleshooting online endpoints deployment,Troubleshooting online endpoints deployment,6439.0,2024-04
+how-to-troubleshoot-protobuf-descriptor-error.md,2024-03-25,larryfr,Troubleshoot `descriptors cannot not be created directly`,Troubleshoot `descriptors cannot not be created directly`,128.0,2024-09
+how-to-troubleshoot-secure-connection-workspace.md,2024-09-05,larryfr,Troubleshoot private endpoint connection,Troubleshoot private endpoint connection,1339.0,2025-03
+how-to-troubleshoot-validation-for-schema-failed-error.md,2024-01-22,sgilley,Troubleshoot Validation For Schema Failed Error,Troubleshoot Validation For Schema Failed Error,176.0,2024-07
+how-to-tune-hyperparameters.md,2024-06-25,ssalgado,Hyperparameter tuning a model (v2),Hyperparameter tuning a model (v2),2285.0,2024-12
+how-to-understand-automated-ml.md,2024-08-05,ssalgado,Evaluate AutoML experiment results,Evaluate AutoML experiment results,1887.0,2025-02
+how-to-use-automated-ml-for-ml-models.md,2024-07-15,ssalgado,Set up Automated ML for tabular data in the studio,Set up Automated ML for tabular data in the studio,1306.0,2025-01
+how-to-use-automl-onnx-model-dotnet.md,2023-09-21,ssalgado,Make predictions with AutoML ONNX Model in .NET,Make predictions with AutoML ONNX Model in .NET,725.0,2024-03
+how-to-use-automl-small-object-detect.md,2024-03-25,ssalgado,Use AutoML to detect small objects in images,Use AutoML to detect small objects in images,164.0,2024-09
+how-to-use-batch-azure-data-factory.md,2024-08-14,mopeakande,Run batch endpoints from Azure Data Factory,Run batch endpoints from Azure Data Factory,301.0,2025-02
+how-to-use-batch-fabric.md,2023-10-10,mopeakande,"Consume models deployed in Azure Machine Learning from Fabric, using batch endpoints (preview)","Consume models deployed in Azure Machine Learning from Fabric, using batch endpoints (preview)",360.0,2024-04
+how-to-use-batch-model-deployments.md,2024-04-02,mopeakande,Deploy models for scoring in batch endpoints,Deploy models for scoring in batch endpoints,1801.0,2024-09
+how-to-use-batch-model-openai-embeddings.md,2023-11-04,mopeakande,Run OpenAI models in batch endpoints,Run OpenAI models in batch endpoints,1009.0,2024-05
+how-to-use-batch-pipeline-deployments.md,2023-11-15,mopeakande,Deploy pipelines with batch endpoints,Deploy pipelines with batch endpoints,683.0,2024-05
+how-to-use-batch-pipeline-from-job.md,2023-11-15,mopeakande,How to deploy existing pipeline jobs to a batch endpoint,How to deploy existing pipeline jobs to a batch endpoint,183.0,2024-05
+how-to-use-batch-scoring-pipeline.md,2023-11-15,mopeakande,Operationalize a scoring pipeline on batch endpoints,Operationalize a scoring pipeline on batch endpoints,355.0,2024-05
+how-to-use-batch-training-pipeline.md,2023-11-16,mopeakande,Operationalize a training pipeline on batch endpoints,Operationalize a training pipeline on batch endpoints,222.0,2024-05
+how-to-use-event-grid-batch.md,2022-10-10,mopeakande,Run batch endpoints from Event Grid events in storage,Run batch endpoints from Event Grid events in storage,67.0,2023-04
+how-to-use-event-grid.md,2024-03-26,larryfr,Trigger events in ML workflows,Trigger events in ML workflows,697.0,2024-09
+how-to-use-foundation-models.md,2023-12-28,ssalgado,How to use Open Source foundation models curated by Azure Machine Learning,How to use Open Source foundation models curated by Azure Machine Learning,618.0,2024-06
+how-to-use-low-priority-batch.md,2024-08-15,mopeakande,Use low priority VMs in batch deployments,Use low priority VMs in batch deployments,234.0,2025-02
+how-to-use-mlflow-azure-databricks.md,2024-08-16,mopeakande,MLflow tracking for Azure Databricks machine learning experiments,MLflow tracking for Azure Databricks machine learning experiments,293.0,2025-02
+how-to-use-mlflow-azure-synapse.md,2022-07-06,mopeakande,MLflow Tracking for Azure Synapse Analytics experiments,MLflow Tracking for Azure Synapse Analytics experiments,110.0,2023-01
+how-to-use-mlflow-cli-runs.md,2024-02-15,mopeakande,Track ML experiments and models with MLflow,Track ML experiments and models with MLflow,1498.0,2024-08
+how-to-use-mlflow-configure-tracking.md,2024-01-19,mopeakande,Configure MLflow for Azure Machine Learning,Configure MLflow for Azure Machine Learning,1108.0,2024-07
+how-to-use-parallel-job-in-pipeline.md,2023-03-13,lagayhar,How to use parallel job in pipeline,How to use parallel job in pipeline,886.0,2023-09
+how-to-use-pipeline-component.md,2023-04-12,lagayhar,How to use pipeline component in pipeline,How to use pipeline component in pipeline,650.0,2023-10
+how-to-use-pipelines-prompt-flow.md,2024-06-20,ssalgado,Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview),Use Azure Machine Learning pipelines with no code to construct RAG pipelines (preview),670.0,2024-12
+how-to-use-retrieval-augmented-generation.md,2024-06-26,ssalgado,Get started with RAG using a prompt flow sample (preview),Get started with RAG using a prompt flow sample (preview),1318.0,2024-12
+how-to-use-secrets-in-runs.md,2024-08-20,larryfr,Authentication secrets,Authentication secrets,654.0,2025-02
+how-to-use-serverless-compute.md,2023-10-23,sgilley,Model training on serverless compute,Model training on serverless compute,1690.0,2024-04
+how-to-use-sweep-in-pipeline.md,2022-05-26,lagayhar,How to do hyperparameter sweep in pipeline,How to do hyperparameter sweep in pipeline,539.0,2022-11
+how-to-view-online-endpoints-costs.md,2024-08-15,mopeakande,View costs for managed online endpoints,View costs for managed online endpoints,370.0,2025-02
+how-to-visualize-jobs.md,2023-04-22,sgilley,Visualize training results in studio (preview),Visualize training results in studio (preview),209.0,2023-10
+how-to-work-in-vs-code-remote.md,2024-08-05,sgilley,Work in VS Code remotely connected to a compute instance,Work in VS Code remotely connected to a compute instance,409.0,2025-02
+how-to-workspace-diagnostic-api.md,2024-03-27,larryfr,How to use workspace diagnostics,How to use workspace diagnostics,166.0,2024-09
+interactive-data-wrangling-with-apache-spark-azure-ml.md,2023-10-05,franksolomon,Interactive data wrangling with Apache Spark in Azure Machine Learning,Interactive data wrangling with Apache Spark in Azure Machine Learning,854.0,2024-04
+known-issues\application-sharing-policy-not-supported.md,2023-08-14,scottpolly,Known issue - Application Sharing Policy isnt supported,,,2024-02
+known-issues\azure-machine-learning-known-issues.md,2023-08-04,scottpolly,Azure Machine Learning known issues,Azure Machine Learning known issues,124.0,2024-01
+known-issues\compute-a10-sku-not-supported.md,2023-08-14,scottpolly,Known issue - A10 SKU not supported,Known issue - A10 SKU not supported,20.0,2024-02
+known-issues\compute-idleshutdown-bicep.md,2023-08-04,scottpolly,Known issue - Compute |  Idleshutdown property in Bicep template causes error,,,2024-01
+known-issues\compute-slowness-terminal-mounted-path.md,2023-08-04,scottpolly,Known issue - Slowness in compute instance terminal from a mounted path,Known issue - Slowness in compute instance terminal from a mounted path,13.0,2024-01
+known-issues\inferencing-invalid-certificate.md,2023-08-04,scottpolly,Known issue - Invalid certificate error during deployment,Known issue - Invalid certificate error during deployment,78.0,2024-01
+known-issues\inferencing-updating-kubernetes-compute-appears-to-succeed.md,2023-08-04,scottpolly,Known issue - Existing Kubernetes compute cant be updated,,,2024-01
+known-issues\jupyter-r-kernel-not-starting.md,2023-08-14,scottpolly,Known issue - Compute instance | Jupyter R Kernel doesnt start in new compute instance images,,,2024-02
+known-issues\workspace-move-compute-instance-same-name.md,2023-08-14,scottpolly,"Known issue - After a workspace move, creating a compute instance with the same name as a previous compute instance will fail","Known issue - After a workspace move, creating a compute instance with the same name as a previous compute instance will fail",21.0,2024-02
+migrate-to-v2-assets-data.md,2024-04-15,franksolomon,Upgrade data management to SDK v2,,,2024-10
+migrate-to-v2-assets-model.md,2022-12-01,sgilley,Upgrade model management to SDK v2,,,2023-05
+migrate-to-v2-command-job.md,2022-09-16,sgilley,Upgrade script run to SDK v2,,,2023-03
+migrate-to-v2-deploy-endpoints.md,2022-09-16,sgilley,Upgrade deployment endpoints to SDK v2,,,2023-03
+migrate-to-v2-deploy-pipelines.md,2023-05-01,sgilley,Upgrade pipeline endpoints to SDK v2,,,2023-10
+migrate-to-v2-execution-automl.md,2022-09-16,sgilley,Upgrade AutoML to SDK v2,,,2023-03
+migrate-to-v2-execution-hyperdrive.md,2022-09-16,sgilley,Upgrade hyperparameter tuning to SDK v2,,,2023-03
+migrate-to-v2-execution-parallel-run-step.md,2022-09-16,sgilley,Upgrade parallel run step to SDK v2,,,2023-03
+migrate-to-v2-execution-pipeline.md,2022-09-16,sgilley,Upgrade pipelines to SDK v2,,,2023-03
+migrate-to-v2-local-runs.md,2022-09-16,sgilley,Upgrade local runs to SDK v2,,,2023-03
+migrate-to-v2-managed-online-endpoints.md,2022-09-28,mopeakande,Upgrade steps for Azure Container Instances web services to managed online endpoints,,,2023-03
+migrate-to-v2-resource-compute.md,2024-04-15,franksolomon,Upgrade compute management to v2,,,2024-10
+migrate-to-v2-resource-datastore.md,2022-09-16,sgilley,Upgrade datastore management to SDK v2,,,2023-03
+migrate-to-v2-resource-workspace.md,2022-09-16,sgilley,Upgrade workspace management to SDK v2,,,2023-03
+monitor-azure-machine-learning-reference.md,2024-03-21,aashishb,Azure Machine Learning monitoring data reference,,,2024-09
+monitor-azure-machine-learning.md,2024-03-21,aashishb,Monitor Azure Machine Learning,Monitor Azure Machine Learning,833.0,2024-09
+offline-retrieval-point-in-time-join-concepts.md,2023-12-06,franksolomon,Offline feature retrieval using a point-in-time join,Offline feature retrieval using a point-in-time join,90.0,2024-06
+overview-what-is-azure-machine-learning.md,2024-01-29,sgilley,What is Azure Machine Learning?,What is Azure Machine Learning?,8256.0,2024-07
+policy-reference.md,2024-02-06,larryfr,Built-in policy definitions for Azure Machine Learning,,,2024-08
+prompt-flow\community-ecosystem.md,2023-11-06,lagayhar,Prompt flow ecosystem,Prompt flow ecosystem,649.0,2024-05
+prompt-flow\concept-connections.md,2024-06-26,lagayhar,Connections in Azure Machine Learning prompt flow,Connections in Azure Machine Learning prompt flow,873.0,2024-12
+prompt-flow\concept-flows.md,2024-06-28,lagayhar,What are flows in Azure Machine Learning prompt flow,What are flows in Azure Machine Learning prompt flow,360.0,2024-12
+prompt-flow\concept-llmops-maturity.md,2024-03-28,sgilley,Advance your maturity level for LLMOps,Advance your maturity level for LLMOps,430.0,2024-09
+prompt-flow\concept-model-monitoring-generative-ai-evaluation-metrics.md,2023-09-06,ziqiwang,Monitoring evaluation metrics descriptions and use cases (preview),Monitoring evaluation metrics descriptions and use cases (preview),684.0,2024-03
+prompt-flow\concept-session.md,2024-06-26,lagayhar,Compute session in Azure Machine Learning prompt flow,Compute session in Azure Machine Learning prompt flow,256.0,2024-12
+prompt-flow\concept-tools.md,2024-06-28,lagayhar,What are tools in Azure Machine Learning prompt flow,What are tools in Azure Machine Learning prompt flow,202.0,2024-12
+prompt-flow\concept-variants.md,2024-06-28,lagayhar,Variants in Azure Machine Learning prompt flow,Variants in Azure Machine Learning prompt flow,235.0,2024-12
+prompt-flow\get-started-prompt-flow.md,2023-09-12,lagayhar,Get started in prompt flow,Get started in prompt flow,3963.0,2024-03
+prompt-flow\how-to-bulk-test-evaluate-flow.md,2023-11-06,lagayhar,Submit batch run and evaluate a flow in prompt flow,Submit batch run and evaluate a flow in prompt flow,1037.0,2024-05
+prompt-flow\how-to-custom-tool-package-creation-and-usage.md,2023-09-12,lagayhar,Custom tool package creation and usage in prompt flow,Custom tool package creation and usage in prompt flow,252.0,2024-03
+prompt-flow\how-to-customize-session-base-image.md,2024-04-19,lagayhar,Customize base image for compute session in prompt flow,Customize base image for compute session in prompt flow,447.0,2024-10
+prompt-flow\how-to-deploy-for-real-time-inference.md,2024-05-08,lagayhar,Deploy a flow in prompt flow as a managed online endpoint for real-time inference,Deploy a flow in prompt flow as a managed online endpoint for real-time inference,2241.0,2024-11
+prompt-flow\how-to-deploy-to-code.md,2024-05-08,lagayhar,Deploy a flow in prompt flow to online endpoint for real-time inference with CLI,Deploy a flow in prompt flow to online endpoint for real-time inference with CLI,756.0,2024-11
+prompt-flow\how-to-develop-an-evaluation-flow.md,2023-12-19,lagayhar,Customize evaluation flow and metrics in prompt flow,Customize evaluation flow and metrics in prompt flow,1107.0,2024-06
+prompt-flow\how-to-develop-flow.md,2023-10-23,lagayhar,Develop a flow in prompt flow,Develop a flow in prompt flow,1630.0,2024-04
+prompt-flow\how-to-enable-streaming-mode.md,2023-11-02,lagayhar,How to use streaming endpoints deployed from prompt Flow,How to use streaming endpoints deployed from prompt Flow,585.0,2024-04
+prompt-flow\how-to-enable-trace-feedback-for-deployment.md,2024-05-09,lagayhar,Enable trace and collect feedback for a flow deployment,Enable trace and collect feedback for a flow deployment,446.0,2024-11
+prompt-flow\how-to-end-to-end-azure-devops-with-prompt-flow.md,2024-01-02,lagayhar,LLMOps with prompt flow and Azure DevOps,LLMOps with prompt flow and Azure DevOps,780.0,2024-06
+prompt-flow\how-to-end-to-end-llmops-with-prompt-flow.md,2024-01-02,lagayhar,LLMOps with prompt flow and GitHub,LLMOps with prompt flow and GitHub,1775.0,2024-06
+prompt-flow\how-to-evaluate-semantic-kernel.md,2023-09-15,lagayhar,Evaluate your Semantic Kernel with prompt flow,Evaluate your Semantic Kernel with prompt flow,562.0,2024-03
+prompt-flow\how-to-integrate-with-langchain.md,2023-11-02,lagayhar,Integrate with LangChain in prompt flow,Integrate with LangChain in prompt flow,1127.0,2024-04
+prompt-flow\how-to-integrate-with-llm-app-devops.md,2023-11-02,lagayhar,Integrate prompt flow with LLM-based application DevOps,Integrate prompt flow with LLM-based application DevOps,988.0,2024-04
+prompt-flow\how-to-manage-compute-session.md,2024-04-19,sgilley,Manage prompt flow compute session,Manage prompt flow compute session,1086.0,2024-10
+prompt-flow\how-to-monitor-generative-ai-applications.md,2023-09-06,scottpolly,Model monitoring for generative AI applications (preview),Model monitoring for generative AI applications (preview),733.0,2024-03
+prompt-flow\how-to-process-image.md,2023-12-18,lagayhar,Incorporate images into prompt flow (preview),Incorporate images into prompt flow (preview),382.0,2024-06
+prompt-flow\how-to-secure-prompt-flow.md,2023-11-02,lagayhar,Network isolation in prompt flow,Network isolation in prompt flow,618.0,2024-04
+prompt-flow\how-to-trace-local-sdk.md,2024-05-21,lagayhar,How to trace your application with prompt flow SDK,,,2024-11
+prompt-flow\how-to-tune-prompts-using-variants.md,2023-11-02,lagayhar,Tune prompts using variants in prompt flow,Tune prompts using variants in prompt flow,314.0,2024-04
+prompt-flow\overview-what-is-prompt-flow.md,2024-08-25,lagayhar,What is Azure Machine Learning prompt flow,What is Azure Machine Learning prompt flow,5532.0,2025-02
+prompt-flow\tools-reference\azure-open-ai-gpt-4v-tool.md,2024-01-02,lagayhar,Azure OpenAI GPT-4 Turbo with Vision tool in Azure Machine Learning prompt flow,,,2024-06
+prompt-flow\tools-reference\content-safety-text-tool.md,2023-11-02,lagayhar,Content Safety (Text) tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\embedding-tool.md,2023-11-02,lagayhar,Embedding tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\index-lookup-tool.md,2024-01-23,lagayhar,Index lookup tool for flows in Azure Machine Learning,,,2024-07
+prompt-flow\tools-reference\llm-tool.md,2023-11-02,lagayhar,LLM tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\open-model-llm-tool.md,2023-11-02,lagayhar,Open Model LLM tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\openai-gpt-4v-tool.md,2023-12-18,lagayhar,OpenAI GPT-4V (preview),,,2024-06
+prompt-flow\tools-reference\overview.md,2023-10-24,lagayhar,Overview of tools in prompt flow,,,2024-04
+prompt-flow\tools-reference\prompt-tool.md,2023-11-02,lagayhar,Prompt tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\python-tool.md,2023-11-02,lagayhar,Python tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\tools-reference\rerank-tool.md,2024-08-29,lagayhar,Rerank tool  in Azure Machine Learning prompt flow,,,2025-02
+prompt-flow\tools-reference\serp-api-tool.md,2023-11-02,lagayhar,SerpAPI tool in Azure Machine Learning prompt flow,,,2024-04
+prompt-flow\transparency-note.md,2023-10-20,prakharg,Transparency Note for auto-generate prompt variants in prompt flow,Transparency Note for auto-generate prompt variants in prompt flow,61.0,2024-04
+prompt-flow\troubleshoot-guidance.md,2023-09-05,lagayhar,Troubleshoot guidance,,,2024-03
+quickstart-create-resources.md,2024-07-22,sgilley,Tutorial: Create workspace resources,Tutorial: Create workspace resources,6955.0,2025-01
+quickstart-spark-jobs.md,2024-04-12,franksolomon,Configure Apache Spark jobs in Azure Machine Learning,Configure Apache Spark jobs in Azure Machine Learning,276.0,2024-10
+reference-automated-ml-forecasting.md,2023-03-08,ssalgado,CLI (v2) Automated ML Forecasting command job YAML schema,,,2023-09
+reference-automl-images-cli-classification.md,2022-10-11,ssalgado,CLI (v2) Automated ML Image Classification job YAML schema,,,2023-04
+reference-automl-images-cli-instance-segmentation.md,2022-10-11,ssalgado,CLI (v2) Automated ML Image Instance Segmentation job YAML schema,,,2023-04
+reference-automl-images-cli-multilabel-classification.md,2022-10-11,ssalgado,CLI (v2) Automated ML Image Multi-Label Classification job YAML schema,,,2023-04
+reference-automl-images-cli-object-detection.md,2022-10-11,ssalgado,CLI (v2) Automated ML Image Object Detection job YAML schema,,,2023-04
+reference-automl-images-hyperparameters.md,2022-01-18,ssalgado,Hyperparameter for AutoML computer vision tasks,,,2022-07
+reference-automl-images-schema.md,2022-09-09,ssalgado,JSONL format for computer vision tasks,,,2023-03
+reference-automl-nlp-cli-multilabel-classification.md,2022-12-22,ssalgado,CLI (v2) Automated ML NLP text classification multilabel job YAML schema,,,2023-06
+reference-automl-nlp-cli-ner.md,2022-12-22,ssalgado,CLI (v2) Automated ML NLP text NER job YAML schema,,,2023-06
+reference-automl-nlp-cli-text-classification.md,2022-12-22,ssalgado,CLI (v2) Automated ML text classification job YAML schema,,,2023-06
+reference-checkpoint-performance-for-large-models.md,2023-03-28,ziqiwang,Optimize Checkpoint Performance for Large Models,,,2023-09
+reference-kubernetes.md,2022-06-06,larryfr,Reference for configuring Kubernetes cluster for Azure Machine Learning,,,2022-12
+reference-machine-learning-cloud-parity.md,2024-07-24,larryfr,Feature availability across cloud regions,,,2025-01
+reference-managed-online-endpoints-vm-sku-list.md,2023-10-18,mopeakande,Managed online endpoints VM SKU list,,,2024-04
+reference-migrate-sdk-v1-mlflow-tracking.md,2024-01-16,larryfr,Migrate logging from SDK v1 to MLflow,,,2024-07
+reference-model-inference-api.md,2024-05-03,mopeakande,Azure AI Model Inference API,Azure AI Model Inference API,747.0,2024-10
+reference-model-inference-chat-completions.md,2024-05-03,mopeakande,Azure AI Model Inference Chat Completions,Azure AI Model Inference Chat Completions,175.0,2024-10
+reference-model-inference-completions.md,2024-05-03,mopeakande,Azure AI Model Inference Completions,Azure AI Model Inference Completions,56.0,2024-10
+reference-model-inference-embeddings.md,2024-05-03,mopeakande,Azure AI Model Inference Embeddings API,Azure AI Model Inference Embeddings API,68.0,2024-10
+reference-model-inference-images-embeddings.md,2024-05-03,mopeakande,Azure AI Model Inference Image Embeddings,Azure AI Model Inference Image Embeddings,58.0,2024-10
+reference-model-inference-info.md,2024-05-03,mopeakande,Azure AI Model Inference Get Info,Azure AI Model Inference Get Info,44.0,2024-10
+reference-yaml-component-command.md,2022-08-08,lagayhar,CLI (v2) command component YAML schema,,,2023-02
+reference-yaml-component-pipeline.md,2023-04-12,lagayhar,CLI (v2) pipeline component YAML schema,,,2023-10
+reference-yaml-component-spark.md,2023-05-11,franksolomon,CLI (v2) Spark component YAML schema,,,2023-11
+reference-yaml-compute-aml.md,2021-10-21,vijetaj,CLI (v2) compute cluster (AmlCompute) YAML schema,,,2022-04
+reference-yaml-compute-instance.md,2021-10-21,jcioffi,CLI (v2) compute instance YAML schema,,,2022-04
+reference-yaml-compute-kubernetes.md,2022-03-31,ssalgado,CLI (v2) Attached Kubernetes cluster (KubernetesCompute) YAML schema,,,2022-09
+reference-yaml-compute-vm.md,2021-10-21,vijetaj,CLI (v2) attached Virtual Machine YAML schema,,,2022-04
+reference-yaml-connection-ai-content-safety.md,2024-05-09,larryfr,CLI (v2) AI Content Safety connection YAML schema,,,2024-11
+reference-yaml-connection-ai-search.md,2024-05-09,larryfr,CLI (v2) AI Search connection YAML schema,,,2024-11
+reference-yaml-connection-ai-services.md,2024-08-21,larryfr,CLI (v2) AI Services connection YAML schema,,,2025-02
+reference-yaml-connection-api-key.md,2024-05-09,larryfr,CLI (v2) API key connection YAML schema,,,2024-11
+reference-yaml-connection-azure-openai.md,2024-05-09,larryfr,CLI (v2) Azure OpenAI connection YAML schema,,,2024-11
+reference-yaml-connection-blob.md,2024-05-09,larryfr,CLI (v2) blob store connection YAML schema,,,2024-11
+reference-yaml-connection-container-registry.md,2024-05-09,larryfr,CLI (v2) Azure Container Registry connection YAML schema,,,2024-11
+reference-yaml-connection-custom-key.md,2024-05-09,larryfr,CLI (v2) custom key connection YAML schema,,,2024-11
+reference-yaml-connection-data-lake.md,2024-05-09,larryfr,CLI (v2) Data Lake Store Gen 2 connection YAML schema,,,2024-11
+reference-yaml-connection-git.md,2024-05-09,larryfr,CLI (v2) Git connection YAML schema,,,2024-11
+reference-yaml-connection-onelake.md,2024-05-09,larryfr,CLI (v2) OneLake connection YAML schema,,,2024-11
+reference-yaml-connection-openai.md,2024-05-09,larryfr,CLI (v2) OpenAI connection YAML schema,,,2024-11
+reference-yaml-connection-python-feed.md,2024-05-09,larryfr,CLI (v2) Python feed connection YAML schema,,,2024-11
+reference-yaml-connection-serp.md,2024-05-09,larryfr,CLI (v2) Serp connection YAML schema,,,2024-11
+reference-yaml-connection-serverless.md,2024-04-15,larryfr,CLI (v2) serverless connection YAML schema,,,2024-10
+reference-yaml-connection-speech.md,2024-04-15,larryfr,CLI (v2) AI Speech Services connection YAML schema,,,2024-10
+reference-yaml-core-syntax.md,2022-11-16,larryfr,CLI (v2) core YAML syntax,,,2023-05
+reference-yaml-data.md,2024-04-15,franksolomon,CLI (v2) data YAML schema,,,2024-10
+reference-yaml-datastore-blob.md,2024-04-15,franksolomon,CLI (v2) Azure Blob datastore YAML schema,,,2024-10
+reference-yaml-datastore-data-lake-gen1.md,2024-04-15,franksolomon,CLI (v2) Azure Data Lake Gen1 datastore YAML schema,,,2024-10
+reference-yaml-datastore-data-lake-gen2.md,2023-12-15,franksolomon,CLI (v2) Azure Data Lake Gen2 datastore YAML schema,,,2024-06
+reference-yaml-datastore-files.md,2023-12-18,franksolomon,CLI (v2) Azure Files datastore YAML schema,,,2024-06
+reference-yaml-deployment-batch.md,2023-11-15,mopeakande,CLI (v2) batch deployment YAML schema,,,2024-05
+reference-yaml-deployment-kubernetes-online.md,2022-08-31,ssalgado,CLI (v2) Azure Arc-enabled Kubernetes online deployment YAML schema,,,2023-02
+reference-yaml-deployment-managed-online.md,2023-10-19,mopeakande,CLI (v2) managed online deployment YAML schema,,,2024-04
+reference-yaml-endpoint-batch.md,2021-10-21,mopeakande,CLI (v2) batch endpoint YAML schema,,,2022-04
+reference-yaml-endpoint-online.md,2023-11-15,mopeakande,Online endpoints YAML reference,Online endpoints YAML reference,444.0,2024-05
+reference-yaml-environment.md,2022-03-31,osiotugo,CLI (v2) environment YAML schema,,,2022-09
+reference-yaml-feature-entity.md,2023-05-23,franksolomon,CLI (v2) feature entity YAML schema,,,2023-11
+reference-yaml-feature-retrieval-spec.md,2023-05-23,franksolomon,CLI (v2) feature retrieval specification YAML schema,,,2023-11
+reference-yaml-feature-set.md,2023-05-23,franksolomon,CLI (v2) feature set YAML schema,,,2023-11
+reference-yaml-feature-store.md,2023-05-23,franksolomon,CLI (v2) feature store YAML schema,,,2023-11
+reference-yaml-featureset-spec.md,2023-05-23,franksolomon,CLI (v2) feature set specification YAML schema,,,2023-11
+reference-yaml-job-command.md,2024-08-29,larryfr,CLI (v2) command job YAML schema,,,2025-02
+reference-yaml-job-parallel.md,2022-09-27,lagayhar,CLI (v2) parallel job YAML schema,,,2023-03
+reference-yaml-job-pipeline.md,2024-03-06,franksolomon,CLI (v2) pipeline job YAML schema,,,2024-09
+reference-yaml-job-spark.md,2023-05-11,franksolomon,CLI (v2) Spark job YAML schema,,,2023-11
+reference-yaml-job-sweep.md,2024-03-05,franksolomon,CLI (v2) sweep job YAML schema,,,2024-09
+reference-yaml-mltable.md,2024-02-14,franksolomon,CLI (v2) MLtable YAML schema,,,2024-08
+reference-yaml-model.md,2022-03-31,larryfr,CLI (v2) model YAML schema,,,2022-09
+reference-yaml-monitor.md,2024-02-26,mopeakande,CLI (v2) schedule YAML schema for model monitoring,,,2024-08
+reference-yaml-overview.md,2022-03-31,balapv,CLI (v2) YAML schema overview,,,2022-09
+reference-yaml-registry.md,2024-04-29,larryfr,CLI (v2) registry YAML schema,,,2024-10
+reference-yaml-schedule-data-import.md,2023-05-25,franksolomon,CLI (v2) schedule YAML schema for data import (preview),,,2023-11
+reference-yaml-schedule.md,2023-05-17,lagayhar,CLI (v2) schedule YAML schema,,,2023-11
+reference-yaml-workspace.md,2021-10-21,deeikele,CLI (v2) workspace YAML schema,,,2022-04
+resource-azure-container-for-pytorch.md,2024-05-13,ssalgado,Azure Container for PyTorch,,,2024-11
+resource-curated-environments.md,2023-09-10,ssalgado,Curated environments,,,2024-03
+resource-limits-capacity.md,2023-09-13,larryfr,Service limits,,,2024-03
+samples-notebooks.md,2024-02-05,sgilley,Example Jupyter Notebooks (v2),Example Jupyter Notebooks (v2),695.0,2024-08
+security-controls-policy.md,2024-02-06,larryfr,Azure Policy Regulatory Compliance controls for Azure Machine Learning,Azure Policy Regulatory Compliance controls for Azure Machine Learning,131.0,2024-08
+troubleshooting-managed-feature-store.md,2023-10-31,franksolomon,Troubleshoot managed feature store errors,Troubleshoot managed feature store errors,83.0,2024-04
+tutorial-auto-train-image-models.md,2023-11-07,ssalgado,Tutorial: AutoML- train object detection model,Tutorial: AutoML- train object detection model,1099.0,2024-05
+tutorial-automated-ml-forecast.md,2023-11-25,ssalgado,Tutorial: Demand forecasting & AutoML,Tutorial: Demand forecasting & AutoML,1104.0,2024-05
+tutorial-azure-ml-in-a-day.md,2024-09-03,sgilley,Quickstart: Get started with Azure Machine Learning,Quickstart: Get started with Azure Machine Learning,6767.0,2025-03
+tutorial-cloud-workstation.md,2024-08-05,sgilley,Tutorial: Model development on a cloud workstation,Tutorial: Model development on a cloud workstation,1459.0,2025-02
+tutorial-create-secure-workspace-template.md,2024-06-18,larryfr,Use a template to create a secure workspace,Use a template to create a secure workspace,392.0,2024-12
+tutorial-create-secure-workspace-vnet.md,2024-08-16,larryfr,Create a secure workspace with Azure Virtual Network,Create a secure workspace with Azure Virtual Network,845.0,2025-02
+tutorial-create-secure-workspace.md,2024-08-09,larryfr,Create a secure workspace with a managed virtual network,Create a secure workspace with a managed virtual network,761.0,2025-02
+tutorial-deploy-model.md,2024-03-04,mopeakande,Tutorial: Deploy a model,Tutorial: Deploy a model,3780.0,2024-08
+tutorial-develop-feature-set-with-custom-source.md,2023-11-28,franksolomon,Tutorial 5: Develop a feature set with a custom source,,,2024-05
+tutorial-enable-recurrent-materialization-run-batch-inference.md,2023-11-28,franksolomon,Tutorial 3: Enable recurrent materialization and run batch inference,,,2024-05
+tutorial-experiment-train-models-using-features.md,2023-10-27,franksolomon,Tutorial 2: Experiment and train models by using features,,,2024-04
+tutorial-explore-data.md,2024-07-25,franksolomon,"Tutorial: upload, access, and explore your data","Tutorial: upload, access, and explore your data",4659.0,2025-01
+tutorial-feature-store-domain-specific-language.md,2024-03-29,franksolomon,Tutorial 7: Develop a feature set using Domain Specific Language (preview),,,2024-09
+tutorial-first-experiment-automated-ml.md,2024-08-09,ssalgado,Tutorial: AutoML- train no-code classification models,Tutorial: AutoML- train no-code classification models,2771.0,2025-02
+tutorial-get-started-with-feature-store.md,2023-11-28,franksolomon,Tutorial 1: Develop and register a feature set with managed feature store,,,2024-05
+tutorial-network-isolation-for-feature-store.md,2024-03-20,franksolomon,Tutorial 6: Network isolation for feature store,,,2024-09
+tutorial-online-materialization-inference.md,2023-11-28,franksolomon,Tutorial 4: Enable online materialization and run online inference,,,2024-05
+tutorial-pipeline-python-sdk.md,2024-05-15,lagayhar,Tutorial: ML pipelines with Python SDK v2,Tutorial: ML pipelines with Python SDK v2,3786.0,2024-11
+tutorial-train-deploy-image-classification-model-vscode.md,2024-01-25,ssalgado,Tutorial: Train image classification model: VS Code (preview),Tutorial: Train image classification model: VS Code (preview),550.0,2024-07
+tutorial-train-model.md,2023-10-20,ssalgado,Tutorial: Train a model,Tutorial: Train a model,3078.0,2024-04
+v1\algorithm-cheat-sheet.md,2024-08-29,lagayhar,Machine Learning Algorithm Cheat Sheet - designer,Machine Learning Algorithm Cheat Sheet - designer,3431.0,2025-02
+v1\azure-machine-learning-release-notes.md,2024-01-29,larryfr,Python SDK release notes,,,2024-07
+v1\concept-automated-ml.md,2022-03-15,cesardl,What is automated ML? AutoML (v1),,,2022-09
+v1\concept-azure-machine-learning-architecture.md,2021-10-21,sgilley,Architecture & key concepts (v1),,,2022-04
+v1\concept-data.md,2024-03-01,xunwan,Secure data access in the cloud v1,,,2024-08
+v1\concept-designer.md,2024-05-22,lagayhar,What is Designer (v1)?,What is Designer (v1)?,2128.0,2024-11
+v1\concept-model-management-and-deployment.md,2024-08-12,mopeakande,MLOps: Azure Machine Learning model management v1,MLOps: Azure Machine Learning model management v1,2681.0,2025-02
+v1\concept-network-data-access.md,2022-11-16,larryfr,Network data access in studio,,,2023-05
+v1\concept-train-machine-learning-model.md,2022-08-30,manashg,Build & train models (v1),,,2023-02
+v1\how-to-access-data.md,2024-02-27,yogipandey,Connect to storage services with CLI v1,Connect to storage services with CLI v1,401.0,2024-08
+v1\how-to-authenticate-web-service.md,2022-11-16,larryfr,Configure authentication for models deployed as web services,Configure authentication for models deployed as web services,44.0,2023-05
+v1\how-to-auto-train-forecast.md,2024-01-28,manashg,Set up AutoML for time-series forecasting (SDKv1),Set up AutoML for time-series forecasting (SDKv1),1237.0,2024-07
+v1\how-to-auto-train-image-models.md,2022-01-18,swatig,Set up AutoML for computer vision (v1),,,2022-07
+v1\how-to-auto-train-models-v1.md,2024-07-11,manashg,Train regression model with Automated ML (SDK v1),Train regression model with Automated ML (SDK v1),290.0,2025-01
+v1\how-to-auto-train-nlp-models.md,2022-03-15,wenxwei,Set up AutoML for NLP (v1),,,2022-09
+v1\how-to-configure-auto-features.md,2024-03-11,manashg,Data featurization with automated machine learning,Data featurization with automated machine learning,646.0,2024-09
+v1\how-to-configure-auto-train.md,2021-01-24,cesardl,Set up AutoML with Python,,,2021-07
+v1\how-to-configure-cross-validation-data-splits.md,2021-11-15,cesardl,Data splits and cross-validation in automated machine learning,Data splits and cross-validation in automated machine learning,265.0,2022-05
+v1\how-to-configure-databricks-automl-environment.md,2021-10-21,manashg,Develop with AutoML & Azure Databricks,Develop with AutoML & Azure Databricks,247.0,2022-04
+v1\how-to-configure-environment.md,2022-09-30,larryfr,Set up Python development environment  (v1),,,2023-03
+v1\how-to-configure-private-link.md,2024-07-26,larryfr,Configure a private endpoint v1,Configure a private endpoint v1,2001.0,2025-01
+v1\how-to-connect-data-ui.md,2024-02-09,yogipandey,Connect to data storage with the studio UI,Connect to data storage with the studio UI,1263.0,2024-08
+v1\how-to-consume-web-service.md,2022-11-16,larryfr,Create client for model deployed as web service,Create client for model deployed as web service,170.0,2023-05
+v1\how-to-convert-ml-experiment-to-production.md,2021-10-21,brysmith,Convert notebook code into Python scripts,Convert notebook code into Python scripts,314.0,2022-04
+v1\how-to-create-attach-compute-cluster.md,2022-05-02,sgilley,Create compute clusters CLI v1,,,2022-10
+v1\how-to-create-attach-kubernetes.md,2022-04-21,larryfr,Create and attach Azure Kubernetes Service,,,2022-10
+v1\how-to-create-machine-learning-pipelines.md,2021-10-21,lagayhar,Create and run ML pipelines,Create and run ML pipelines,1026.0,2022-04
+v1\how-to-create-manage-compute-instance.md,2022-05-02,sgilley,Create and manage a compute instance with CLI v1,,,2022-10
+v1\how-to-create-register-datasets.md,2024-02-28,yogipandey,Create Azure Machine Learning datasets,Create Azure Machine Learning datasets,543.0,2024-08
+v1\how-to-data-ingest-adf.md,2024-08-19,larryfr,Data ingestion with Azure Data Factory,Data ingestion with Azure Data Factory,667.0,2025-02
+v1\how-to-data-prep-synapse-spark-pool.md,2024-02-22,franksolomon,Data wrangling with Apache Spark pools (deprecated),Data wrangling with Apache Spark pools (deprecated),55.0,2024-08
+v1\how-to-debug-parallel-run-step.md,2022-11-16,lagayhar,Troubleshooting the ParallelRunStep,Troubleshooting the ParallelRunStep,118.0,2023-05
+v1\how-to-debug-pipelines.md,2022-11-04,zhanxia,Troubleshooting ML pipelines,Troubleshooting ML pipelines,318.0,2023-05
+v1\how-to-debug-visual-studio-code.md,2021-10-21,tbombach,Interactive debugging with Visual Studio Code,Interactive debugging with Visual Studio Code,192.0,2022-04
+v1\how-to-deploy-advanced-entry-script.md,2024-03-12,mopeakande,Entry script authoring for advanced scenarios,Entry script authoring for advanced scenarios,853.0,2024-09
+v1\how-to-deploy-and-where.md,2022-11-16,larryfr,Deploy machine learning models,Deploy machine learning models,281.0,2023-05
+v1\how-to-deploy-azure-container-instance.md,2024-07-10,larryfr,How to deploy models to Azure Container Instances with CLI (v1),How to deploy models to Azure Container Instances with CLI (v1),254.0,2025-01
+v1\how-to-deploy-azure-kubernetes-service.md,2024-03-08,larryfr,Deploy ML models to Azure Kubernetes Service with CLI and SDK v1,Deploy ML models to Azure Kubernetes Service with CLI and SDK v1,658.0,2024-09
+v1\how-to-deploy-inferencing-gpus.md,2022-11-16,larryfr,Deploy a model for inference with GPU,Deploy a model for inference with GPU,95.0,2023-05
+v1\how-to-deploy-local-container-notebook-vm.md,2021-04-22,ssalgado,Deploy models to compute instances,Deploy models to compute instances,24.0,2021-10
+v1\how-to-deploy-local.md,2022-08-15,joburges,How to run and deploy locally,How to run and deploy locally,62.0,2023-02
+v1\how-to-deploy-mlflow-models.md,2024-07-29,mopeakande,Deploy MLflow models as web services (v1),Deploy MLflow models as web services (v1),1550.0,2025-01
+v1\how-to-deploy-model-cognitive-search.md,2021-03-11,ssalgado,Deploy a model for use with Azure AI Search,Deploy a model for use with Azure AI Search,43.0,2021-09
+v1\how-to-deploy-model-designer.md,2022-08-15,lagayhar,Use the studio to deploy models trained in the designer,Use the studio to deploy models trained in the designer,224.0,2023-02
+v1\how-to-deploy-package-models.md,2021-10-21,larryfr,Package models,Package models,35.0,2022-04
+v1\how-to-deploy-pipelines.md,2021-10-21,lagayhar,Publish ML pipelines,Publish ML pipelines,694.0,2022-04
+v1\how-to-deploy-profile-model.md,2022-11-04,larryfr,Profile model memory and CPU usage (v1),Profile model memory and CPU usage (v1),80.0,2023-05
+v1\how-to-deploy-update-web-service.md,2022-11-04,larryfr,Update deployed web services,Update deployed web services,19.0,2023-05
+v1\how-to-designer-import-data.md,2022-09-22,lagayhar,Import data into the designer,Import data into the designer,187.0,2023-03
+v1\how-to-designer-python.md,2023-02-08,lagayhar,Execute Python Script in the designer,Execute Python Script in the designer,452.0,2023-08
+v1\how-to-designer-transform-data.md,2024-03-27,keli19,Transform data in the designer,Transform data in the designer,156.0,2024-09
+v1\how-to-enable-app-insights.md,2022-11-04,larryfr,Monitor and collect data from Machine Learning web service endpoints,Monitor and collect data from Machine Learning web service endpoints,85.0,2023-05
+v1\how-to-enable-data-collection.md,2022-08-16,sgilley,Collect data on your production models,Collect data on your production models,186.0,2023-02
+v1\how-to-extend-prebuilt-docker-image-inference.md,2021-10-21,larryfr,Extend prebuilt Docker image,Extend prebuilt Docker image,121.0,2022-04
+v1\how-to-generate-automl-training-code.md,2023-09-07,rasavage,How to view AutoML model training code,,,2024-03
+v1\how-to-high-availability-machine-learning.md,2024-06-28,larryfr,Failover & disaster recovery,Failover & disaster recovery,225.0,2024-12
+v1\how-to-high-availability-machine-learning.md,2024-06-28,larryfr,Failover & disaster recovery,Failover & disaster recovery,225.0,2024-12
+v1\how-to-identity-based-data-access.md,2024-02-16,yogipandey,Identity-based data access to storage services (v1),,,2024-08
+v1\how-to-inference-onnx-automl-image-models.md,2021-10-18,ssalgado,Local inference using ONNX for AutoML image (v1),,,2022-04
+v1\how-to-link-synapse-ml-workspaces.md,2024-02-22,meerakurup,Create a linked service with Synapse and Azure Machine Learning workspaces (deprecated),Create a linked service with Synapse and Azure Machine Learning workspaces (deprecated),237.0,2024-08
+v1\how-to-log-view-metrics.md,2022-10-26,sgilley,Log & view metrics and log files v1,,,2023-04
+v1\how-to-machine-learning-fairness-aml.md,2022-11-04,lagayhar,Assess ML models fairness in Python (preview),,,2023-05
+v1\how-to-machine-learning-interpretability-aml.md,2021-10-21,lagayhar,Use Python to interpret & explain models (preview),Use Python to interpret & explain models (preview),371.0,2022-04
+v1\how-to-machine-learning-interpretability-automl.md,2021-10-21,mithigpe,Model explainability in automated ML (preview),Model explainability in automated ML (preview),260.0,2022-04
+v1\how-to-manage-workspace-cli.md,2024-07-26,larryfr,Create workspaces with Azure CLI extension v1,Create workspaces with Azure CLI extension v1,302.0,2025-01
+v1\how-to-manage-workspace.md,2022-03-08,sgilley,Manage workspaces in portal or Python SDK (v1),,,2022-09
+v1\how-to-monitor-datasets.md,2023-08-08,xunwan,Detect data drift on datasets (preview),Detect data drift on datasets (preview),1106.0,2024-02
+v1\how-to-monitor-tensorboard.md,2021-10-21,amipatel,Visualize experiments with TensorBoard,Visualize experiments with TensorBoard,116.0,2022-04
+v1\how-to-move-data-in-out-of-pipelines.md,2022-08-18,lagayhar,Moving data in ML pipelines,Moving data in ML pipelines,385.0,2023-02
+v1\how-to-prebuilt-docker-images-inference-python-extensibility.md,2022-08-15,larryfr,Prebuilt Docker image Python extensibility,Prebuilt Docker image Python extensibility,61.0,2023-02
+v1\how-to-prepare-datasets-for-automl-images.md,2024-04-01,ssalgado,Prepare data for computer vision tasks v1,Prepare data for computer vision tasks v1,472.0,2024-09
+v1\how-to-retrain-designer.md,2021-10-21,lagayhar,Use pipeline parameters to retrain models in the designer,Use pipeline parameters to retrain models in the designer,151.0,2022-04
+v1\how-to-run-batch-predictions-designer.md,2022-05-10,lagayhar,Run batch predictions using Azure Machine Learning designer,Run batch predictions using Azure Machine Learning designer,167.0,2022-11
+v1\how-to-save-write-experiment-files.md,2024-05-31,roastala,Where to save & write experiment files,Where to save & write experiment files,471.0,2024-11
+v1\how-to-secure-inferencing-vnet.md,2024-01-31,larryfr,Secure v1 inferencing environments with virtual networks,,,2024-07
+v1\how-to-secure-training-vnet.md,2024-07-26,larryfr,Secure training environments with virtual networks (v1),Secure training environments with virtual networks (v1),1888.0,2025-01
+v1\how-to-secure-web-service.md,2022-07-28,meerakurup,Secure web services using TLS,Secure web services using TLS,37.0,2023-01
+v1\how-to-secure-workspace-vnet.md,2023-09-29,larryfr,Secure an Azure Machine Learning workspace with virtual networks (v1),,,2024-03
+v1\how-to-select-algorithms.md,2024-03-07,lagayhar,How to select a machine learning algorithm,How to select a machine learning algorithm,754.0,2024-09
+v1\how-to-set-up-training-targets.md,2024-02-21,sgilley,Configure a training job,Configure a training job,1639.0,2024-08
+v1\how-to-setup-authentication.md,2024-05-31,larryfr,Set up authentication (v1),Set up authentication (v1),2453.0,2024-11
+v1\how-to-track-designer-experiments.md,2021-10-21,lagayhar,Log metrics in the designer,Log metrics in the designer,22.0,2022-04
+v1\how-to-track-monitor-analyze-runs.md,2022-04-25,sgilley,"Track, monitor, and analyze runs",,,2022-10
+v1\how-to-train-distributed-gpu.md,2021-10-21,sgilley,Distributed GPU training guide (SDK v1),,,2022-04
+v1\how-to-train-keras.md,2022-11-04,sgilley,Train deep learning Keras models (SDK v1),Train deep learning Keras models (SDK v1),194.0,2023-05
+v1\how-to-train-model.md,2021-10-21,sgilley,Train models with the Azure Machine Learning Python SDK (v1),,,2022-04
+v1\how-to-train-pytorch.md,2022-11-04,sgilley,Train deep learning PyTorch models (SDK v1),,,2023-05
+v1\how-to-train-scikit-learn.md,2022-11-04,sgilley,Train scikit-learn machine learning models (SDK v1),,,2023-05
+v1\how-to-train-tensorflow.md,2022-11-04,sgilley,Train and deploy a TensorFlow model (SDK v1),,,2023-05
+v1\how-to-train-with-custom-image.md,2023-11-14,ssalgado,Train a model by using a custom Docker image,Train a model by using a custom Docker image,733.0,2024-05
+v1\how-to-train-with-datasets.md,2021-10-21,yogipandey,Train with machine learning datasets,Train with machine learning datasets,225.0,2022-04
+v1\how-to-trigger-published-pipeline.md,2022-08-12,lagayhar,Trigger Azure Machine Learning pipelines,Trigger Azure Machine Learning pipelines,628.0,2023-02
+v1\how-to-troubleshoot-auto-ml.md,2021-10-21,manashg,Troubleshoot automated ML experiments,Troubleshoot automated ML experiments,188.0,2022-04
+v1\how-to-troubleshoot-deployment-local.md,2022-08-15,joburges,Troubleshooting local model deployment,Troubleshooting local model deployment,24.0,2023-02
+v1\how-to-troubleshoot-deployment.md,2022-11-16,larryfr,Troubleshooting remote model deployment,Troubleshooting remote model deployment,31.0,2023-05
+v1\how-to-troubleshoot-prebuilt-docker-image-inference.md,2022-08-15,larryfr,Troubleshoot prebuilt docker images,Troubleshoot prebuilt docker images,38.0,2023-02
+v1\how-to-troubleshoot-serialization-error.md,2022-11-04,larryfr,Troubleshoot SerializationError,Troubleshoot SerializationError,35.0,2023-05
+v1\how-to-tune-hyperparameters.md,2024-05-30,joburges,Hyperparameter tuning a model (v1),,,2024-11
+v1\how-to-use-automl-small-object-detect.md,2021-10-13,phmantri,Use AutoML to detect small objects in images (v1),,,2022-04
+v1\how-to-use-automlstep-in-pipelines.md,2022-11-04,manashg,Use automated ML in ML pipelines,Use automated ML in ML pipelines,251.0,2023-05
+v1\how-to-use-environments.md,2022-04-19,larryfr,Use software environments CLI v1,,,2022-10
+v1\how-to-use-labeled-dataset.md,2022-08-17,sgilley,Create and explore datasets with labels,Create and explore datasets with labels,166.0,2023-02
+v1\how-to-use-managed-identities.md,2022-11-16,larryfr,Use managed identities for access control (v1),,,2023-05
+v1\how-to-use-mlflow.md,2021-10-21,lagayhar,MLflow Tracking for models,MLflow Tracking for models,9.0,2022-04
+v1\how-to-use-pipeline-parameter.md,2021-10-21,lagayhar,Use pipeline parameters to build versatile pipelines,Use pipeline parameters to build versatile pipelines,358.0,2022-04
+v1\how-to-use-private-python-packages.md,2024-07-09,roastala,Use private Python packages,Use private Python packages,418.0,2025-01
+v1\how-to-use-secrets-in-runs.md,2022-11-16,larryfr,Authentication secrets in training,,,2023-05
+v1\how-to-use-synapsesparkstep.md,2024-02-22,zhanxia,Use Apache Spark in a machine learning pipeline (deprecated),Use Apache Spark in a machine learning pipeline (deprecated),77.0,2024-08
+v1\how-to-version-track-datasets.md,2024-02-26,samkemp,Dataset versioning,Dataset versioning,362.0,2024-08
+v1\introduction.md,2024-07-26,larryfr,SDK & CLI (v1),,,2025-01
+v1\reference-automl-images-hyperparameters.md,2022-01-18,swatig,Hyperparameter for AutoML computer vision tasks (v1),,,2022-07
+v1\reference-automl-images-schema.md,2021-10-13,ssalgado,JSONL format for computer vision tasks (v1),,,2022-04
+v1\reference-azure-machine-learning-cli.md,2024-07-26,larryfr,Install and set up the CLI (v1),,,2025-01
+v1\reference-pipeline-yaml.md,2020-07-31,lagayhar,Machine Learning pipeline YAML (v1),,,2021-01
+v1\samples-designer.md,2021-10-21,keli19,Example pipelines & datasets for the designer,Example pipelines & datasets for the designer,237.0,2022-04
+v1\samples-notebooks.md,2021-12-27,sgilley,Example Jupyter Notebooks (v1),,,2022-06
+v1\tutorial-1st-experiment-hello-world.md,2024-04-03,sgilley,Tutorial: Get started with a Python script (v1),Tutorial: Get started with a Python script (v1),98.0,2024-09
+v1\tutorial-1st-experiment-sdk-train.md,2024-04-03,sgilley,Tutorial: Train a first Python machine learning model (SDK v1),Tutorial: Train a first Python machine learning model (SDK v1),89.0,2024-09
+v1\tutorial-auto-train-image-models.md,2021-10-06,swatig,Tutorial: AutoML- train object detection model (v1),,,2022-04
+v1\tutorial-designer-automobile-price-deploy.md,2024-03-04,lagayhar,Tutorial: Use designer to deploy no-code models,Tutorial: Use designer to deploy no-code models,936.0,2024-08
+v1\tutorial-designer-automobile-price-train-score.md,2022-05-10,lagayhar,Tutorial: Designer - train a no-code regression model,Tutorial: Designer - train a no-code regression model,1001.0,2022-11
+v1\tutorial-pipeline-python-sdk.md,2022-01-28,lagayhar,Tutorial: ML pipelines for training,,,2022-07
+v1\tutorial-train-deploy-notebook.md,2024-04-02,sgilley,Tutorial: Train and deploy an example in Jupyter Notebook,,,2024-09
