@@ -2,6 +2,7 @@
 /tracking/*.csv
 # test files and stuff I don't want to commit
 archive/
+tracking/
 not-working/
 sfi/
 Engagement/

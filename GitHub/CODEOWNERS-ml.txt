@@ -157,11 +157,11 @@
 /cli/jobs/pipelines/automl/cli-automl-text-ner-conll-pipeline/pipeline.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/pipelines/cifar-10/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
+/cli/jobs/single-step/lightgbm/iris/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/single-step/pytorch/cifar-distributed/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/single-step/r/iris/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/single-step/scikit-learn/iris/job-sweep.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/single-step/scikit-learn/iris/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
-/cli/jobs/single-step/tensorflow/mnist-distributed-horovod/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/single-step/tensorflow/mnist-distributed/job.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/spark/attached-spark-pipeline-user-identity.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  
 /cli/jobs/spark/attached-spark-standalone-managed-identity.yml @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  

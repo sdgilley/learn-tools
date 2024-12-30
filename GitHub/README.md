@@ -8,7 +8,7 @@ Scripts in this folder are used to help us maintain our code references.
 
 If running locally instead of Codespaces, make sure you have `pyGithub` installed (`pip install pyGithub`) to run these scripts
   
-* [find-snippets.py](find-snippets.py) - use arguments (ai, ml, all) to speciy which repo. If no arguments, defaults to ml.
+* [find-snippets.py](find-snippets.py) - use arguments (ai, ml, all) to specify which repo. If no arguments, defaults to ml.
     * creates the file refs-found.csv.  This file is used for both the pr-report and merge-report scripts.
     * create a CODEOWNERS file for the azureml-examples repo.  Use this to generate content to replace the lines in https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS.
     * Examples:

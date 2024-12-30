@@ -1,7 +1,7 @@
 """
 This script checks a PR for deleted files, cells or code snippets in files used in docs.
 
-    python pr-report2.py <PR number> 
+    python pr-check.py <PR number> 
 
 If the PR has problems, it prints a message to check with the docs team.
 
@@ -20,13 +20,22 @@ parser = argparse.ArgumentParser(
 )  # Create the parser
 # Add the arguments
 parser.add_argument("pr", type=int, help="The PR number you are interested in.")
+parser.add_argument(
+    "sample_repo", type=str, choices=["AI", "ML"], default="ML", nargs="?", help="The repo this PR is in. Defaults to 'ML'."
+)
 args = parser.parse_args()  # Parse the arguments
 pr = args.pr
 
 # form the URL for the GitHub API
-url = (
+if args.sample_repo == "AI":
+    url = f"https://api.github.com/repos/Azure-Samples/azureai-samples/pulls/{pr}/files?per_page=100"
+elif args.sample_repo == "ML":
+    url = (
     f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
 )
+else:
+    print("Invalid repo.  Must be 'AI' or 'ML'.")
+    sys.exit()
 
 # print(f"\n============================== PR: {pr} ==============================")
 # print(f"https://github.com/Azure/azureml-examples/pull/{pr}/files\n")
