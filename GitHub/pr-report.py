@@ -40,7 +40,7 @@ if repo_arg == "ml":
     repo_name = "azureml-examples"
     owner_name = "Azure"
 elif repo_arg == "ai":
-    repo_name = "rag-data-openai-python-promptflow"
+    repo_name = "azureai-samples"
     owner_name = "Azure-Samples"
 elif repo_arg == "fabric":
     repo_name = "fabric-samples"
@@ -198,7 +198,7 @@ if renamed > 0:
     else:
         print("Fix all references to renamed files before approving this PR.\n")
 
-print(f"\n================ azureml-examples PR summary: {pr} ===================")
+print(f"\n================ {repo_name} PR summary: {pr} ===================")
 
 ## test PRs:
 # 3081 - no problems

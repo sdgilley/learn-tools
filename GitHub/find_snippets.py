@@ -24,7 +24,7 @@ def find_snippets(repo_arg):
     repo_branch = "main"
     if repo_arg == "ai":
         path_in_repo = "articles/ai-studio"
-        repo_token = "rag-data-openai-python-promptflow"
+        repo_token = "azureai-samples"
     elif repo_arg == "ml":
         path_in_repo = "articles/machine-learning"
         repo_token = "azureml-examples"
