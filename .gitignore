@@ -1,8 +1,9 @@
 #  csv files I don't want to commit
-/tracking/*.csv
+*.csv
+*.xlsx
 # test files and stuff I don't want to commit
+find-md-files/
 archive/
-tracking/
 not-working/
 sfi/
 Engagement/
