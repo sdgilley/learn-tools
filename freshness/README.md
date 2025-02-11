@@ -34,4 +34,4 @@ You don't need to run these directly, but they are used by the scripts above:
 
 I developed the `create-work-items.py` script based on the .ps1 file below.  (And by "I", I mean mostly "Copilot".) I'm leaving the script here for reference, but I was unable to use it.  It requires a PAT for DevOps that I couldn't figure out how to create anymore.  Also, I've made lots of little modifications to the Python version.
 
-* `create-work-items.ps1`: PowerShell script to create work items in Azure DevOps. 
+* `CreateWorkitemsFromExcelFile.ps1`: PowerShell script to create work items in Azure DevOps. Requires a PAT from DevOps.
