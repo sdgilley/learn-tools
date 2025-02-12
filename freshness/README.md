@@ -28,7 +28,7 @@ You don't need to run these directly, but they are used by the scripts above:
 
 * `fix_items.py`: Function to standardize the text and format in the title to be used prior to a merge.
 * `get_filelist.py`: Function to get a list of all files in the local repository. Call with arguments to get the metadata, then merge by the file URL.
-* `query_work_items.py`: Function to query the work items in DevOps.  Call with a title string to search for and an area path to search in. Returns a pandas dataframe with the results.
+* `query_work_items.py`: Function to query the work items in DevOps.  Call with a title string to search for, and a days argument. The days argument is used to remove items that were last touched this many days ago, as it's time to re-do this file again. Returns a pandas dataframe with the results.
 
 ## Reference
 
