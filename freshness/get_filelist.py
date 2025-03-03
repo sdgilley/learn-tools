@@ -21,8 +21,7 @@ def get_filelist(repo_path, fstr):
         # remove quotes from titles
         df['title'] = df['title'].str.replace(r'"', '')
         df['title'] = df['title'].str.replace(r"'", '')
-        # add - Azure AI Foundry to the titles to match engagement titles
-        df['title'] = df['title'] + " - Azure AI Foundry"
+
 
     return df
 

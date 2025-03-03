@@ -38,6 +38,8 @@ engagement = pd.read_excel(eng_file, sheet_name="Export",
                                             'LastReviewed', 'Engagement',
                                             'Flags', 'BounceRate', 'ClickThroughRate', 
                                             'CopyTryScrollRate'])
+# fix the engagement titles to match file metadata:
+engagement = f.fix_engagement(engagement)
 
 # Step 2 - Get dates from the local repo
 # Checkout the branch and pull latest changes if needed...
@@ -50,7 +52,7 @@ titles_df = h.get_filelist(repo_path, "title")
 # merge the dates and titles
 articles = pd.merge(dates_df, titles_df, on='filename')
 # now we have updated dates and corresponding titles
-print(f" Total articles: {articles.shape[0]}")
+print(f" Total files: {articles.shape[0]}")
 
 # merge in engagement stats
 articles = articles.merge(engagement, how='right', left_on='title', right_on='Title')
