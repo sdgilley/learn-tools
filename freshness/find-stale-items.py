@@ -1,3 +1,4 @@
+# !IMPORTANT - sign in with az login --use-device-code before running this script
 # Finds the list of files that need to be refreshed for either this month or next month.
 # creates a csv file with the list of files that need to be refreshed.
 import get_filelist as h
@@ -7,10 +8,12 @@ import pandas as pd
 import os
 
 ################################## inputs
-repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-studio" # your local repo
-offset = 2 # for items going stale next month, use offset = 2. for this month's items use offset = 1
-req = 90 # required freshness in days
-csvfile = "mar-work-items.csv" # This is the file that will be created with the work items
+repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/machine-learning" # your local repo
+offset = 1  # for items going stale next month, use offset = 2. 
+            # for this month's items use offset = 1
+req = 360 # required freshness in days
+csvfile = "mar-foundry-work-items.csv" # This is the file that will be created with the work items
+allfiles = "all-files-revised.csv" # This is the file that will be created with all the files
 eng_file = "Jan-engagement.xlsx" # where the engagement stats are
 # NOTE: you need to set the Sensitivity label to General on the Excel file
 ################################## end of inputs
@@ -25,6 +28,7 @@ freshness_title = f"Freshness - over {req}:  "
 # get script directory to read/write all files to same directory
 script_dir = os.path.dirname(os.path.realpath(__file__))
 csvfile = os.path.join(script_dir, csvfile)
+allfiles = os.path.join(script_dir, allfiles)
 eng_file = os.path.join(script_dir, eng_file)
 
 # Step 1 - read the engagement stats
@@ -67,12 +71,15 @@ print(f"Total work items: {work_items.shape[0]}")
 
 # now merge to articles
 articles = articles.merge(work_items, how='left', left_on='Title', right_on='Title')
+articles.to_csv(allfiles, index=False)
+print(f" saved all articles to {allfiles}")
 # filter out ones with a work item already
 articles = articles[articles['ID'].isnull()]
 print(f"Articles without current work items, before cutoff date: {articles.shape[0]}")
 # create work item spreadsheet for cutoff date
+articles.to_csv(csvfile, index=False)
+
 cutoff_date = pd.Timestamp(cutoff_date)
-articles = articles[articles['ms.date'] < cutoff_date]
-print(f"Articles after filtering for cutoff_date: {articles.shape[0]}")
+print(f"Articles after filtering for cutoff_date of {cutoff_date}: {articles.shape[0]}")
 articles.to_csv(csvfile, index=False)
 print(f"Saved to {csvfile}")
