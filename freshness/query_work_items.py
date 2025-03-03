@@ -1,5 +1,7 @@
+# !IMPORTANT - sign in with az login --use-device-code before running this script
 # query work items from Azure DevOps using the Python SDK
 # return a dataframe with the work items
+# see bottom for example usage
 import os
 import pandas as pd
 from azure.devops.connection import Connection
@@ -25,7 +27,7 @@ def query_work_items(title_string, days=90):
     # Define the WIQL query
     wiql_query = Wiql(
         query=f"""
-        SELECT [System.Id], [System.Title], [System.State], [System.ChangedDate]
+        SELECT [System.Id], [System.Title], [System.State], [System.ChangedDate], [System.IterationPath]
         FROM workitems
         WHERE [System.TeamProject] = '{project_name}'
         AND [System.Title] CONTAINS '{title_string}'
@@ -45,6 +47,7 @@ def query_work_items(title_string, days=90):
         'ID': work_item.id, 
         'Title': work_item.fields['System.Title'], 
         'State': work_item.fields['System.State'],
+        'Sprint': work_item.fields.get('System.IterationPath'),  # Use .get() to handle missing fields
         'ChangedDate': work_item.fields.get('System.ChangedDate')  # Use .get() to handle missing fields
     } for work_item in work_items])
     
