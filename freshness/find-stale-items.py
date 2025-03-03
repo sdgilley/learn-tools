@@ -11,10 +11,10 @@ import os
 repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/machine-learning" # your local repo
 offset = 1  # for items going stale next month, use offset = 2. 
             # for this month's items use offset = 1
-req = 360 # required freshness in days
-csvfile = "mar-foundry-work-items.csv" # This is the file that will be created with the work items
-allfiles = "all-files-revised.csv" # This is the file that will be created with all the files
-eng_file = "Jan-engagement.xlsx" # where the engagement stats are
+req = 365 # required freshness in days
+csvfile = "mar-ML-work-items.csv" # This is the file that will be created with the work items
+allfiles = "all-files-ML.csv" # This is the file that will be created with all the files
+eng_file = "ml-jan.xlsx" # where the engagement stats are
 # NOTE: you need to set the Sensitivity label to General on the Excel file
 ################################## end of inputs
 

@@ -27,7 +27,7 @@ def query_work_items(title_string, days=90):
     # Define the WIQL query
     wiql_query = Wiql(
         query=f"""
-        SELECT [System.Id], [System.Title], [System.State], [System.ChangedDate], [System.IterationPath]
+        SELECT [System.Id], [System.Title], [System.State], [System.ChangedDate], [System.IterationPath], [System.AssignedTo]
         FROM workitems
         WHERE [System.TeamProject] = '{project_name}'
         AND [System.Title] CONTAINS '{title_string}'
@@ -40,7 +40,12 @@ def query_work_items(title_string, days=90):
 
     # Fetch the details of each work item
     work_item_ids = [item.id for item in wiql_result.work_items]
+    if not work_item_ids:
+        print("No work items found.")
+        return pd.DataFrame()
+
     work_items = wit_client.get_work_items(ids=work_item_ids)
+
 
     # Create a dataframe from the work items
     work_items_df = pd.DataFrame([{
@@ -48,7 +53,8 @@ def query_work_items(title_string, days=90):
         'Title': work_item.fields['System.Title'], 
         'State': work_item.fields['System.State'],
         'Sprint': work_item.fields.get('System.IterationPath'),  # Use .get() to handle missing fields
-        'ChangedDate': work_item.fields.get('System.ChangedDate')  # Use .get() to handle missing fields
+        'ChangedDate': work_item.fields.get('System.ChangedDate'),  # Use .get() to handle missing fields
+        'AssignedTo': work_item.fields.get('System.AssignedTo', {}).get('displayName', '') if work_item.fields.get('System.AssignedTo') else ''
     } for work_item in work_items])
     
     work_items_df['ChangedDate'] = pd.to_datetime(work_items_df['ChangedDate'], errors='coerce')
@@ -57,14 +63,14 @@ def query_work_items(title_string, days=90):
     cutoff_date = now_utc - pd.Timedelta(days=days)
     work_items_df = work_items_df[~((work_items_df['State'] == 'Closed') & (work_items_df['ChangedDate'] < cutoff_date))]
 
-    
     return work_items_df
 
 # Call the function
 if __name__ == "__main__":
-    title_string = "Freshness - over 90:  "
+    title_string = "Freshness - over 360:  "
     work_items_df = query_work_items(title_string)
     # if state is closed, only keep if changed in the last 30 days
     script_dir = os.path.dirname(__file__)
     csv_file = os.path.join(script_dir, 'work_items.csv')
     work_items_df.to_csv(csv_file, index=False)
+    print(f"Saved to {csv_file}")
