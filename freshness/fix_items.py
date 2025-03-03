@@ -11,17 +11,12 @@ def fix_work_items(work_items, freshness_title):
     return new
 
 def fix_engagement(engagement):
-    # # keep only the columns we need: Url, PageViews
-    engagement = engagement[['Title','PageViews']]
     # strip  - Azure Machine Learning from the title
     engagement['Title'] = engagement['Title'].str.replace(r' - Azure Machine Learning$', '', regex=True)
-    engagement['PageViews'] = engagement['PageViews'].str.replace(',', '')
-    engagement['PageViews'] = pd.to_numeric(engagement['PageViews'])# # keep only the columns we need: Url, PageViews
-    engagement = engagement[['Title','PageViews']]
-    # strip  - Azure Machine Learning from the title
-    engagement['Title'] = engagement['Title'].str.replace(r' - Azure Machine Learning$', '', regex=True)
-    engagement['PageViews'] = engagement['PageViews'].str.replace(',', '')
-    engagement['PageViews'] = pd.to_numeric(engagement['PageViews'])
+ # strip  - Azure AI Foundry from the title
+    engagement['Title'] = engagement['Title'].str.replace(r' - Azure AI Foundry$', '', regex=True)
+   
+    return engagement
 
 if __name__ == "__main__":
     import os
