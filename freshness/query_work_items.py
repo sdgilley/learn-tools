@@ -17,11 +17,13 @@ def query_work_items(title_string, area_path, days=90):
     wit_client = connection.clients.get_work_item_tracking_client()
 
     # Define the WIQL query
+    # limit to work items created in the last 365 days, otherwise will be too large for ML queries
     wiql_query = Wiql(
         query=f"""
         SELECT [System.Id], [System.Title], [System.State], [System.CreatedDate], [System.IterationPath], [System.AssignedTo]
         FROM workitems
         WHERE [System.TeamProject] = '{project_name}'
+        AND [System.CreatedDate] >= @StartOfMonth('-365d')
         AND [System.AreaPath] = '{area_path}'
         AND [System.Title] CONTAINS '{title_string}'
         AND [System.State] <> 'Removed'
