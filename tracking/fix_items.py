@@ -1,5 +1,5 @@
 # Read work items 
-def fix_work_items(work_items):
+def fix_titles(work_items):
     if work_items['Title'].str.contains('Freshness - over 90:').any():
         over90 = work_items[work_items['Title'].str.contains('Freshness - over 90:')]
         over90.loc[:, 'Title'] = over90['Title'].str.replace(r'^Freshness - over 90:  ', '', regex=True)
@@ -30,7 +30,7 @@ if __name__ == "__main__":
     script_dir = os.path.dirname(__file__)
     work_items = pd.read_csv(os.path.join(script_dir, "SE Content Freshness.csv"))
     work_items['before'] = work_items['Title']
-    work_items = fix_work_items(work_items)
+    work_items = fix_titles(work_items)
     csvfile = os.path.join(script_dir, 'fixing.csv')
     temp = work_items[['before','Title']]
     temp.to_csv(csvfile)

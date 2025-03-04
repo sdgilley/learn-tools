@@ -32,7 +32,7 @@ print(f" Total articles: {merged.shape[0]}")
 
 # # merge in engagement stats
 # engagement = pd.read_csv(os.path.join(script_dir,"december2024.csv"))
-# engagement = f.fix_engagement(engagement)
+# engagement = f.fix_titles(engagement)
 # articles = articles.merge(engagement, how='left', left_on='title', right_on='Title')
 
 # Convert ms.date to datetime
@@ -47,7 +47,7 @@ articles['refresh'] = articles['refresh'].dt.strftime('%Y-%m')
 
 # read work items and merge by title
 work_items = pd.read_csv(os.path.join(script_dir, "existing-items.csv"))
-work_items = f.fix_work_items(work_items)
+work_items = f.fix_titles(work_items)
 
 # merge articles with work_items:
 articles = articles.merge(work_items, how='left', left_on='title', right_on='Title')
