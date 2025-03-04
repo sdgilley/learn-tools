@@ -14,9 +14,9 @@ import os
 # if you use Excel, set sheet_name.  If it came from engagement report, it's "Export"
 # read_file = "feb-work-items.xlsx"
 # sheet_names = ["Export"]
-# # or input a csv file and set sheet_names to None.
+# # or input a csv file and set sheet_names to CSV.
 read_file = "mar-work-items.csv"
-sheet_names = ["None"]
+sheet_names = ["CSV"]  # set to CSV if you are using a csv file
 # ADO parameters
 ado_url = "https://dev.azure.com/msft-skilling"
 project_name = "Content"
@@ -26,7 +26,7 @@ area_path = r"Content\Production\Data and AI\AI Foundry"
 iteration_path = r"Content\Selenium\FY25Q3\03 Mar"
 assignee = ''
 parent_item = "319589"  # the ADO parent feature to link the new items to. Empty string if there is none.
-
+freshness_title = "Freshness - over 90:  "
 # Set mode to help set the fields that are saved into the work items
 mode = "freshness"  # or "engagement"
 
@@ -34,7 +34,6 @@ mode = "freshness"  # or "engagement"
 # add the path to the excel file:
 script_dir = os.path.dirname(__file__)
 read_file = os.path.join(script_dir, read_file)
-freshness_title = "Freshness - over 90:  "
 
 # ADO values for Content Engagement
 if mode == "engagement":
@@ -54,7 +53,7 @@ if mode == "freshness":
 
 # Read the Excel file
 all_rows = []
-if sheet_names == ["None"]:
+if sheet_names == ["CSV"]:
     df = pd.read_csv(read_file)
     all_rows.extend(df.to_dict(orient='records'))
 else:
@@ -67,16 +66,21 @@ else:
 #     print("Keys in the first row:", all_rows[0].keys())
 # exit()
 
-# Authenticate with Azure Active Directory (Entra ID)
-credential = DefaultAzureCredential()
-access_token = credential.get_token("499b84ac-1321-427f-aa17-267ca6975798/.default").token
+try:
+    # Authenticate with Azure Active Directory (Entra ID)
+    credential = DefaultAzureCredential()
+    access_token = credential.get_token("499b84ac-1321-427f-aa17-267ca6975798/.default").token
 
-# Create a BasicAuthentication object with the access token
-credentials = BasicAuthentication('', access_token)
+    # Create a BasicAuthentication object with the access token
+    credentials = BasicAuthentication('', access_token)
 
-# Connect to Azure DevOps
-connection = Connection(base_url=ado_url, creds=credentials)
-wit_client = connection.clients.get_work_item_tracking_client()
+    # Connect to Azure DevOps
+    connection = Connection(base_url=ado_url, creds=credentials)
+    wit_client = connection.clients.get_work_item_tracking_client()
+except Exception as e:
+    print("Error connecting to Azure DevOps:")
+    print("Run `az login --use-device-code` before running this script.")
+    exit(1)
 
 # Create work items
 for row in all_rows:
