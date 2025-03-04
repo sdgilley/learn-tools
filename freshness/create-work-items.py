@@ -2,9 +2,7 @@
 # Start with engagement report excel file
 # Remove rows until it contain only those you want to create work items for
 import pandas as pd
-from azure.devops.connection import Connection
-from msrest.authentication import BasicAuthentication
-from azure.identity import DefaultAzureCredential
+import authenticate_ado as a
 import os
 
 #################### Inputs ####################
@@ -66,21 +64,10 @@ else:
 #     print("Keys in the first row:", all_rows[0].keys())
 # exit()
 
-try:
-    # Authenticate with Azure Active Directory (Entra ID)
-    credential = DefaultAzureCredential()
-    access_token = credential.get_token("499b84ac-1321-427f-aa17-267ca6975798/.default").token
 
-    # Create a BasicAuthentication object with the access token
-    credentials = BasicAuthentication('', access_token)
+connection = a.authenticate_ado()
+wit_client = connection.clients.get_work_item_tracking_client()
 
-    # Connect to Azure DevOps
-    connection = Connection(base_url=ado_url, creds=credentials)
-    wit_client = connection.clients.get_work_item_tracking_client()
-except Exception as e:
-    print("Error connecting to Azure DevOps:")
-    print("Run `az login --use-device-code` before running this script.")
-    exit(1)
 
 # Create work items
 for row in all_rows:

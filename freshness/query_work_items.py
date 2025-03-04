@@ -1,6 +1,8 @@
 # !IMPORTANT - sign in with az login --use-device-code before running this script
 # query work items from Azure DevOps using the Python SDK
 # return a dataframe with the work items
+# filters out work items created before freshness time period that are closed
+# since they need freshness again
 # see bottom for example usage
 import os
 import pandas as pd
@@ -8,11 +10,10 @@ import authenticate_ado as a
 from azure.devops.v7_0.work_item_tracking.models import Wiql
 
 def query_work_items(title_string, days=90):
-    ado_url = "https://dev.azure.com/msft-skilling"
     project_name = "Content"
     
     # Authenticate with Azure Active Directory (Entra ID)
-    connection = a.authenticate_ado(ado_url)
+    connection = a.authenticate_ado()
     wit_client = connection.clients.get_work_item_tracking_client()
 
     # Define the WIQL query
