@@ -9,7 +9,7 @@ import pandas as pd
 import authenticate_ado as a
 from azure.devops.v7_0.work_item_tracking.models import Wiql
 
-def query_work_items(title_string, days=90):
+def query_work_items(title_string, area_path, days=90):
     project_name = "Content"
     
     # Authenticate with Azure Active Directory (Entra ID)
@@ -22,6 +22,7 @@ def query_work_items(title_string, days=90):
         SELECT [System.Id], [System.Title], [System.State], [System.CreatedDate], [System.IterationPath], [System.AssignedTo]
         FROM workitems
         WHERE [System.TeamProject] = '{project_name}'
+        AND [System.AreaPath] = '{area_path}'
         AND [System.Title] CONTAINS '{title_string}'
         AND [System.State] <> 'Removed'
         """
