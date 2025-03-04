@@ -67,7 +67,7 @@ print(f" After engagement merge, total articles: {articles.shape[0]}")
 
 # Step 3 - find existing work items and merge by title
 print("Starting query for current work items...")
-work_items = q.query_work_items(freshness_title, area_path, req)
+work_items = q.query_work_items(freshness_title, req)
 # fix the titles so that they match the metadata from the repo``
 work_items = f.fix_titles(work_items, freshness_title)
 
