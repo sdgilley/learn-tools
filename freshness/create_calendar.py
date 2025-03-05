@@ -1,10 +1,11 @@
 # list old articles
-import get_filelist as h
+import helpers.get_filelist as h
 import fix_titles as f
 import pandas as pd
 import os
 
 # inputs here
+repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry"
 repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry"
 ago = 90
 csvfile = "ai-studio-list.csv"
@@ -57,6 +58,7 @@ articles['refresh'] = articles['refresh'].dt.to_period('M').dt.to_timestamp()
 
 # read work items and merge by title
 work_items = pd.read_csv(os.path.join(script_dir, "existing-items.csv"))
+work_items = f.fix_titles(work_items)
 work_items = f.fix_titles(work_items)
 
 # merge articles with work_items:

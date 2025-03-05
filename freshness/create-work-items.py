@@ -2,7 +2,7 @@
 # Start with engagement report excel file
 # Remove rows until it contain only those you want to create work items for
 import pandas as pd
-import authenticate_ado as a
+import helpers.azdo as a
 import os
 
 #################### Inputs ####################
@@ -13,7 +13,7 @@ import os
 # read_file = "feb-work-items.xlsx"
 # sheet_names = ["Export"]
 # # or input a csv file and set sheet_names to CSV.
-read_file = "mar-work-items.csv"
+read_file = "Apr-foundry-work-items.csv"
 sheet_names = ["CSV"]  # set to CSV if you are using a csv file
 # ADO parameters
 ado_url = "https://dev.azure.com/msft-skilling"
@@ -24,6 +24,7 @@ area_path = r"Content\Production\Data and AI\AI Foundry"
 iteration_path = r"Content\Selenium\FY25Q3\03 Mar"
 assignee = ''
 parent_item = "319589"  # the ADO parent feature to link the new items to. Empty string if there is none.
+freshness_title = "Freshness - over 90:  "
 freshness_title = "Freshness - over 90:  "
 # Set mode to help set the fields that are saved into the work items
 mode = "freshness"  # or "engagement"
@@ -52,6 +53,7 @@ if mode == "freshness":
 # Read the Excel file
 all_rows = []
 if sheet_names == ["CSV"]:
+if sheet_names == ["CSV"]:
     df = pd.read_csv(read_file)
     all_rows.extend(df.to_dict(orient='records'))
 else:
@@ -66,7 +68,10 @@ else:
 
 
 connection = a.authenticate_ado()
+
+connection = a.authenticate_ado()
 wit_client = connection.clients.get_work_item_tracking_client()
+
 
 
 # Create work items
