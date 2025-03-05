@@ -1,22 +1,16 @@
 # Read work items 
-def fix_titles(df, freshness_title=None):
+def fix_titles(df, suffix, freshness_title=None):
     import re
     new = df.copy()
     if freshness_title:
         pattern = f"^{re.escape(freshness_title)}"
         new.loc[:, 'Title'] = new['Title'].str.replace(pattern, '', regex=True)
-        # also remove quotes in the title
     # remove quotes from titles
-    new['Title'] = new['Title'].str.replace(r'"', '')
-    new['Title'] = new['Title'].str.replace(r"'", '')
-    # remove - Azure Machine Learning from the title
-    new['Title'] = new['Title'].str.replace(r' - Azure Machine Learning$', '', regex=True)
-    # strip  - Azure AI Foundry from the title
-    new['Title'] = new['Title'].str.replace(r' - Azure AI Foundry$', '', regex=True)
-    # remove leading blanks
-    new['Title'] = new['Title'].str.strip()
-    # remove trailing blanks
-    new['Title'] = new['Title'].str.rstrip()
+    new['Title'] = new['Title'].str.replace(r'"', '').str.replace(r"'", '')
+    # remove suffix from the title
+    new['Title'] = new['Title'].str.replace(f"r'{suffix}$'", '', regex=True)
+    # remove leading & trailing blanks
+    new['Title'] = new['Title'].str.strip().str.rstrip()
     return new
 
 if __name__ == "__main__":

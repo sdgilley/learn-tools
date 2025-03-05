@@ -2,7 +2,7 @@
 # Start with engagement report excel file
 # Remove rows until it contain only those you want to create work items for
 import pandas as pd
-import authenticate_ado as a
+import helpers.azdo as a
 import os
 
 #################### Inputs ####################
@@ -13,7 +13,7 @@ import os
 # read_file = "feb-work-items.xlsx"
 # sheet_names = ["Export"]
 # # or input a csv file and set sheet_names to CSV.
-read_file = "mar-work-items.csv"
+read_file = "Apr-foundry-work-items.csv"
 sheet_names = ["CSV"]  # set to CSV if you are using a csv file
 # ADO parameters
 ado_url = "https://dev.azure.com/msft-skilling"
