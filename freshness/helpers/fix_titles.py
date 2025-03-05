@@ -1,9 +1,9 @@
 # Read work items 
-def fix_titles(df, suffix, freshness_title=None):
+def fix_titles(df, suffix, prefix=None):
     import re
     new = df.copy()
-    if freshness_title:
-        pattern = f"^{re.escape(freshness_title)}"
+    if prefix:
+        pattern = f"^{re.escape(prefix)}"
         new.loc[:, 'Title'] = new['Title'].str.replace(pattern, '', regex=True)
     # remove quotes from titles
     new['Title'] = new['Title'].str.replace(r'"', '').str.replace(r"'", '')
