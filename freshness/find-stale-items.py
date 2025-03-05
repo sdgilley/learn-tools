@@ -1,4 +1,5 @@
 # !IMPORTANT - sign in with az login --use-device-code before running this script
+# !IMPORTANT - sign in with az login --use-device-code before running this script
 # Finds the list of files that need to be refreshed for either this month or next month.
 # creates a csv file with the list of files that need to be refreshed.
 import helpers.get_filelist as h
@@ -11,6 +12,9 @@ import os
 repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry" # your local repo
 offset = 2  # for items going stale next month, use offset = 2. 
             # for this month's items use offset = 1
+repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry" # your local repo
+offset = 2  # for items going stale next month, use offset = 2. 
+            # for this month's items use offset = 1
 req = 90 # required freshness in days
 csvfile = "Apr-foundry-work-items.csv" # This is the file that will be created with the work items
 eng_file = "Feb-Foundry-Engagement.xlsx" # Engagement file to read`
@@ -20,6 +24,7 @@ suffix = " - Azure AI Foundry" # title suffix for your docs
 # NOTE: you need to set the Sensitivity label to General on the Excel file
 ################################## end of inputs
 
+# Calculate the cutoff date (N days before the end of the month)
 # Calculate the cutoff date (N days before the end of the month)
 now = pd.Timestamp.now()
 end_of_month = now + pd.offsets.MonthEnd(offset)
@@ -46,6 +51,8 @@ engagement = f.fix_titles(engagement, suffix)
 
 # Step 2 - Get dates from the local repo - this is the most recent date, 
 # since engagement is a month old.  Helps to cut out ones already updated.
+# Step 2 - Get dates from the local repo - this is the most recent date, 
+# since engagement is a month old.  Helps to cut out ones already updated.
 # Checkout the branch and pull latest changes if needed...
 # h.checkout(repo_path, "main")
 # get most recent dates from local repo
@@ -65,6 +72,7 @@ print(f" After engagement merge, total articles: {articles.shape[0]}")
 # engagement stats can be a month old for items just updated last month
 
 
+
 # Step 3 - find existing work items and merge by title
 print("Starting query for current work items...")
 work_items = a.query_freshness(freshness_title, req)
@@ -74,15 +82,22 @@ work_items = f.fix_titles(work_items, suffix, freshness_title)
 print(f"Total work items: {work_items.shape[0]}")
 # DEBUG: save work items to csv to figure out what happened...
 work_items.to_csv(os.path.join(script_dir,"debug-work-items.csv"), index=False)
+# DEBUG: save work items to csv to figure out what happened...
+work_items.to_csv(os.path.join(script_dir,"debug-work-items.csv"), index=False)
 
 # now merge to articles
 articles = articles.merge(work_items, how='left', left_on='Title', right_on='Title')
 # DEBUG: save all items to csv to figure out what happened...
 articles.to_csv(os.path.join(script_dir,"debug-all-files.csv"), index=False)
 
+# DEBUG: save all items to csv to figure out what happened...
+articles.to_csv(os.path.join(script_dir,"debug-all-files.csv"), index=False)
+
 # filter out ones with a work item already
 articles = articles[articles['Id'].isnull()]
 print(f"Articles without current work items, before cutoff date: {articles.shape[0]}")
+
+# Step 4 - filter out articles that are not stale
 
 # Step 4 - filter out articles that are not stale
 cutoff_date = pd.Timestamp(cutoff_date)
@@ -92,6 +107,7 @@ articles['ms.date'] = articles['ms.date'].fillna(articles['LastReviewed']).infer
 articles['ms.date'] = pd.to_datetime(articles['ms.date'], errors='coerce')
 # filter out if beyond the cutoff date
 articles = articles[articles['ms.date'] < cutoff_date]
+print(f"Articles after filtering for cutoff_date of {cutoff_date}: {articles.shape[0]}")
 print(f"Articles after filtering for cutoff_date of {cutoff_date}: {articles.shape[0]}")
 articles.to_csv(csvfile, index=False)
 print(f"Saved to {csvfile}")

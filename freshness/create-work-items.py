@@ -25,6 +25,7 @@ iteration_path = r"Content\Selenium\FY25Q3\03 Mar"
 assignee = ''
 parent_item = "319589"  # the ADO parent feature to link the new items to. Empty string if there is none.
 freshness_title = "Freshness - over 90:  "
+freshness_title = "Freshness - over 90:  "
 # Set mode to help set the fields that are saved into the work items
 mode = "freshness"  # or "engagement"
 
@@ -52,6 +53,7 @@ if mode == "freshness":
 # Read the Excel file
 all_rows = []
 if sheet_names == ["CSV"]:
+if sheet_names == ["CSV"]:
     df = pd.read_csv(read_file)
     all_rows.extend(df.to_dict(orient='records'))
 else:
@@ -66,7 +68,10 @@ else:
 
 
 connection = a.authenticate_ado()
+
+connection = a.authenticate_ado()
 wit_client = connection.clients.get_work_item_tracking_client()
+
 
 
 # Create work items
