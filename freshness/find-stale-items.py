@@ -12,14 +12,10 @@ import os
 repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry" # your local repo
 offset = 2  # for items going stale next month, use offset = 2. 
             # for this month's items use offset = 1
-repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry" # your local repo
-offset = 2  # for items going stale next month, use offset = 2. 
-            # for this month's items use offset = 1
 req = 90 # required freshness in days
+suffix = " - Azure AI Foundry" # title suffix for your docs. Crucial for merging correctly.
 csvfile = "Apr-foundry-work-items.csv" # This is the file that will be created with the work items
 eng_file = "Feb-Foundry-Engagement.xlsx" # Engagement file to read`
-suffix = " - Azure AI Foundry" # title suffix for your docs
-# eng_file = "ml-jan.xlsx" # Engagement file to read`
 
 # NOTE: you need to set the Sensitivity label to General on the Excel file
 ################################## end of inputs
