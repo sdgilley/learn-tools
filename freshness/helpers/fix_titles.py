@@ -1,17 +1,18 @@
 # Read work items 
-def fix_titles(df, suffix, prefix=None):
-    import re
-    new = df.copy()
-    if prefix:
-        pattern = f"^{re.escape(prefix)}"
-        new.loc[:, 'Title'] = new['Title'].str.replace(pattern, '', regex=True)
-    # remove quotes from titles
-    new['Title'] = new['Title'].str.replace(r'"', '').str.replace(r"'", '')
-    # remove suffix from the title
-    new['Title'] = new['Title'].str.replace(f"r'{suffix}$'", '', regex=True)
+import re
+def fix_titles(title, suffix=None, freshness_title=None):
+    if not isinstance(title, str):
+        return title
+    if freshness_title:
+        pattern = f"^{re.escape(freshness_title)}"
+        title = re.sub(pattern, '', title)
+    if suffix:
+        title = re.sub(re.escape(suffix) + '$', '', title)
+    # remove quotes
+    title = title.replace('"', '').replace("'", '')
     # remove leading & trailing blanks
-    new['Title'] = new['Title'].str.strip().str.rstrip()
-    return new
+    title = title.strip()
+    return title
 
 if __name__ == "__main__":
     import os

@@ -1,5 +1,4 @@
 # !IMPORTANT - sign in with az login --use-device-code before running this script
-# !IMPORTANT - sign in with az login --use-device-code before running this script
 # Finds the list of files that need to be refreshed for either this month or next month.
 # creates a csv file with the list of files that need to be refreshed.
 import helpers.get_filelist as h
@@ -14,19 +13,19 @@ offset = 2  # for items going stale next month, use offset = 2.
             # for this month's items use offset = 1
 req = 90 # required freshness in days
 suffix = " - Azure AI Foundry" # title suffix for your docs. Crucial for merging correctly.
-csvfile = "Apr-foundry-work-items.csv" # This is the file that will be created with the work items
 eng_file = "Feb-Foundry-Engagement.xlsx" # Engagement file to read`
+# NOTE: you need to set the Sensitivity label to General on the Excel file!
+csvfile = "Apr-foundry-work-items.csv" # This is the file that will be created with the work items
 
-# NOTE: you need to set the Sensitivity label to General on the Excel file
 ################################## end of inputs
 
-# Calculate the cutoff date (N days before the end of the month)
-# Calculate the cutoff date (N days before the end of the month)
+# Calculate the cutoff date - items older than this will be stale
 now = pd.Timestamp.now()
 end_of_month = now + pd.offsets.MonthEnd(offset)
 cutoff_date = end_of_month - pd.Timedelta(days=req)
 print(f"Cutoff date: {cutoff_date}")
 freshness_title = f"Freshness - over {req}:"  
+
 # suppress future warnings for downcasting
 pd.set_option('future.no_silent_downcasting', True)
 
@@ -42,11 +41,9 @@ engagement = pd.read_excel(eng_file, sheet_name="Export",
                                             'LastReviewed', 'Engagement',
                                             'Flags', 'BounceRate', 'ClickThroughRate', 
                                             'CopyTryScrollRate'])
-# fix the engagement titles to match file metadata:
-engagement = f.fix_titles(engagement, suffix)
 
-# Step 2 - Get dates from the local repo - this is the most recent date, 
-# since engagement is a month old.  Helps to cut out ones already updated.
+
+
 # Step 2 - Get dates from the local repo - this is the most recent date, 
 # since engagement is a month old.  Helps to cut out ones already updated.
 # Checkout the branch and pull latest changes if needed...
@@ -54,26 +51,28 @@ engagement = f.fix_titles(engagement, suffix)
 # get most recent dates from local repo
 dates_df = h.get_filelist(repo_path, "ms.date")
 titles_df = h.get_filelist(repo_path, "title")
-# description_df = h.get_filelist(repo_path, "description")
-
 # merge the dates and titles
 articles = pd.merge(dates_df, titles_df, on='filename')
 # now we have updated dates and corresponding titles
 print(f" Total files: {articles.shape[0]}")
 
 # merge in engagement stats
+# Make sure titles will match in two dfs
+# Make sure titles will match in two dfs
+engagement['Title'] = engagement['Title'].apply(lambda x: f.fix_titles(x, suffix))
+articles['title'] = articles['title'].apply(lambda x: f.fix_titles(x))
+
+
 articles = articles.merge(engagement, how='right', left_on='title', right_on='Title')
 print(f" After engagement merge, total articles: {articles.shape[0]}")
 # note ms.date is coming from the local repo, not the engagements stats.  
-# engagement stats can be a month old for items just updated last month
-
-
 
 # Step 3 - find existing work items and merge by title
 print("Starting query for current work items...")
 work_items = a.query_freshness(freshness_title, req)
 # fix the titles so that they match the metadata from the repo``
-work_items = f.fix_titles(work_items, suffix, freshness_title)
+
+work_items['Title'] = work_items['Title'].apply(lambda x:f.fix_titles(x, suffix, freshness_title))
 
 print(f"Total work items: {work_items.shape[0]}")
 # DEBUG: save work items to csv to figure out what happened...
