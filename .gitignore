@@ -2,7 +2,7 @@
 *.csv
 *.xlsx
 # test files and stuff I don't want to commit
-find-md-files/
+inventory-files/
 archive/
 not-working/
 sfi/
