@@ -29,7 +29,7 @@ def checkout(repo_path, branch="main"):
     return True
 
 if __name__ == "__main__":
-    repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-studio"
+    repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry"
     articles = get_filelist(repo_path, "ms.author")
     
     print(f" Total articles: {articles.shape[0]}")

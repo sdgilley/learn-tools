@@ -23,7 +23,7 @@ def find_snippets(repo_arg):
     repo_name = "MicrosoftDocs/azure-ai-docs"
     repo_branch = "main"
     if repo_arg == "ai":
-        path_in_repo = "articles/ai-studio"
+        path_in_repo = "articles/ai-foundry"
         repo_token = "azureai-samples"
     elif repo_arg == "ml":
         path_in_repo = "articles/machine-learning"
@@ -64,7 +64,7 @@ def find_snippets(repo_arg):
     print(f"Starting search of {path_in_repo} at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     for content_file in contents:
         # Check if the file is a markdown file
-        if content_file.path.endswith(".md"):
+        if content_file.type == "file" and content_file.path.endswith(".md"):
             file = os.path.basename(content_file.path)
             # Get the file content
             file_content = content_file.decoded_content
@@ -142,10 +142,16 @@ def find_snippets(repo_arg):
     # now create codeowners file
     refs = found["ref_file"].drop_duplicates().replace(" ", "\ ", regex=True)
     f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_arg}.txt"), "w+")
+    #find the owners to use depending on the repo
+    # TODO: switch the ml repo to also use the ai-platform-docs team
+    if repo_arg == "ai":
+        owners = "@Azure-Samples/AI-Platform-Docs"
+    else:
+        owners = "@sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1"
+    print (f"Creating CODEOWNERS-{repo_arg}.txt file")
+    print (f"  with the following owners: {owners}")
     for ref in refs:
-        f.write(
-            f"/{ref} @sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1  \n"
-        )
+        f.write(f"/{ref} {owners}\n")     
     f.close()
 
     # report the branches in use

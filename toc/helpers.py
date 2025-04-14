@@ -39,6 +39,6 @@ def read_toc(toc_path):
 
 if __name__ == "__main__":
     repo_path = "C:/GitPrivate/azure-ai-docs-pr"
-    # point to the toc.yml file in the repo path: "articles/ai-studio/toc.yml"
-    toc_path = os.path.join(repo_path, "articles/ai-studio/toc.yml")
+    # point to the toc.yml file in the repo path: "articles/ai-foundry/toc.yml"
+    toc_path = os.path.join(repo_path, "articles/ai-foundry/toc.yml")
     read_toc(toc_path)

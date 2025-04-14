@@ -3,10 +3,10 @@ from get_filelist import get_filelist
 import pandas as pd
 
 # inputs here
-repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-studio"
+repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry"
 me = 'sgilley'
 ago = 180
-csvfile = "ai-studio.csv"
+csvfile = "ai-foundry.csv"
 pull = False # change to True first time you run, then to False to save time
 # end of inputs
 

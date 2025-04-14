@@ -1,4 +1,6 @@
 ref_file,from_file
+scenarios/projects/basic/chat-simple.py,get-started-code.md
+scenarios/projects/basic/chat-template.py,get-started-code.md
 scenarios/rag/custom-rag-app/assets/chat_eval_data.jsonl,copilot-sdk-evaluate.md
 scenarios/rag/custom-rag-app/assets/grounded_chat.prompty,copilot-sdk-build-rag.md
 scenarios/rag/custom-rag-app/assets/intent_mapping.prompty,copilot-sdk-build-rag.md

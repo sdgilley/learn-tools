@@ -3,8 +3,8 @@
 import yaml
 import pandas as pd
 
-dir = 'c:/gitprivate/azure-ai-docs-pr/articles/ai-studio'
-csvfile = 'ai-studio-toc.csv'
+dir = 'c:/gitprivate/azure-ai-docs-pr/articles/ai-foundry'
+csvfile = 'ai-foundry-toc.csv'
 
 # Load the YAML file
 with open(f'{dir}/toc.yml', 'r') as file:

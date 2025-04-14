@@ -19,7 +19,7 @@ def merge_report(days, service):
     import find_pr_files as f
 
     if service == "ai":
-        repo_name = ["rag-data-openai-python-promptflow"]
+        repo_name = ["azureai-samples"]
         owner_name = ["Azure-Samples"]
         # add more here if needed; at that time, will have to loop through the repos
     elif service == "ml":

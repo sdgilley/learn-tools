@@ -5,9 +5,9 @@ import pandas as pd
 import os
 
 # inputs here
-repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-studio"
+repo_path = "C:/GitPrivate/azure-ai-docs-pr/articles/ai-foundry"
 ago = 90
-csvfile = "ai-studio-list.csv"
+csvfile = "ai-foundry-list.csv"
 # end of inputs
 
 # get script directory

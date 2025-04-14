@@ -9,8 +9,8 @@ import helpers as h
 # Get script directory
 script_dir = os.path.dirname(os.path.realpath(__file__))
 repo_path = "C:/GitPrivate/azure-ai-docs-pr"
-# point to the toc.yml file in the repo path: "articles/ai-studio/toc.yml"
-toc_path = os.path.join(repo_path, "articles/ai-studio/toc.yml")
+# point to the toc.yml file in the repo path: "articles/ai-foundry/toc.yml"
+toc_path = os.path.join(repo_path, "articles/ai-foundry/toc.yml")
 # read the TOC and convert it to a DataFrame
 # first read from main - make sure the branch you use is up to date with upstream
 h.change_branch(repo_path, "main")
