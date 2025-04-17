@@ -142,12 +142,9 @@ def find_snippets(repo_arg):
     # now create codeowners file
     refs = found["ref_file"].drop_duplicates().replace(" ", "\ ", regex=True)
     f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_arg}.txt"), "w+")
-    #find the owners to use depending on the repo
-    # TODO: switch the ml repo to also use the ai-platform-docs team
-    if repo_arg == "ai":
-        owners = "@Azure-Samples/AI-Platform-Docs"
-    else:
-        owners = "@sdgilley @msakande @Blackmist @ssalgadodev @lgayhardt @fbsolo-ms1"
+
+    owners = "@Azure/AI-Platform-Docs"
+
     print (f"Creating CODEOWNERS-{repo_arg}.txt file")
     print (f"  with the following owners: {owners}")
     for ref in refs:
