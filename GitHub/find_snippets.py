@@ -24,6 +24,9 @@ def find_snippets(repo_arg):
     repo_branch = "main"
     if repo_arg == "ai":
         path_in_repo = "articles/ai-foundry"
+        repo_token = "foundry-samples"
+    elif repo_arg == "ai2":
+        path_in_repo = "articles/ai-foundry"
         repo_token = "azureai-samples"
     elif repo_arg == "ml":
         path_in_repo = "articles/machine-learning"
@@ -40,8 +43,9 @@ def find_snippets(repo_arg):
 
     # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    result_fn = os.path.join(script_dir, f"refs-found-{repo_arg}.csv")
-    tutorials_fn = os.path.join(script_dir, f"tutorials-{repo_arg}.csv")
+    
+    result_fn = os.path.join(script_dir, f"refs-found-{repo_token}.csv")
+    tutorials_fn = os.path.join(script_dir, f"tutorials-{repo_token}.csv")
 
 
     found = pd.DataFrame(columns=["ref_file", "from_file"])
@@ -55,18 +59,24 @@ def find_snippets(repo_arg):
     # Read files from GitHub
     repo = a.connect_repo(repo_name)
     # contents = repo.get_contents(path_in_repo, ref=repo_branch)
-    if repo_arg == "ai": # content here is in sub-directories
-        contents = h.get_all_contents(repo, path_in_repo, repo_branch)
-    else: # ml content only in the given path (is this still correct?)
+    if repo_arg == "ml":# ml content only in the given path (is this still correct?)
         contents = repo.get_contents(path_in_repo, ref=repo_branch)
+    else: 
+        contents = h.get_all_contents(repo, path_in_repo, repo_branch)
 
     # Now contents contains the list of files to search
     print(f"Starting search of {path_in_repo} at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     for content_file in contents:
         # Check if the file is a markdown file
         if content_file.type == "file" and content_file.path.endswith(".md"):
+            # print(f"Searching {content_file}")
+            if getattr(content_file, "encoding", None) != "base64":
+                print(f"Skipping file {content_file.path} due to unsupported encoding: {getattr(content_file, 'encoding', None)}")
+                continue
+
             file = os.path.basename(content_file.path)
             # Get the file content
+
             file_content = content_file.decoded_content
             lines = file_content.decode().splitlines()
 
@@ -85,7 +95,9 @@ def find_snippets(repo_arg):
                 )
                 if match_snippet:
                     for match in match_snippet:
+                        # print(f"FOUND {match}")
                         path, ref_file, branch, m, name = h.cleanup_matches(match)
+                        # print(f"{path},{ref_file},{branch},{name}")
                         if "(" in ref_file:  # this might be a mistake
                             print(
                                 f"{file}: Warning: Found a snippet with a ( in it: {match}"
@@ -118,7 +130,7 @@ def find_snippets(repo_arg):
                     dict_list2.append({"file": file, "type": block[0], "lines": block[1]})
 
     code_counts = pd.DataFrame.from_dict(dict_list2)
-    code_counts.to_csv(f"code-counts-{repo_arg}.csv", index=False)
+    code_counts.to_csv(f"code-counts-{repo_token}.csv", index=False)
 
     found = pd.DataFrame.from_dict(dict_list)
     branches = pd.DataFrame(branches)
@@ -134,6 +146,7 @@ def find_snippets(repo_arg):
         return
     # write the snippets file
     found.to_csv(result_fn, index=False)
+    print(f"Writing {result_fn} file")
     # write the tutorials file
     # these files won't break the build, so don't need to be in the CODEOWNERS file
     # but we do want to track them in the dashboards
@@ -141,11 +154,11 @@ def find_snippets(repo_arg):
 
     # now create codeowners file
     refs = found["ref_file"].drop_duplicates().replace(" ", "\ ", regex=True)
-    f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_arg}.txt"), "w+")
+    f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_token}.txt"), "w+")
 
     owners = "@Azure/AI-Platform-Docs"
 
-    print (f"Creating CODEOWNERS-{repo_arg}.txt file")
+    print (f"Creating CODEOWNERS-{repo_token}.txt file")
     print (f"  with the following owners: {owners}")
     for ref in refs:
         f.write(f"/{ref} {owners}\n")     
@@ -177,7 +190,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
 
     # Add the arguments
-    parser.add_argument("repo", type=str, nargs='?', default="ml", 
+    parser.add_argument("repo", type=str, nargs='?', default="ai", 
                         choices=["ai", "ml"], help="Which repo: 'ai' or 'ml'")
     # Parse the arguments
     args = parser.parse_args()

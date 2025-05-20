@@ -19,8 +19,8 @@ def merge_report(days, service):
     import find_pr_files as f
 
     if service == "ai":
-        repo_name = ["azureai-samples"]
-        owner_name = ["Azure-Samples"]
+        repo_name = ["azureai-samples", "foundry-samples"]
+        owner_name = ["Azure-Samples", "azure-ai-foundry"]
         # add more here if needed; at that time, will have to loop through the repos
     elif service == "ml":
         repo_name = ["azureml-examples"]
@@ -29,13 +29,15 @@ def merge_report(days, service):
         repo_name = ["fabric-samples"]
         owner_name = ["Microsoft"]
 
-    # get the refs-found file for this service
-    fn = f"refs-found-{service}.csv"
-    # read the snippets for this repo
-    snippets = h.read_snippets(fn)  # read the snippets file
+
 
     # loop through all the repos that contain snippets for this service
     for owner_name, repo_name in zip(owner_name, repo_name):
+        # get the refs-found file for this service
+        fn = f"refs-found-{repo_name}.csv"
+        print(f"Reading {fn} for {repo_name} snippets")
+        # read the snippets for this repo
+        snippets = h.read_snippets(fn)  # read the snippets file
         f.find_pr_files(owner_name, repo_name, snippets, days)
     return
 
