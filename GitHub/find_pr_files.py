@@ -67,6 +67,7 @@ def find_pr_files(owner_name, repo_name, snippets, days):
         prs = df["PR"].unique()
         for pr in prs:
             print(f"* PR {pr} (https://github.com/{owner_name}/{repo_name}/pull/{pr}/files)")
+        # Don't need to print this level of detail, leaving it commented out
         # print("\nCheck the following PRs to see if any referenced docs need to be updated:\n")
         # Group the DataFrame by PR
         # grouped_by_pr = df.groupby('PR')

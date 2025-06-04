@@ -11,7 +11,7 @@ parser.add_argument(
 
 args = parser.parse_args()  # Parse the arguments
 
-service = "ml"
+service = "all"  # Default service
 days = 8
 
 for arg in args.input:

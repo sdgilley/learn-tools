@@ -40,8 +40,8 @@ if repo_arg == "ml":
     repo_name = "azureml-examples"
     owner_name = "Azure"
 elif repo_arg == "ai":
-    repo_name = "azureai-samples"
-    owner_name = "Azure-Samples"
+    repo_name = "foundry-samples"
+    owner_name = "Azure-AI-Foundry"
 elif repo_arg == "fabric":
     repo_name = "fabric-samples"
     owner_name = "Microsoft"
@@ -71,7 +71,7 @@ else:
     added_files = [file["filename"] for file in prfiles if file["status"] == "added"]
     renamed_files = [file["previous_filename"] for file in prfiles if file["status"] == "renamed"]
 
-fn = f"refs-found-{repo_arg}.csv"
+fn = f"refs-found-{repo_name}.csv"
 snippets = h.read_snippets(fn)  # read the snippets file
 
 # Process the files:
