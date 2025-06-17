@@ -14,9 +14,9 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 ## Daily tasks
 
-1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me )
+1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me ).  (Wait until all build checks have passed before you review.  Ignore old ones as they most likely have been abandoned.)
 
-1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to investigate, in the terminal, run:
+1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to review, in the terminal, run:
     * for azureml-examples repo:
     
         ```bash
