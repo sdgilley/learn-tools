@@ -18,7 +18,8 @@ Before the PR can be approved, we need to make sure that the docs that reference
 
 There are various ways to fix the problem, depending on the situation.  These are outlined in the sections below.
 
-> During a docs freeze (before Build or Ignite), don't approve any PRs that have problems - we can't fix them on our end during this time.  If they deleted a file, have them put it back.  If they deleted an ID or cell name, have them put it back, even if there are no contents in the section or cell.
+> During a docs freeze (before Build or Ignite), try not to approve any PRs that have problems - it's harder to fix on our end during this time.  If they deleted a file, have them put it back.  If they deleted an ID or cell name, have them put it back, even if there are no contents in the section or cell.
+> If the HAVE to make the change, our doc fix first has to merge into all the release branches before we can approve the PR.
 > 
 ## Push back - why is the change needed?
 
