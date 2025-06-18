@@ -2,7 +2,7 @@
 This script finds PRs that were merged in the last X days (defaults to 8)
 and reports on doc files that need updating because of those merges.
 
-Use "ai", "ml", or "fabric" as the argument to specify which repo to check. Default is "ml".
+Use "ai", ai2, "ml", or  as the argument to specify which repo to check. Default is "ml".
 Example:
     python merge-report.py 8 ai
 
@@ -19,18 +19,19 @@ def merge_report(days, service):
     import find_pr_files as f
 
     if service == "ai":
+        repo_name = ["foundry-samples"]
+        owner_name = ["Azure-AI-Foundry"]
+    elif service == "ai2":
         repo_name = ["azureai-samples"]
         owner_name = ["Azure-Samples"]
         # add more here if needed; at that time, will have to loop through the repos
     elif service == "ml":
         repo_name = ["azureml-examples"]
         owner_name = ["Azure"]
-    elif service == "fabric":
-        repo_name = ["fabric-samples"]
-        owner_name = ["Microsoft"]
+
 
     # get the refs-found file for this service
-    fn = f"refs-found-{service}.csv"
+    fn = f"refs-found-{repo_name}.csv"
     # read the snippets for this repo
     snippets = h.read_snippets(fn)  # read the snippets file
 

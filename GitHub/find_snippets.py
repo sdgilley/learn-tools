@@ -24,14 +24,17 @@ def find_snippets(repo_arg):
     repo_branch = "main"
     if repo_arg == "ai":
         path_in_repo = "articles/ai-foundry"
+        repo_token = "foundry-samples"
+        owners = "@azure-ai-foundry/AI-Platform-Docs"
+    elif repo_arg == "ai2":
+        path_in_repo = "articles/ai-foundry"
         repo_token = "azureai-samples"
+        owners = "@azure-samples/AI-Platform-Docs"
     elif repo_arg == "ml":
         path_in_repo = "articles/machine-learning"
         repo_token = "azureml-examples"
-    elif repo_arg == "fabric":
-        repo_name = "MicrosoftDocs/fabric-docs"
-        path_in_repo = "docs/data-science"
-        repo_token = "fabric-samples"
+        owners = "@Azure/AI-Platform-Docs"
+
     else:
         print(f"{repo_arg} - Invalid repo value")
         sys.exit()
@@ -40,8 +43,8 @@ def find_snippets(repo_arg):
 
     # Name the file to write the results to. Don't change this, report-pr.py needs this file to work.
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    result_fn = os.path.join(script_dir, f"refs-found-{repo_arg}.csv")
-    tutorials_fn = os.path.join(script_dir, f"tutorials-{repo_arg}.csv")
+    result_fn = os.path.join(script_dir, f"refs-found-{repo_token}.csv")
+    tutorials_fn = os.path.join(script_dir, f"tutorials-{repo_token}.csv")
 
 
     found = pd.DataFrame(columns=["ref_file", "from_file"])
@@ -55,7 +58,7 @@ def find_snippets(repo_arg):
     # Read files from GitHub
     repo = a.connect_repo(repo_name)
     # contents = repo.get_contents(path_in_repo, ref=repo_branch)
-    if repo_arg == "ai": # content here is in sub-directories
+    if repo_arg == 'ai' or repo_arg == 'ai2': # content here is in sub-directories
         contents = h.get_all_contents(repo, path_in_repo, repo_branch)
     else: # ml content only in the given path (is this still correct?)
         contents = repo.get_contents(path_in_repo, ref=repo_branch)
@@ -78,10 +81,9 @@ def find_snippets(repo_arg):
                 # count hard-coded code blocks
                 blocks, inside_code_block, count, code_type = h.count_code_lines(
                     line, blocks, inside_code_block, count, code_type
-                )
-                # snippets have ~\azureml-examples in them.  Find all snippets in this file.
+                )                # snippets have ~\azureml-examples in them.  Find all snippets in this file.
                 match_snippet = re.findall(
-                    f'r\(~\/{repo_token}[^)]*\)|source="~\/{repo_token}[^"]*"', line
+                    rf'r\(~/{repo_token}[^)]*\)|source="~/{repo_token}[^"]*"', line
                 )
                 if match_snippet:
                     for match in match_snippet:
@@ -137,15 +139,12 @@ def find_snippets(repo_arg):
     # write the tutorials file
     # these files won't break the build, so don't need to be in the CODEOWNERS file
     # but we do want to track them in the dashboards
-    tutorials.to_csv(tutorials_fn, index=False)
+    tutorials.to_csv(tutorials_fn, index=False)    # now create codeowners file
+    refs = found["ref_file"].drop_duplicates().replace(" ", r"\ ", regex=True)
+    f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_token}.txt"), "w+")
 
-    # now create codeowners file
-    refs = found["ref_file"].drop_duplicates().replace(" ", "\ ", regex=True)
-    f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_arg}.txt"), "w+")
 
-    owners = "@Azure/AI-Platform-Docs"
-
-    print (f"Creating CODEOWNERS-{repo_arg}.txt file")
+    print (f"Creating CODEOWNERS-{repo_token}.txt file")
     print (f"  with the following owners: {owners}")
     for ref in refs:
         f.write(f"/{ref} {owners}\n")     
