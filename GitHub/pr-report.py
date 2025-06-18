@@ -71,7 +71,7 @@ else:
     added_files = [file["filename"] for file in prfiles if file["status"] == "added"]
     renamed_files = [file["previous_filename"] for file in prfiles if file["status"] == "renamed"]
 
-fn = f"refs-found-{repo_arg}.csv"
+fn = f"refs-found-{repo_name}.csv"
 snippets = h.read_snippets(fn)  # read the snippets file
 
 # Process the files:

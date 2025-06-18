@@ -29,6 +29,8 @@ pr = args.pr
 # form the URL for the GitHub API
 if args.sample_repo == "AI":
     url = f"https://api.github.com/repos/Azure-Samples/azureai-samples/pulls/{pr}/files?per_page=100"
+elif args.sample_repo == "AI2":
+    url = f"https://api.github.com/repos/azure-ai-foundry/foundry-samples/pulls/{pr}/files?per_page=100"
 elif args.sample_repo == "ML":
     url = (
     f"https://api.github.com/repos/Azure/azureml-examples/pulls/{pr}/files?per_page=100"
@@ -90,7 +92,7 @@ if alert:
     print("** Contact mldocs@microsoft.com for further instructions. **\n")
 else:
     print("No docs problems found in this PR.\n")
-## test PRs:
+## test PRs for ML:
 # 3081 - no problems
 # 2890 - deletes files
 # 2888 - deletes ids in a file

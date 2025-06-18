@@ -14,7 +14,7 @@ args = parser.parse_args()
 repo_arg = args.repo.lower()
 if repo_arg == "all":
     print ("Finding all snippets in AI and ML docs")
-    print ("AI snippets")
+    print ("foundry-samples snippets")
     f.find_snippets("ai")
     print ("AI2 snippets")
     f.find_snippets("ai2")

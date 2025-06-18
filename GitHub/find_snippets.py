@@ -62,14 +62,22 @@ def find_snippets(repo_arg):
         contents = h.get_all_contents(repo, path_in_repo, repo_branch)
     else: # ml content only in the given path (is this still correct?)
         contents = repo.get_contents(path_in_repo, ref=repo_branch)
+    else: 
+        contents = h.get_all_contents(repo, path_in_repo, repo_branch)
 
     # Now contents contains the list of files to search
     print(f"Starting search of {path_in_repo} at {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
     for content_file in contents:
         # Check if the file is a markdown file
         if content_file.type == "file" and content_file.path.endswith(".md"):
+            # print(f"Searching {content_file}")
+            if getattr(content_file, "encoding", None) != "base64":
+                print(f"Skipping file {content_file.path} due to unsupported encoding: {getattr(content_file, 'encoding', None)}")
+                continue
+
             file = os.path.basename(content_file.path)
             # Get the file content
+
             file_content = content_file.decoded_content
             lines = file_content.decode().splitlines()
 
@@ -87,7 +95,9 @@ def find_snippets(repo_arg):
                 )
                 if match_snippet:
                     for match in match_snippet:
+                        # print(f"FOUND {match}")
                         path, ref_file, branch, m, name = h.cleanup_matches(match)
+                        # print(f"{path},{ref_file},{branch},{name}")
                         if "(" in ref_file:  # this might be a mistake
                             print(
                                 f"{file}: Warning: Found a snippet with a ( in it: {match}"
@@ -120,7 +130,7 @@ def find_snippets(repo_arg):
                     dict_list2.append({"file": file, "type": block[0], "lines": block[1]})
 
     code_counts = pd.DataFrame.from_dict(dict_list2)
-    code_counts.to_csv(f"code-counts-{repo_arg}.csv", index=False)
+    code_counts.to_csv(f"code-counts-{repo_token}.csv", index=False)
 
     found = pd.DataFrame.from_dict(dict_list)
     branches = pd.DataFrame(branches)
@@ -136,13 +146,13 @@ def find_snippets(repo_arg):
         return
     # write the snippets file
     found.to_csv(result_fn, index=False)
+    print(f"Writing {result_fn} file")
     # write the tutorials file
     # these files won't break the build, so don't need to be in the CODEOWNERS file
     # but we do want to track them in the dashboards
     tutorials.to_csv(tutorials_fn, index=False)    # now create codeowners file
     refs = found["ref_file"].drop_duplicates().replace(" ", r"\ ", regex=True)
     f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_token}.txt"), "w+")
-
 
     print (f"Creating CODEOWNERS-{repo_token}.txt file")
     print (f"  with the following owners: {owners}")
@@ -176,7 +186,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
 
     # Add the arguments
-    parser.add_argument("repo", type=str, nargs='?', default="ml", 
+    parser.add_argument("repo", type=str, nargs='?', default="ai", 
                         choices=["ai", "ml"], help="Which repo: 'ai' or 'ml'")
     # Parse the arguments
     args = parser.parse_args()
