@@ -14,7 +14,9 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 ## Daily tasks
 
-1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me ).  (Wait until all build checks have passed before you review.  Ignore old ones as they most likely have been abandoned.)
+1. Check for message at the [AI Platform Docs teams channel](https://teams.microsoft.com/l/channel/19%3AHhf4F_YfPn3kYGdmWvePNwlbF5-RR8wciQEUwwrcggw1%40thread.tacv2/General?groupId=fdaf4412-8993-4ea6-a7d4-aeaded7fc854&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).
+
+1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me ).  (Wait until all build checks have passed before you review.  Or if someone pings you on the teams channel.  Ignore old ones as they most likely have been abandoned.)
 
 1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to review, in the terminal, run:
     * for azureml-examples repo:
@@ -46,6 +48,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 1. You can ignore any other txt or csv files that are changed.
 1. If changes to CODEOWNERS-azureml-examples.txt appear, copy the content and commit to [azureml-examples CODEOWNERS](https://github.com/Azure/azureml-examples/blob/main/.github/CODEOWNERS) file.
 1. If changes to CODEOWNERS-foundry-samples.txt appear, copy the content and commit to [azureml-examples CODEOWNERS](https://github.com/Azure-AI-Foundry/foundry-samples/blob/main/.github/CODEOWNERS) file.
+1. For now, you can ignore changes to CODEOWNERS-azureai-samples.txt.  
 1. If temp-fix is not listed as one of the active branches, [update the temp-fix branch](#temp-fix) to keep it current.
 
 ### Update docs
@@ -56,13 +59,13 @@ Once your secret is stored, perform all maintenance tasks using the button below
     python GitHub/merge-report.py 
     ```
 
-    The report will show PRs merged in the last 8 days.  (The extra day insures that you don't miss a merge that happened after your report 7 days ago.)
-
+    The report will show PRs merged in the last 8 days.  (The extra day insures that you don't miss a merge that happened after your report 7 days ago.)  
 1. If longer than 7 days since last run, add a days parameter to the command.:
 
     ```bash
     python GitHub/merge-report.py <days>
     ```
 
-1. Modify the files in azure-ai-docs-pr as listed in the report.  If there are more than 10 files, break it into multiple PRs to be eligible for auto-merge.
-1. Copy the report output to your work item.  This will let you see when it was last run, so that you can adjust days accordingly for your next report.  
+1. Modify the files in azure-ai-docs-pr as listed in the report.  If there are more than 10 files, break it into multiple PRs to be eligible for auto-merge. (You'll see three separate sections, make sure you look at results from all three.)
+
+1. You might want to copy the report output to your work item.  This will let you see when it was last run, so that you can adjust days accordingly for your next report.  
