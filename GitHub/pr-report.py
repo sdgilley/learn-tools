@@ -22,7 +22,7 @@ import utilities as h
 
 # read arguments from command line - pr and optionally, whether to authenticate
 import argparse
-
+debug = False
 parser = argparse.ArgumentParser(
     description="Process a PR number."
 )  # Create the parser
@@ -91,11 +91,20 @@ nb_mods = []  # create an empty list to hold data for modified notebooks
 
 ### MODIFIED FILES
 if modified > 0:
+    if debug:
+        print(f"Modified files: {modified_files}")
+        print(f"Checking {modified} modified files for deleted cells or comments:") 
     for file, blob_url in modified_files:
+        if debug:
+                print(f"Checking {file} for deleted cells or comments:")    
         if (snippets["ref_file"] == file).any():
+            if debug:
+                print(f"  {file} is referenced in azure-ai-docs-pr.")
             snippet_match = snippets.loc[snippets["ref_file"] == file, "from_file"]
             # Check if there are deleted nb named cells or code comments
             nb, adds, deletes, blob_url = h.find_changes(file, prfiles, blob_url)
+            if debug:
+                print(f"  {file} - nb: {nb}, adds: {adds}, deletes: {deletes}")
             # print (nb, adds, deletes)
             if nb:
                 nb_mods.append(blob_url)

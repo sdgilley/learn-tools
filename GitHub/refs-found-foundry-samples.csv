@@ -10,4 +10,6 @@ samples/microsoft/java/mslearn-resources/quickstart/src/main/java/com/azure/ai/f
 samples/microsoft/java/mslearn-resources/quickstart/src/main/java/com/azure/ai/foundry/samples/FileSearchAgentSample.java,get-started-fdp.md
 samples/microsoft/javascript/mslearn-resources/quickstart/.env.template,get-started-fdp.md
 samples/microsoft/javascript/mslearn-resources/quickstart/src/quickstart.js,get-started-fdp.md
+samples/microsoft/python/mslearn-resources/quickstart/create_project.py,create-project-fdp.md
+samples/microsoft/python/mslearn-resources/quickstart/create_project.py,create-second-fdp-project.md
 samples/microsoft/python/mslearn-resources/quickstart/quickstart.py,get-started-fdp.md

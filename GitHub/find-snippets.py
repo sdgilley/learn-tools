@@ -5,7 +5,7 @@ import argparse
 parser = argparse.ArgumentParser(description='Find snippets in docs.')
 
 # Add the arguments
-parser.add_argument("repo", type=str, nargs='?', default="ai2", 
+parser.add_argument("repo", type=str, nargs='?', default="all", 
                     choices=["ai", "ai2", "ml", "all" ], help="Which repo: 'ai', 'ai2', 'ml', or 'all'")
 # Parse the arguments
 args = parser.parse_args()
@@ -16,9 +16,9 @@ if repo_arg == "all":
     print ("Finding all snippets in AI and ML docs")
     print ("foundry-samples snippets")
     f.find_snippets("ai")
-    print ("AI2 snippets")
+    print ("azureia-samples snippets")
     f.find_snippets("ai2")
-    print ("ML snippets")
+    print ("azureml-examples snippets")
     f. find_snippets("ml")
 
 else:

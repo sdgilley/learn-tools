@@ -60,7 +60,7 @@ def find_snippets(repo_arg):
     # contents = repo.get_contents(path_in_repo, ref=repo_branch)
     if repo_arg == 'ai' or repo_arg == 'ai2': # content here is in sub-directories
         contents = h.get_all_contents(repo, path_in_repo, repo_branch)
-    else: # ml content only in the given path (is this still correct?)
+    elif repo_arg == 'ml': # ml content only in the given path (is this still correct?)
         contents = repo.get_contents(path_in_repo, ref=repo_branch)
     else: 
         contents = h.get_all_contents(repo, path_in_repo, repo_branch)
@@ -114,11 +114,11 @@ def find_snippets(repo_arg):
                             dict_list.append(row_dict)
                 # count lines in code snippets
 
-                # now look for tutorials that use a whole file
-                match_tutorial = re.search(r"nbstart\s+(.*?)\s+-->", line)
-                if match_tutorial:
-                    file_name = match_tutorial.group(1)
-                    tutorials_list.append({"tutorial": file_name, "from_file": file})
+                # # now look for tutorials that use a whole file
+                # match_tutorial = re.search(r"nbstart\s+(.*?)\s+-->", line)
+                # if match_tutorial:
+                #     file_name = match_tutorial.group(1)
+                #     tutorials_list.append({"tutorial": file_name, "from_file": file})
             # done looking through lines of this file
             if inside_code_block:
                 print(f"{file}: Warning: A code block started but did not end.")
@@ -134,7 +134,7 @@ def find_snippets(repo_arg):
 
     found = pd.DataFrame.from_dict(dict_list)
     branches = pd.DataFrame(branches)
-    tutorials = pd.DataFrame(tutorials_list)
+    # tutorials = pd.DataFrame(tutorials_list)
     # get rid of duplicates
     found = found.drop_duplicates()
     branches = branches.drop_duplicates()
@@ -150,7 +150,7 @@ def find_snippets(repo_arg):
     # write the tutorials file
     # these files won't break the build, so don't need to be in the CODEOWNERS file
     # but we do want to track them in the dashboards
-    tutorials.to_csv(tutorials_fn, index=False)    # now create codeowners file
+    # tutorials.to_csv(tutorials_fn, index=False)    # now create codeowners file
     refs = found["ref_file"].drop_duplicates().replace(" ", r"\ ", regex=True)
     f = open(os.path.join(script_dir, f"CODEOWNERS-{repo_token}.txt"), "w+")
 
