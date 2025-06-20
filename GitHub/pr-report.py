@@ -160,6 +160,7 @@ if modified > 0:
         nb_mods = list(set(nb_mods))  # remove duplicates
         for file in nb_mods:
             print(f"* {file}\n")
+    print("Fix all references to modified files before approving this PR.\n")
 
 ### DELETED FILES
 if deleted > 0:
