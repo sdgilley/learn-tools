@@ -38,7 +38,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 ### Update snippet references and codeowners files
 
-1. Run this script (takes 3-4 minutes):
+1. Run this script (takes approximately 12 minutes ):
 
     ```bash
     python GitHub/find-snippets.py
