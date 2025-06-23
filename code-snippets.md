@@ -1,7 +1,7 @@
 # Maintain code snippets in Azure docs
 
 This repository contains scripts to help maintain code snippets in Azure documentation. The scripts are designed to be run in a GitHub Codespace.
-
+https://github.com/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me
 If you're evaluating a file for Machine Learning FRESHNESS, see the [Freshness Dashboard](https://sdgilley.github.io/learn-tools/).
 
 ## Setup for Codespaces
@@ -16,7 +16,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 1. Check for message at the [AI Platform Docs teams channel](https://teams.microsoft.com/l/channel/19%3AHhf4F_YfPn3kYGdmWvePNwlbF5-RR8wciQEUwwrcggw1%40thread.tacv2/General?groupId=fdaf4412-8993-4ea6-a7d4-aeaded7fc854&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).
 
-1. Check for [PRs that need approval](https://github.com/Azure/azureml-examples/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me ).  (Wait until all build checks have passed before you review.  Or if someone pings you on the teams channel.  Ignore old ones as they most likely have been abandoned.)
+1. Check for [PRs that need approval](https://github.com/pulls?q=is%3Apr+is%3Aopen+user-review-requested%3A%40me ).  (Wait until all build checks have passed before you review.  Or if someone pings you on the teams channel.  Ignore old ones as they most likely have been abandoned.)
 
 1. (Requires the GH_ACCESS_TOKEN secret) For each PR number that you need to review, in the terminal, run:
     * for azureml-examples repo:
@@ -38,7 +38,7 @@ Once your secret is stored, perform all maintenance tasks using the button below
 
 ### Update snippet references and codeowners files
 
-1. Run this script (takes 2-3 minutes):
+1. Run this script (takes 3-4 minutes):
 
     ```bash
     python GitHub/find-snippets.py
