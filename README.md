@@ -15,10 +15,7 @@ If you want to evaluate machine-learning files for FRESHNESS, see the [Freshness
 
 ### GitHub folder
 
-Scripts to help maintain code references in Azure docs.  
-
-* See [README.md](GitHub/README.md) in the GitHub folder for more details on these scripts.
-* See [Maintain code snippets in Azure docs](code-snippets.md) for more information on how to use the scripts in our daily and weekly maintenance tasks.
+These scripts are in a new repo - see https://github.com/sdgilley/content-maintenance
 
 ## Other repos
 
