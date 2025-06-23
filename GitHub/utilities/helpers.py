@@ -127,15 +127,14 @@ def read_file(file_path):
     return lines
 
 
-def read_snippets(fn):
+def read_snippets(snippet_fn):
     import os
     import sys
     import pandas as pd
 
     # read the snippets file
     
-    mydir = os.path.abspath(__file__)
-    snippet_fn = os.path.join(os.path.dirname(mydir), fn)
+    
     # Check if snippets file exists
     if os.path.exists(snippet_fn):
         snippets = pd.read_csv(snippet_fn)

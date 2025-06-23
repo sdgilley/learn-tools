@@ -3,7 +3,7 @@
 def find_pr_files(owner_name, repo_name, snippets, days):
     import requests
     import pandas as pd
-    import gh_auth as a
+    import GitHub.utilities.gh_auth as a
     from datetime import datetime, timedelta
 
     # Calculate the date to filter by

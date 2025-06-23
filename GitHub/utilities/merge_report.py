@@ -15,8 +15,9 @@ Example:
 
 def merge_report(days, service):
 
-    import utilities as h
-    import find_pr_files as f
+    import GitHub.utilities.helpers as h
+    import GitHub.utilities.find_pr_files as f
+    import os
 
     if service == "ai":
         repo_name = ["azureai-samples", "foundry-samples"]
@@ -27,11 +28,11 @@ def merge_report(days, service):
         owner_name = ["Azure"]
 
 
-
+    mydir = os.path.abspath(__file__)
     # loop through all the repos that contain snippets for this service
     for owner_name, repo_name in zip(owner_name, repo_name):
         # get the refs-found file for this service
-        fn = f"refs-found-{repo_name}.csv"
+        fn = os.path.join(os.path.dirname(mydir), f"refs-found-{repo_name}.csv")
         print(f"Reading {fn} for {repo_name} snippets")
         # read the snippets for this repo
         snippets = h.read_snippets(fn)  # read the snippets file

@@ -17,8 +17,9 @@ To decide if the PR is safe to merge:
 
 import pandas as pd
 import sys
-import gh_auth as a
-import utilities as h
+from utilities import gh_auth as a
+from utilities import helpers as h
+import os
 
 # read arguments from command line - pr and optionally, whether to authenticate
 import argparse
@@ -71,8 +72,9 @@ else:
     added_files = [file["filename"] for file in prfiles if file["status"] == "added"]
     renamed_files = [file["previous_filename"] for file in prfiles if file["status"] == "renamed"]
 
-fn = f"refs-found-{repo_name}.csv"
-snippets = h.read_snippets(fn)  # read the snippets file
+mydir = os.path.abspath(__file__)
+snippet_fn = os.path.join(os.path.dirname(mydir), f"refs-found-{repo_name}.csv")
+snippets = h.read_snippets(snippet_fn)  # read the snippets file
 
 # Process the files:
 

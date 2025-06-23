@@ -9,8 +9,8 @@ If the PR has problems, it prints a message to check with the docs team.
 
 import pandas as pd
 import sys
-import gh_auth as a
-import utilities as h
+import GitHub.utilities.gh_auth as a
+import GitHub.utilities.helpers as h
 
 # read arguments from command line - pr and optionally, whether to authenticate
 import argparse

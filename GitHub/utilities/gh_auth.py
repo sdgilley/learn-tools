@@ -25,6 +25,7 @@ def connect_repo(repo_name):
         repo = g.get_repo(repo_name)
     except:
         print("Error connecting to repo.  Make sure your access token is still valid.")
+        print(token)
         print(
             "See https://github.com/sdgilley/learn-tools/blob/main/create-update-auth.md"
         )
@@ -72,5 +73,5 @@ if __name__ == "__main__":
     # print("Done")
 
     print ("Testing connect_repo")
-    repo = connect_repo("sdgilley/learn-tools")
+    repo = connect_repo("MicrosoftDocs/azure-docs")
     print(repo.name)
