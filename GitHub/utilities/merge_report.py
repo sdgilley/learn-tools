@@ -15,8 +15,8 @@ Example:
 
 def merge_report(days, service):
 
-    import GitHub.utilities.helpers as h
-    import GitHub.utilities.find_pr_files as f
+    from utilities import helpers as h
+    from utilities import find_pr_files as f
     import os
 
     if service == "ai":
@@ -32,8 +32,8 @@ def merge_report(days, service):
     # loop through all the repos that contain snippets for this service
     for owner_name, repo_name in zip(owner_name, repo_name):
         # get the refs-found file for this service
-        fn = os.path.join(os.path.dirname(mydir), f"refs-found-{repo_name}.csv")
-        print(f"Reading {fn} for {repo_name} snippets")
+        fn = os.path.join(os.path.dirname(os.path.dirname(mydir)), f"refs-found-{repo_name}.csv")
+        # print(f"Reading {fn} for {repo_name} snippets")
         # read the snippets for this repo
         snippets = h.read_snippets(fn)  # read the snippets file
         f.find_pr_files(owner_name, repo_name, snippets, days)
@@ -41,4 +41,4 @@ def merge_report(days, service):
 
 if __name__ == "__main__":
     
-    merge_report(9, "ml")
+    merge_report(9, "ai")

@@ -3,7 +3,7 @@
 def find_pr_files(owner_name, repo_name, snippets, days):
     import requests
     import pandas as pd
-    import GitHub.utilities.gh_auth as a
+    from utilities import gh_auth as a
     from datetime import datetime, timedelta
 
     # Calculate the date to filter by
@@ -23,7 +23,7 @@ def find_pr_files(owner_name, repo_name, snippets, days):
     data = response.json()
 
     print(
-        f"\n================= {datetime.now().date()} MERGED IN LAST {days} DAYS in {repo_name} ================\n"
+        f"\n================= {repo_name}: {datetime.now().date()} MERGED IN LAST {days} DAYS  ================\n"
     )
     # Filter the PRs that were merged in the last 7 days
     merged_prs = [
@@ -60,7 +60,7 @@ def find_pr_files(owner_name, repo_name, snippets, days):
 
     df = pd.DataFrame(data)  # Convert the list to a DataFrame
     if df.empty:
-        print("\nNothing to do here :-)  There are no PRs that impacted references.\n")
+        print("\n ✅ Nothing to do here :-)  There are no PRs that impacted references.\n")
         return
     else:
         print(" These PRs impacted references:\n")
@@ -99,8 +99,8 @@ def find_pr_files(owner_name, repo_name, snippets, days):
         for ref in sorted(refs.unique()):
             i += 1
             print(f"{i}  {ref.strip()}")
-    print(
-        f"\n============================== /MERGED IN LAST {days} DAYS ==============================\n"
-    )
+    # print(
+    #     f"\n============================== /MERGED IN LAST {days} DAYS ==============================\n"
+    # )
     return
 

@@ -83,10 +83,15 @@ deleted = len(deleted_files)
 renamed = len(renamed_files)
 
 print(f"PR {pr} changes {len(prfiles)} files.")
-print(f"ADDED: {len(added_files)}")  # just for info about the PR
-print(f"MODIFIED: {modified}")
-print(f"DELETED: {deleted}")
-print(f"RENAMED: {renamed}\n")
+if len(added_files) > 0:
+    print(f"ADDED {len(added_files)} files. (Added files won't cause a problem.)") 
+if modified > 0:
+    print(f"MODIFIED {modified} files.")
+if deleted > 0:
+    print(f"DELETED {deleted} files.")
+if renamed > 0:
+    print(f"RENAMED {renamed} files.\n")
+
 # print("\nChanges that may affect azure-ai-docs-pr:\n")
 data = []  # create an empty list to hold data for modified files that are referenced
 nb_mods = []  # create an empty list to hold data for modified notebooks
@@ -127,7 +132,7 @@ if modified > 0:
                 # print(f"*** {cell}")
     if data == []:
         print(
-            "No problems with any of the modified files.\n"
+            "✅ No problems with any of the modified files.\n"
         )
     else:
         # Group the data by 'Modified File' and 'Referenced In'
@@ -137,10 +142,8 @@ if modified > 0:
             if key not in grouped_data:
                 grouped_data[key] = []
             grouped_data[key].append(item["Cell"])
-        print(f"Potential problems found in {len(grouped_data)} files.")
-        print(
-            "Fix these references in azure-ai-docs-pr before approving this PR:\n"
-        )  # Print the grouped data
+        print(f"Potential problems found in {len(grouped_data)} files. \n")
+        # Print the grouped data
         for (modified_file, referenced_in), cells in grouped_data.items():
             print(f"Modified File: {modified_file} \n  Referenced in:")
             refs = referenced_in.split("\n")
@@ -155,6 +158,8 @@ if modified > 0:
 
             h.compare_branches(repo, file, "main", "temp-fix")
         # also print all the modified notebooks
+        print("⚠️ Fix all references to modified files before approving this PR.\n")
+
     if nb_mods:
         print(
             "MODIFIED NOTEBOOKS\nFollow each link to ensure notebooks are valid before approving the PR:"
@@ -162,7 +167,7 @@ if modified > 0:
         nb_mods = list(set(nb_mods))  # remove duplicates
         for file in nb_mods:
             print(f"* {file}\n")
-    print("Fix all references to modified files before approving this PR.\n")
+        print("⚠️ Fix all references to modified files before approving this PR.\n")
 
 ### DELETED FILES
 if deleted > 0:
@@ -182,10 +187,10 @@ if deleted > 0:
             found = +1
     if found == 0:
         print(
-            "No problems with any of the deleted files.\n"
+            "✅ No problems with any of the deleted files.\n"
         )
     else:
-        print("Fix all references to deleted files before approving this PR.\n")
+        print("⚠️ Fix all references to deleted files before approving this PR.\n")
  
 ### RENAMED FILES
 if renamed > 0:
@@ -205,10 +210,10 @@ if renamed > 0:
             found = +1
     if found == 0:
         print(
-            "No problems with any of the renamed files.\n"
+            "✅ No problems with any of the renamed files.\n"
         )
     else:
-        print("Fix all references to renamed files before approving this PR.\n")
+        print("⚠️ Fix all references to renamed files before approving this PR.\n")
 
 print(f"\n================ {repo_name} PR summary: {pr} ===================")
 

@@ -1,7 +1,7 @@
 """
 Run merge-report for ml, ai, or both.
 """
-import GitHub.utilities.merge_report as m
+from utilities import merge_report as m
 import argparse
 # Create the parser
 parser = argparse.ArgumentParser(description="Find number of days and which service.")
